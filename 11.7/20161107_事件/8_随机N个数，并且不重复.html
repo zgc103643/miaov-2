@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script type="text/javascript">
+window.onload = function(){
+	var arr = []; // 0 - 100  10
+	//定义空数组arr
+	var length = 100;
+	//数组长度
+	var int = 10;
+	//分组数
+	var now = 0;
+	var timer = 0;
+	var sortLength = length/int;
+	//每组长度等于数据个数/分组个数
+	for(var i = 0; i < length; i++){
+		arr.push(i);
+	}
+	//获取一个0~99的数字组成的有100个值数组
+	timer = setInterval(function(){
+		//使用计时器延缓执行
+		if(now >= int){
+			clearInterval(timer);
+		} else {
+			randomNub();
+			now++;
+		}
+		//反复执行随机函数，
+		//直到覆盖数组所有的值
+	},500);
+	function randomNub(){
+		arr.sort(function(){
+			return Math.random() - .5;
+		});
+		//将数组arr随机排列
+		for(var i = 0; i < sortLength; i++){
+			if(i != sortLength-1){
+				document.body.innerHTML += arr.pop() + ",";
+			}else{
+				document.body.innerHTML += arr.pop();
+			}
+
+		}
+		//将数组前sortLength位数据取出
+		//放入arr.pop中
+		document.body.innerHTML += "<br/>";
+	}
+};
+</script>
+</head>
+<body>
+	
+</body>
+</html>

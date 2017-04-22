@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>自动切换</title>
+	<style>
+		section {
+			position: relative;
+			width: 300px;
+			height: 187.5px;
+			margin: 50px 0 0 300px;
+			border: 3px solid gray;
+			overflow: hidden;
+		}
+		ul {
+			position: absolute;
+			top: 0;
+			width: 1200px;
+			padding: 0;
+			margin: 0;
+			/*transition: .5s;*/	
+		}
+		ul::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		li {
+			position: relative;
+			float: left;
+			padding: 0;
+			margin: 0;
+			list-style: none;			
+		}
+		img {
+			width: 300px;
+		}
+		span {
+			position: absolute;
+			bottom: 3px;
+			left: 0;
+			width: 300px;
+			height: 80px;
+			font: 22px/80px "宋体";
+			color: #fff;
+			background-color: rgba(0,0,0,.3);
+			display: block;
+			/*transition:.5s;*/
+		}
+	</style>
+	<script type="text/javascript" src="MTween1.js"></script>
+	<script type="text/javascript">
+	/*
+		各个定时器之间的时间关系：
+			1.主图片每2s切换一次
+			2.span每次在主图切换之前开始下移，到底时图片开始横移；
+			  图片切换过程中span隐藏在底部
+			  图片切换完成后span开始归位
+	 */
+	window.onload = function(){
+		var ul = document.querySelector("ul");
+		var li = ul.getElementsByTagName("li");
+		var img = document.getElementsByTagName("img");
+		var span = document.getElementsByTagName("span");
+		now = 0;
+		var timer = 0;
+		var target = -83;  //span移动的目标位置
+		tab;
+		setInterval(function(){		//设置计时器每隔2s改变一次ul的left值，切换当前图片
+			now ++;
+			if(now > li.length-1){
+				now = 0;
+			}
+			tab();			
+		},5000)  		//主图片每2s切换一次
+		function tab(){
+			for(var i = 0; i < span.length; i++){		//所有span上浮
+				mTween(span[i],"bottom",-83,400,"linear");
+			}
+			setTimeout(function(){				//图片横移
+				mTween(ul,"left",-300*now,500,"linear");
+			},400)
+			setTimeout(function(){
+				for(var i = 0; i < span.length; i++){		//所有span下潜
+					mTween(span[now],"bottom",3,400,"linear");
+				}
+			},900)
+		}
+		/*
+			从页面加载完毕之后1.5s（图片横移前0.5s开始下沉），
+			span下沉完毕同时图片横移，横移耗时0.5s，此时span在下方等待
+			横移完毕，span开始上浮，0.5s后上浮完毕；
+			一个周期结束		
+		 */
+		
+	}
+	</script>
+</head>
+<body>
+	<section>
+		<ul>
+			<li>
+				<img src="img/01.jpg"/>
+				<span>四之一</span>
+			</li>
+			<li>
+				<img src="img/02.jpg"/>
+				<span>四之二</span>
+			</li>
+			<li>
+				<img src="img/03.jpg"/>
+				<span>四之三</span>
+			</li>
+			<li>
+				<img src="img/04.jpg"/>
+				<span>四之四</span>
+			</li>
+		</ul>
+	</section>
+</body>
+</html>

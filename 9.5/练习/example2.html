@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<style>
+	ul {
+		width: 300px;
+	}
+</style>
+<!--
+鼠标移入加各行变色的思路
+1.获取li
+2.设置开关为true，
+3.for循环 
+4.if判断 为真时变色，取反，为假，变色
+-->
+<script type="text/javascript">
+window.onload = function() {
+	var wrap = document.getElementById('wrap'); //从文件中获得id为wrap的变量
+	var li = wrap.getElementsByTagName('li'); //从变量wrap中获得标签名为li的变量
+	var check = document.getElementById('check'); //从文件中获得id为check的变量
+	// var checks = wrap.getElementsByTagName('ul')[0];
+ //getElementsByTagName('input');//从变量wrap中获得标签名为ul的第一个变量
+ 	var checks = wrap.getElementsByTagName('ul')[0].getElementsByTagName('input');
+	var colors = ["red","green","blue"]; //定义数组colors，并包括变量"red","green","blue"
+	var oldColor = ""; //定义变量oldColors
+	for(var i = 0; i < li.length; i++){ //对从0开始，小于li数量的所有整数定义循环
+		li[i].style.background = colors[i%colors.length]; //为循环中的li，循环依次赋予colors中的值
+		li[i].index = i;
+		li[i].oldColor = li[i].style.background;
+		li[i].onmouseover = function() {
+			//oldColor = this.oldColor; //在鼠标移入时，将该li原有背景颜色赋予变量oldColors
+			this.style.background = "yellow"; //并将该li背景色改成黄色
+		};
+		li[i].onclick = function(){
+			if(checks[this.index].checked==true){
+				this.style.background = "#666";
+			}else {
+				this.style.background = this.oldColor;
+			}
+		}
+		li[i].onmouseout = function() {
+			this.style.background = oldColor; //在鼠标移出时，将赋予oldColors保存的原有颜色重新赋予该变量
+			if(checks[this.index].checked==true){
+				this.style.background = "#666";
+			}else {
+				this.style.background = this.oldColor;
+			}
+		};
+	}
+	check.onclick = function() {
+		for(var i = 0; i < checks.length; i++) {
+			checks[i].checked = this.checked;
+			if(checks[i].checked==true){
+				li[i].style.background = "#666";
+			}else {
+				li[i].style.background = li[i].oldColor;
+			}
+		}
+	}; //将被点击变量checked（全选按钮）的checked值赋给checks[i]的所有值。（让所有input的checked值跟随全选按钮变化）。
+	for(var i = 0; i < checks.length; i++) {
+		checks[i].onclick = function() {
+			var isChecked = true; //定义布尔值变量isChecked值并默认为true
+			for(var i = 0; i < checks.length; i++) {
+				if(checks[i].checked == false) { //当checks[i]中有任意一个input的checked值被改为false时将isCheck值改成false
+					isChecked = false;
+				}
+
+				check.checked = isChecked;
+			}
+			 //将循环得到的isChecked的值赋给check
+		};
+	}
+};
+</script>
+<div id="wrap">
+	<ul>
+		<li><input type="checkbox"><span>私奔</span><span>汪峰</span></li>
+		<li><input type="checkbox"><span>私奔</span><span>汪峰</span></li>
+		<li><input type="checkbox"><span>私奔</span><span>汪峰</span></li>
+		<li><input type="checkbox"><span>私奔</span><span>汪峰</span></li>
+		<li><input type="checkbox"><span>私奔</span><span>汪峰</span></li>
+		<li><input type="checkbox"><span>私奔</span><span>汪峰</span></li>
+		<li><input type="checkbox"><span>私奔</span><span>汪峰</span></li>
+		<li><input type="checkbox"><span>私奔</span><span>汪峰</span></li>
+	</ul>
+	<div><input type="checkbox" id="check"><span>收藏</span><span>添加</span></div>
+</div>
+</body>
+</html>

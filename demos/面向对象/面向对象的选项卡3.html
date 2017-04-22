@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1,
+		#div2 {
+			width: 200px;
+			height: 200px;
+			border: 5px solid #000;
+			margin: 50px auto;
+		}
+		#div1>div,
+		#div2>div {
+			width: 180px;
+			height: 150px;
+			display: none;
+			margin: 10px auto;
+			text-align: center;
+			font: 80px/150px Arial;
+			box-sizing: border-box;
+		}
+		#div1>input,
+		#div2>input {
+			width: 30px;
+		}
+		.active {
+			background: red;
+		}
+		#div1 .show,
+		#div2 .show {
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+
+		window.onload = function(){
+			var t1 = new Tab("div1");
+			t1.init();
+			var t2 = new Tab("div2");
+			t2.init();
+			t2.autoPlay();
+		}
+		//在window.onload中调用div1和div2的行为
+
+		function Tab(id){
+			this.div1 = document.getElementById(id);
+			this.btns = this.div1.getElementsByTagName("input");
+			this.divs = this.div1.getElementsByTagName("div");
+			this.iNow = 0;
+		}
+		//引入变量
+		Tab.prototype.init = function() {
+			var THIS = this;
+			for (var i = 0; i < this.btns.length; i++) {
+				this.btns[i].index = i;
+				this.btns[i].onclick = function(){
+					THIS.change(this);
+					//调用函数Tab的change方法,
+					//并将Tab.prototype.init通过传参放入方法change中
+					//（方法init与change是调用与被调用的关系，
+					//  因此方法autoPlay就不需要次过程）
+				}
+			}
+		};
+		//加载函数
+		Tab.prototype.change = function(obj){
+			for (var i = 0; i < this.btns.length; i++) {
+				this.btns[i].className = "";
+				this.divs[i].className = "";
+			}
+			//清空的是change直接从主函数继承的一整套btns和divs
+				obj.className = "active";
+				this.divs[obj.index].className = "show";
+				//添加class的则是兄弟方法init中被点击的btns和相对应的divs
+		}
+		Tab.prototype.autoPlay = function(){
+			var THIS = this;
+			//用THIS代表函数autoPlay自身，
+			//在计时器中使用
+			setInterval(function(){
+				if (THIS.iNow == THIS.btns.length-1) {
+					THIS.iNow = 0;
+				}else{
+					THIS.iNow++;
+				}
+
+				for (var i = 0; i < THIS.btns.length; i++) {
+					THIS.btns[i].className = "";
+					THIS.divs[i].className = "";
+				}
+					THIS.btns[THIS.iNow].className = "active";
+					THIS.divs[THIS.iNow].className = "show";
+			},2000)
+		}	
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input class="active" type="button"/>
+		<input type="button"/>
+		<input type="button"/>
+		<div class="show">1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+
+	<div id="div2">
+		<input class="active" type="button"/>
+		<input type="button"/>
+		<input type="button"/>
+		<div class="show">1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+</body>
+
+</html>

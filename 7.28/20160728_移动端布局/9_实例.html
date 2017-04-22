@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<script>
+ fn();
+window.addEventListener("resize",fn);
+function fn() {
+	var html = document.querySelector("html");
+	var width = html.getBoundingClientRect().width;
+	html.style.fontSize = width/15 + "px"; //得出来的结果不能小于12 
+}
+</script>
+<style>
+body,
+h1 {
+	margin: 0;
+}
+a,
+input,
+button {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input,
+button {
+		-webkit-appearance: none;
+}
+a {
+	text-decoration: none;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+body {
+	background: #f8f8f8;
+}
+#header {
+	height: 2rem;
+	border-bottom: 1px solid #a82d31;
+	box-sizing: border-box; 
+	background: #ef3239;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .7);
+	position: relative;
+	text-align: center;
+	position: fixed ;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 2;
+}
+.menuBtn {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 2rem;
+	height: 2rem;
+	background: url(img/menuBtn.png) no-repeat  .84rem .56rem;
+	background-size: .74rem .56rem;
+}
+.refreshBtn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 2rem;
+	height: 2rem;
+	background: url(img/refreshBtn.png) no-repeat .54rem .44rem ;
+	background-size: .64rem .72rem;
+}
+#logo {
+	display: inline-block;
+	font: .8rem/1.7rem Helvetica;
+	color: #fff;
+	padding-left: .78rem;
+	background: url(img/logo.png) no-repeat 0 .56rem ;
+	background-size: .42rem .54rem;
+}
+#nav {
+	height: 2.1rem;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+	position: fixed;
+	left: 0;
+	width: 15rem;
+	top: 2rem;
+	background: #f8f8f8;
+}
+#nav a {
+	float: left;
+	width: 25%;
+	text-align: center;
+	font: .7rem / 2rem Helvetica;
+	color: #848689;
+}
+#list {
+	margin-top: 4.1rem;
+}
+#list img {
+	width: 15rem;
+}
+</style>
+</head>
+<body>
+<header id="header">
+	<a href="#" class="menuBtn"></a>
+    <h1 id="logo">miaov</h1>
+    <a href="#" class="refreshBtn"></a>
+</header>
+<nav id="nav">
+	<a href="#">综合</a>
+    <a href="#">销量</a>
+    <a href="#">价格</a>
+    <a href="#">筛选</a>
+</nav>
+<ul id="list">
+	<li>
+    	<a href="#">
+        	<img src="img/img.png" />
+        </a>
+    </li>
+    <li>
+    	<a href="#">
+        	<img src="img/img.png" />
+        </a>
+    </li>
+    <li>
+    	<a href="#">
+        	<img src="img/img.png" />
+        </a>
+    </li>
+    <li>
+    	<a href="#">
+        	<img src="img/img.png" />
+        </a>
+    </li>
+    <li>
+    	<a href="#">
+        	<img src="img/img.png" />
+        </a>
+    </li>
+    <li>
+    	<a href="#">
+        	<img src="img/img.png" />
+        </a>
+    </li>
+</ul>
+</body>
+</html>

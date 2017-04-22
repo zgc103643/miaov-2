@@ -1,0 +1,35 @@
+1.QQ音乐：http://y.qq.com/#type=index  
+首页、mv、我的音乐、排行榜
+
+2.新浪开放平台：http://open.weibo.com/ 
+首页 微连接 微服务 文档 支持 推广
+
+3.淘宝开放平台：http://open.taobao.com/index.htm 
+首页 解决方案 文档中心 支持中心
+
+4.VIP飞信:http://vip.feixin.10086.cn/ 
+会员首页 飞信特权 专享特权 会员活动 年费会员
+
+5.QQ会员:http://vip.qq.com/ 
+首页 游戏特权 装扮特权 会员活动 年费专区
+
+6.QQ绿钻:http://vip.music.qq.com/index.html  
+首页 音乐特权 游戏特权 特权与等级  年费绿钻
+
+7.UC:http://www.uc.cn/ ** 
+首页 下载 产品 公司 合作 校园 帮助
+
+8.易通贷：http://www.etongdai.com/ 
+首页 我要投资 安全保障 我的账户 关于我们
+
+9.七牛: http://www.qiniu.com/ 
+首页 产品 价格 案例 关于
+
+10.网易云信：http://netease.im/
+产品 案例 价格 下载
+
+11.音悦台：http://www.yinyuetai.com/ (胡齐峰)
+首页 MV 悦单 v榜
+
+12.新网：http://www.xinnet.com/ 
+首页 域名注册 域名交易

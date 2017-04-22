@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>extra</title>
+	<!-- <link href="css.css" rel="stylesheet"/> -->
+	<style>
+/* CSS Document */
+	.clearFix:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	body,
+	p,
+	h2,
+	h3 {
+		margin: 0;
+	}
+	ul,
+	li,
+	dl,
+	dd {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	a {
+		text-decoration: none;
+	}
+	img {
+		vertical-align: top;
+		border: none;
+	}	
+	.epiList {
+		padding: 0 10px 0 15px;
+		border: 1px solid #dddddd;
+	}
+	.sectionLeft {
+		float: left;
+		width: 199px;
+		margin-right: 15px;
+	}
+	.sectionLeft h2 {
+		font: 900 20px/43px "宋体";
+		color: #343434;
+	}	
+	.sectionLeft .pic {
+		width: 199px;
+		font-size: 13px;
+		line-height: 37px;
+	}
+	.sectionLeft a img {
+		padding: 1px;
+		border: 1px solid #dcdddf;
+	}
+	.sectionLeft .pic .textMain {
+		padding-left: 37px;
+	}
+	.sectionLeft .pMain {
+		float:left;
+		color: #3d3d3d;
+	}
+	.sectionLeft .spanMain {
+		float:left;
+		color: #7c7c7c;
+	}
+	.sectionLeft .inf {
+		font-size: 0;
+		padding-top: 1px;
+	}
+	.sectionLeft .inf span {
+		font-size: 12px;
+	}
+	.sectionLeft .inf a {
+		font-size: 12px;
+	}
+	.inf .dir,
+	.inf .actor,
+	.inf .other,
+	.inf .detail {
+		float:  left;
+		font: 12px/22px "宋体";
+		color: #969696;
+	}
+	.inf a {
+		font: 12px.22px "宋体";
+		color: #444444;
+	}
+	.sectionLeft .h3Now {
+		font: 600 13px/43px "宋体";
+	}
+	.sectionLeft .ulNow {
+		margin-top: 4px;
+		font-size: 0;
+	}
+	.sectionLeft .ulNow li {
+		/*height: 24px;*/
+
+	}
+	.ulNow li a {
+		display: inline-block;
+		margin: 0 -1px -1px 0;
+		font: 12px/24px "宋体";
+		border: 1px solid #dcdcdc;
+		color: #424242;	
+	}
+	.ulNow li .chl {
+		width: 61px;
+		height: 24px;
+		text-align: center;			
+	}
+	.ulNow li .cont {
+		width: 127px;
+		height: 24px;
+		padding-left: 8p;
+	}
+	.ulNow a span {
+		color: #989898;
+	}
+	.h3Future {
+		font: 600 13px/29px "宋体";
+		margin-top: 24px;
+	}
+	.sectionLeft .future a {
+		font: 12px/22px "宋体";
+		color: #3c3c3c;
+	}
+	.sectionCenter {
+		float: left;
+		width: 467px;
+	}
+	.sectionRight {
+		float: left;
+	}
+	.header {
+		position: relative;
+		margin-left: 14px;
+		border-bottom: 1px solid #e4e4e4;
+		z-index: 1;
+
+	}
+	.header .nav {
+		float: left;
+	}
+	.header p {
+		float: right;
+		font-size: 12px;
+		margin-top: 20px;
+	}
+	.header .nav a {
+		float: left;
+		position: relative;
+		display: block;
+		font: 13px/27px "宋体";
+		padding: 0 8px 1px 7px;
+		margin-top: 12px;
+		margin-right: 2px;
+		margin-bottom: -1px;
+		border: 1px solid #e4e4e4;
+		color: #434343;
+	}
+	.header .nav a:hover {
+		font-weight: 600;
+		background: #fff;
+		padding-bottom: 2px;
+		margin-bottom: -1px;
+		border-bottom: none;
+		z-index: 2;
+	}
+	.deputy {
+		margin-top: 8px;
+	}
+	.aDeputy {
+		float: left;
+		position: relative;
+		display: block;
+		padding-bottom: 27px;
+		margin-left: 12px;
+		width: 104px;
+	}
+	.deputy img {
+		padding: 1px;
+		border: 1px solid #dcdcdc;
+	}
+	.deputy .opacity {
+		position: absolute;
+		left: 2px;
+		top: 122px;
+		width: 100px;
+		height: 20px;
+		background-color: #000;
+		opacity: .4;
+	}
+	.aDeputy .preView {
+		position: absolute;
+		top: 126px;
+		right: 8px;
+		font-size: 12px;
+		color: #fff;
+	}
+	.aDeputy .textPic {
+		position: absolute;
+		top: 155px;
+		right: 0px;
+	}
+	.aDeputy .title {
+		margin-top: 9px;
+		font-size: 13px;
+		color: #3a3a3a;
+	}
+	.aDeputy span {
+		font-size: 12px;
+		color: #b5b5b5;
+		margin-top: 6px;
+	}
+	.sectionRight {
+		width: 230px;
+		margin-left: 18px;
+	}
+	.sectionRight h3 {
+		font: 800 13px/39px "宋体";
+		margin-top: 5px;
+
+	}
+	.sectionRight dt {
+		float: left;
+		font: 600 12px/23px "宋体";
+		margin-right: 13px;
+	}
+	.sectionRight dd {
+		float: left;
+		font: 12px/23px "宋体";
+		margin-right: 14px;
+	}
+	.sectionRight ul {
+		font-size: 12px;
+	}
+	.sectionRight .listEnd {
+		float: left;
+		margin: 16px 20px 0 0;
+	}
+	.listEnd li {
+		float: left;
+		margin-right: 20px;
+	}
+	.list h3 {
+		float: left;
+		margin-top: 16px;
+		font-size: 12px;
+		line-height: 49px;
+	}
+	.list .playList {
+		float:right;
+		margin: 32px 0 10px 0;
+	}
+	.list .playList li {
+		position: relative;
+		float: right;
+		font: 12px/18px "宋体";
+		padding: 0 6px 0 5px;
+		margin-right: -1px;
+		border: 1px solid #dadada;
+		z-index: 1;
+	}
+	.list .playList li:hover {
+		background-color: #00a4de;
+		padding-bottom: 1px;
+		margin-bottom: -1px;
+		border-bottom: none;
+	}
+	.listCon {
+		margin-top: 16px;
+	}
+	.listCon li {
+		overflow: hidden;
+		width: 232px;
+		font: 12px/26px "宋体";
+	}
+	.listCon .num {
+		display: block;
+		width: 16px;
+		height: 16px;
+		padding-left: 4px;
+		margin-right: 8px;
+		line-height: 16px;
+		float: left;
+	}
+	.top .num {
+		background: url(bgdblue.png);
+		color: #fff;
+	}
+	.others .num {
+		color: #b497a9;
+	}
+	.listCon p {
+		float: left;
+		margin-right: 7px;		
+	}
+	.listCon .epi {
+		float: left;
+		color: #acacac;		
+	}
+	.listCon .score {
+		float: right;
+		margin-top: 7px;
+		width: 30px;
+		line-height: 12px;
+		color: #ff320e;
+		background: url(text.png) no-repeat right 1px;
+	}
+	.adpic {
+		width: 228px;
+		height: 68px;
+		line-height: 2000px;
+		overflow: hidden;
+		background: url(baobao3.png);
+	}
+	</style>
+</head>
+<body>
+	<section class="epiList clearFix">
+		<section class="sectionLeft">
+			<h2>电视剧</h2>
+			<a class="pic clearFix" href="#">
+				<img src="baobao1.png"/>
+				<div class="textMain clearFix">
+					<p class="pMain">瑶山大剿匪</p>
+					<span class="spanMain">(34集全)</span>
+				</div>
+			</a>
+			<div class="inf clearFix">
+				<p class="dir">
+					<span>导演：</span>
+					<a href="#">张国庆</a>
+				</p>
+				<p class="actor">
+					<span>主演：</span>
+					<a href="#">丁海峰</a>
+					<a href="#">温峥嵘</a>
+					<a href="#">尚于博</a>
+				</p>
+				<p class="other">
+					<span>类型：</span>
+					<a href="#">军旅</a>
+					<span>年份</span>
+					<a href="#">2011</a>
+				</p>
+				<p class="detail">
+					<span>1950年，广西匪情严峻，军区首长从大局出发……</span>
+					<a href="#">详细</a>
+				</p>				
+			</div>
+			<h3 class="h3Now">卫视同步</h3>
+			<ul class="ulNow">
+				<li>
+					<a class="chl" href="#">央视1套</a>
+					<a class="cont" href="#">咱家那些事<span>（至20集）</span></a>
+				</li>
+				<li>
+					<a class="chl" href="#">央视1套</a>
+						<a class="cont" href="#">咱家那些事<span>（至20集）</span></a>
+				</li>
+				<li>
+					<a class="chl" href="#">央视1套</a>
+					<a class="cont" href="#">咱家那些事<span>（至20集）</span></a>
+				</li>
+				<li>
+					<a class="chl" href="#">央视1套</a>
+					<a class="cont" href="#">咱家那些事<span>（至20集）</span></a>
+				</li>
+				<li>
+					<a class="chl" href="#">央视1套</a>
+					<a class="cont" href="#">咱家那些事<span>（至20集）</span></a>
+				</li>
+			</ul>
+			<h3 class="h3Future">即将上映</h3>
+			<div class="future">
+				<a href="#">12.11《人到四十》王志文遇双食记</a>
+				<a href="#">12.11《人到四十》王志文遇双食记</a>
+				<a href="#">12.11《人到四十》王志文遇双食记</a>
+			</div>			
+		</section>
+		<section class="sectionCenter">
+			<header class="header clearFix">
+				<div class="nav clearFix">
+					<a href="#">同步热播</a>					
+					<a href="#">预告</a>
+					<a href="#">战争</a>
+					<a href="#">警匪</a>
+					<a href="#">伦理</a>
+					<a href="#">古装</a>
+				</div>
+				<p class="more">更多</p>
+			</header>
+			<div class="deputy clearFix">
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+				<a class="aDeputy" href="#">
+					<img src="baobao.png">
+					<img class="textPic" src="text.png">
+					<div class="opacity"></div>
+					<p class="preView">预告片</p>
+					<p class="title">美人天下</p>
+					<span>没人看的电视剧</span>
+				</a>
+			</div>
+		</section>
+		<section class="sectionRight">
+			<h3>电视剧分类</h3>
+			<dl class="type clearFix">
+				<dt>类型</dt>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>言情</dd>
+				<dd>最新同步</dd>
+				<dd>言情</dd>
+
+			</dl>
+			<dl class="star clearFix">
+				<dt>明星</dt>
+				<dd>杨幂</dd>
+				<dd>杨幂</dd>
+				<dd>杨丞琳</dd>
+				<dd>杨丞琳</dd>
+				<dd>杨幂</dd>
+				<dd>杨丞琳</dd>
+				<dd>杨幂</dd>
+				<dd>杨丞琳</dd>
+				<dd>杨丞琳</dd>
+			
+			</dl class="area clearFix">
+			<dl>
+				<dt>地区</dt>
+				<dd>内地</dd>
+				<dd>内地</dd>
+				<dd>内地</dd>
+				<dd>内地</dd>
+				<dd>内地</dd>
+
+			</dl>
+			<dl>
+				<dt>年份</dt>
+				<dd>2046</dd>
+				<dd>2046</dd>
+				<dd>2046</dd>
+				<dd>2046</dd>
+				<dd>2046</dd>
+			</dl>
+			<ul class="listEnd clearFix">
+				<li>评分最高》</li>
+				<li>最近更新》</li>
+			</ul>
+			<header class="list clearFix">
+				<h3>电视剧排行榜</h3>
+				<ul class="playList clearFix">
+					<li>昨天</li>
+					<li>本周</li>
+					<li>本月</li>
+				</ul>					
+			</header>
+			<ul class="listCon">
+				<li class="top">
+					<span class="num">01</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="top">
+					<span class="num">02</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="top">
+					<span class="num">03</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="others">
+					<span class="num">04</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="others">
+					<span class="num">05</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="others">
+					<span class="num">06</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="others">
+					<span class="num">07</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="others">
+					<span class="num">08</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="others">
+					<span class="num">09</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+				<li class="others">
+					<span class="num">10</span>
+					<p>瑶山大剿匪</p>
+					<span class="epi">34集全</span>
+					<span class="score">2.4</span>
+				</li>
+
+			</ul>
+			<div class="adpic"><a href="#">TVB迈向45</a></div>				
+		</section>
+	</section>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+	<title>box</title>
+	<script>
+	!function() {
+		var scale = 1;
+		var ratio = window.devicePixelRatio;
+		scale = scale / window.devicePixelRatio;
+		var meta = document.createElement("meta");
+		meta.setAttribute("name","viewport");
+		meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+		document.head.appendChild(meta);
+	}();
+	 fn();
+	window.addEventListener("resize",fn);
+	function fn() {
+		var html = document.querySelector("html");
+		var width = html.getBoundingClientRect().width;
+		html.style.fontSize = width/18 + "px";  
+	}
+	</script>
+	<style type="text/css">
+		body {
+			position: relative;
+			width: 36rem;
+			margin: 0;
+		}
+		#wrap {
+			position: absolute;
+		}
+		#box {
+			width: 18rem;
+			height: 100px;
+			background-color: red;
+			margin-top: 9rem;
+			float:left;
+		}
+		#box2 {
+			width: 18rem;
+			height: 100px;
+			background-color: #000;
+			margin-top: 9rem;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="box"></div>
+	<div id="box2"></div>
+</div>
+</body>
+<script type="text/javascript" src="fun.js"></script>
+<script type="text/javascript">
+	(function(){
+		document.addEventListener("touchstart",fnStart,false);
+		function fnStart(ev){
+			var touch = ev.targetTouches[0];
+			//获取touchstart的点
+			startPos = {
+						x: touch.pageX,
+						y: touch.pageY,
+						time: +new Date
+					}
+			//将touchstart点的x轴位置、y轴位置和时间放入对象startPos中
+			isScrolling = 0;
+			//是否（上下）滚动
+			this.addEventListener("touchmove",fnMove,false);
+			function fnMove(ev){
+				var touch = ev.targetTouches[0];
+				//获取滑动的点
+				if(ev.targetTouches.length > 1 || ev.scale && ev.scale !== 1) return;
+				//如果接触的点多于一个，或缩放开启，跳出函数
+				endPos = {
+						  x:touch.pageX - startPos.x,
+						  y:touch.pageY - startPos.y
+						};
+				//endPos的坐标等于当前坐标 - touchstart坐标
+				isScrolling = Math.abs(endPos.x) < Math.abs(endPos.y) ? 1 : 0;
+				//console.log(isScrolling);
+				//如果横向移动小于纵向移动读取为纵向滑动（1）否则为横向滑动（0）
+				// if(isScrolling === 1){
+				// 	ev.preventDefault();
+				// }
+			}
+			this.addEventListener("touchend",fnEnd,false);
+			function fnEnd(){
+				this.removeEventListener("touchmove",fnMove);
+				this.removeEventListener("touchend",fnEnd);
+			}
+			//this.addEventListener("touchmove",this,false);
+			//this.addEventListener("touchend",this,false);
+		}
+	})();
+</script>
+</html>

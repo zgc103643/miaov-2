@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>计价器</title>
+	<style>
+		.text {
+			width: 50px;
+			text-align: center;
+		}
+		p {
+			display: inline-block;
+		}
+	</style>
+	<script type="text/javascript">
+	function $(selector) {  /*创建名为$的函数*/
+		return document.querySelectorAll(selector);  //将函数的返回值定为在文件（document）中，					 							 							 //	调用以selector为形式参数的页面对象。 
+	}
+	function comput(ele) {
+		var inputs = ele.querySelectorAll("input");		//声明对象inputs
+		var spans = ele.querySelectorAll("span");	//通过函数$将页面中所有的span声明为一组对象spans。
+
+		inputs[0].onclick = function() {
+			inputs[1].value++;		//为每一个lis对象中的第0个inputs的点击事件添加函数inputs[1].value值加1；
+			mult();
+			info();
+		};
+		inputs[2].onclick = function() {		//为每一个lis对象中的第0个inputs的点击事件添加函数
+												
+			inputs[1].value > 0 ? inputs[1].value-- : inputs[1].value = 0;
+			//如果input[1].value的值大于0，则inputs[1].value值加1；否则，让input[1].value的值一直等于1。
+			mult();
+			info();
+		};
+		function mult() {
+			spans[1].innerHTML = parseFloat(spans[0].innerHTML)*inputs[1].value;
+			//将单价与inputs[1].value变化后的值相乘。
+		}
+	}
+
+	function info() {
+		var nubs = document.querySelectorAll("li input:nth-of-type(2)");		//声明每个li中的第二个input为一组变量nubs。
+		var totals = document.querySelectorAll("li span:nth-of-type(2)");		//声明每个li中的第二个span为一组变量totals。
+		var prices = document.querySelectorAll("li span:nth-of-type(1)");
+		var emsInfo = document.querySelectorAll(".info em");		//声明每个li中的三个span为一组变量spansInfo。
+		//alert(parseFloat(prices[1].innerHTML));
+		var a = 0;
+		var b = 0;
+		var c = 0;
+		// alert(c);
+		for(var i = 0; i < nubs.length; i++){		//获得一组变量nubs中的每一个值。
+			a += parseFloat(nubs[i].value);
+			emsInfo[0].innerHTML = a;
+		}
+		for(var i = 0; i < totals.length; i++){		//获得一组变量nubs中的每一个值。
+			b += parseFloat(totals[i].innerHTML);
+			emsInfo[1].innerHTML = b;
+		}
+		for(var i = 0; i < prices.length; i++){		//获得一组变量nubs中的每一个值。
+			if(nubs[i].value == 0){		//设置判断，如果一组变量nubs中该变量的value属性为0，则跳过该过程，如果不为0，
+										//则参与下一个判断
+				continue;	
+			} else {
+				// if(c < parseFloat(prices[i].innerHTML)){
+				// 	c = parseFloat(prices[i].innerHTML);
+				// }else {
+				// 	c = c;
+				// }
+				//c < parseFloat(prices[i].innerHTML) ? c = parseFloat(prices[i].innerHTML) : c = c;
+				c = Math.max(c, parseFloat(prices[i].innerHTML))			//挑选符合条件的prices中符合条件的最大值。
+			}
+			emsInfo[2].innerHTML = c;
+		}		
+	}
+
+	(function(){
+		window.onload = function () {
+			var lis = $("li");		//通过函数$将页面中所有的li声明为一组对象lis。
+			
+			for(var i = 0; i < lis.length; i++){
+				comput(lis[i]);
+			}
+		}
+	})()
+	</script>
+</head>
+<body>
+	<ul>
+		<li>
+			<input type="button" value="+"/>
+			<input class= "text" type="text" value="0"/>
+			<input type="button" value="-"/>
+			<p>单价</p>
+			<span>12.5</span>
+			<p>元 小计：</p>
+			<span>0</span>
+			<p>元</p>
+		</li>
+		<li>
+			<input type="button" value="+"/>
+			<input class= "text" type="text" value="0"/>
+			<input type="button" value="-"/>
+			<p>单价</p>
+			<span>13.5</span>
+			<p>元 小计：</p>
+			<span>0</span>
+			<p>元</p>
+		</li>
+		<li>
+			<input type="button" value="+"/>
+			<input class= "text" type="text" value="0"/>
+			<input type="button" value="-"/>
+			<p>单价</p>
+			<span>14.5</span>
+			<p>元 小计：</p>
+			<span>0</span>
+			<p>元</p>
+		</li>
+		<li>
+			<input type="button" value="+"/>
+			<input class= "text" type="text" value="0"/>
+			<input type="button" value="-"/>
+			<p>单价</p>
+			<span>15.5</span>
+			<p>元 小计：</p>
+			<span>0</span>
+			<p>元</p>
+		</li>
+		<li>
+			<input type="button" value="+"/>
+			<input class= "text" type="text" value="0"/>
+			<input type="button" value="-"/>
+			<p>单价</p>
+			<span>18</span>
+			<p>元 小计：</p>
+			<span>0</span>
+			<p>元</p>
+		</li>
+		<li>
+			<input type="button" value="+"/>
+			<input class= "text" type="text" value="0"/>
+			<input type="button" value="-"/>
+			<p>单价</p>
+			<span>120</span>
+			<p>元 小计：</p>
+			<span>0</span>
+			<p>元</p>
+		</li>
+	</ul>
+	<div class="info">
+		<span>总数量：</span><em>0</em></br>
+		<span>总价值：</span><em>0</em></br>
+		<span>最贵商品单价：</span><em>0</em></br>
+	</div>
+</body>
+</html>

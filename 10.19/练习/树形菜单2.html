@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>树形菜单</title>
+	<style>
+		#list ul {
+			display: none;
+		}
+		#list>ul {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="list"></div>
+</body>
+<script type="text/javascript">
+	var data = [
+					{
+						name:"选项一",
+						child: [
+								{
+									name: "选项1",
+									child: [
+										{name:"选项（1）"},
+										{name:"选项（2）"},
+										{name:"选项（3）"}
+									]
+									},
+								{
+									name: "选项2",
+									child: [
+										{name:"选项（1）"},
+										{name:"选项（2）"},
+										{name:"选项（3）"}
+									]
+								},
+								{
+									name:"选项3",
+									child: [
+										{name:"选项（1）"},
+										{name:"选项（2）"},
+										{name:"选项（3）"}
+									]
+								}
+							]							
+					},
+					{
+						name:"选项二",
+						child: [
+								{
+									name: "选项1",
+									child: [
+										{name:"选项（1）"},
+										{name:"选项（2）"},
+										{name:"选项（3）"}
+									]
+							},
+								{
+									name: "选项2",
+									child: [
+										{name:"选项（1）"},
+										{name:"选项（2）"},
+										{name:"选项（3）"}
+									]
+							},
+								{
+									name:"选项3",
+									child: [
+										{name:"选项（1）"},
+										{name:"选项（2）"},
+										{name:"选项（3）"}
+									]
+								}
+							]							
+					}
+			   ];
+	//JOSN数组
+	var list = document.querySelector("#list");
+	var inner = "";
+	setChild(data);
+	list.innerHTML = inner;
+	function setChild(obj){
+		inner += "<ul>";
+		for (var i = 0; i < obj.length; i++) {
+			inner += "<li>";
+			inner += "<h4>"+obj[i].name+"</h4>";
+			if(obj[i].child){
+				setChild(obj[i].child);
+			}
+			inner += "</li>";
+		}
+		inner += "</ul>";
+	}
+
+	var h4 = document.querySelectorAll("h4");
+	var ul = document.querySelectorAll("ul");
+	for (var i = 0; i < h4.length; i++) {
+		h4[i].onclick = function(){
+			if(this.nextElementSibling){
+				var next = this.nextElementSibling;
+				var hide = this.parentNode.parentNode.getElementsByTagName("ul");
+				
+				for (var i = 0; i < hide.length; i++) {
+					if(hide[i] != next){
+						hide[i].style.display = "none";
+					}
+				}
+				if(this.nextElementSibling.style.display == "block"){
+					this.nextElementSibling.style.display = "none";
+				}else{
+					this.nextElementSibling.style.display = "block";
+				}
+			}	
+		}		
+	}
+</script>
+</html>

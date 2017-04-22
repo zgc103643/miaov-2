@@ -1,0 +1,230 @@
+/*
+	http://less.bootcss.com/features/
+.w100() {
+	width: 100px;
+}
+.w200() {
+	width: 200px;
+}
+.h100() {
+	height: 100px;
+}
+.h200() {
+	height: 200px;
+}
+.b10Blue() {
+	border: 10px solid blue;
+}
+.b10Black() {
+	border: 10px solid #000;
+}
+.bgcRed() {
+	background: red;
+}
+.bgcYellow() {
+	background: yellow;
+}
+
+#div1 {
+	.w100;
+	.h100;
+	.bgcYellow;
+	.b10Black;
+}
+#div2 {
+	.w100;
+	.h100;
+	.bgcRed;
+	.b10Blue;
+}
+#div3 {
+	.w200;
+	.h200;
+	.bgcRed;
+	.b10Blue;
+}*/
+
+/* Less 声明变量 */
+@y: yellow;
+@bgImg: background-image;
+@c: contentLeft;
+@url: "../img/";
+@bg: @y url("@{url}bg.img") no-repeat;  //在变量值中使用变量
+
+@x: "y";
+
+#div {
+	background: @y; /* 在属性值中使用变量 */
+	content: @@x;
+}
+#div2 {
+	@{bgImg}: @y; /* 在属性名中使用变量 */
+}
+
+#@{c}Row1{
+	@{bgImg}: @y; /* 在选择名中使用变量 */
+}
+
+#@{c}Row1{
+	@{bgImg}: url("@{url}banner.png"); /* 在路径中使用变量，记得加引号*/
+}
+#@{c}Row2{
+	@{bgImg}: url("@{url}icon.png"); /* 在路径中使用变量，记得加引号*/
+}
+#@{c}Row3{
+	background: @bg;
+}
+
+/* 嵌套 */
+.list {
+	margin: 0;
+	li {
+		list-style: none;
+	}
+	p {
+		text-indent: 2em;
+	}
+	a {
+		color: red;
+		&:hover {
+			color: blue;
+		} //&代表返回父级
+	}
+}
+
+/* 变量作用域 */
+
+
+@w100: 100px;
+.list {
+	width: @w100;
+	li {
+		@w100: 100%;
+		width: @w100;
+		p {
+			width: @w100;
+		}	
+	}
+}
+
+/*
+里边的可以调到外边的变量
+外边的不能调到里边的变量
+.list {
+	width: @w100;
+	li {
+		@w100: 100%;
+		width: @w100;
+		p {
+			width: @w100;
+		}	 
+	}
+}
+*/
+/* 混合 */
+
+/*
+	.border(){} 加了括号的类 不会被编译出来
+*/
+
+.border(@bW,@color) { //定义两个参数
+	border: @bW solid @color;
+}
+
+#div {
+	.border(2px,red);
+}
+#div2 {
+	.border(1px,yellow);
+}
+
+.border2(@bW:1px,@color:#000) { // 给参数添加默认值
+	border: @bW solid @color;
+}
+#div3 {
+	.border2(#ccc,2px);
+}
+#div4 {
+	.border2(@color:#ccc,@bW:2px);
+}
+
+.transform(@deg:0deg){
+	-webkit-transform: rotate(@deg);
+	-moz-transform: rotate(@deg);
+	-ms-transform: rotate(@deg);
+	-o-transform: rotate(@deg);
+	transform: rotate(@deg);
+}
+
+#div5 {
+	.transform(@deg:30deg)
+}
+
+/* less中的判断 */
+
+.triangle (@dir:0,@color:#000,@w:10px){
+	width: 0;
+	height: 0;
+	border: @w dashed transparent;
+	.triangleIcon(@dir,@color,@w);
+}
+.triangleIcon(@dir:0,@color:#000,@w:10px) when (@dir = 0){
+	border-bottom: @w solid @color;
+}
+.triangleIcon(@dir:0,@color:#000,@w:10px) when (@dir = 1) {
+	border-left: @w solid @color;
+}
+.triangleIcon(@dir:0,@color:#000,@w:10px) when (@dir = 2){
+	border-top: @w solid @color;
+}
+.triangleIcon(@dir:0,@color:#000,@w:10px) when (@dir = 3) {
+	border-right: @w solid @color;
+}
+#border {
+	.triangle (@dir:3);	
+}
+/* 循环 */
+// >, >=, =, =<, <
+
+/*
+.loopW(@loop) when (@loop>0){
+	width: 10px * @loop;
+	.loopW(@loop - 1);
+}
+#div4 {
+	.loopW(5);
+}
+*/
+/*
+	0 0 
+	0 -10px;
+	0 -20px;
+	0 -30px;
+*/
+
+.loopW(@loop,@end) when (@loop<@end){
+	.list@{loop}{
+		width: 10px;
+		height: 10px;
+		background-position: 0 (-@loop * 10px);
+	}
+	.loopW(@loop + 1,@end);
+}
+.loopW(0,6);
+
+/*
+.loopW(2,6) when(2<6) {
+	.list1 {
+		width: 10px;
+		height: 10px;
+		background-position: 0 -2*10px;
+	}
+};
+*/
+
+@Rem: 40rem;
+
+#div5 {
+	width: 160 / @Rem;
+	height: 187 / @Rem;
+}

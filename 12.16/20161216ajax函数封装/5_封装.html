@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<!--<form action="php/get.php" method="get">-->
+	用户名:<input name="user" type="text"><span id="s"></span><br /><br />
+	<!--密 码:<input name="pass" type="password"><br />-->
+	<input type="button" value="提交" id="btn"/>
+<!--</form>-->
+<script type="text/javascript">
+
+	var btn = document.getElementById('btn');
+	var s = document.getElementById('s');
+	var user = document.getElementsByTagName('input')[0];
+	user.onblur = function(){
+		var val = user.value;
+		ajax(
+			'get',
+			'php/get.php',
+			'user='+encodeURI(val),
+			function(str){
+				console.log(str);
+			},
+			function(err){
+				console.log(err);
+			}
+		);
+	}
+	
+	
+	function ajax(method,url,val,succ,fail){
+		var ajax = new XMLHttpRequest();
+		
+		if(method === 'get'){
+			ajax.open(method,url+'?'+val);
+			ajax.send();
+		}else{
+			ajax.open(method,url);
+			ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			ajax.send(val);
+		}
+		
+		ajax.onreadystatechange = function(){
+			if(ajax.readyState === 4){
+				if(ajax.status >=200 && ajax.status <= 206){
+					succ(ajax.responseText);
+					//s.innerHTML = ajax.responseText;
+				}else{
+					fail(ajax.status);
+					//console.log(ajax.status);
+				}
+			}
+		}
+		
+//		if(typeof ajax.onload === 'undefinde'){   //obj   undefinde}
+
+		//console.log(typeof ajax.onload)
+		
+		
+	}
+	
+	
+	
+</script>
+</body>
+</html>

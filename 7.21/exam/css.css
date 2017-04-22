@@ -1,0 +1,127 @@
+@charset="UTF-8";
+/*css*/
+.clearFix {
+	zoom:1;
+}
+.clearFix:after {
+	content:"";
+	display: block;
+	clear: both;
+}
+body {
+	width: 660px;
+	margin: 30px auto;
+}
+a {
+	font: 12px/24px "宋体";
+	text-decoration: none;
+}
+input {
+	outline: none;
+	padding: 0;
+	margin: 0;
+}
+#topNav {
+	position: relative;
+	top:1px;
+	z-index: 2;
+	float: left;
+	font-size: 0;
+	margin-top: -1px;
+}
+#topNav a {
+	float: left;
+	padding-bottom: 1px;	
+	color: #1d4acb;
+}
+#topNav a .bgHR {
+	font: 12px/24px "宋体";
+	padding: 0 16px 0 15px;
+}
+.bgHR,
+.bgHL {
+	float: left;
+}
+#topNav a:hover {
+	font-weight: bold;
+	color: #404040;
+	background: url(img/topNavIndex.gif) repeat-x;
+}
+#topNav a:hover .bgHL {
+	background: url(img/topNavIndex.gif) no-repeat 0 -25px;
+	}
+#topNav a:hover .bgHR {
+	background: url(img/topNavIndex.gif) no-repeat right -50px;
+	}
+#topNav .active,
+ #topNav .active:hover{
+	color: #c67645;
+	text-decoration: underline;
+	background: url(img/topNavIndexAc.gif) repeat-x;
+}
+#topNav .active .bgHL,
+#topNav .active:hover .bgHL {
+	background: url(img/topNavIndexAc.gif) no-repeat 0 -26px;
+	}
+#topNav .active .bgHR,
+#topNav .active:hover .bgHR {
+	padding: 0 13px 0 13px;
+	margin: 0 3px 0 2px;
+	background: url(img/topNavIndexAc.gif) no-repeat right -50px;
+	}
+#search {
+	float: left;
+}
+.searchBox {
+	float: left;
+	padding: 2px;
+	border: 1px solid #cbd3c8;
+	background-color: #efedee; 
+}
+.searchBox .text {
+	float: left;
+	width: 434px;
+	height: 30px;
+	margin-right: -1px;
+	border: 1px solid #b69b7d;
+	text-indent: 12px;
+	line-height: 27px;
+}
+.searchBox .btn {
+	float: left;
+	width: 130px;
+	height: 32px;
+	border: none;
+	background: url(img/search.jpg);
+	line-height: 200px;
+	overflow: hidden;
+}
+.help {
+	float: left;
+	width: 60px;
+}
+.help a {
+	padding: 3px 0 0 11px;
+	font: 12px/15px "宋体";
+	color: #404040;
+}
+.nav {
+	float: left;
+	padding: 0 0 1px 15px;
+	background: url(img/line.gif) no-repeat 0 bottom;
+}
+.nav a {
+	float: left;
+	padding-right: 10px;
+	color: #666666;
+}
+.nav .more,
+.nav .more:hover {
+	color:#9b9ea3;
+	padding-left: 10px;
+	background: url(img/stick.gif) no-repeat 0 6px;
+}
+.nav a:hover {
+	color: #d9772e;
+	text-shadow: 1px 1px 1px #fff0b5;
+}

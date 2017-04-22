@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" id="css">
+		#box {
+			width: 400px;
+			height: 400px;
+			border: 2px solid #000;
+			position: relative;
+			background: #000;
+			margin: 30px auto;
+			perspective: 300px;			//景深，控制观测3D模型的视角
+		}
+		#box div {
+			position: absolute;
+			width: 38px;
+			height: 38px;
+			border: 1px solid #fff;
+			transition: .5s;
+			transform-style: preserve-3d;
+		}
+		#box span,
+		#box em {
+			position: absolute;
+			width: 38px;
+			height: 38px;
+			left: 0;
+			top: 0;
+			backface-visibility: hidden;		//背面隐藏
+		}
+		#box span {
+			transform: rotateY(180deg);			//将span设置为背面
+			background: url(img.png) no-repeat;			
+		}
+		#box em {
+			background: url(img.jpg) no-repeat;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var box = document.querySelector("#box");
+			var css = document.querySelector("#css");		//创建变量box、css，并分别赋值为#box和#css
+			var div = box.getElementsByTagName("div");		//创建一组变量div，赋值为功能中需要操作的100个小div
+			var divs = "";
+			var style = "";			//创建变量divs和style
+			var w = 40;
+			var h = 40;
+
+			for(var i = 0; i < 100; i++){
+				var l = (i%10)*w;		//通过求余获取该编号在横向上的位置
+				var t = parseInt(i/10)*h;		//通过求编号除10后去小数，获取该编号在纵向上的位置。
+
+				divs += '<div class="div'+i+'"><span></span><em></em></div>';		//创建100gediv
+				style += '.div'+i+'{left:'+l+'px;top:'+t+'px;}';		//在内部样式表中添加每一个div的定位取值；
+				style += '#box .div'+i+' span,#box .div'+i+' em{background-position: -'+l+'px -'+t+'px;}';
+				//在内部样式表中分别添加每个div中的span和em标签的背景定位（与精灵图）类似。
+			}
+			box.innerHTML = divs;
+			css.innerHTML += style; 		//把保存在变量中的div创建和内部样式表结果添加到网页结构中。
+			document.onclick = function() {			//文件点击事件
+				for(var i = 0; i < div.length; i++){		
+					div[i].style.transition = ".5s "+i*50+"ms";			//设置每一个div翻转时的延迟时间（随编号增大匀速推后）
+					div[i].style.transform = "rotateY(180deg)";			//100gediv全体翻转
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

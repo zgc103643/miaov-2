@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.box {
+	width: 400px;
+	border:  10px solid #000;
+	overflow: hidden;
+}
+.left {
+	float: left;
+	width: 200px;
+	height: 200px;
+	background: red;
+}
+.right {
+	float: right;
+	width: 200px;
+	height: 200px;
+	background: blue;
+}
+.div {
+	width: 180px;
+	height: 180px;
+	padding: 15px;
+}
+/*
+	在IE6下 ，子元素会撑开父级设置好的宽高
+*/
+</style>
+</head>
+<body>
+<div class="box">
+	<div class="left">
+    	
+    </div>
+    <div class="right">
+    	<div class="div"></div>
+    </div>
+</div>
+</body>
+</html>

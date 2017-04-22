@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>chengfabiao3</title>
+	<style>
+	body {
+		margin: 0;
+	}
+	#section {
+			position:  relative;
+		}
+	#section div {
+		width: 58px;
+		height: 28px;
+		display: inline-block;
+		border: 1px solid #000;
+		background: red;
+		font-size: 16px;
+		line-height: 28px;
+		text-align: center;
+		color: #fff;
+	}
+	</style>
+	<script>
+	window.onload = function() {
+		var section = document.getElementById("section");
+		var div = section.getElementsByTagName("section");
+		var html ="";
+
+		for(var i = 1; i<10; i++){
+			for(var j = 1;j < i+1 ; j++){
+				var left = i*60;
+				var top = j*30;	
+				html = html+"<div>" +j+ "*" +i+ "=" +(i*j)+"</div>";
+	
+			};
+			html+= "<br/>";
+		}
+		
+		section.innerHTML = html;
+	}
+	</script>
+</head>
+<body>
+	<section id="section"></section>
+</body>
+</html>

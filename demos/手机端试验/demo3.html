@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+	<title>box</title>
+	<script>
+	!function() {
+		var scale = 1;
+		var ratio = window.devicePixelRatio;
+		scale = scale / window.devicePixelRatio;
+		var meta = document.createElement("meta");
+		meta.setAttribute("name","viewport");
+		meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+		document.head.appendChild(meta);
+	}();
+	 fn();
+	window.addEventListener("resize",fn);
+	function fn() {
+		var html = document.querySelector("html");
+		var width = html.getBoundingClientRect().width;
+		html.style.fontSize = width/18 + "px";  
+	}
+	</script>
+	<style type="text/css">
+		body {
+			position: relative;
+
+			width: 18rem;
+			height: 30rem;
+			margin: 0;
+		}
+		#wrap {
+			width: 36rem;
+			margin-top: 9rem;			
+			position: absolute;
+			left: 0;
+			overflow: hidden;
+		}
+		#box {
+			width: 18rem;
+			height: 100px;
+			background-color: red;
+			float:left;
+		}
+		#box2 {
+			width: 18rem;
+			height: 100px;
+			background-color: #000;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="box"></div>
+	<div id="box2"></div>
+</div>
+</body>
+<script type="text/javascript" src="miaov.js"></script>
+<script type="text/javascript">
+	document.addEventListener("touchstart",fnStart,false);
+	function fnStart(){
+		document.addEventListener("touchmove",fnMove);
+		function fnMove(){
+			left = css(wrap,"left");
+			width = css(box,"width");
+			console.log(left,width);
+		}
+	}
+	
+</script>
+</html>

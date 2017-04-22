@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		html,
+		body {
+			width: 100%;
+		}
+		body {
+			position: relative;
+			margin: 0;
+			font: 30px/60px "微软雅黑";
+		}
+		ul,li {
+			padding: 0;
+			margin: 0;
+		}
+		ul {
+			position: absolute;
+			width: 100%;
+		}
+		li {
+			width: 100%;
+			height: 60px;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul"></ul>
+</body>
+<script type="text/javascript">
+	(function(){
+		
+		for (var i = 0; i < 15; i++) {
+			var li = document.createElement("li");
+			li.innerHTML = i;
+			ul.appendChild(li);
+		}
+		var li = document.querySelector("li");
+		var a = li.getBoundingClientRect();
+		console.log(a.width);
+	})();
+	(function(){
+		document.addEventListener("touchstart",fnStart);
+		function fnStart(ev){
+			var touch = ev.targetTouches[0];
+			document.addEventListener("touchend",fnEnd);
+			function fnEnd(){
+				var touch = ev.targetTouches[0];
+				console.log(touch);
+			}
+		}
+		
+	})();
+	
+</script>
+</html>

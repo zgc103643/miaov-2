@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* reset.css */
+
+/* end reset.css */
+
+/* public.css */
+title {
+	background: url(../ico.png) no-repeat;
+}
+.wrap {
+	width: 960px;
+	margin: 0 auto;
+}
+#nav a {
+	font: 14px/30px "宋体";
+	text-decoration: none;
+	color: #000;
+}
+#nav a:hover {
+	color: red;
+	text-decoration: underline;
+}
+#nav .active {
+	color: blue;
+	font-weight: bold;
+}
+#nav .active:hover {
+	color: blue;
+	text-decoration: none;
+}
+/* end public.css */
+
+/* index.css(i) */
+#iBanner {
+	margin-top: 10px;
+	height: 400px;
+}
+#iWhyUSEQQ {
+	width: 940px;
+}
+/* end index.css */
+
+
+/* product.css(p) */
+#pbanner {
+	height: 300px;
+}
+
+/* end product.css */

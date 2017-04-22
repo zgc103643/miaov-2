@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body,
+h3, 
+p {
+	margin: 0;
+	font-size: 12px;
+	font-family: Arial,"宋体";
+}
+img {
+	border: none;
+	vertical-align: top;
+}
+a {
+	text-decoration: none;
+}
+.wrap {
+		width: 128px;
+		margin: 30px auto;
+}
+.img {
+	position: relative;
+	height: 80px;
+}
+.img img {
+	width: 128px;
+	height: 80px;
+}
+.img .mask,
+.img .text {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 128px;
+}
+.img .mask {
+	height: 18px;
+	background: #000;
+	opacity: .5;
+}
+.img .text  {
+	text-indent: 2px;
+	color: #fff;
+	line-height: 16px;
+}
+.img .ico {
+	position: absolute;
+	right: 4px;
+	bottom: 2px;
+	width: 25px;
+	height: 14px;
+	background: url(ico.png) no-repeat;
+}
+.img .add {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 15px;
+	height: 15px;
+	background: url(add.png) no-repeat;
+}
+.wrap h3 {
+	margin-top: 7px;
+	font-weight: normal;
+	line-height: 18px;
+}
+.wrap h3 a {
+	color: #312e30;
+}
+.wrap p {
+	line-height: 18px;
+	height: 18px;
+}
+.wrap p span {
+	float: left;
+	color: #929193;
+	padding: 0 3px 0 18px;
+}
+.wrap .play {
+	background: url(playIco.png) no-repeat 0 4px;
+}
+.wrap .message {
+	background: url(message.png) no-repeat 0 4px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="img">
+    	<a href="#">
+        	<img src="1.png" />
+            <span class="mask"></span>
+			<span class="text">优酷全娱乐</span>
+            <span class="ico"></span>
+        </a>
+        <a href="#" class="add"></a>
+    </div>
+    <h3><a href="#">演艺界我们在行动</a></h3>
+    <p>
+    	<span class="play">627,900</span>
+        <span class="message">498</span>
+    </p>
+</div>
+</body>
+</html>

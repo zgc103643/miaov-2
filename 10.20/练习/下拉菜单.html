@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+	<style>
+		ul {
+			padding: 0;
+			margin: 0;
+		}
+		strong {
+			width: 100%;
+			height: 100%;
+			display: inline-block;
+		}
+		#list {
+			position: relative;
+			width: 450px;
+			height: 30px;
+			border-bottom: 2px solid #999;
+		}
+		#list .active {
+			height: 32px;
+			font: 20px/29px "宋体";
+			background-color: #fff;
+			border: 1px solid #aaa;
+			border-bottom: none;
+		}
+		#list>li {
+			position: absolute;
+			top: 0;
+			z-index: 2;
+			float: left;
+			width: 140px;
+			height: 30px;
+			font: 20px/30px "宋体";
+			text-align: center;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		#list li:nth-child(1) {
+			left: 0;			
+		}
+		#list li:nth-child(2) {
+			left: 140px;						
+		}
+		#list li:nth-child(3) {
+			left: 280px;						
+		}
+		#list2 {
+			position: absolute;
+			top: 31px;
+			left: -1px;
+			width: 180px;
+			height: 120px;
+			border: 1px solid #aaa;
+			border-top: none; 
+			text-align:center;
+			display: none;
+		}
+		#list2 .active {
+			display: block;
+		}
+		#list #list2>li {
+			position: absolute;
+			left: 0;
+			z-index: 2;
+			width: 142px;
+			box-sizing: border-box;
+		}
+		#list2 li:nth-child(1) {
+			top: 10px;
+		}
+		#list2 li:nth-child(2) {
+			top: 39px;			
+		}
+		#list2 li:nth-child(3) {
+			top: 68px;			
+		}
+		#list #list2 .active {
+			width: 146px;
+			border: 2px solid #aaa;
+			border-right: none; 
+			text-align:center;
+			background-color: #fff;
+			opacity: 1;
+			z-index: 2;
+		}
+		#list2>li {
+			width: 180px;
+			color: #666;
+		}
+		#list2 li,
+		#list3 li {
+			float: none;
+		}
+		#list3 {
+			position: absolute;
+			top: -2px;
+			left: 140px;
+			z-index: 1;
+			width: 200px;
+			border: 2px solid #aaa;
+			list-style: none;
+			display: none;
+		}
+		#list2 #list3>li {
+			width: 200px;
+			z-index: 3;
+		}
+		#list3 strong {
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<li>
+			<strong>所有分类</strong>
+			<ul id="list2" style="display: block;">
+				<li class="active">
+					<strong>数码家电</strong>
+					<ul id="list3" style="display: block;">
+						<li><strong>居家日用/收纳存储</strong></li>
+						<li><strong>居家日用/收纳存储</strong></li>
+						<li><strong>居家日用/收纳存储</strong></li>
+						<li><strong>居家日用/收纳存储</strong></li>
+						<li><strong>居家日用/收纳存储</strong></li>
+						<li><strong>居家日用/收纳存储</strong></li>
+					</ul>
+				</li>
+				<li>
+					<strong>户外运动</strong>
+				</li>
+				<li>
+					<strong>妙味课堂</strong>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<strong>家具家电</strong>
+		</li>
+		<li>
+			<strong>妙味视频</strong>
+		</li>
+	</ul>	
+</body>
+<script type="text/javascript">
+	var list = document.getElementById("#list");
+	var li = document.getElementsByTagName("li");
+	// for (var i = 0; i < li.length; i++) {
+	// 	li[i].onmouseover = function() {
+	// 		this.className = "active";
+	// 		if(this.children[1]){
+	// 			this.children[1].style.display = "block";
+	// 		}
+	// 	}
+	// 	li[i].onmouseout = function() {
+	// 		this.className = "";
+	// 		if(this.children[1]){
+	// 			this.children[1].style.display = "none";
+	// 		}
+	// 	}		
+	// }
+</script>
+</html>

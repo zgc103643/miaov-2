@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+	<style>
+		section {
+			width: 360px;
+			margin: 50px auto;
+		}
+		h2 {
+			text-align: center;
+		}
+		.inputBox {
+			width: 300px;
+			height: 240px;
+			padding: 0 30px;
+			background-color: #ccc;
+		}
+		input {
+			width: 300px;
+			height: 24px;
+			padding: 0;
+			margin: 0;
+			border: 1px solid #000;	
+			outline: none;		
+		}
+		textarea {
+			width: 300px;
+			height: 100px;
+			padding: 0;
+			margin: 10px auto;
+			border: 1px solid #000;
+			resize: none;	
+			outline: none;	
+		}
+		.text {
+			margin-top: 20px;
+		}
+		.button {
+			width: 302px;
+			font: 18px/24px "微软雅黑";
+			text-align: center;
+			color: #fff;
+			background-color: #333;
+		}
+		h3 {
+			text-indent: 1.5em;
+			background-color: #ccc;
+		}
+		.empty {
+			width: 360px;
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			border: 2px solid #666;
+			box-sizing: border-box;
+		}
+		ul {
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			list-style: none;
+		}
+		h4 {
+			width: 360px;
+			height: 18px;
+		}
+		time {
+			float: right;
+		}
+		p {
+			font: 14px/22px "宋体";
+		}
+	</style>
+</head>
+<body>
+<section>
+	<h2>留言板</h2>
+	<div class="inputBox">
+		<input class="text" type="text" placeholder="请输入相关信息" />
+		<textarea placeholder="请输入相关信息"></textarea>
+		<input class="button" type="button" value="提交"/>
+	</div>
+	<div class="contentBox">
+		<h3>留言信息</h3>
+		<div class="empty">--沙发空缺，快来抢！--</div>
+		<ul>
+			<!-- <li>
+				<h4>这是标题</h4>
+				<p>这是内容<br/>这是内容</p>
+			</li> -->
+		</ul>
+	</div>
+</section>	
+</body>
+<script type="text/javascript">
+	var text = document.querySelector("input[type='text']");
+	var textarea = document.querySelector("textarea");
+	var button = document.querySelector("input[type='button']");
+	button.onclick = function() {
+		if(text.value == "" || textarea.value == ""){
+			alert("请输入相关信息");
+			return
+		}else{
+			var ul = document.querySelector("ul");
+			var li = document.createElement("li");
+			var h4 = document.createElement("h4");
+			var span = document.createElement("span");
+			var time = document.createElement("time");
+			var p = document.createElement("p");
+
+			span.innerHTML = "这是标题";
+			time.innerHTML = "1989-6-4";
+			p.innerHTML = "这是内容<br/>这是内容<br/>这是内容<br/>这是内容<br/>这是内容<br/>这是内容";
+			
+			h4.appendChild(span);
+			h4.appendChild(time);
+			li.appendChild(h4);
+			li.appendChild(p);
+
+			ul.appendChild(li);
+		}
+	}
+</script>
+</html>

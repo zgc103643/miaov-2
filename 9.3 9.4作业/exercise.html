@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>exercise</title>
+	<style>
+		ul li {
+			
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		var li = document.getElementsByTagName("li");
+		var colors = [ "red","green","blue"];			
+		for (var i = 0; i < li.length; i++){
+			li[i].style.background = colors[(i%colors.length)];
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<ul>
+			<li><label><input type="checkbox" />毛主席教导我们说</label></li>
+			<li><label><input type="checkbox" />毛主席教导我们说</label></li>
+			<li><label><input type="checkbox" />毛主席教导我们说</label></li>
+			<li><label><input type="checkbox" />毛主席教导我们说</label></li>
+			<li><label><input type="checkbox" />毛主席教导我们说</label></li>
+			<li><label><input type="checkbox" />毛主席教导我们说</label></li>
+		</ul>
+	</div>
+</body>
+</html>

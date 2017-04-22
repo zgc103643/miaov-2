@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>object</title>
+</head>
+<body>
+	
+</body>
+<!-- <script type="text/javascript">
+	var arr = [];
+	arr.number = 10;
+	arr.test = function(){
+		alert(1);
+	}
+	arr.test();
+</script> -->
+<script type="text/javascript">
+	function Create(name){
+		this.name = name;
+	}
+	//可变部分
+	Create.prototype.showName = function(){
+		alert(this.name);
+	}
+	//公用部分
+	p1 = new Create("小明").showName();
+	p2 = new Create("小强").showName();
+	console.log(p1 == p2);
+</script>
+<!-- 工厂方式 -->
+</html>

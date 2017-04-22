@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+.bg() {
+	background: #fff;
+}
+.border(@color:red){
+	border: 10px solid @color;
+}
+.w1() {
+	width: 100px;
+}
+.w2(){
+	width: 200px;
+}
+#div1 {
+	.w1();
+	.bg();
+	.border(#000);
+}
+#div2 {
+	#div1;
+	height: 200px;
+}
+#div3 {
+	float: left;
+	.border(blue);
+	.w2();
+}

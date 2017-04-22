@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+		div {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			z-index: 1;
+		}
+		#div1 {
+			top: 0;
+			left: 0;
+			background-color: red;
+		}
+		#div2 {
+			top: 300px;
+			left: 500px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+<script type="text/javascript">
+	// div.onmousedown = function(e){
+	// 	var disX = e.pageX - div.offsetLeft;
+	// 	var disY = e.pageY - div.offsetTop;
+	// 	document.onmousemove = function(e){
+	// 		div.style.left = e.clientX-disX+"px";
+	// 		div.style.top = e.clientY-disY+"px";
+	// 	}
+	// 	document.onmouseup = function(e){
+	// 		document.onmousemove = document.onmouseup = null;
+	// 	}
+	// 	return false;
+	// }
+div(div1,div2);
+div(div2,div1);
+function div(obj1,obj2){
+	obj1.addEventListener("mousedown",function(ev){
+		ev.preventDefault();
+	});
+	obj1.addEventListener("mousedown",fnDown);
+	function fnDown(ev){
+		var disX = ev.pageX - this.offsetLeft;
+		var disY = ev.pageY - this.offsetTop;
+
+		document.addEventListener("mousemove",fnMove);
+		function fnMove(ev){
+			var l = ev.clientX-disX;
+			var t = ev.clientY-disY;
+			var r = l+obj1.offsetWidth;
+			var b = t+obj1.offsetHeight;
+
+			var l2 = obj2.offsetLeft,
+				t2 = obj2.offsetTop,
+				r2 = l2+obj2.offsetWidth,
+				b2 = t2+obj2.offsetHeight;
+			//console.log(l2,t2,r2,b2);
+			if( r>l2 && l<r2 && b>t2 && t<b2){
+				obj1.style.background = "#aaa";
+				obj1.style.zIndex = "2";
+			}else{
+				obj1.style.background = "";
+				obj1.style.zIndex = "1";
+			}
+
+			if(l<20){
+				l = 0;
+			}else if(l>document.documentElement.clientWidth-obj1.offsetWidth-20){
+				l = document.documentElement.clientWidth-obj1.offsetWidth;
+			}
+			if(t<20){
+				t = 0;
+			}else if(t>document.documentElement.clientHeight-obj1.offsetHeight-20){
+				t = document.documentElement.clientHeight-obj1.offsetHeight;
+			}
+			obj1.style.left = l+"px";
+			obj1.style.top = t+"px";
+		}
+		document.addEventListener("mouseup",fnUp);
+		function fnUp(){
+			document.removeEventListener("mousemove",fnMove);
+			document.removeEventListener("mouseup",fnUp);
+		}
+	}
+}
+   // var obj  = {};
+   // var obj2 = {};
+   // obj1.onmousemove = 2;
+   // obj2.onmousemove
+   // console.log(obj == obj2)
+</script>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>7</title>
+	<style>
+	body,
+	p {
+		margin: 0;
+		font: bold 16px/42px "宋体";
+		color: #333333;
+	}
+	ul,
+	li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	input {
+		outline: none;
+		padding: 0;
+		margin: 0;
+	}
+	textarea {
+		margin: 0;
+		padding: 0;
+		resize: none;
+		overflow: auto;
+		outline: none;
+	}
+	.list {
+		padding-left: 41px;
+		padding-right: 81px;
+		margin: 50px auto;
+		border: 1px solid #000;
+		width: 423px;
+	}
+	.list li {
+		overflow: hidden;
+
+
+	}
+	.list p {
+		float: left;
+
+	}
+	.list .right {
+		float: right;
+		width: 304px;		
+		overflow: hidden;
+	}
+	.list .text {
+		width: 220px;
+		height: 28px;
+		border: 1px solid #bdc7d8;
+	}
+	.rdo {
+		float: left;
+		margin: 14px 1px 0;
+		width: 10px;
+		height: 10px;
+	}
+	.gender {
+		float: left;
+	}
+	</style>
+</head>
+<body>
+	<form action="#" class="form">
+		<ul class="list">
+			<li>
+				<p>电子邮箱：</p>
+				<div class="right">				
+					<input type="text" class="text">
+				</div>
+			</li>
+			<li>
+				<p>设置密码：</p>
+				<div class="right">									
+					<input type="password" class="text">
+				</div>
+			</li>
+			<li>
+				<p>真实姓名：</p>
+				<div class="right">									
+					<input type="text" class="text">
+				</div>
+			</li>
+
+			<li>
+				<p>性别：</p>
+				<div class="right">												
+					<input type="radio" class="rdo"><span class="gender">男</span>	
+					<input type="radio" class="rdo"><span class="gender">女</span>
+				</div>
+			</li>
+			<li>
+				<p>生日：</p>
+				<div class="right">									
+					<select>
+						<option>1990</option>
+						<option>1991</option>
+						<option>1992</option>
+					</select>
+					<span>年</span>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+					<span>月</span>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+					<span>日</span>					
+				</div>
+			</li>
+			<li>
+				<p>我现在：</p>
+				<div class="right">				
+					<select>
+						<option>我现在的身份：</option>
+					</select>
+				</div>
+				<p>（非常重要）</p>
+			</li>
+			<li>
+				<div class="right">
+					<img src="img/ico.png">
+					<a href="#">看不清楚换一张</a>
+				</div>
+			</li>
+			<li>
+				<div class="right">
+					<p>验证码：</p>		
+					<input type="text" class="text">
+				</div>
+			</li>
+			<li>
+				<div class="right">
+					<input type="botton" class="btn">
+				</div>			
+			</li>
+		</ul>
+	</form>
+</body>
+</html>

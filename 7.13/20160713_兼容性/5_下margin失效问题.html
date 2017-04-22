@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.box {
+	width: 480px;
+	margin: 30px auto;
+	border: 10px solid #000;
+	/*padding-bottom: 10px;*/
+}
+.div {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	/*margin: 10px 10px 0 ;*/
+	background: red;
+	color: #fff;
+	display: inline;
+}
+/*
+	在IE6下，每行元素的宽度和父级宽度相差不能超过2px，否则最后一行下margin失效(IE7下直接失效);
+	解决办法:用padding代替下margin
+*/
+</style>
+</head>
+<body>
+<div class="box clearfix">
+	<div class="div">1</div>
+    <div class="div">2</div>
+    <div class="div">3</div>
+    <div class="div">4</div>
+    <div class="div">1</div>
+    <div class="div">2</div>
+    <div class="div">3</div>
+    <div class="div">4</div>
+    <div class="div">1</div>
+    <div class="div">2</div>
+    <div class="div">3</div>
+    <div class="div">4</div>
+</div>
+</body>
+</html>

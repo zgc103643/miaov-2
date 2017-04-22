@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>传递参数</title>
+	<style>
+		span {
+			width: 200px;
+			height: 30px;
+			display: block;
+			border: 1px solid #000;
+		}
+		.show {
+			display: block;
+		}
+		.hide {
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function() {
+		tab("#box1 input","#box1 span");
+		tab("#box2 input","#box2 span");
+	}
+	function tab(showBtn,spanText) {
+		var input = document.querySelectorAll(showBtn);
+		var span = document.querySelector(spanText);
+		for(var i = 0; i < input.length; i++){
+			input[0].onclick = function(){
+				input[1].className = "show";
+				input[2].className = "show";
+				input[3].className = "show";
+			}
+			input[2].onclick = function(){
+				span.innerHTML = input[1].value;
+				input[1].value= "";
+				input[1].className = "hide";
+				input[2].className = "hide";
+				input[3].className = "hide";
+			}
+			input[3].onclick = function(){
+				input[1].value= "";
+				input[1].className = "hide";
+				input[2].className = "hide";
+				input[3].className = "hide";
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id = "box1">
+		<span>地球</span>
+		<input type="button" value="修改"/>
+		<input class="hide" type="text"/>
+		<input class="hide" type="button" value="保存"/>
+		<input class="hide" type="button" value="取消"/>
+	</div>
+	<div id = "box2">
+		<span>月球</span>
+		<input type="button" value="修改"/>
+		<input class="hide" type="text"/>
+		<input class="hide" type="button" value="保存"/>
+		<input class="hide" type="button" value="取消"/>
+	</div>
+</body>
+</html>

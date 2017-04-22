@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+
+#box {
+	width: 400px;
+	height: 700px;
+	background: red;
+	margin: 30px auto;
+}

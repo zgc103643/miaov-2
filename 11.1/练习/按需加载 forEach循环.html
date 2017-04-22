@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;	
+		}
+		#wrap {
+			width: 520px;
+			margin: 30px auto;
+		}
+		#list {
+			width: 520px;
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+		}
+		#list li {
+			float: left;
+			width: 240px;
+			height: 240px;
+			border: 1px solid #000;
+			margin: 9px;
+			padding: 0;
+			list-style: none;
+			background:url("img/loading.gif") center center no-repeat;
+		}
+		#btn {
+			width: 200px;
+			height: 40px;
+			margin: 10px auto;
+			display: block;
+		}
+		img {
+			width: 240px;
+			height: 240px;
+			vertical-align: top;
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="list"></ul>
+		<input type="button" value="点击加载图片" id="btn"/>
+	</div>
+</body>
+<script type="text/javascript" src="miaov.js"></script>
+<script type="text/javascript">
+	data = [];
+	for (var i = 0; i < 20; i++) {
+		data.push("img/"+(i%8+1)+".jpg");
+	}
+	//创建一定量个数据放入数组
+	btn = document.getElementById("btn");
+	list = document.getElementById("list");
+	lis = list.getElementsByTagName("li");
+	//获取所需按键、ul和li
+	var start = 0;
+	var length = 6;
+	//开始数据位置
+	//和一次创建个数
+	create();
+	btn.onclick = function(){	
+		create();
+		//执行创建函数
+		console.log(data.length);
+		if(lis.length == data.length){
+			btn.style.display = "none";
+		}
+		//当lis与数据长度相等时
+		//隐藏添加键，停止继续加载功能
+	}
+	window.onscroll = window.onresize = function(){
+		show();
+	}
+	//在窗口滚动条一定
+	//和窗口缩放时执行show函数
+	function create(){
+		var end = start + length;
+		end = end < data.length ? end : data.length;
+		//设置创建终点，
+		//如果创建点位置大于数据数量，
+		//将lis个数控制在等于数据个数
+		for(var i = start; i < end; i++) {
+			li = document.createElement("li");
+			li.isCreate = false;
+			list.appendChild(li);
+		}
+		//创建并载入li
+		show();
+		//执行显示函数
+		start = start + length;
+		//将开始点移到已创建的li之后
+	}
+	function show(){	
+		for (var i = 0; i < lis.length; i++) {	
+			rect = lis[i].getBoundingClientRect();
+			//获取每个li的getBounding值
+			if(rect.top+rect.height > 0
+			&& rect.top < document.documentElement.clientHeight
+			&& !lis[i].isCreate){
+			//如果li在页面显示
+			//并且未被创建
+			 	img = document.createElement("img");
+				img.src = data[i];
+				lis[i].appendChild(img);
+				mTween(img,{opacity:100},1000,"linear");
+				lis[i].isCreate = true;
+				//创建img，添加到lis中
+				//并动画显示
+			}	
+		}
+	}
+</script>
+</html>

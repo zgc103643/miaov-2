@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<!--<form action="php/get.php" method="get">-->
+	用户名:<input name="user" type="text"><span id="s"></span><br /><br />
+	<!--密 码:<input name="pass" type="password"><br />-->
+	<input type="button" value="提交" id="btn"/>
+<!--</form>-->
+<script type="text/javascript">
+	/*
+		ajax.onload
+			html5的新特性
+		在IE下，虽然9以上浏览器都有onload，但是它们支持的特性是不一样的
+		
+		在ie9以下浏览器：
+			onreadystatechange:(所有浏览器都兼容)
+				检测ajax已经执行到哪步了，每步都会检测
+				第一步 0
+				最后一步是4 （所有步骤都走完）
+				
+				0-3没啥意义，4才有意义
+				
+				0是监控不到的。
+				
+			ajax.readyState 可以查看当前走到了哪步，
+			如果将ajax.onreadystatechange放到send的上面，那么在IE下可以多监控一步，能监控4步
+			
+			http状态码：
+				主要记住：
+					2字开头的为成功（200-206之间）
+					
+					4字开头就为失败
+					
+					5、6字开头（服务器错误）找后端即可
+		
+	*/
+	var btn = document.getElementById('btn');
+	var s = document.getElementById('s');
+	var user = document.getElementsByTagName('input')[0];
+	user.onblur = function(){
+		var val = user.value;
+		var ajax = new XMLHttpRequest();
+		ajax.open('get','php/get2.php?user='+encodeURI(val));
+
+		ajax.send();
+		
+		ajax.onreadystatechange = function(){
+			if(ajax.readyState === 4){
+				if(ajax.status >=200 && ajax.status <= 206){
+					s.innerHTML = ajax.responseText;
+				}else{
+					console.log(ajax.status);
+				}
+			}
+		}
+	}
+	
+</script>
+</body>
+</html>

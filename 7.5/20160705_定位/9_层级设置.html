@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.div1 {
+	position: relative;
+	z-index: 1;
+	width: 300px;
+	height: 300px;
+	background: red;
+}
+.div2 {
+	position: absolute;
+	z-index: 2;
+	top: 100px;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	background: blue;
+}
+.div3 {
+	position: absolute;
+	z-index: 3;
+	left: 50px;
+	top: 50px;
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+/*
+	元素定位之后，默认后边元素层级高于前边的元素
+	z-index 层级
+	1. 数值越大层级越高
+	2. 层级最好在同级元素之间做比较
+*/
+</style>
+</head>
+<body>
+<div class="div1">
+	<div class="div3"></div>
+</div>
+<div class="div2"></div>
+</body>
+</html>

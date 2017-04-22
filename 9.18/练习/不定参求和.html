@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>不定参求和</title>
+</head>
+<script type="text/javascript">
+	function fn(){
+		var nub = 0;
+		for(var i = 0; i < arguments.length; i++){
+			nub += arguments[i];
+			
+		}
+		console.log(nub);
+	}
+	//fn(1,2,3,4);
+	fn(tab1(),tab2(),tab3(),tab4());
+	function tab1(){
+		return 12;
+	}
+	function tab2(){
+		return 13;
+	}
+	function tab3(){
+		return 14;
+	}
+	function tab4(){
+		return 15;
+	}
+</script>
+<body>
+	
+</body>
+</html>

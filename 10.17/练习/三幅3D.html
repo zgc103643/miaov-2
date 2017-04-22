@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>三幅3D</title>
+	<style>
+	body {
+		margin: 0;
+	}
+	div {
+		position: relative;
+		width: 480px;
+		height: 500px;
+		margin: 50px auto;
+		font-size: 0;
+	}
+	img {
+		position: absolute;
+		width: 200px;
+		vertical-align: top;
+	}
+	div img:nth-of-type(1) {
+		left: 0;
+		top: 30px;
+		width: 180px;
+		opacity: .8;
+		z-index: 1;
+	}
+	div img:nth-of-type(2) {
+		left: 140px;
+		top: 0px;
+		width: 200px;
+		opacity: 1;
+		z-index: 2;
+	}
+	div img:nth-of-type(3) {
+		left: 300px;
+		top: 30px;
+		width: 180px;
+		opacity: 0.8;
+		z-index: 1;
+	}
+	div input {
+		position: absolute;
+		top: 90px;
+		width: 50px;
+		height: 30px;
+		font: bold 26px/30px "宋体";
+	}
+	div input:nth-of-type(1) {
+		left: -80px;
+	}
+	div input:nth-of-type(2) {
+		right: -80px;
+	}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		var div = document.querySelector("div");
+		var imgs = div.querySelectorAll("img");
+		var btn = div.querySelectorAll("input");
+		var arr = [];
+		for (var i = 0; i < imgs.length; i++) {
+			var obj = {};
+			obj.left = css(imgs[i],"left");
+			obj.top = css(imgs[i],"top");
+			obj.width = css(imgs[i],"width");
+			obj.opacity = css(imgs[i],"opacity");
+			obj.zIndex = css(imgs[i],"z-index");
+			arr.push(obj);
+		}
+		btn[0].onclick = function(){
+			arr.push(arr.shift());
+			style();
+		};
+		btn[1].onclick = function(){
+			arr.unshift(arr.pop());
+			style();
+		};
+		function style(){
+			for(var i = 0; i < imgs.length; i++){
+				css(imgs[i],"left",arr[i].left);
+				css(imgs[i],"top",arr[i].top);
+				css(imgs[i],"width",arr[i].width);
+				css(imgs[i],"opacity",arr[i].opacity);
+				//css(,"zIndex",arr[i].zIndex);
+				imgs[i].style.zIndex = arr[i].zIndex;
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div>
+		<img src="img/1.jpg"/>
+		<img src="img/2.jpg"/>
+		<img src="img/3.jpg"/>
+		<input type="button" value="<"/>
+		<input type="button" value=">"/>
+	</div>
+</body>
+</html>

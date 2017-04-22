@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	border: 2px solid #000;
+	padding: 100px;
+	margin: 50px auto;
+	perspective: 200px;
+}
+#div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	font: 80px/100px "宋体";
+	text-align: center;
+	color: #fff;
+	position: relative;
+	transition: 5s;
+	transform-style: preserve-3d;
+	transform-origin: center center -50px;	 
+}
+#div span {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+}
+#div span:nth-of-type(1) {
+	background: #0C0;
+	left: 0;
+	top: 0;
+}
+#div span:nth-of-type(2) {
+	background: #C93;
+	left: 100px;
+	top: 0;
+	transform-origin: left;
+	transform: rotateY(90deg);
+}
+#div span:nth-of-type(3) {
+	background: #F63;
+	left: 0;
+	top: 0;
+	transform: translateZ(-100px) rotateY(180deg);
+}
+#div span:nth-of-type(4) {
+	background: #909;
+	left: -100px;
+	top: 0;
+	transform-origin: right;
+	transform: rotateY(-90deg);
+}
+#div span:nth-of-type(5) {
+	background: #3CC;
+	left: 0;
+	top: -100px;
+	transform-origin: bottom;
+	transform: rotateX(90deg);
+}
+#div span:nth-of-type(6) {
+	background: #CF6;
+	left: 0;
+	top: 100px;
+	transform-origin: top;
+	transform: rotateX(-90deg);
+}
+#box:hover #div {
+	transform: rotateY(-360deg);
+}
+/*
+	3d下所有的样式 记得在移动端使用的时候，加前缀
+
+	perspective 景深
+	
+	transform-style: preserve-3d; 使被转换的第一级子元素保留其 3D 转换：
+	
+	transform-origin: center center 0;	 
+
+	transform:
+	
+		rotate();
+		*rotateX();
+		*rotateY();
+		*rotateZ();
+		
+		scale();
+		scaleX();
+		scaleY();
+		
+		
+		skew();
+		skewX();
+		skewY();
+		
+		
+		
+		
+		translate();
+		translateX();
+		translateY();
+		*translateZ();
+*/
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="div">
+    	<span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>上</span>
+        <span>下</span>
+    </div>
+</div>
+</body>
+</html>

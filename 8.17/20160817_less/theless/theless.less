@@ -1,0 +1,12 @@
+@y: yellow;
+@bgImg: background-image;
+@c: contentLeft;
+@url: "../img/";
+@bg: @y url("@{url}bg.img") no-repeat;  //在变量值中使用变量
+
+@x: "y";
+
+#div {
+	background: @y; /* 在属性值中使用变量 */
+	content: @@x;
+}

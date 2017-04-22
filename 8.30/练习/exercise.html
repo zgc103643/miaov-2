@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Exercise</title>
+</head>
+<style>
+.div {
+	width: 100px;
+	margin: 50px 0 0 100px;
+}
+input {
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid black;
+	text-align: center;
+}
+span {
+	width: 30px;
+	height: 20px;
+	border: 2px solid red;
+	display: inline-block;
+	text-align: center;
+}
+.div1 {
+	margin: 50px 0 0 50px;
+}
+#btn {
+	width: 30px;
+	text-align: center;
+}
+.show {
+	display: block;
+}
+.hide {
+	display: none;
+}
+</style>
+<script>
+window.onload= function(){
+	var oMinus =document.getElementById("minus");
+	var oPlus =document.getElementById("plus");
+	var oSpan =document.getElementById("span");
+	
+	oMinus.onclick = function(){	
+			oSpan.innerHTML= oSpan.innerHTML-1;
+			if (oSpan.innerHTML>10) {
+			oSpan.innerHTML= 0;
+		}else{
+			if (oSpan.innerHTML<-10) {
+				oSpan.innerHTML= 0;
+			}
+		}
+	}
+	oPlus.onclick = function(){	
+			oSpan.innerHTML= oSpan.innerHTML-0+1;
+			if (oSpan.innerHTML>10) {
+			oSpan.innerHTML= 0;
+		}else{
+			if (oSpan.innerHTML<-10) {
+				oSpan.innerHTML= 0;
+			}
+		}
+	}
+
+	var oBtn= document.getElementById("btn");
+	var oList= document.getElementById("list");
+
+	oBtn.onclick= function() {
+		if (oList.className== "hide"){
+			oList.className= "show";
+		}else{
+			oList.className= "hide";
+		}
+	}
+}
+</script>
+<body>
+	<div class="div">
+		<input type="button" id="minus" value="-"/>
+		<span id="span">0</span>
+		<input type="button" id="plus" value="+"/>
+	</div>
+	<div class="div1">
+		<input type="button" id="btn" value="按钮"/>
+		<ul id="list" class="hide">
+			<li>选项1</li>
+			<li>选项2</li>
+			<li>选项3</li>
+		</ul>
+	</div>
+</body>
+</html>

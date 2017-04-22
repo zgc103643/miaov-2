@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片碎片</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+		ul {
+			width: 240px;
+			height: 240px;
+			padding: 0;
+			margin: 30px auto;
+			border: 3px solid #aaa;
+		}
+		li {
+			float: left;
+			width: 24px;
+			height: 24px;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<ul></ul>
+</body>
+<script type="text/javascript">
+(function(D){
+	ul = D.querySelector("ul");
+	lis = ul.getElementsByTagName("li");
+	for(var i = 0; i < 100; i++) {
+		var li = D.createElement("li");
+		ul.append(li);
+	}
+	for (var i = 0; i < lis.length; i++){
+		lis[i].style.background = `url("2.jpg") ${-(i%10)*24}px ${-parseInt((i/10))*24}px no-repeat`;
+		
+		// lis[i].style.left = lis[i].offsetLeft;
+		// lis[i].style.top = lis[i].offsetTop;
+	}
+	//console.log(lis[2].offsetLeft);
+	// for (var i = 0; i < lis.length; i++) {
+	// 	lis[i].style.position = "absolute";
+	// }
+		
+})(document);
+	
+</script>
+</html>

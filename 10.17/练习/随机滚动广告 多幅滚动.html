@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机滚动广告</title>
+	<style>
+		body {
+			margin: 0;
+		}
+		ul {
+			width: 824px;
+			height: 400px;
+			padding: 0;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		li {
+			position: relative;
+			float: left;
+			width: 200px;
+			height: 200px;
+			list-style: none;
+			border: 3px solid grey;
+			overflow: hidden;
+		}
+		div {
+			position: absolute;
+			top: 0;
+			left: 0;		}
+		img {
+			width: 200px;
+			vertical-align: top;
+		}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var ul = document.querySelector("ul");
+			var li = ul.querySelectorAll("li");
+			var div = ul.querySelectorAll("div");
+			var now = 0;
+			var randomNub = 0;
+			var randomTime = 0;			
+			timer = setInterval(random,1000);
+			function random(){
+				var arr = [];
+				for (var i = 0; i < div.length; i++) {
+					arr[i] = div[i];
+				}
+				arr.sort(function(){
+					return Math.random() - 0.5;
+				})
+				var n = parseInt(Math.random()*3)+1;
+				console.log(n);
+				for (var i = 0; i < n; i++) {
+					toMove(arr[i]);
+				}
+				//计算出随机数控制toMove函数执行的次数
+			}
+			function toMove(){
+				randomNub = parseInt(Math.random()*li.length);
+				now++;
+				mTween(div[randomNub],{top:-200*(now%2)},1000,"easeBoth");
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li>
+			<div>
+				<img src="img/1.jpg"/>
+				<img src="img/2.jpg"/>
+			</div>
+		</li>
+		<li>
+			<div>
+				<img src="img/3.jpg"/>
+				<img src="img/4.jpg"/>
+			</div>
+		</li>
+		<li>
+			<div>
+				<img src="img/5.jpg"/>
+				<img src="img/6.jpg"/>
+			</div>
+		</li>
+		<li>
+			<div>
+				<img src="img/7.jpg"/>
+				<img src="img/8.jpg"/>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

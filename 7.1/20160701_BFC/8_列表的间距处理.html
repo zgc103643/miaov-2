@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.box {
+	width: 230px;
+	overflow: hidden;
+	border: 10px solid red;
+}
+.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 240px;
+}
+.list li {
+	float: left;
+	width: 70px;
+	height: 70px;
+	background: #000;
+	font: 30px/70px "宋体";
+	text-align: center;
+	color: #fff;
+	margin-right: 10px;
+}
+</style>
+</head>
+<body>
+<div class="box">
+	<ul class="list clearfix">
+    	<li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+</body>
+</html>

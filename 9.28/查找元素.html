@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>往返循环切换</title>
+	<style type="text/css">
+	ul{margin: 0;}
+	ul li{list-style: none;}
+	ul li.active{background: red;
+	             display: block;}
+	</style>
+	<script type="text/javascript">
+        window.onload=function(){
+          var list=document.getElementById('list');	
+          var ul=document.getElementsByTagName('ul');	
+          var li=document.querySelectorAll("#list ul li");//H5新属性获取  不兼容
+          var now=0;
+          var speed=1;
+          var timer=0;
+          //var timer1=0;
+          console.log(li,li.length)	
+          setInterval(function(){
+          	li[now].className="";         	
+          	now+=speed;//now=now+speed,当now等于长度让now递减，等于0递增now ==  
+          	if(now==li.length-1){//当now=15，now=15-1  now--
+          		speed=-1;
+          	} 
+          	if(now==0) {//当now=0,now=0+1 now++
+          		speed=1;
+          	} 
+          	li[now].className="active";   	          	
+          },200)
+        }
+	</script>
+</head>
+<body>
+      <ul id="list">
+        <li>
+      	<ul>
+      		<li class='active'>选项1</li>
+      		<li>选项2</li>
+      		<li>选项3</li>
+      		<li>选项4</li>
+      	</ul>
+      	</li>
+      	<li>
+      	<ul>
+      		<li>选项5</li>
+      		<li>选项6</li>
+      		<li>选项7</li>
+      		<li>选项8</li>
+      	</ul>
+      	</li>
+      	<li>
+      	<ul>
+      		<li>选项9</li>
+      		<li>选项10</li>
+      		<li>选项11</li>
+      		<li>选项12</li>
+      	</ul>
+      	</li>
+      	<li>
+      	<ul>
+      		<li>选项13</li>
+      		<li>选项14</li>
+      		<li>选项15</li>
+      		<li>选项16</li>
+      	</ul>
+      	</li>
+      </ul>
+	
+</body>
+</html>

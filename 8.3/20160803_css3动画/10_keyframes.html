@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+/*
+	keyframes 动画帧
+	格式
+	@keyframes 名字 {
+		0%{
+			起始样式
+		}
+		100%{
+			结束样式
+		}
+	} 
+	@keyframes 名字 {
+		form{
+			起始样式
+		}
+		to{
+			结束样式
+		}
+	} 
+	注意兼容移动端必须加前缀
+	@-webkit-keyframes move {
+	} 
+*/
+
+@keyframes move {
+	0%{
+		left: 0;
+		top: 0;
+	}
+	25%{
+		left: 350px;
+		top: 0;
+	}
+	50%{
+		left: 350px;
+		top: 350px;
+	}
+	75%{
+		left: 0px;
+		top: 350px;
+	}
+	100% {
+		left: 0;
+		top: 0;
+	}
+} 
+#box {
+	width: 400px;
+	height: 400px;
+	border: 1px solid #000;
+	position: relative;
+}
+#div {
+	width: 50px;
+	height: 50px;
+	background: red;
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	animation: move 2s infinite linear;
+}
+#box:hover #div {
+	animation-play-state: paused;
+}
+/*
+	兼容移动端记得加前缀
+	animation 动画
+		必要属性
+			animation-name		动画名称（关键帧名称）
+			animation-duration		动画持续时间
+
+
+	animation-timing-function	动画运动形式
+		linear	匀速。
+		ease		缓冲。
+		ease-in	由慢到快。
+		ease-out	由快到慢。
+		ease-in-out	由慢到快再到慢。
+		cubic-bezier(number, number, number, number)：	特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内
+		
+	animation-iteration-count		重复次数(nub||infinite)
+	animation-delay			动画延迟 (只是第一次有延迟)
+
+	animation-direction			播放前重置
+		动画是否重置后再开始播放
+		alternate	动画直接从上一次停止的位置开始执行
+		normal	动画跳到0%的状态开始执行
+		
+	animation-play-state 播放状态
+		(running 继续 || paused暂停)	
+*/
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="div"></div>
+</div>
+</body>
+</html>

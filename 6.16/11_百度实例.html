@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+a {
+	color: #00c;
+}
+span {
+	color: #c00;
+}
+#box {
+	width: 532px;
+}
+#title {
+	font: 16px/34px Arial,"宋体";
+}
+#titleSpan {
+	text-decoration: underline;
+}
+/*
+	哪个加的下划线，下划线就跟着那个标签的字体颜色走
+*/
+#text {
+	font: 12px/20px Arial,"宋体";
+	letter-spacing: 1px;
+}
+#nav {
+	font: 12px/20px "宋体";
+	letter-spacing: 1px;
+	word-spacing: 2px;
+}
+#url {
+	font: 13px/21px Arial;
+	color: #0a850a;
+}
+</style>
+</head>
+<body>
+<!--
+	a 标签 不能包含a标签
+    
+    span 区分样式
+-->
+<div id="box">
+	<div id="title"><a href="#"><span id="titleSpan">妙味课堂</span>_百度百科</a></div>
+    <div id="text"><span>妙味课堂</span>是北京妙味趣学信息技术有限公司旗下的IT前端培训品牌，<span>妙味课堂</span>是一支独具特色的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一种全新...</div>
+    <div id="nav"><a href="#">妙味讲师</a> <a href="#">培训方式</a> <a href="#">妙味培训理念</a> <a href="#">妙味课堂大事记</a></div>
+    <div id="url">baike.baidu.com/ </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>加分项</title>
+	<style type="text/css">
+		#box {
+			width: 400px;
+			height: 40px;
+			border: 1px solid #000;
+			margin: 170px auto 0;
+			position: relative;
+		}
+		#progress {
+			width: 0;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: skyBlue;
+		}
+		#nubs {
+			position: relative;
+		}
+		#nubs span {
+			width: 40px;
+			height: 40px;
+			font: 20px/40px "宋体";
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		var box = getId("box");
+		var progress = getId("progress");		//获取外框和蓝色进度条
+		var nubs = getTag(box,"span");			//获取所有+1
+		var timer = 0;
+		for (var i = 0; i < nubs.length; i++) {
+			nubs[i].style.top = 0;
+			nubs[i].style.left = 40*i + "px";
+		}
+		//为每一个span添加定位信息
+		for (var i = 0; i < nubs.length; i++) {
+			nubs[i].style.position = "absolute";
+		}
+		//为每一个span添加position: absolute
+		box.onclick = function(){
+			var nub = 0;
+			// mTween(progress,{width:400},1000,"linear",function(){
+			// 	mTween(progress,{opacity:0},1500,"linear");
+			// });
+			//设置progress的延长及之后的透明效果
+			timer = setInterval(function(){//nubs随编号增大推后上浮
+				if(nub < nubs.length) {//对每一个加分项上浮
+					mTween(nubs[nub],{top:-100,opacity:0},500,"linear");
+					nub++;
+				}else{//在所有加分项上浮结束时关闭定时器
+					clearInterval(timer);
+				}
+			},50);
+			
+
+		}
+
+	}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="progress"></div>
+		<div id="nubs">
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+			<span>+1</span>
+		</div>
+	</div>
+</body>
+</html>

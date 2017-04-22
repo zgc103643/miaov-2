@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html">
+<head>
+	<meta charset="UTF-8">
+	<title>price</title>
+	<script src="js/html5shiv.min.js"></script>
+	<link href="css.css" rel="stylesheet">
+</head>
+<body>
+	<header id="header" class="clearFix">
+		<div class="wrap clearFix">
+			<h1>七牛</h1>
+			<div class="headerLogin clearFix">
+				<a class="login" href="#">登录</a>
+				<a  class="try" href="#">免费试用</a>
+			</div>
+			<ul class="headerNav clearFix">
+				<li>
+					<a href="index.html">首页</a>
+					<span class="hover"></span>
+				</li>
+				<li>
+					<a href="product.html">产品</a>
+					<span class="hover"></span>
+				</li>
+				<li class="active">
+					<a href="price.html">价格</a>
+					<span class="hover"></span>
+				</li>
+				<li>
+					<a href="example.html">案例</a>
+					<span class="hover"></span>
+				</li>
+				<li>
+					<a href="about.html">关于</a>
+					<span class="hover"></span>
+				</li>
+				<li class="square">
+					<a href="#">广场</a>
+					<span class="hover"></span>
+					<div class="hidden">
+						<div class="opacity">
+							<div class="BA"></div>
+						</div>						
+						<div class="blue">
+							<a class="blog" href="#">七牛博客</a>
+							<a class="plan" href="#">扶植计划</a>
+							<a class="practice" href="#">架构师实践日</a>
+						</div>
+					</div>
+				</li>
+			</ul>			
+		</div>
+	</header>
+	<section id="content">
+		<div class="wrap">
+			<div class="contentNav clearFix">
+				<a href="#" class="product active">产品价格</a>
+				<a href="#" class="price">价格计算器</a>
+				<a href="#" class="cost">成本估算器</a>
+			</div>
+			<div class="register">
+				<div class="inst">
+					注册成为标准用户后即可永久获得以下免费额度：
+				</div>
+				<div class="instP clearFix">
+					<p>10GB永久免费存储空间</p>
+					<p>每月10GB下载流量</p>
+					<p>每月10万次Put请求</p>
+					<p>每月100万次Get请求</p>
+				</div>
+				<input type="submit" class="tryNow" name="btn"/>
+			</div>
+			<h2>基本价格</h2>
+			<div class="price">
+				<h3>存储空间</h3>
+				<div class="space con clearFix">
+					<div class="left">
+					</div>
+					<div class="center">
+						<p><span class="num">0</span>GB-<span class="num">50</span>GB</p>
+						<p><span class="num">50</span>TB-<span class="num">500</span>TB</p>
+						<p><span class="num">500</span>TB-<span class="num">5</span>PB</p>
+						<p>><span class="num">5</span>PB</p>
+					</div>
+					<div class="right">
+						<p>&yen<span class="number">0.165</span>/GB*</p>
+						<p>&yen<span class="number">0.162</span>/GB*</p>
+						<p>&yen<span class="number">0.159</span>/GB*</p>
+						<p>&yen<span class="number">0.156</span>/GB*</p>
+					</div>
+				</div>
+				<h3>流量</h3>
+				<div class="flow con clearFix">
+					<div class="left">
+						<p>上传流量：</p>
+						<p>下载流量：</p>
+					</div>
+					<div class="center">
+						<p class="chi">无限制</p>
+						<p><span class="num">0</span>GB-<span class="num">10</span>GB</p>
+						<p><span class="num">10</span>GB-<span class="num">100</span>GB</p>
+						<p>><span class="num">100</span>GB</p>
+					</div>
+					<div class="right">
+						<p><span class="number">免费</span></p>
+						<p><span class="number">免费</span></p>
+						<p>>&yen<span class="number">0.29</span>/GB</p>
+						<p>>&yen<span class="number">0.26</span>/GB</p>
+					</div>
+				</div>
+				<h3>数据请求方式</h3>
+				<div class="request con clearFix">
+					<div class="left">
+					</div>
+					<div class="center">
+						<p>PUT/DELETE</p>
+						<p>GET</p>
+					</div>
+					<div class="right">
+						<p>&yen<span class="number">0.01</span>/万次请求</p>
+						<p>&yen<span class="number">0.01</span>/万次请求</p>
+					</div>
+				</div>
+				<h3>海外下载加速</h3>
+				<div class="download con clearFix">
+					<div class="left">
+						<p>下载流量：</p>
+					</div>
+					<div class="center">
+						<p><span class="num">0</span>GB-<span class="num">10</span>GB</p>
+						<p><span class="num">10</span>GB-<span class="num">100</span>TB</p>
+						<p>><span class="num">100</span>TB</p>
+					</div>
+					<div class="right">
+						<p><span class="number">免费</span></p>
+						<p>>&yen<span class="number">0.39</span>/GB</p>
+						<p>>&yen<span class="number">0.36</span>/GB</p>
+					</div>
+				</div>
+			</div>
+			<h2>多媒体处理服务MPS</h2>
+			<div class="media">
+				<h3>音视频转码请求</h3>
+				<div class="space con clearFix">
+					<div class="left">
+					</div>
+					<div class="center">
+						<p>音频转码</p>
+						<p>视频转码sd240<span class="exp">(标清320x240)</span></p>
+						<p>视频转码sd480<span class="exp">(标清640x480)</span></p>
+						<p>视频转码sd<span class="exp">(标清1080x720)</span></p>
+						<p>视频转码hd<span class="exp">(大于1080x720)</span></p>
+					</div>
+					<div class="right">
+						<p>&yen<span class="number">0.0048</span>/分钟</p>
+						<p>&yen<span class="number">0.0057</span>/分钟</p>
+						<p>&yen<span class="number">0.0072</span>/分钟</p>
+						<p>&yen<span class="number">0.0189 </span>/分钟</p>
+						<p>&yen<span class="number">0.0324</span>/分钟</p>
+					</div>
+				</div>
+				<h3>其他请求</h3>
+				<div class="other con clearFix">
+					<div class="left">
+					</div>
+					<div class="center">
+						<p>imageAve<span class="exp">(图片主色调)</span></p>
+						<p>avinfo<span class="exp">(音视频元信息)</span></p>
+						<p>avconcat<span class="exp">(音视频拼接)</span></p>
+						<p>vframe,vsample<span class="exp">(视频截图)</span></p>
+					</div>
+					<div class="right">
+						<p>&yen<span class="number">0.01</span>/千次</p>
+						<p>&yen<span class="number">0.01</span>/千次</p>
+						<p>&yen<span class="number">0.01</span>/千次</p>
+						<p>&yen<span class="number">0.01</span>/千张</p>
+					</div>
+				</div>
+			<a class="checkMore" href="#">查看关于多媒体处理服务的价格说明</a>
+			</div>
+			
+			<h2>自定义数据处理</h2>
+			<div class="data">
+				<h3>运行环境规格</h3>
+				<div class="evn con clearFix">
+					<div class="front">
+						<p></p>
+						<p>M0C1</p>
+						<p>M1C2 </p>
+						<p>M2C4</p>
+						<p>M4C8</p>
+						<p>M8C12</p>
+					</div>
+					<div class="left">
+						<p>CPU</p>
+						<p>1核</p>
+						<p>2核</p>
+						<p>4核</p>
+						<p>8核</p>
+						<p>12核</p>
+					</div>
+					<div class="center">
+						<p>内存</p>
+						<p>512MB</p>
+						<p>1G</p>
+						<p>2G</p>
+						<p>4G</p>
+						<p>8G</p>
+					</div>
+					<div class="right">
+						<p></p>
+						<p>&yen<span class="number">0.088</span>/小时</p>
+						<p>&yen<span class="number">0.176 </span>/小时</p>
+						<p>&yen<span class="number">0.377</span>/小时</p>
+						<p>&yen<span class="number">0.650</span>/小时</p>
+						<p>&yen<span class="number">1.300</span>/小时</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer id="footer">
+		<header class="clearFix">
+				<div class="wrap">
+					<p>订阅服务：</p>
+					<p class="health">健康状态</p>
+					<div class="icon4"></div>
+					<div class="icon3"></div>
+					<div class="icon2"></div>
+					<div class="icon1"></div>
+				</div>
+		</header>				
+		<div class="conFooter">
+			<div class="wrap clearFix">
+				<ul>
+					<li class="phoneIcon"><a href="#"></a></li>
+					<li>联系电话：400-808-9176</li>
+					<li>商务合作：<a href="#">marketing@qiniu.com</a></li>
+					<li>销售合作：<a href="#">sales@qiniu.com</a></li>
+					<li>技术支持：<a href="#">support@qiniu.com</a></li>
+					<li>公司地址：<a href="#">查看</a></li>
+				</ul>
+				<dl class="about">
+					<dt>关于</dt>
+					<dd><a href="#">公司介绍</a></dd>
+					<dd><a href="#">媒体报道</a></dd>
+					<dd><a href="#">七牛博客</a></dd>
+					<dd><a href="#">加入我们</a></dd>
+					<dd><a href="#">联系我们</a></dd>
+					<dd><a href="#">合作伙伴</a></dd>
+					<dd><a href="#">友情链接</a></dd>
+				</dl>
+				<dl>
+					<dt>开发者支持</dt>
+					<dd><a href="#">文档中心</a></dd>
+					<dd><a href="#">资源下载</a></dd>
+					<dd><a href="#">问答社区</a></dd>
+					<dd><a href="#">工单支持</a></dd>
+					<dd><a href="#">创业赞助计划</a></dd>
+				</dl>
+				<dl>
+					<dt>产品</dt>
+					<dd><a href="#">安全存储</a></dd>
+					<dd><a href="#">分发加速</a></dd>
+					<dd><a href="#">数据处理</a></dd>
+					<dd><a href="#">控制台</a></dd>
+					<dd><a href="#">价格</a></dd>
+				</dl>
+				<div class="iconLast clearFix">
+					<div class="cunchufuwu"></div>
+					<div class="shanghaigongshang"></div>
+				</div>
+				<div class="license clearFix">
+					<span>© 2016 上海七牛信息技术有限公司</span>
+					<a class="p1" href="#">用户使用协议</a>
+					<a class="p2" href="#">SLA协议</a>
+					<a class="p3" href="#">沪ICP备11037377号-5</a>
+					<a class="iconPolice" href="#"></a>
+					<a class="p4" href="#">沪公网安备 31011502000961号</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

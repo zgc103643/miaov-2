@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="html5shiv.min.js"></script>
+<style>
+body,
+form,
+p {
+	margin: 0;
+	font-family: "宋体";
+	font-size: 12px;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	color: #fc6806;
+}
+input {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
+	outline: none;
+}
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.search {
+	width: 631px;
+	margin: 30px auto;
+}
+.nav {
+	height: 24px;
+}
+.nav a {
+	float: left;
+	padding: 1px 12px 0;
+	border: 1px solid #fff;
+	border-bottom: none;
+	margin-right: 4px;
+	line-height: 22px;
+	color: #0a59da;
+	border-radius: 3px 3px 0 0;
+	position: relative;
+}
+.nav a:hover {
+	font-weight: bold;
+	color: #414141;
+	background: #f1f1f1;
+	border-color: #d0d0d0;
+	padding: 1px 14px;
+	margin-bottom: -1px;
+}
+.nav .active,.nav .active:hover {
+	background: #f5f5f5;
+	border-color: #ebebeb;
+	font-weight: normal;
+	padding: 1px 12px 0;
+	color: #f60;
+	text-decoration: underline;
+}
+.form form {
+	float: left;
+	padding: 2px;
+	width: 566px;
+	border: 1px solid #cfd1cc;
+	background: #edefee;
+	border-radius: 3px 3px 3px 0;
+}
+.form .text {
+	float: left;
+	height: 20px;
+	width: 425px;
+	padding: 5px;
+	border: 1px solid #c2984e;
+	border-right: none;
+	background: #fff;
+	border-bottom-left-radius: 2px;
+	box-shadow: inset 0 0 2px #917036,inset 3px 3px 3px -3px rgba(0,0,0,.7);
+	line-height: 20px;
+}
+.form .btn {
+	width: 130px;
+	height: 32px;
+	background: url(img/btn.gif) no-repeat;
+	float: left;
+}
+.formNav {
+	width: 48px;
+	float: right;
+	margin-top: 2px;
+	line-height: 18px;
+}
+.formNav a {
+	color: #3c3c3c;
+}
+.formNav a:hover {
+	color: #fc6806;
+}
+.subNav {
+	float: left;
+	background: url(img/navBg.gif) repeat-x 0 -25px;
+}
+.subNav div {
+	float: left;
+	background: url(img/navBg.gif) no-repeat;
+}
+.subNav p {
+	float: left;
+	padding: 1px 0 0 12px;
+	background: url(img/navBg.gif) no-repeat right -50px;
+	line-height: 24px;
+}
+.subNav a {
+	float: left;
+	margin: 0 6px 0 3px;
+	color: #666;
+}
+.subNav span {
+	float: left;
+	color: #e3e3e3;
+	margin-right: 3px;
+}
+.subNav .more {
+	color: #9a9fa5;
+}
+</style>
+</head>
+<body>
+<section class="search">
+	<nav class="nav">
+    	<a href="#">宝贝</a>
+        <a href="#">淘宝商城</a>
+        <a href="#" class="active">店铺</a>
+        <a href="#">拍卖</a>
+        <a href="#">陶吧</a>
+        <a href="#">购物分享</a>
+    </nav>
+    <div class="form clearfix">
+    	<form>
+        	<input type="text" class="text"/>
+            <input type="submit" value="" class="btn" />
+        </form>
+        <nav class="formNav">
+        	<a href="#">高级搜索</a>
+            <a href="#">使用帮助</a>
+        </nav>
+    </div>
+    <div class="clearfix">
+        <nav class="subNav">
+            <div>
+                <p>
+                    <a href="#">靴子</a>
+                    <a href="#">靴子</a>
+                    <a href="#">羽绒服</a>
+                    <a href="#">靴子</a>
+                    <a href="#">羊毛裙</a>
+                    <a href="#">靴子</a>
+                    <a href="#">呢大衣</a>
+                    <a href="#">保暖内衣</a>
+                    <span>|</span>
+                    <a href="#" class="more">更多</a>
+                </p>
+            </div>    
+        </nav>
+     </div>   
+</section>
+</body>
+</html>

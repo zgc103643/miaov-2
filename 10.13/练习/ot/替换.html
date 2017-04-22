@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+body,p{
+	margin:0;
+	}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	}
+.wrap{
+	margin:30px auto;
+	width:560px;
+	height:440px;
+	background:#FFC;
+	padding:40px 20px 20px 20px;
+	position:relative;
+	}
+.text{	
+	padding:30px;
+	width:400px;
+	font:16px/30px "微软雅黑";
+	background:#fff;
+	}
+.list{
+	position:absolute;
+	right:50px;
+	top:40px;
+	}
+.list p,.list li{
+	width:60px;
+	height:30px;
+	background:#00C;
+	color:#fff;
+	font:20px/30px "宋体";
+	text-align:center;
+	}
+.list ul{
+	display:none;
+	}
+.list li{
+	margin-top:1px;
+	background:#06F;
+	}
+.box{
+	position:absolute;
+	left:30px;
+	bottom:20px;
+	width:440px;	
+	padding:30px;
+	border:5px solid #F00;
+	background:#CCC;
+	display:none;
+	}
+.box .rep{
+	display:none;
+	}
+.top {
+	position:relative;
+	
+	margin-bottom:10px;}
+.top string{
+	position:absolute;
+	top:-20px;
+	right:-20px;
+	}
+.top span{
+	display:inline-block;
+	width:60px;
+	height:30px;
+	font:20px/30px "宋体";
+	color:#FFF;
+	background:#F96;
+	text-align:center;
+	margin-right:10px;
+	}
+.top .btn{
+	background:#F33;
+	}
+em{
+	background:#CF9;
+	}
+</style>
+<script>
+	window.onload=function(){
+		var list=document.querySelector(".list");
+		var p=document.querySelector(".list p");
+		var ul=document.querySelector(".list ul");
+		var lis=ul.getElementsByTagName("li");
+		var box=document.querySelector(".box");
+		var span=document.querySelectorAll(".box span");
+		var seek=document.querySelector(".box .seek");
+		var sInput=seek.getElementsByTagName("input")[0];
+		var sBtn=seek.getElementsByTagName("button")[0];
+		var rep=document.querySelector(".box .rep");
+		var rBtn=rep.getElementsByTagName("button")[0];
+		var rInput=rep.getElementsByTagName("input");
+		var string=document.querySelector(".box string");
+		var text=document.querySelector(".text");
+		console.log(rInput);
+		var off=true;
+		p.onclick=function(){
+			if(off){
+				ul.style.display="block";				
+			}else{
+				ul.style.display="none";				
+				}
+				off=!off;		
+			};			
+		lis[0].onclick=function(){
+			box.style.display="block";
+			ul.style.display="none";			
+			fn();
+			off=!off;
+		};
+		lis[1].onclick=function(){
+			box.style.display="block";
+			ul.style.display="none";
+			fn2();
+			off=!off;
+		};
+		span[1].onclick=fn2;
+		span[0].onclick=fn;
+		string.onclick=function(){
+			box.style.display="none";
+		};
+		function fn(){
+			span[1].className="";
+			rep.style.display="none";
+			span[0].className="btn";
+			seek.style.display="block";
+		
+		};
+		function fn2(){
+			span[0].className="";
+			seek.style.display="none";
+			span[1].className="btn";
+			rep.style.display="block";
+		};
+		
+		
+		var str=text.innerHTML;
+		sBtn.onclick=function(){			
+			var val=sInput.value;
+			//将输入框的内容赋到字符串上
+			var a=str.indexOf(val);
+			//获取输入内容的返回值
+			//如果查找不到相应的内容
+			//获得返回值-1			
+			if(val==""){
+				alert("请输入内容");	
+				return;			
+			}
+			//如果内容为空，alert并用return打断函数执行
+			if(val!=""){//当输入的内容不为空时，
+				if(a==-1){
+					alert("查找的内容不存在");
+					return;	
+			//如果找不到被查找内容，alert并用return打断函数执行
+			//否则，执行查找	
+				}else{					
+					text.innerHTML=str.split(val).join('<em>'+val+'</em>');//找到text中所有的输入的val
+					//str.split(val)  用val分解为多个字符串数组，
+					//join(val)然后再把数组转化成字符串用val拼接起来					
+				}				
+			}		
+		};
+		rBtn.onclick=function(){
+			
+			var arr=rInput[0].value;
+			var brr=rInput[1].value;
+			if(str.indexOf(arr)==-1){
+				alert("查找不到，请重新输入");
+				return;	
+			}
+			if(arr!=""&&brr!=""){
+				text.innerHTML=str.split(arr).join('<em>'+brr+'</em>');//先分解成数组再拼接成字符串
+				str=str.split(arr).join(brr);
+			}else{
+				alert("请输入内容");
+				return;	
+			}
+		};		
+	};
+</script>
+</head>
+
+<body>
+<div class="wrap">
+	<p class="text"> 使用了精灵图优化了http请求次数
+		使用了h5新增的语义化标签，优化了SEO
+		合理使用样式命名，提取了公共样式，优化了代码的可读性，避免命名冲突，提高代码的维护性和可读性。
+		利用css3新增的transform，制作了旋转的效果
+		利用css3新增的filter，制作了文字或图片模糊的效果
+		使用less做了css的预处理，提高了开发效率X
+		合理的规划布局严格按照从左到右，从上到下，从外向里的页面布局架构，使页面布局更加具有扩展性
+    </p>
+    <div class="list">
+    	<p>展开</p>
+        <ul>
+            <li>查找</li>
+            <li>替换</li>
+        </ul>      
+    </div>
+    <div class="box">     	
+    	<div class="top">
+        	<string>X</string> 
+        	<span class="btn">查找</span>
+       		<span>替换</span>
+        </div>      	
+    	<div class="seek">
+        	<input type="text"/>
+            <button>查找</button>
+        </div>
+        <div class="rep">
+        	<input type="text"/>
+            <input type="text"/>
+            <button>替换</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

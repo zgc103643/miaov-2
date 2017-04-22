@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="css/hj_index.css" rel="stylesheet"/>
+	<link href="css/hj_content.css" rel="stylesheet"/>
+	<script>
+	!function() {
+		var scale = 1;
+		var ratio = window.devicePixelRatio;
+		scale = scale / window.devicePixelRatio;
+		var meta = document.createElement("meta");
+		meta.setAttribute("name","viewport");
+		meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+		document.head.appendChild(meta);
+	}();
+	fn();
+	window.addEventListener("resize",fn);
+	function fn() {
+		var html = document.querySelector("html");
+		var width = html.getBoundingClientRect().width;
+		html.style.fontSize = width/15 + "px";  
+	}
+	</script>
+</head>
+<body class="clearFix">
+<div id="hj_wrap" class="clearFix">
+	<div id="hj_left">
+		<header id="hj_header">
+			<a class="back" href="javascript:;">BACK</a>
+			<!-- <div class="clearFix">
+				<a href="javascript:;">通话</a>
+				<a class="active" href="javascript:;">联系人</a>
+				<a href="javascript:;">黄页</a>
+			</div> -->
+		</header>
+		<section id="hj_section">
+			<input type="text" name="text" class="btn" placeholder="" />
+			<div class="card">
+				<img src="hj_img/pro.png"/>
+				<p>我的名片</p>
+			</div>
+			<ul class="selects">
+				<li><span>我的群组</span><a href="#">></a></li>
+				<li><span>免费电话</span><a href="#">></a></li>
+			</ul>
+			<div class="name">
+				<ul class="fNameN">
+					<li>Z</li>
+					<li><a href="javascript:;">赵</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>Q</li>
+					<li><a href="javascript:;">钱</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>S</li>
+					<li><a href="javascript:;">孙</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>L</li>
+					<li><a href="javascript:;">李</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>Z</li>
+					<li><a href="javascript:;">周</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>W</li>
+					<li><a href="javascript:;">吴</a></li>
+				</ul>
+				 <ul class="fNameN">
+					<li>Z</li>
+					<li><a href="javascript:;">郑</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>W</li>
+					<li><a href="javascript:;">王</a></li>
+				</ul> 
+			</div>
+		</section>
+		<div id="hj_addBtn">+</div>
+	</div>
+	<div id="hj_right">
+		<div class="dlWrap">
+			<dl>
+				<dt><a class="close" href="javascript:;">x</a></dt>
+				<dd>发送到桌面</dd>
+				<dd>当前未使用语音信箱</dd>
+				<dd>删除联系人</dd>
+				<dd>加入黑名单</dd>
+			</dl>
+		</div>
+		<section>
+			<img src="hj_img/background1.png"/>
+			<a href="javascript:;" class="back"><</a>
+			<a href="javascript:;" class="options">.<br/>.<br/>.</a>
+			<p>某某某</p>
+		</section>
+		<ul class="clearFix">
+			<li class="first clearFix">
+				<div class="inner">
+					<a class="store" href="javascript:;">
+						<img src="hj_img/store.png"/>
+						<span>收藏</span>
+					</a>
+					<a class="records" href="javascript:;">
+						<img src="hj_img/records.png"/>
+						<span>通话记录</span>
+						<i></i>
+					</a>
+					<a class="share" href="javascript:;">
+						<img src="hj_img/share.png"/>
+						<span>分享</span>
+						<i></i>
+					</a>
+				</div>
+			</li>
+			<li class="phone">
+				<span>
+					112 3145 4956
+				</span>
+				<div>
+					<span>手机</span>
+					<i></i>
+					<span>北京</span>
+				</div>
+				<a href="#"><img src="hj_img/message.png"/></a>
+			</li>
+		</ul>
+	</div>
+	<div id="hj_add">
+		<header class="clearFix">
+			<a class="hj_cancel" href="javascript:;">取消</a>
+			<span>新建联系人</span>
+			<a class="hj_comfirm" href="javascript:;">确定</a>
+		</header>
+		<section>
+			<dl>
+				<dt><img src="hj_img/pro.png"/></dt>
+				<dd><input type="text" placeholder="姓名"/></dd>
+				<dd><input type="text" placeholder="公司"/></dd>
+				<dd><input type="text" placeholder="职位"/></dd>
+			</dl>
+			<div class="mobile"><span>手机</span><input type="text" placeholder="电话" /></div>
+			<div class="work"><span>工作</span><input type="text" placeholder="邮件" /></div>
+		</section>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="js/hj_data.js"></script>
+<script type="text/javascript" src="js/miaov.js"></script>
+<script type="text/javascript" src="js/hj_index.js"></script>
+</html>

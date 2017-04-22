@@ -1,0 +1,262 @@
+.clearFix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+a {
+	text-decoration: none;
+}
+h1,
+h4,
+p {
+	margin: 0;
+}
+ul {
+	padding: 0;
+	margin: 0;
+}
+li {
+	padding: 0;
+	margin: 0;
+}
+body {
+	width: 100%;
+	margin: 0;
+}
+
+.wrap {
+	width: 1200px;
+	margin: 0 auto;
+}
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 48px;
+	background-color: #fff;
+}
+.headerList span{
+	position: absolute;
+	left: 13px;
+	width: 24px;
+	height: 2px;
+	background: #909090;
+}
+.headerList span:nth-child(1){
+	top: 17px;
+}
+.headerList span:nth-child(2){
+	top: 23px;
+}
+.headerList span:nth-child(3){
+	top: 29px;
+}
+#header .wrap {
+	height: 100%;
+}
+#header .download {
+	float: left;
+	/*width: 148px;*/
+	width: 0;
+	height: 100%;
+	overflow: hidden;
+	background-color: #ffd63b;
+	font: bold 12px/48px Arial;
+	text-align: center;
+}
+#header .download a {
+	color: #fff;
+}
+#header .bar {
+	float: left;
+}
+#header .bar li {
+	float: left;
+	height: 100%;
+	padding: 0 20px;
+	margin: 0;
+	list-style: none;
+	font: 14px/48px Arial;
+	color: #222;
+}
+#header li a {
+	color: #222;
+	text-shadow: 1px 1px 1px;
+}
+#header a:hover{
+	text-decoration: underline;
+}
+#content {
+	/*background: #aaa;*/
+}
+#content .banner {
+	width: 100%;
+	background: #ffd63b;
+}
+#content .banner {
+	position: relative;
+	overflow: hidden;
+}
+#content .banner .wrap {
+	position: relative;
+	height: 100%;
+}
+#content .banner .band {
+	position: absolute;
+	left: 0;
+	top: 120px;
+}
+#content .band img {
+	width: 88px;	
+} 
+#content .banner .month {
+	position: absolute;
+	right: 0;
+	top: -80px;
+	z-index: 2;
+}
+#content .banner .date {
+	position: absolute;
+	right: -60px;
+	top: 150px;
+	z-index: 2;
+}
+#content .banner strong {
+	position: absolute;
+	left: 0;
+	top: 334px;
+	font: 32px/32px Arial;
+	color: #fff;
+}
+#content .banner .wrap>span {
+	position: absolute;
+	top: 380px;
+	left: 0;
+	font: 24px/36px Arial;
+}
+#content .banner .download_btn {
+	position: absolute;
+	top: 470px;
+	left: 0;
+	width: 274px;
+	height: 65px;
+	background-color: #fff;
+}
+#content .download_btn .num {
+	float: right;
+	padding: 0 5px;
+	font: 22px/65px Arial;
+	color: #222;
+}
+#content .download_btn .thanks {
+	float: right;
+	width: 86px;
+	font: 14px/65px Arial;
+	color: #222;
+}
+#content .banner .github {
+	position: absolute;
+	left: 20px;
+	bottom: 70px;
+	width: 32px;
+}
+#content .banner h1 {
+	position: absolute;
+	right: 0;
+	bottom: -40px;
+	width: 685px;
+	height: 186px;
+	font: 800 120px/64px Arial;
+	text-align: right;
+}
+#content .badges {
+	width: 100%;
+	background: #f4f4f4;
+}
+.badges .bar {
+	margin: 0 auto;
+}
+.badges .badgesText img {
+	margin: 0 auto;
+	/*float: left;*/
+}
+.Whats_new h4 {
+	width: 200px;
+	margin: 60px auto;
+	font: 60px/40px Arial;
+	text-align: center;
+}
+@media all and (min-width:1200px) {
+	.banner {
+		height: 100vh;
+	}
+	
+}
+
+@media all and (max-width:768px) {
+	#header {
+		position: absolute;
+		height: 48px;
+		background: transparent;
+		/*border-radius: 50%;*/
+	}
+	.wrap {
+		width: 100%;
+	}
+	#header .wrap {
+		display: none;
+	}
+	#header .headerList {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		width: 48px;
+		height: 48px;
+		background: #fff;
+		border-radius: 50%;
+		display: block;
+	}
+	.banner {
+		height: 972px;
+	}
+	.banner .cal {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 575px;
+
+	}
+	.banner .month {
+		position: absolute;
+		left: 0;
+		top: 20px;
+	}
+	.banner .date {
+		position: absolute;
+		right: 0;
+		top: 280px;
+	}
+	.badgesText {
+		width: 100%;
+		overflow: hidden;
+	}
+}
+
+
+@media all and (max-width:320px) {
+	#content .banner .cal {
+		font-size: 0;
+	}
+	#content .banner .month {
+		position: absolute;
+		top: 70px;
+		text-align: center;
+		margin: -32px; 
+	}
+	#content .banner .date {
+		display: none;
+	}
+}

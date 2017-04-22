@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#wrap {
+	width: 800px;
+	border: 1px solid #000;
+	height: 400px;
+	margin: 50px auto;
+	display: flex;
+	flex-direction: row;
+}
+#wrap div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	color: #fff;
+	font: 20px/100px "宋体";
+	text-align: center;
+	border: 1px solid #000;
+	flex: 1;
+	align-self: center;
+}
+#wrap div:nth-child(1) {
+	order: 1;
+	height: 100px;
+}
+#wrap div:nth-child(2) {
+	order: 2;
+	height: 300px;
+}
+#wrap div:nth-child(3) {
+	height: 50px;
+}
+#wrap div:nth-child(4) {
+	height: 240px;
+}
+#wrap div:nth-child(5) {
+	order: -1;
+	height: 160px;
+}
+
+/*
+子元素align-self 侧轴对齐
+flex-start (默认) 元素在开始位置 富裕空间占据另一侧
+flex-end 富裕空间在开始位置 元素占据另一侧
+center 元素居中 富裕空间 平分左右两侧
+
+flex 兼容至 IE10
+
+老版本 chrome下 请加前缀
+
+移动端使用时 请用 display:box 做兼容;
+
+
+*/
+</style>
+</head>
+<body>
+<div id="wrap">
+	<div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</div>
+</body>
+</html>
+

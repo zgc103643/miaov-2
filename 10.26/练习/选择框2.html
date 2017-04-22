@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	section {
+		width: 1000px;
+		height: 340px;
+		margin: 100px auto;
+		border: 3px solid skyblue;
+	}
+	a {
+		height: 14px;
+		font: 12px/14px "宋体";
+		color: #333;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	section>div {
+		position: relative;
+		border-bottom: 1px solid skyblue; 
+	}
+	section div div {
+		position: absolute;
+		top: 15px;
+		left: 100px;
+	}
+	div strong {
+		position: absolute;
+		font: bold 12px/50px "宋体";
+		color: #888;
+		text-indent: 2em;
+	}
+	.select,
+	.price,
+	.hardware {
+		height: 50px;
+	}
+	.brand {
+		height: 100px;
+	}
+	.feature {
+		height: 80px;
+	}
+	.hardware {
+		border: none;
+	}
+	.select span {
+		float: left;
+		height: 100%;
+		font: bold 12px/50px "宋体";
+		color: #666;
+		text-indent: 2em;
+	}
+	.select .inner {
+		position: absolute;
+		width: 800px;
+		height: 20px;
+	}
+	.select .inner mark {
+		position: relative;
+		display: inline-block;
+	}
+	.select .inner span {
+		position: absolute;
+		top: -23px;
+		right: -7px;
+		font-size: 12px;
+	}		
+</style>
+<script type="text/javascript">
+window.onload = function() {
+	var section = document.querySelector("section");
+	var select = section.children[0];
+	var selectInner = select.querySelector(".inner");
+	var box = section.children;
+	var arr = []; 
+	
+	for (var i = 1; i < box.length; i++) {
+		var as = box[i].getElementsByTagName("a");
+		for (var j = 0; j < as.length; j++) {
+			as[j].pIndex = i;
+			as[j].onclick = function(){
+				var add = document.createElement("mark");
+				add.innerHTML = this.innerHTML;
+				arr[this.pIndex] = add;
+				selectInner.innerHTML = "";
+				for (var k = 0; k < arr.length; k++) {
+					if (arr[k]) {
+						selectInner.appendChild(arr[k]);		
+					}	
+				}
+				if(selectInner.innerHTML == ""){
+					return
+				}else{
+					for (var m = 0; m < selectInner.children.length; m++) {
+						selectInner.children[m].onclick = function(){
+							selectInner.removeChild(this);
+						}
+					}
+				}
+
+			}
+		}
+	}
+
+	
+}
+</script>
+<body>
+	<section>
+		<div class="select">
+			<span>你的选择：</span>
+			<div class="inner">
+				
+			</div>
+		</div>
+		<div class="brand">
+			<strong>品牌：</strong>
+			<div class="inner">
+				<a href="#">小米</a>
+				<a href="#">苹果</a>
+				<a href="#">三星</a>
+			</div>
+		</div>
+		<div class="price">
+			<strong>价格：</strong>
+			<div class="inner">
+				<a href="#">499元以下</a>
+				<a href="#">500-999元</a>
+				<a href="#">1000-1999元</a>
+			</div>
+		</div>
+		<div class="feature">
+			<strong>手机特色：</strong>
+			<div class="inner">
+				<a href="#">学生机</a>
+				<a href="#">智能</a>
+				<a href="#">国产</a>
+			</div>
+		</div>
+		<div class="hardware">
+			<strong>手机配置：</strong>
+			<div class="inner">
+				<a href="#">电信</a>
+				<a href="#">双核</a>
+				<a href="#">拍照</a>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

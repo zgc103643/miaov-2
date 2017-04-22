@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div {
+	background-color: green;
+}
+.box {
+	width: 500px;
+	padding: 20px;
+	background: blue;
+}
+.boxB {
+	border: 10px solid #000;
+	background-color: #fff;
+}
+.box1 {
+	width: 100px;
+	height: 100px;
+	background: red;
+	border: 2px solid #fff;
+}
+/*
+	id 选择器 (通过元素id属性 找到元素添加样式)
+		1. #idName{ 需要添加的样式}
+		2. 同一个页面id不能重名
+		问题：如果页面中多块元素的样式一致，用id的话就得每个都的去写一遍样式	
+	
+	类型选择器 ( 通过元素的标签名字，找到元素添加样式)
+		1. tagName { 需要添加的样式 }
+		问题: 每次都是给页面上，所有的某种类型标签添加样式，
+		会影响到页面其他地方的样式
+		
+	class选择器(类选择器:通过元素的class属性，找到元素添加样式)
+		1.   .className { 需要添加的样式  }
+		2.  页面上的class可以重名
+		3. 同一个元素class 可以拥有多个名字，每个名字之间以空格隔开,每个名字添加的样式 元素都会识别
+*/
+</style>
+</head>
+<body>
+<div class="box boxB">
+	<div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+</div>
+</body>
+</html>

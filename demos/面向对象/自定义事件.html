@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style></style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var div1 = document.getElementById("div1");
+				var span1 = document.getElementById("span1");
+
+				bindEvent(div1,"click",function(){
+					alert(1);
+				});
+				bindEvent(div1,"click",function(){
+					alert(2);
+				});
+
+				bindEvent(span1,"show",function(){
+					alert(3);
+				});
+				bindEvent(span1,"show",function(){
+					alert(4);
+				});
+				bindEvent(span1,"hide",function(){
+					alert(5);
+				});
+				bindEvent(span1,"hide",function(){
+					alert(6);
+				});
+				span1.onclick = function(){
+					fireEvent(span1,"show");
+				}
+				
+			}
+
+			function bindEvent(obj,events,fn){
+				obj.listeners = obj.listeners || {};
+				obj.listeners[events] = obj.listeners[events] || [];
+				//通过数组将相同元素上、相同函数名的函数并列为数组的不同值
+				//之后遍历数组将数组各项逐一执行
+				obj.listeners[events].push(fn);
+
+				if (obj.addEventListener) {
+					obj.addEventListener(events,fn);
+				} else {
+					obj.attachEvent("on"+events,fn);
+				}
+			}
+			//设立自定义事件函数
+
+			function fireEvent(obj,events){
+				for (var i = 0; i < obj.listeners[events].length; i++) {
+					obj.listeners[events][i]();
+				}
+			}
+			//触发自定义事件函数
+		</script>
+	</head>
+	<body>
+		<div id="div1">div1</div>
+		<span id="span1">span1</span>
+	</body>
+	</html>	

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.box {
+	float: left;
+	border: 10px solid #000;
+	margin: 30px;
+	display: inline;
+}
+.box div {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+.div1 {
+	margin-top: -20px;
+}
+.div2 {
+	margin-right: -20px;
+}
+.div3 {
+	margin-bottom: -20px;
+}
+.div4 {
+	margin-left: -20px;
+}
+/*
+	在IE6下，通过margin负值，使元素移出父级的位置，出去的部分会被截掉
+	解决办法：给元素加相对定位
+*/
+</style>
+</head>
+<body>
+<div class="box">
+	<div class="div1"></div>
+</div>
+<div class="box">
+	<div class="div2"></div>
+</div>
+<div class="box">
+	<div class="div3"></div>
+</div>
+<div class="box">
+	<div class="div4"></div>
+</div>
+</body>
+</html>

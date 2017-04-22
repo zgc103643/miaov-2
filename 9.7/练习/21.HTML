@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>21</title>
+	<style>
+	section {
+		width: 200px;
+		margin: 50px auto;
+	}
+	h2 {
+		width: 200px;
+		height: 50px;
+		padding: 0;
+		margin: 0;
+		background: lightblue;
+		font: 40px/50px "微软雅黑";
+		text-align: center;
+		color: #fff;
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: none;
+	}
+	li {
+		width: 200px;
+		height: 30px;
+		font: 26px/30px "微软雅黑";
+		text-align: left;
+		text-indent: 3rem;
+	}
+	.block {
+		display: block;
+	}
+	.yellow {
+		background: yellow;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var wuda = document.getElementById("wuda");
+		var wanger = document.getElementById("wanger");
+		var masan = document.getElementById("masan");
+		var list1 = document.getElementById("list1");
+		var list2 = document.getElementById("list2");
+		var list3 = document.getElementById("list3");
+		var isList1 = false;
+		var isList2 = false;
+		var isList3 = false;
+		// var li1 = document.querySelectorAll("#list1 li");
+		// var li2 = document.querySelectorAll("#list2 li");
+		// var li3 = document.querySelectorAll("#list3 li");
+		wuda.onclick = function(){
+			fun1();
+		}
+		wanger.onclick = function(){
+			fun2();
+		}
+		masan.onclick = function(){
+			fun3();
+		}
+		function fun1(){
+			if(isList1==false){
+				wuda.className = "yellow";
+				list1.className = "block";
+				wanger.className = "";
+				list2.className = "";
+				masan.className = "";
+				list3.className = "";
+			}else {
+				wuda.className = "";
+				list1.className = "";
+				wanger.className = "";
+				list2.className = "";
+				masan.className = "";
+				list3.className = "";
+			}
+			isList1 = !isList1;
+		}
+		function fun2(){
+			if(isList2==false){
+				wuda.className = "";
+				list1.className = "";
+				wanger.className = "yellow";
+				list2.className = "block";
+				masan.className = "";
+				list3.className = "";
+			}else {
+				wuda.className = "";
+				list1.className = "";
+				wanger.className = "";
+				list2.className = "";
+				masan.className = "";
+				list3.className = "";
+			}
+			isList2 = !isList2;
+		}
+		function fun3(){
+			if(isList3==false){
+				wuda.className = "";
+				list1.className = "";
+				wanger.className = "";
+				list2.className = "";
+				masan.className = "yellow";
+				list3.className = "block";
+			}else {
+				wuda.className = "";
+				list1.className = "";
+				wanger.className = "";
+				list2.className = "";
+				masan.className = "";
+				list3.className = "";
+			}
+			isList3 = !isList3;
+		}
+	}
+	</script>
+</head>
+<body>
+	<section>
+		<h2 id="wuda">武大们</h2>
+		<ul id="list1">
+			<li>武大</li>
+			<li>武大</li>
+			<li>武大</li>
+			<li>武大</li>
+		</ul>
+		<h2 id="wanger">王二们</h2>
+		<ul id="list2">
+			<li>王二</li>
+			<li>王二</li>
+			<li>王二</li>
+			<li>王二</li>
+		</ul>
+		<h2 id="masan">马三们</h2>
+		<ul id="list3">
+			<li>马三</li>
+			<li>马三</li>
+			<li>马三</li>
+			<li>马三</li>
+		</ul>
+	</section>
+</body>
+</html>

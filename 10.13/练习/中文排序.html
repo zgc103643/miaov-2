@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>中文排序</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var arr = ["六","八","三","七","一","四","二","五"];
+	var arrIndex = {
+				一:0,
+				二:1,
+				三:2,
+				四:3,
+				五:4,
+				六:5,
+				七:6,
+				八:7
+				}
+	//将文字设置为对象的属性，并赋予相应的属性值
+	arr.sort(function(a,b){
+		return arrIndex[a] - arrIndex[b];
+	})
+	//使用函数sort根据arrIndex中属性的值
+	//对比并重排arr的各项
+	console.log(arr);
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+/*
+	不写百分之0  百分之0默认就是优先级最高的样式
+	不写百分之100  百分之100 默认就是优先级最高的样式
+	
+	动画结束之后,默认会回到优先级最高的样式
+*/
+@keyframes move { 
+	0%{
+		left: 0;
+		top: 0;
+	}
+	25%{
+		left: 350px;
+		top: 0;
+	}
+	50%{
+		left: 350px;
+		top: 350px;
+	}
+	75%{
+		left: 0px;
+		top: 350px;
+	}
+	100% {
+		left: 0;
+		top: 100px;
+	}
+} 
+#box {
+	width: 400px;
+	height: 400px;
+	border: 1px solid #000;
+	position: relative;
+}
+#div {
+	width: 50px;
+	height: 50px;
+	background: red;
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	animation: move 2s 2 linear;
+	animation-fill-mode: none;
+}
+/*
+	animation-fill-mode 定义动画结束和开始时的位置
+		none
+		forwards	当动画完成后，样式停在关键帧百分之百的位置。
+		backwards 元素渲染完，样式就显示是 关键帧的百分之0的位置	。
+		both	向前和向后填充模式都被应用。
+*/
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="div"></div>
+</div>
+</body>
+</html>

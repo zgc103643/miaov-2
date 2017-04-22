@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 5px;
+		}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	function mTween(el,target,time,type) {
+		clearInterval(el.timer);//预关闭可能的定时器
+		var t = 0;	//从第0次开始执行
+		var b = {}; //定义开始位置为一个对象
+		var c = {}; //定义变化差值为一个对象	
+		var d = time/20; //定义变化次数为变化时间除以时间间隔
+		for(var s in target) {  //定义遍历对象target内所有的属性，并为定义对象的b,c分别添加属性
+			b[s] = css(el,s);
+			c[s] = target[s] - b[s];
+		}
+		el.timer = setInterval(function(){
+			t++;
+			if(t>d) {
+				clearInterval(el.timer);
+			} else {
+				for(var s in target) {
+					//width
+					var val = Tween[type](t,b[s],c[s],d);
+					css(el,s,val);
+				}
+			}
+		},20);
+	}
+	window.onload = function() {
+		var str = "";
+		var len = 20;
+		var num = 0;
+		var timer = 0;
+		var div = document.getElementsByTagName("div");
+		for(var i = 0; i < len; i++) {
+			str += '<div style="width:50px;height:50px;background:red;position:absolute;top:0px;left:' +i*60+ 'px;"></div>';
+		}
+		document.body.innerHTML = str;
+
+		document.onclick = function() {
+			clearInterval(timer);
+			timer = setInterval(function(){
+				mTween(div[num],{top:500,opacity:0},1000,"linear");
+				num++;
+				if ( num === len ) {
+					clearInterval(timer);
+				}
+			},100)
+			
+		}
+	}
+	</script>
+</head>
+<body>
+</body>
+</html>

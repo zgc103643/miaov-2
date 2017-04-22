@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div {
+	width: 200px;
+	height: 200px;
+	color: #fff;
+	font-size: 20px;
+}
+.div1{
+	float: left;
+	background: red;
+}
+.div2 {
+	width: 300px;
+	height: 300px;
+	background: blue;
+}
+
+/*
+	float 浮动(left/right/none)
+	1. 在一行显示
+	2. 支持宽高
+	3. 不设置宽度 宽度由内容撑开
+	4. 按照一个指定的方向去移动，碰到父级的边界或者前边的浮动元素停止
+	5. 脱离文档流
+		
+	浮动： 使元素脱离文档流，然后 按照我们指定的方向去移动,碰到父级的边界或者前边的浮动元素停止
+
+ 文档流是文档中可显示对象在排列时所占用的位置。（页面中的元素根据它不同的特性会在我们的页面中去占有 不同区域的大小 -- 文档流）
+ 
+ 脱离文档流 -- 指的是 元素不在页面中 占位置
+ 
+
+*/
+</style>
+</head>
+<body>
+<div class="div1">div1</div>
+<div class="div2">div2</div>
+</body>
+</html>

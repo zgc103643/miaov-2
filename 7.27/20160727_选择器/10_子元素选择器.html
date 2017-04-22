@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+p,
+h2 {
+	font: bold 16px/30px "宋体";
+	border: 1px solid #000;
+}
+body p:nth-last-of-type(2) {
+	background: red;
+	color: #fff;
+}
+/*
+	e:nth-of-type(n) 找到e元素父级下第n个，e类型的元素
+	
+	:nth-of-type 可以接受的参数参考 nth-child
+	
+	:nth-last-of-type相当于倒着数的 :nth-of-type
+	:nth-last-of-type 可以接受的参数参考 nth-child
+*/
+</style>
+</head>
+<body>
+<p>p1</p>
+<h2>h1</h2>
+<p>p2</p>
+<p>p3</p>
+<h2>h2</h2>
+<p>p4</p>
+<h2>h3</h2>
+<p>p5</p>
+</body>
+</html>

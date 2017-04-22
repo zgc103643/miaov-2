@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则</title>
+</head>
+<body>
+	<input type="text"/>
+	<input type="button" value="确定"/>
+</body>
+<script type="text/javascript">
+	var input = document.getElementsByTagName("input");
+	var re = /^\d{5,12}$/;
+
+	input[1].addEventListener("click",fnClick);
+	function fnClick(){
+		if (re.test(input[0].value)) {
+			alert("符合号码规则");
+		}else{
+			alert("不符合号码规则");
+		}
+	}
+</script>
+</html>

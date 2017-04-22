@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+function fn1(){
+	//console.log("fn1");
+}
+fn1.prototype.say = function(){
+	console.log("pro1");
+}
+var f1 = new fn1();
+f1.say();
+//f1.howl();
+
+function tanslate(){}
+
+tanslate.prototype = fn1.prototype;
+
+function fn2(){}
+
+fn2.prototype = new tanslate();
+fn2.prototype.howl = function(){
+	console.log("pro2");
+}
+
+var f2 = new fn2();
+f2.say();
+f2.howl();
+
+</script>
+</html>

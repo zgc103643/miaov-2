@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+/* 清除用到的标签的默认样式 */
+body,
+h2,
+dl,
+dd {
+	margin: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+/*为a标签加入hover时有下滑线的效果*/
+a:hover {
+	text-decoration: underline;
+}
+/*去除img原本的空隙效果*/
+img {
+	border: none;
+	vertical-align: top;
+}
+/*设置section宽度，不让其顶在网页最上方*/
+.wrap {
+	width: 730px;
+	margin: 30px auto;
+}
+.header {
+	border-top: 3px solid #e4e4e4;
+	border-bottom: 1px solid #e4e4e4;
+}
+.header h2 {
+	font: bold 12px/24px "宋体";
+	text-indent: 5px;
+	color: #0364b3;
+}
+.list {
+	padding-top: 15px;
+	height: 125px;
+}
+/*为list中所有li添加float效果*/
+.list li {
+	float: left;
+	width: 96px;
+	margin: 0 21px 0 24px;
+}
+/*为list中所有img添加宽高padding等效果*/
+.list img {
+	width: 90px;
+	height: 90px;
+	padding: 2px;
+	border: 1px solid #d5d4dc;
+}
+/*为list中的文字添加颜色，a标签文字的样式只能通过a标签添加*/
+.list a {
+	color: #4c4c4c;
+}
+.list span {
+	display: block;
+	margin-top: 7px;
+	text-align: center;
+	font: 12px/22px "宋体";
+}
+/*为textList添加高度，供添加背景色使用*/
+.textList {
+	background: url(img/dlBg.png);
+	height: 64px;
+}
+.textList dt {
+	float: left;
+	width: 130px;
+	padding-top: 4px;
+	font: 12px/28px Arial,"宋体"; 
+	background: url(img/dtBg.png) repeat-x;
+	text-indent: 10px;
+	margin-right: 10px;
+}
+/*a标签，文字颜色*/
+.textList dt a {
+	color: #030000;
+}
+/*为众多dd添加float效果*/
+/*元素浮动后margin不再叠加*/
+.textList dd {
+	float: left;
+	width: 95px;
+	margin: 10px 0 6px;
+	border-right: 1px solid #ccc;
+	text-indent: 15px;
+	font: 12px/16px "宋体";
+}
+.textList dd a {
+	color: #333;
+}
+/*
+	元素浮动之后 ，margin不叠加
+*/
+</style>
+</head>
+<body>
+<section class="wrap">
+	<header class="header">
+    	<h2>全球通业务+</h2>
+    </header>
+    <ul class="list">
+    	<li>
+        	<a href="#">
+            	<img src="img/img.png"/>
+                <span>信息管家</span>
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+            	<img src="img/img.png"/>
+                <span>信息管家</span>
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+            	<img src="img/img.png"/>
+                <span>信息管家</span>
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+            	<img src="img/img.png"/>
+                <span>信息管家</span>
+            </a>
+        </li>
+        <li>
+        	<a href="#">
+            	<img src="img/img.png"/>
+                <span>信息管家</span>
+            </a>
+        </li>
+    </ul>
+    <dl class="textList">
+    	<dt>
+        	<a href="#">- 基本业务</a>
+        </dt>
+        <dd>
+        	<a href="#">国际漫游</a>
+        </dd>
+        <dd>
+        	<a href="#">国际长途</a>
+        </dd>
+        <dd>
+        	<a href="#">国际漫游</a>
+        </dd>
+        <dd>
+        	<a href="#">国际长途</a>
+        </dd>
+         <dd>
+        	<a href="#">国际漫游</a>
+        </dd>
+        <dd>
+        	<a href="#">更多</a>
+        </dd>
+        <dt>
+        	<a href="#">- 基本业务</a>
+        </dt>
+        <dd>
+        	<a href="#">国际漫游</a>
+        </dd>
+        <dd>
+        	<a href="#">国际长途</a>
+        </dd>
+         <dd>
+        	<a href="#">国际漫游</a>
+        </dd>
+        <dd>
+        	<a href="#">国际长途</a>
+        </dd>
+         <dd>
+        	<a href="#">国际漫游</a>
+        </dd>
+        <dd>
+        	<a href="#">更多</a>
+        </dd>
+    </dl>
+</section>
+</body>
+</html>

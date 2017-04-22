@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1,
+		#div2 {
+			width: 200px;
+			height: 200px;
+			border: 5px solid #000;
+			margin: 50px auto;
+		}
+		#div1>div,
+		#div2>div {
+			width: 180px;
+			height: 150px;
+			display: none;
+			margin: 10px auto;
+			text-align: center;
+			font: 80px/150px Arial;
+			box-sizing: border-box;
+		}
+		#div1>input,
+		#div2>input {
+			width: 30px;
+		}
+		.active {
+			background: red;
+		}
+		#div1 .show,
+		#div2 .show {
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var t1 = new Tab("div1");
+			//运行函数Tab，
+			//为函数Tab添加隐性对象和返回值，将返回值赋给变量ti。
+			t1.init();
+			//运行对象t1构造函数Tab的原型方法init
+			var t2 = new Tab("div2");			
+			t2.init();
+		}
+		function Tab(id){
+			this.parent = document.getElementById(id);
+			this.btns = this.parent.getElementsByTagName("input");
+			this.divs = this.parent.getElementsByTagName("div");
+		}
+		Tab.prototype.init = function(){
+			var _this = this;
+			//console.log(this.divs);
+			for (var i = 0; i < this.btns.length; i++) {
+				this.btns[i].index = i;
+				this.btns[i].onclick = function(){
+					//_this.divs[this.index].className = "show";
+					 _this.change(this);
+				}
+			}		
+		}
+		Tab.prototype.change = function(obj){
+			for (var i = 0; i < this.btns.length; i++) {
+				this.btns[i].className = "";
+				this.divs[i].className = "";
+			}
+			this.btns[obj.index].className = "active";
+			this.divs[obj.index].className = "show";
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input class="active" type="button"/>
+		<input type="button"/>
+		<input type="button"/>
+		<div class="show">1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+
+	<div id="div2">
+		<input class="active" type="button"/>
+		<input type="button"/>
+		<input type="button"/>
+		<div class="show">1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+</body>
+</html>

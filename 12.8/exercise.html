@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#sec {
+			width: 1200px;
+			height: 100px;
+		}
+		#sec div{
+			float: left;
+			width: 96px;
+			height: 96px;
+			border: 2px solid #fff;
+			background: red;
+			transition: .5s;
+		}
+	</style>
+</head>
+<body>
+	<section id="sec"></section>
+</body>
+<script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="miaov.js"></script>
+<script>
+	var $sec = $('#sec');
+
+	for (var i = 0; i < 12; i++) {
+		let $div = $('<div></div>');
+		$sec.append($div);
+	}
+
+	$sec.children().each(function(i,e,arr){
+		$(e).css({left:$(e).offset().left,top:$(e).offset().top})
+	});
+
+	$sec.children().css('position','absolute');
+	$sec.children().css('float','none');
+
+	$($sec).children().on('click',function(){
+		let $leftDiv = this;
+		let $rightDiv = this;
+
+		left($leftDiv);			
+		right($rightDiv);
+	})
+	function left($leftDiv){
+		var timer = setInterval(function(){
+			$($leftDiv).css('top',300);
+			$leftDiv = $($leftDiv).prev();
+		},300);
+	}
+	function right($rightDiv){
+		var timer = setInterval(function(){
+			$($rightDiv).css('top',300);
+			$rightDiv = $($rightDiv).next();
+		},300);
+	}
+</script>
+</html>

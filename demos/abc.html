@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>abc</title>
+	<style type="text/css">
+		li {
+			width: 200px;
+			margin: 10px;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul"></ul>
+</body>
+<script type="text/javascript">
+(function(D){
+	var ul = D.getElementById("ul");
+	for (var i = 0; i < 10; i++) {
+		var li = D.createElement("li");
+		li.index = i;
+		li.isEnlight = false;
+		li.innerHTML = "list"+i;
+		li.style.background = setColor(i);
+		li.onmouseover = function(){
+			this.style.background = "#aaa";
+		}
+		li.onmouseout = function(){
+			this.style.background = setColor(this.index);
+			enlight(this);
+		};
+		li.onclick = function(){
+			this.isEnlight = !this.isEnlight;
+			enlight(this);
+		}
+		ul.appendChild(li);
+	}
+	function setColor(i){
+		switch(i%3){
+			case 0:
+				return "red";
+			break;
+			case 1:
+				return "yellow";
+			break;
+			case 2:
+				return "blue";
+			break;
+		}
+	}
+	function enlight(sele){
+		if(sele.isEnlight){
+			sele.style.color = "#fff";
+			sele.style.background = "#000";
+		}else{
+			sele.style.color = "#000";
+			sele.style.background = setColor(sele.index);
+		}
+	}
+})(document);
+	
+</script>
+</html>

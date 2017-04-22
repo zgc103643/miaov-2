@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>forEach</title>
+	<style type="text/css">
+		#wrap {
+			width: 570px;
+			height: 280px;
+			border: 2px solid #000;
+			position: relative;
+			padding: 10px;
+			overflow: hidden;
+		}
+		#wrap li {
+			width: 120px;
+			height: 120px;
+			list-style: none;
+			background: #FEB13A;
+			float: left;
+			margin: 10px;
+			text-align: center;
+			font: 80px/120px '宋体';
+		}
+	</style>
+</head>
+<body>
+	<ul id="wrap"></ul>
+</body>
+<script type="text/javascript" src="miaov.js"></script>
+<script type="text/javascript">
+(function(D){
+	var wrap = D.getElementById("wrap");
+	var arrLi = [];
+	for (var i = 0; i < 8; i++) {
+		var li = D.createElement("li");
+		li.innerHTML = i;
+		arrLi.push(li);
+		wrap.appendChild(li);
+	}
+	
+	// wrap.onclick = function(){
+	// 	arrLi.reverse();
+	// 	wrap.innerHTML = "";
+	// 	arrLi.forEach(function(item,i,arrLi){
+	// 		wrap.appendChild(item);
+	// 	})
+	// }
+	// 无动画倒序变换
+	
+	var arrPosition = [];
+	getPosition();
+	setPosition();
+	wrap.onclick = function(){
+		//arrPosition = arrPosition.reverse();
+		//倒序
+		arrPosition.sort(function(){
+			return 0.5 - Math.random();
+		});
+		// 随机
+		setPosition();
+	}
+	function getPosition(){
+		arrLi.forEach(function(item,i,arrLi){
+			arrPosition.push({top:item.offsetTop,left:item.offsetLeft});
+		})
+	}
+	function setPosition(){
+		arrLi.forEach(function(item,i,arrLi){
+			arrLi[i].style.position = "absolute";
+			arrLi[i].style.margin = 0;
+			// arrLi[i].style.top = 0+"px";
+			// arrLi[i].style.left = 0+"px";
+			// 全数归零后再分配
+			mTween(arrLi[i],{top:arrPosition[i].top,left:arrPosition[i].left},800,"linear");
+		})
+	}
+})(document);
+</script>
+</html>

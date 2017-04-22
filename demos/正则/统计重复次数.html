@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	// var str = '1122212312223333833338344885557454723555';
+	// var arr = str.split("").sort();
+	// str = arr.join("");
+	// re = /(\d)\1+/g;
+	// var min = 0;
+	// var n = "";
+	// str.replace(re,function($0,$1){
+	// 	if (min<$0.length) {
+	// 		min = $0.length;
+	// 		n = $1;
+	// 	}
+	// })
+	// console.log(min,n);
+	// 正则方法
+	
+	var str = '1122212312223333833338344885557454723555';
+	var arr = str.split("").sort();
+		str = arr.join("");
+	
+	var json = {};
+	for (var i = 0; i < str.length; i++) {
+		if (!json[str.charAt(i)]) {
+			json[str.charAt(i)] = 1;
+		}else{
+			json[str.charAt(i)]++;
+		}
+	}
+	var min = -Infinity;
+	var n = "";
+	for(key in json){
+		if(min<json[key]){
+			min = json[key];
+			n = key;
+		}
+	}
+	console.log(min,n);
+	//json方法
+</script>
+</html>

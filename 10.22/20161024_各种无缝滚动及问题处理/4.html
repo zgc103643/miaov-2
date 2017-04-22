@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">	
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrap {
+	width: 240px;
+	margin: 40px auto;
+}
+nav {
+	text-align: center;
+	margin: 10px 0;
+}
+#imgs {
+	position: relative;
+	height: 240px;
+	overflow: hidden;
+}
+#list {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 200%;
+}
+#list li {
+	float: left;
+}
+.active {
+	background: #333;
+	color: #fff;
+}
+</style>
+<script type="text/javascript" src="miaov.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	var wrap = document.querySelector('.wrap');
+	var navs = wrap.querySelectorAll('nav');
+	var prev = navs[0].children[0];
+	var next = navs[0].children[1];
+	var nav = navs[1].children;
+	var list = document.querySelector('#list');
+	var lis = list.children;
+	//获取所需所有元素
+	var imgW = css(wrap,"width");
+	//获取wrap的宽度
+	var now = 0;
+	//声明变量now
+	var isMove = false;
+	//运动行为的开关
+	var imgs = [
+		"img/1.jpg", 
+		"img/2.jpg", 
+		"img/3.jpg", 
+		"img/4.jpg", 
+		"img/5.jpg"
+	];
+	//存放所有图片src的数组
+	for(var i = 0; i < nav.length; i++){
+	//对于nav每一项的循环
+		if(nav[i].className == "active"){
+			now = i;
+		}
+		//定义now等于nav中被点亮项的编号
+		nav[i].index = i;
+		nav[i].onmouseover = function(){
+			if(isMove){
+				return;
+			}
+			//如果isMove值为true，打断函数执行
+			isMove = true;
+			//如果通过上述验证，开启isMove
+			var next = this.index;
+			//将现有编号赋予变量next
+			if(next > now){
+				//如果被点击项在原选项右边
+				css(list,"left",0);
+				//将list拖到left值为0处
+				lis[0].children[0].src =  imgs[now];
+				lis[1].children[0].src =  imgs[next];
+				//将两张图片的src分别赋予数组中第now个和第next个
+				mTween(list,{left:-imgW},1000,"easeBoth",function(){
+					isMove = false;
+				});
+				//图片组从左至右移动，并在回调函数中关闭isMove开关
+			} else {
+				//如果被选中项在原选项左边，
+				//从右向左移动，原理同上
+				css(list,"left",-imgW);
+				lis[1].children[0].src =  imgs[now];
+				lis[0].children[0].src =  imgs[next];
+				mTween(list,{left:0},1000,"easeBoth",function(){
+					isMove = false;
+				});
+			}
+			nav[now].className = "";
+			nav[next].className = "active";
+			//关闭和点亮选项卡对应项
+			now = next;
+			//now=next；
+		};
+	}
+	next.onclick = function(){
+		if(isMove){
+			return;
+		}
+		isMove = true;
+		//左右切换按钮在点击时，
+		//也需要使用开关
+		//原理同上
+		var next = now + 1;
+		if(next >= imgs.length){
+			next = 0;
+		}
+		css(list,"left",0);
+		lis[0].children[0].src =  imgs[now];
+		lis[1].children[0].src =  imgs[next];
+		mTween(list,{left:-imgW},100,"easeBoth",function(){
+					isMove = false;
+		});
+		nav[now].className = "";
+		nav[next].className = "active";
+		now = next;
+	};
+	prev.onclick = function(){
+		if(isMove){
+			return;
+		}
+		isMove = true;
+		var next = now - 1;
+		if(next < 0){
+			next = imgs.length - 1;
+		}
+		css(list,"left",-imgW);
+		lis[1].children[0].src =  imgs[now];
+		lis[0].children[0].src =  imgs[next];
+		mTween(list,{left:0},100,"easeBoth",function(){
+			isMove = false;
+		});
+		nav[now].className = "";
+		nav[next].className = "active";
+		now = next;
+	};
+};
+</script>
+</head>
+<body>
+<div class="wrap">
+	<nav>
+		<input type="button" value="上一张">
+		<input type="button" value="下一张">
+	</nav>
+	<div id="imgs">
+		<ul id="list">
+			<li><img src="img/1.jpg"></li>
+			<li><img src="img/2.jpg"></li>
+		</ul>
+	</div>
+	<nav>
+		<input type="button" value="0" class="active">
+		<input type="button" value="1">
+		<input type="button" value="2">
+		<input type="button" value="3">
+		<input type="button" value="4">
+	</nav>
+</div>
+</body>
+</html>

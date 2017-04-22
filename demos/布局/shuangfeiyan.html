@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>shuangfeiyan</title>
+	<style>
+	    #main {overflow: hidden;zoom: 1;}/*这里不需要加padding了*/
+	    .m_content, .m_leftside, .m_rightside {float: left;}
+	    .m_content {width: 100%;}
+	    /*用左右边距将左右边栏的位置预留出来*/
+	    .m_c_wrap {margin-left: 220px;margin-right:300px;}
+	    .m_leftside {width: 220px;margin-left: -100%;}
+	    .m_rightside {width: 300px;margin-left: -300px;}
+	</style>
+</head>
+<body>
+<div id="main">
+    <div class="m_content">
+        <!--正真的主体开始-->
+        <div class="m_c_wrap">这里是主体</div>
+    </div>
+    <div class="m_leftside">这是左侧边栏</div>
+    <div class="m_rightside">这是右侧边栏</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		section {
+			width: 330px;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		input {
+			float: left;
+		}
+		p {
+			float: left;
+			margin: 0;
+			display: none;
+		}
+		.show {
+			display: block;
+		}
+		.btn {
+			float: none;
+		}
+	</style>
+</head>
+<body>
+<section>
+	<input type="text"/><p>名字必须是中文</p>
+	<input type="text"/><p>邮箱格式不正确</p>
+	<input type="text"/><p>请填写有效手机号码</p>
+</section>
+<input type="button" class="btn" value="提交">
+</body>
+<script type="text/javascript">
+	var input = document.querySelectorAll("input");
+	var ps = document.querySelectorAll("p");
+	var re1 = /\w/;
+	var re2 = /\w/;
+	var re3 = /\d{11}/;
+	input[3].onclick = function(){
+		if(re1.test(input[0].value)){
+			ps[0].className = "show";
+		}else {
+			ps[0].className = "";
+		}
+
+		var text2 = input[1].value;
+		// if(text2.indexOf("@") == -1 || text2.indexOf(".com") == -1 || ){
+		// 	ps[1].className = "show";
+		// }else {
+		// 	ps[1].className = "";
+		// }
+
+		if (re3.test(input[2].value)) {
+			ps[2].className = "";
+		} else {
+			ps[2].className = "show";
+		}
+	}
+
+</script>
+</html>

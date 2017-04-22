@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>pruduct</title>
+	<script src="js/html5shiv.min.js"></script>
+	<link href="css.css" rel="stylesheet">
+</head>
+<body>
+	<header id="header" class="clearFix">
+		<div class="wrap clearFix">
+			<h1>七牛</h1>
+			<div class="headerLogin clearFix">
+				<a class="login" href="#">登录</a>
+				<a  class="try" href="#">免费试用</a>
+			</div>
+			<ul class="headerNav clearFix">
+				<li>
+					<a href="index.html">首页</a>
+					<span class="hover"></span>
+				</li>
+				<li class="active">
+					<a href="product.html">产品</a>
+					<span class="hover"></span>
+				</li>
+				<li>
+					<a href="price.html">价格</a>
+					<span class="hover"></span>
+				</li>
+				<li>
+					<a href="example.html">案例</a>
+					<span class="hover"></span>
+				</li>
+				<li>
+					<a href="about.html">关于</a>
+					<span class="hover"></span>
+				</li>
+				<li class="square">
+					<a href="#">广场</a>
+					<span class="hover"></span>
+					<div class="hidden">
+						<div class="opacity">
+							<div class="BA"></div>
+						</div>						
+						<div class="blue">
+							<a class="blog" href="#">七牛博客</a>
+							<a class="plan" href="#">扶植计划</a>
+							<a class="practice" href="#">架构师实践日</a>
+						</div>
+					</div>
+				</li>
+			</ul>			
+		</div>
+	</header>
+	<nav id="product_nav">
+		<div class="wrap">
+			<a href="#">安全存储</a>
+			<a href="#">分发速度</a>
+			<a href="#">数据处理</a>
+			<a href="#">直播服务</a>
+		</div>
+	</nav>
+	<section id="product_content">
+		<div class="wrap">
+			<h2>安全存储</h2>
+			<p class="product_exp">	高可用性和高可靠性的存储服务，支持弹性扩容，服务7x24小时在线
+			</p>
+			<div class="product_banner ba1"></div>
+			<div class="product_text clearFix">
+				<div class="product_con">
+					<h3>安全性</h3>
+					<p>针对用户上传的数据，至少创建三副本并跨IDC存储到多个数据中心，保证数据的高可用性和可靠性。用户可通过七牛的身份验证机制设置不同的访问权限和访问级别。</p>
+				</div>				
+				<div class="product_con">
+					<h3>弹性空间</h3>
+					<p>七牛的存储系统支持弹性扩容，让您无需担心存储空间不足。七牛的存储、加速节点遍布全球，且每个节点都是读/写/同步IO，真正做到数据实时一致，从而保障了读写性能不会随着数据量增长而降低。</p>
+				</div>			
+				<div class="product_con">
+					<h3>按需付费</h3>
+					<p>用多少，花多少！传统的存储方式，基本是按峰值预估带宽和空间，但日常用不到那么大的量。使用七牛云存储，可以帮您节省高达70%的存储成本。</p>
+				</div>			
+				<div class="product_con">
+					<h3>持续在线</h3>
+					<p>所有的故障（IDC故障、设备故障等）和升级（系统升级、扩容等）透明化，您感觉到的是持续可用的服务。七牛的服务7x24小时在线，避免服务升级或服务器宕机而导致数据不可访问。</p>
+				</div>
+			</div>
+
+			<h2>分发加速</h2>
+			<p class="product_exp">	首创全球分布式架构，支持上传下载双向加速、断点续传
+			</p>
+			<div class="product_banner ba2"></div>
+			<div class="product_text clearFix">
+				<div class="product_con">
+					<h3>融合CDN加速</h3>
+					<p>精选主流CDN厂商优质节点，与七牛自有高质量节点相结合，全面覆盖各运营商，无盲区；节点级互备，服务高可用高性能，持续的运营优化，长期保证服务品质；精确到单请求控制能力，100%实时调度精准可控。</p>
+				</div>				
+				<div class="product_con">
+					<h3>双向加速</h3>
+					<p>移动互联网时代的网络复杂，且存在南北互通问题。七牛遍布全球的1000多个加速节点，自动选择离用户最近的节点，使得数据的上传下载速度均得到最优化。相较传统IDC，访问速度提升数倍。</p>
+				</div>			
+				<div class="product_con">
+					<h3>断点续传</h3>
+					<p>对上传和下载的双向断点续传支持，即使在极差的移动网络中照样可以读写数据，从而保障用户体验。</p>
+				</div>			
+				<div class="product_con">
+					<h3>降低回源率</h3>
+					<p>使用七牛的镜像存储对源站资源（文件/图片等）进行存储后，即可使用七牛内置的CDN加速分发访问，还可以有一个很低的回源率。</p>
+				</div>
+			</div>
+
+			<h2>数据处理</h2>
+			<p class="product_exp">	丰富的图片、多媒体在线处理服务，完备的数据分析功能
+			</p>
+			<div class="product_banner  ba3"></div>
+			<div class="product_text clearFix">
+				<div class="product_con">
+					<h3>丰富的图片处理</h3>
+					<p>常规的图片处理通常放在企业的客户端或服务器端来操作，对接上七牛云存储的图像处理接口后，即可使用丰富的图片处理服务，大大减少企业带宽消耗，提高开发效率。<br/>七牛图片处理： 缩略图(多种规格缩放)、图文混排水印、自定义裁剪区域、旋转、调整图片质量、图片格式转换、原图保护、防盗链</p>
+				</div>				
+				<div class="product_con">
+					<h3>音视频/流媒体在线处理</h3>
+					<p>七牛云存储国内首创了在线音视频/流媒体处理服务，并提供优质的音视频分发网络。 七牛音视频/流媒体处理：<br/>支持常见ffmpeg音视频格式互转，如mp3、aac、m4a、mp4、avi、flv。支持视频帧提取，可以取视频任意时间点的截图。<br/>支持流媒体传输协议(HLS)。</p>
+				</div>			
+				<div class="product_con">
+					<h3>数据分析和挖掘</h3>
+					<p>七牛云存储内置丰富的数据分析功能，为您记录文件存储、下载量及API请求数的详细数据，供您进行数据的分析和挖掘用户的行为。</p>
+				</div>			
+				<div class="product_con">
+					<h3>扩展性</h3>
+					<p>客户可以将自定义数据处理模块部署到七牛云存储的就近计算环境，避免远程读写数据的性能开销和流量成本。</p>
+				</div>
+			</div>
+
+			<h2>直播服务</h2>
+			<p class="product_exp">	七牛直播服务结合七牛移动端直播SDK与VDN智能调度分发网络，为各类直播平台提供便捷接入、低延迟、不卡顿、低成本的全套直播解决方案，并提供多种扩展功能组合，如存储、截图、实时转码、美颜、连麦等。
+			</p>
+			<div class="product_banner ba4"></div>
+			<div class="product_text clearFix">
+				<div class="product_con">
+					<h3>智能调度</h3>
+					<p>自建下一代视频上行下行加速网络和边缘节点。BGP 多线接入，覆盖全网；多活的调度中心，极强的容灾和故障恢复能力。</p>
+				</div>				
+				<div class="product_con">
+					<h3>实时转码</h3>
+					<p>收流服务端实时转码，实时输出可选多码率的 HLS/RTMP/FLV 流，灵活适配多终端多平台播放器。</p>
+				</div>			
+				<div class="product_con">
+					<h3>丰富的SDK</h3>
+					<p>强大的客户端编码推流 SDK，丰富的滤镜、美颜、鉴黄等第三方增值服务。强大灵活的可定制跨平台播放器。提供兼容性强的软编码方案和经过测试的机型硬编码方案。</p>
+				</div>			
+				<div class="product_con">
+					<h3>QoS质量监控</h3>
+					<p>实时收集推流和播放终端网络质量、设备信息，实时调整终端推流、拉流线路。实时监控边缘节点和中继节点，实时调整推流路由。</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer id="footer">
+		<header class="clearFix">
+				<div class="wrap">
+					<p>订阅服务：</p>
+					<p class="health">健康状态</p>
+					<div class="icon4"></div>
+					<div class="icon3"></div>
+					<div class="icon2"></div>
+					<div class="icon1"></div>
+				</div>
+		</header>				
+		<div class="conFooter">
+			<div class="wrap clearFix">
+				<ul>
+					<li class="phoneIcon"><a href="#"></a></li>
+					<li>联系电话：400-808-9176</li>
+					<li>商务合作：<a href="#">marketing@qiniu.com</a></li>
+					<li>销售合作：<a href="#">sales@qiniu.com</a></li>
+					<li>技术支持：<a href="#">support@qiniu.com</a></li>
+					<li>公司地址：<a href="#">查看</a></li>
+				</ul>
+				<dl class="about">
+					<dt>关于</dt>
+					<dd><a href="#">公司介绍</a></dd>
+					<dd><a href="#">媒体报道</a></dd>
+					<dd><a href="#">七牛博客</a></dd>
+					<dd><a href="#">加入我们</a></dd>
+					<dd><a href="#">联系我们</a></dd>
+					<dd><a href="#">合作伙伴</a></dd>
+					<dd><a href="#">友情链接</a></dd>
+				</dl>
+				<dl>
+					<dt>开发者支持</dt>
+					<dd><a href="#">文档中心</a></dd>
+					<dd><a href="#">资源下载</a></dd>
+					<dd><a href="#">问答社区</a></dd>
+					<dd><a href="#">工单支持</a></dd>
+					<dd><a href="#">创业赞助计划</a></dd>
+				</dl>
+				<dl>
+					<dt>产品</dt>
+					<dd><a href="#">安全存储</a></dd>
+					<dd><a href="#">分发加速</a></dd>
+					<dd><a href="#">数据处理</a></dd>
+					<dd><a href="#">控制台</a></dd>
+					<dd><a href="#">价格</a></dd>
+				</dl>
+				<div class="iconLast clearFix">
+					<div class="cunchufuwu"></div>
+					<div class="shanghaigongshang"></div>
+				</div>
+				<div class="license clearFix">
+					<span>© 2016 上海七牛信息技术有限公司</span>
+					<a class="p1" href="#">用户使用协议</a>
+					<a class="p2" href="#">SLA协议</a>
+					<a class="p3" href="#">沪ICP备11037377号-5</a>
+					<a class="iconPolice" href="#"></a>
+					<a class="p4" href="#">沪公网安备 31011502000961号</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

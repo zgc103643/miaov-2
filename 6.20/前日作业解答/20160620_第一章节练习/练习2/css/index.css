@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+a {
+	text-decoration: none;
+	color: #252525;
+	font-size: 12px;
+	margin-right: 10px;
+	white-space: nowrap;
+	vertical-align: top;
+}
+#box {
+	width: 300px;
+	border-top: 2px solid #206f96;
+}
+#header {
+	height: 29px;
+	padding-left: 10px;
+	font: 600 14px/28px "宋体";
+	color: #252525;
+	border: 1px solid #cfcfcf;
+	border-top: none;
+	background: url(../img/header.png) repeat-x;
+}
+#content {
+	border: 1px solid #cfcfcf;
+	border-top: none;
+	font: 0/25px "宋体";
+}
+#con1 {
+	padding: 19px 0 13px 50px;
+	background: url(../img/icon.png) no-repeat 16px 25px;
+}
+#con2 {
+	padding: 13px 0 13px 50px;
+	background: url(../img/icon2.png) no-repeat 9px 51px #f7f7f7;
+}
+#con2Last {
+	margin-right: 0;
+}
+#con3 {
+	padding: 13px 0 13px 50px;
+	background: url(../img/icon3.png) no-repeat 15px 25px;
+}
+#con3_2 {
+	font-family: Arial;
+}
+#con4 {
+	padding: 13px 0 14px 50px;
+	background: url(../img/icon4.png) no-repeat 12px 49px #f7f7f7;
+}

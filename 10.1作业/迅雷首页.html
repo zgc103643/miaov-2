@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>迅雷首页</title>
+	<style>
+		body {
+			position: relative;
+			margin: 0;
+		}
+		h1 {
+			float:left;
+			margin: 12px 0 0 34px;
+			padding: 0;
+		}
+		p {
+			margin: 0;
+		}
+		h1 a {
+			float: left;
+		}
+		a {
+			text-decoration: none;
+		}
+		#bg_box{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#bg_box img{
+			width: 1366px;
+			height: auto;
+		}
+		header {
+			position: fixed;\
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 85px;
+			z-index: 3;
+		}
+		.h1 {	
+			width: 142px;
+		}
+		ul {
+			float: right;
+			padding: 0;
+			margin: 0;
+		}
+		.headUl li {
+			float:right;
+			position: relative;
+			width: 162px;
+			height: 84px;
+			list-style: none;
+		}
+		.headUl li a {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -19px 0 0 -68px;
+			width: 136px;
+			height: 38px;
+			font: 16px/38px "微软雅黑";
+			text-align: center;
+			color: #fff;
+		}
+		.headUl li a:hover{
+			border: 2px solid rgba(255,255,255,0.5);
+			margin: -21px 0 0 -70px;
+			/*box-sizing: border-box;*/
+		}
+		.headUl li span{
+			position: absolute;
+			top: 10px;
+			left: 15px;
+			width: 29px;
+			height: 19px;
+			display: inline-block;
+			background: url(img/head_spr.png);
+		}
+		.headUl li p{
+			width: auto;
+			height: 38px;
+			margin-left: 35px;
+			display: inline-block;
+		}
+		.headUl li .icon1{
+			background-position: 0 -24px;			
+		}
+		.headUl li .icon2{
+			background-position: -54px 0;			
+		}
+		.headUl li .icon3{
+			background-position: 0 0;			
+		}
+		section{
+			height: 863px;
+		}
+		#control_box{
+			position: absolute;
+			bottom: 60px;
+			left: 50%;
+			width: 280px;
+			height: 66px;
+			margin-left: -140px;
+			z-index: 3;	
+		}
+		#control_box a{
+			float: left;
+			width: 70px;
+			height: 71px;
+			border-bottom: 2px solid rgba(255,255,255,0.5);
+			/*background: blue;*/
+		}
+		#control_box .last{
+			width: 55px;
+		}
+		#control_box a span{
+			width: 55px;
+			height: 71px;
+			margin-right: 15px;			
+			background: url(img/ic_spr.png);
+			display: block;
+			box-sizing: border-box;
+		}
+		#control_box a .icon1{
+			background-position: -3px 0;			
+		}
+		#control_box a .icon2{
+			background-position: -114px -3px;			
+		}
+		#control_box a .icon3{
+			background-position: -224px -3px;			
+		}
+		#control_box a .icon4{
+			margin-right: 0;
+			background-position: -321px -3px;			
+		}
+	</style>
+	<script>
+		function css(el,attr,val) {
+			if(arguments.length < 3) {
+				var val  = 0;
+				if(el.currentStyle) {
+					val = el.currentStyle[attr];
+				} else {
+					val = getComputedStyle(el)[attr];
+				}
+				if(attr == "opacity") {
+					val*=100;
+				}
+				return parseFloat(val);
+			}
+			if(attr == "opacity") {
+				el.style.opacity = val/100;
+				el.style.filter = "alpha(opacity = "+val+")";
+			} else {
+				el.style[attr] = val + "px";
+			}
+		}
+		window.onload = function() {
+			var str = "";
+			var 
+			body = document.querySelector("body");
+			//icon = document.get
+			//var bgd = [ic_xnet9,bg_shoulei,bg_member,bg_xav]; 
+			screenWidth = css(body,"width");
+			
+			str += "<div id='bg_box' style='width:"+1349+"px; height:auto;'><img style='width:"
+				+1349+"px;height:auto;' src='img/bg_1.jpg'/></div>";
+			body.innerHTML += str;
+			//应该获取屏幕宽度？存疑
+			
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<h1><a href="#"/><img class="h1" src="img/n_logo.png"/></a></h1>
+		<ul class="headUl">
+			<li><a href="#"/><span class="icon1"></span><p>更多</p></a></li>
+			<li><a href="#"/><span class="icon2"></span><p>新闻中心</p></a></li>
+			<li><a href="#"/><span class="icon3"></span><p>产品中心</p></a></li>
+		</ul>
+	</header>
+	<section>
+		<div id="control_box">
+			<a href="#"><span class="icon1"></span></a>
+			<a href="#"><span class="icon2"></span></a>
+			<a href="#"><span class="icon3"></span></a>
+			<a class="last" href="#"><span class="icon4"></span></a>
+		</div>
+	</section>
+</body>
+</html>

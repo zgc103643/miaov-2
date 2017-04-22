@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>pic_change</title>
+	<style>
+	img {
+		vertical-align: top;
+	}
+	#wrap{
+		width: 300px;
+		height: 256px;
+		border: 2px solid #000;
+		margin:30px auto;
+		text-align: center;
+	}
+	.btns {
+		margin: 10px 0 0 10px;
+	}
+	.btns input {
+		width: 70px;
+		height: 18px;
+		text-align: center;
+	}
+	#pText {
+		width: 300px;
+		height: 30px;
+		margin: 0;
+		background: #000;
+		font: 12px/30px "宋体";
+		color: #fff;
+	}
+	#prev {
+
+	}
+	#next {
+		
+	}
+	</style>
+	<script>
+	
+	window.onload = function() {
+
+		var arrSrc= [
+				"pics/img0.jpg",
+				"pics/img1.jpg",
+				"pics/img2.jpg",
+				"pics/img3.jpg"
+		];
+		var arrText= [
+				"四之一",
+				"四之二",
+				"四之三",
+				"四之四"
+		];
+
+		var oPrev = document.getElementById("prev");
+		var oNext = document.getElementById("next");
+		var oImg = document.getElementById("img");
+		var oSpanText = document.getElementById("spanText");
+		var oPText = document.getElementById("pText");
+		var num = 0;
+
+		oSpanText.innerHTML= (num+1) + "/" + arrText.length;
+		oPText.innerHTML= arrText[num];
+
+		var oInline = document.getElementById("inline");
+		var oCircle = document.getElementById("circle");
+		var isTab = true;
+
+		oInline.onclick= function() {
+			isTab= true;
+		}
+		oCircle.onclick= function() {
+			isTab= false;
+		}
+		
+		oPrev.onclick= function() {
+
+			if(num<1) {
+				num= 0;
+				alert("已经是第一张");
+			}else {
+				num--;
+				oImg.src= arrSrc[num];
+				oSpanText.innerHTML= (num+1) + "/" + arrText.length;
+				oPText.innerHTML= arrText[num];
+			}
+		}
+		oNext.onclick= function() {
+
+			if(num>2) {
+				num= 3;
+				alert("已经是最后一张");
+			}else {
+				num++;
+				oImg.src=  arrSrc[num];
+				oSpanText.innerHTML= (num+1) + "/" + arrText.length;
+				oPText.innerHTML= arrText[num];
+			}
+		}	
+	};
+	</script>
+</head>
+<style></style>
+	<body>
+	<div id="wrap">
+		<div class="btns">
+			<input type="button" id="inline" value="顺序切换"/>
+			<input type="button" id="circle" value="循环切换"/>
+			
+		</div>
+		<img src="pics/img0.jpg" id="img">
+		<span id="spanText"></span>
+		<p id="pText"></p>
+		<div>
+			<a href="javascript:;" id="prev">上一张</a>
+			<a href="javascript:;" id="next">下一张</a>
+		</div>
+	</div>
+</body>
+</html>

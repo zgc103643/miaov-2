@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贪吃蛇</title>
+	<style type="text/css">
+	body {
+		margin: 0;
+		background: skyblue;
+	}
+	#snake {
+		width: 800px;
+		border: 2px solid #FD5C3B;
+		background: #ccc;
+		margin: 0 auto;
+	}
+	.info {
+		height: 60px;
+		border-bottom:  2px solid #FD5C3B;
+		text-align: center;
+		font:28px/60px Arial;
+	}
+	#map {
+		border-bottom:  2px solid #FD5C3B;
+	}
+	#map table {
+		margin: 0 auto;
+	}
+	#map table td{
+		width: 22px;
+		height: 22px;
+		border: 1px solid #fec489;
+		background: #fff;	
+	}
+    #map table td.snake {
+    	background: #728cff;
+    }
+    #map table td.food {
+    	background: #ebff10;
+    }
+    #map table td.break {
+    	background: #20f5fb;
+    }
+    .help {
+    	height: 50px;
+    	display: flex;
+    }
+    .left {
+    	width: 75%;
+		display: flex;
+		border-right: 1px solid red;
+		justify-content: space-around;
+		align-items: center;
+    }
+    .right {
+     flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    }
+   .left div {
+	height: 50px;
+	align-items: center;
+	display: flex;
+    }
+   .left div span{
+	width: 22px;
+	height: 22px;
+	display: block;
+	border:1px solid #fbe2f9;
+	background: blue;
+	margin-right:5px; 
+    }
+	</style>
+</head>
+<body>
+	  <div id="snake">
+	      <div class="info">贪吃蛇</div>
+	      <div id="map">
+	         <!--  <table cellpadding="0" cellspacing="0">
+                   <tr>
+	             	<td></td>
+	             	<td></td>
+	             	<td></td>
+	             </tr>
+	             <tr>
+	             	<td></td>
+	             	<td></td>
+	             	<td></td>
+	             </tr>	   
+	          </table>	    -->                    
+	      </div>
+	      <div id="help">
+	          <div class="left">
+	              <div><span></span>蓝瘦</div>
+	              <div><span></span>香菇</div>
+	              <div><span></span>神器</div>
+	              <div><span></span>千万别吃</div>
+	          </div>
+	          <div class="right">
+	              <span>战绩：<i id="score">0</i>分</span>
+	          </div>
+	      </div>
+	  </div>
+	  <script type="text/javascript">
+	  (function(){
+         var colors=['#81ff9c','#f72ab5','#ebff1d','#20f5fb'];
+         var spans =document.querySelectorAll('.left span');
+         spans =[...spans];
+         spans.forEach( (item,i)=>{
+         	item.style.background=colors[i];
+         });
+         //变量声明部分
+         var mapX =20, mapY=20;
+         var snakeData=createArr(mapX,mapY);
+         var mapData = createArr(mapX,mapY);
+
+         var snake = [];
+          var len =3;
+          var speed = 10;
+          var snakeTimer =null;
+          var direction = 39;
+          var skateTimer=[];
+          var breakTimer =[];
+          var flag = true;
+         //初始化部分
+         createMap(mapX,mapY);
+         initSnake();
+         walk();
+         addObj('food');
+         addToy();
+        //初始化蛇长度速度
+          
+          
+          
+         //需求函数化部分
+         //需求1：生成地图
+         function createMap(x,y) {
+         	var map = document.getElementById('map');
+         	var table =document.createElement('table');
+         	table.cellPadding=table.cellSpacing=0;
+         	var tbody = table.createTBody();
+         	for(var i=0;i<x;i++) {
+         		var tr =document.createElement('tr');
+         		for(var j=0;j<y;j++) {
+         			var td =document.createElement('td');
+         			snakeData[i][j]=tr.appendChild(td);        			
+         		}
+         		tbody.appendChild(tr);
+         	}
+         	table.appendChild(tbody);
+         	map.appendChild(table);
+         }
+         //需求2：创建二维数组
+         function createArr(x,y) {
+         	var arr =new Array(x);
+         	for(var i=0;i<x;i++) {
+         		arr[i]=new Array(y);
+         	}
+         	return arr;
+         }
+         //需求3；设置范围
+         function scope(startX,startY,endX,endY) {
+         	startX=startX||0;
+         	startY=startY||0;
+         	endX=endX||mapX-1;
+         	endY=endY||mapY-1;
+         	var p =[];
+         	    x=rP([startX,endX]);
+         	    y=rP([startY,endY]);
+         	  p.push(x,y); //用来判断生成的位置是否有物品  如果有重复执行上面的代码
+         	  if(mapData[x][y]) {
+         	  	return scope(startX,startY,endX,endY);
+         	  } 
+         	  return p;
+         }
+         //需求4；边写随机数
+         function rP(arr) {
+         	var max =Math.max.apply(null,arr);
+         	var min =Math.min.apply(null,arr);
+         	return Math.round(Math.random()*(max-min)+min);
+         }
+        //需求5：写蛇
+        function initSnake() {
+        	//找一个随机的点 但是这个点必须符合指定范围 不能撞墙 也不能截取
+        	var p = scope(0,2,mapX-1,parseInt(mapY/2));
+            for(var i=0;i<len;i++) {
+               var x =p[0],//某一行
+                   y=p[1]-i;//某一行中的挨着的  3个td
+                   snake.push([x,y]);//放到蛇的数组中  这样这个数组就存了三个挨着的点  绘制蛇  在数组层面注册蛇的数据
+                   snakeData[x][y].className ='snake';
+                   mapData[x][y]='snake';
+            }
+        }
+        //需求6：蛇走起来
+        function walk() {
+        	clearInterval(snakeTimer);
+        	snakeTimer=setInterval(step,5000/speed);
+        }
+        //需求7：控制蛇的运动
+        function step() {
+           var headX=snake[0][0];
+           var headY=snake[0][1];
+           switch(direction) {
+           	case 37:
+           	    headY-=1;
+           	break;
+           	case 38:
+           	    headX-=1;
+           	break;
+           	case 39:
+           	    headY+=1;
+           	break;
+           	case 40:
+           	    headX+=1;
+           	break;
+           }
+           if(headX<0||headX>mapX-1||headY<0||headY>mapY-1||mapData[headX][headY]=='snake') {
+           	clearInterval(snakeTimer);
+           	alert('bangbang you are die!');
+           	return;
+           }
+           //死亡条件
+           if(len%4==0&&len<55&&mapData[headX][headY]=='food') {
+               speed+=5;
+               walk();
+           }
+           //如果是food标记，加速
+           if(len%9==0&&len<60&&mapData[headX][headY]=='food') {
+                speed+=5;
+                addObj('block');
+           }
+           //如果到一定长度增加难度
+           if(mapData[headX][headY]=='food'){
+           	addObj('food');
+           	mapData[headX][headY]=true;
+           }
+           if(!mapData[headX][headY]){
+           	var lastX = snake[snake.length-1][0]
+           	var lastY = snake[snake.length-1][1];
+           	snakeData[lastX][lastY].className='';
+           	snake.pop();
+           	mapData[lastX][lastY]=false;
+           }
+           snake.unshift([headX,headY]);
+           snakeData[headX][headY].className='snake';
+           mapData[headX][headY]='snake';
+           len=snake.length;
+           flag=true;
+           //吃过后加长
+        }
+        document.onkeydown=function(e) {
+        	var e=e||window.event;//兼容
+        	if(!flag) {
+        		return;
+        	}
+        	if(e.keyCode>36&&e.keyCode<41&&Math.abs(e.keyCode-direction)!=2) {
+        		direction=e.keyCode;
+        	}
+        	return false;
+        }
+        //需求9：添加随机物品
+        function addObj(name) {
+        	var p =scope();
+        	snakeData[p[0]][p[1]].className=name;
+        	mapData[p[0]][p[1]]=name;
+        }
+        //需求10：添加随机数量的滑板和刹车
+        function addToy() { 
+        	var skateNum =rP([6,10]);
+        	var breakNum =rP([4,6]);
+        	for(var i=0;i<skateNum;i++) {
+        		skateTimer.push(setTimeout(function(){
+                  addObj('skate');
+        		}),rP([8000,120000]))
+        	};
+        	for(var i=0;i<breakNum;i++) {
+        		breakTimer.push(setTimeout(function(){
+                  addObj('break');
+        		}),rP([10000,160000]))
+        	}
+        }
+
+	  })()
+	  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>function</title>
+</head>
+<style type="text/css">
+	body {
+		font: 20px/30px "微软雅黑";
+	}
+</style>
+<body>
+	
+</body>
+<script type="text/javascript">
+	(function(){
+		var str = "";
+		for (var i = 0; i < 100; i++) {
+			str += "<span>"+i+"</span><br/>";
+		}
+		document.body.innerHTML = str;
+	})();
+	document.addEventListener("touchstart",fnStart,false);
+	function fnStart(){
+		console.log(1);
+		document.addEventListener("touchmove",fnMove,false);
+		function fnMove(ev){
+			ev.preventDefault();
+		}
+	}
+</script>
+</html>

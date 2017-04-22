@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	.clearfix {
+		*zoom:1;	
+	}
+	.clearfix:after {
+		content: "";
+		display: block;
+		clear: both;	
+	}
+	/*.clearfix{
+				*zoom:1;
+			}
+			.clearfix:after{
+				content: "";
+				display: block;
+				clear: both;
+			}*/
+	.box{
+		border:1px solid red;
+	}
+	.item{
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		float: left;
+	}
+</style>
+</head>
+<body>
+    <div class="box clearfix">
+        <div class="item"></div>
+    </div>
+</body>
+</html>

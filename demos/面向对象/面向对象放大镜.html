@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{ width:180px; height:180px; overflow:hidden; position:relative;}
+		#div1 span{ width:100px; height:100px; background:yellow; opacity:0.5; filter:alpha(opacity=50); position:absolute; left:0; top:0; display:none;}
+		#img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 500px;
+			height: 500px;
+		}
+		#div2 {
+			position: absolute;
+			left: 200px;
+			top: 8px;
+			width: 180px;
+			height: 180px;
+			overflow: hidden;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var s1 = new Scrope();
+			s1.init();
+		}
+		function Scrope(){
+
+			this.div = document.getElementById("div1");
+			this.span = document.getElementsByTagName("span")[0];
+			this.div2 = document.getElementById("div2");
+			this.img = document.getElementById("img");
+
+			//console.log(this.div2);
+			
+		}
+		Scrope.prototype.init = function(ev){
+			var _this = this;
+
+			this.div.onmouseover = function(ev){
+				_this.fnMouseover(ev);
+			}
+			this.div.onmouseout = function(){
+				_this.fnMouseout();
+			}
+			this.div.onmousemove = function(ev){
+				_this.fnMousemove();
+			}
+		}
+		Scrope.prototype.fnMouseover = function(){
+			this.span.style.display = "block";
+		}
+		Scrope.prototype.fnMousemove = function(){
+			var ev = ev || window.event;
+			var L = ev.clientX - this.div.offsetLeft - this.span.offsetWidth/2;
+			var T = ev.clientY - this.div.offsetTop - this.span.offsetHeight/2;
+
+			var imgL = boundImgL(L,this);
+			var imgT = boundImgH(T,this);
+			this.span.style.left = boundL(L,this) + "px";
+			this.span.style.top = boundT(T,this) + "px";
+
+			this.img.style.left = imgL + "px";
+			this.img.style.top = imgT + "px";
+		}
+		Scrope.prototype.fnMouseout = function(){
+			this.span.style.display = "none";
+		}
+
+		function boundL(L,_this){
+			if (L < 0) {
+				L = 0;
+			} else if(L > _this.div.offsetWidth - _this.span.offsetWidth){
+				L = _this.div.offsetWidth - _this.span.offsetWidth;
+			}
+			return L;
+		}
+		function boundT(T,_this){
+			if (T < 0) {
+				T = 0;
+			} else if(T > _this.div.offsetHeight - _this.span.offsetHeight){
+				T = _this.div.offsetHeight - _this.span.offsetHeight;
+			}
+			return T;
+		}
+
+		function boundImgL(L,_this){
+			imgL = -_this.span.offsetLeft*(_this.img.offsetWidth - _this.div2.offsetWidth)/(_this.div.offsetWidth - _this.span.offsetWidth);
+			return imgL;
+		}
+		function boundImgH(T,_this){
+			imgT = -_this.span.offsetTop*(_this.img.offsetHeight - _this.div2.offsetHeight)/(_this.div.offsetHeight - _this.span.offsetHeight);
+			return imgT;
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<img src="b2.jpg"/>
+		<span></span>
+	</div>
+	<div id="div2">
+		<img id="img" src="b1.jpg"/>
+	</div>
+</body>
+</html>

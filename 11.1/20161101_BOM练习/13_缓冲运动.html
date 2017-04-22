@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script type="text/javascript">
+function css(el,attr,val) {
+	if(arguments.length < 3) {
+		var val  = 0;
+		if(el.currentStyle) {
+			val = el.currentStyle[attr];
+		} else {
+			val = getComputedStyle(el)[attr];
+		}
+		if(attr == "opacity") {
+			val*=100;
+		}
+		return parseFloat(val);
+	}
+	if(attr == "opacity") {
+		el.style.opacity = val/100;
+		el.style.filter = "alpha(opacity = "+val+")";
+	} else {
+		el.style[attr] = val + "px";
+	}
+}
+window.onload = function(){
+	var btn = document.querySelector('input');
+	var box = document.querySelector('#box');
+	btn.onclick = function(){
+		linearMove(box,"left",400,.12);
+	};
+};
+/*缓冲运动函数*/
+/*el，为运动对象
+attr，为运动属性
+target,为目标值
+AC，为每次运动比例*/
+function linearMove(el,attr,target,AC){
+	clearInterval(el.timer);
+	//预清除可能存在定时器
+	el.timer = setInterval(function(){
+	//设置定时器并将定时器设置为le的属性
+		var now = css(el,attr);
+		//通过css函数获取el当前状态
+		var speed = (target - css(el,attr))*AC;
+		//速度speed为目标与当前值的差，乘以比例
+		if( Math.abs(target - now) < 2){
+		//如果target与now相差过少
+			clearInterval(el.timer);
+			now = target;
+			css(el,attr,now);
+			//关闭定时器
+			//并直接把target赋予el作为当前属性值
+		} else {
+			now += speed;
+			css(el,attr,now);
+			//否则按照定时器要求
+			//每次计时后赋予一次计算后now
+		}
+	},20);
+}
+</script>
+<style type="text/css">
+#box {
+	position: absolute;
+	left: 0;
+	top: 100px;
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+#line {
+	width: 1px;
+	height: 400px;
+	background: #000;
+	position: absolute;
+	left: 400px;
+	top: 0;
+}
+</style>
+</head>
+<body>
+<input type="button" value="跑!">
+<div id="box"></div>	
+<div id="line"></div>
+</body>
+</html>

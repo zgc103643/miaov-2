@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2</title>
+<style>
+.td {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<!--
+table 表格
+caption --表格标题（不建议使用）
+thead 表格头部
+tbody 表格内容
+tr  行
+th 单元格 (加粗，居中)
+td 单元格
+
+
+属性:
+	cellspacing 单元格间距
+    cellpadding 单元格填充
+    
+ 给单元格设置高度，一行高度都会改变
+ 给单元格设置宽度，一列宽度都会改变
+    
+-->
+<table width="500" border="1" align="center" cellspacing="0" cellpadding="0">
+	<thead>
+    	<tr>
+        	<th colspan="2" height="40">时间</th>
+            <th width="100">周一</th>
+            <th>周二</th>
+            <th>周三</th>
+            <th>周四</th>
+            <th>周五</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+        	<td rowspan="4">上午</td>
+            <td>1</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+        </tr>
+        <tr>
+        	<td colspan="7" class="td">午休</td>
+        </tr>
+        <tr>
+        	<td rowspan="2">下午</td>
+            <td>1</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+            <td>测试</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

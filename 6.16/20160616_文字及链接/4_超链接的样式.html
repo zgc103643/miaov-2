@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 500px;
+	height: 40px;
+	border: 1px solid #444;
+	font: 14px/38px "宋体";
+	text-align: center;
+	color: #000;
+	word-spacing: 20px;
+}
+#box2 {
+	font-size: 30px;
+	font-weight: bold;
+	color: red;  /* 默认情况下 元素会继承 父级对于 文本和文字相关的样式设置 */
+}
+/*
+	a 标签的样式细节:
+		1. a标签字体颜色不会继承父级
+		2. a标签默认会有下划线
+*/
+</style>
+</head>
+<body>
+<!--
+	href为空时 写#
+-->
+<div id="box"><a href="#">首页</a> <a href="#">妙味课堂</a> <a href="#">关于我们</a> <a href="#">联系我们</a></div>
+<div id="box2">
+	box的文字
+	<div id="div">文字颜色</div>
+</div>
+</body>
+</html>

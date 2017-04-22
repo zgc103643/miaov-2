@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>列表变色</title>
+	<style type="text/css">
+		ul {
+			width: 124px;
+			margin: 50px auto;
+		}
+		li {
+			width: 120px;
+			height: 30px;
+			font: 18px/30px "宋体";
+			text-align: center;
+			border: 2px solid #000;
+			list-style: none;
+		}
+		.none {
+			background-color: grey;
+		}
+		.side {
+			background-color: green;
+		}
+		.active {
+			background-color: red;
+		}
+		.near {
+			background-color: orange;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function() {
+		var ul = document.querySelector("ul");
+		var li = ul.querySelectorAll("li");
+		for (var i = 0; i < li.length; i++) {
+			li[i].onmouseover = function(){
+				if(this == ul.firstElementChild || this == ul.lastElementChild){
+					this.className = "side";
+				}else {
+					this.className = "active";
+					this.previousElementSibling.className = "near";
+					this.nextElementSibling.className = "near";
+					ul.firstElementChild.className = "none";
+					ul.lastElementChild.className = "none";
+				}				
+			}
+			li[i].onmouseout = function(){
+				for (var i = 0; i < li.length; i++) {
+					li[i].className = "";
+				}
+				ul.firstElementChild.className = "none";
+				ul.lastElementChild.className = "none";
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<ul>
+		<li class="none">首项</li>
+		<li>111</li>
+		<li>111</li>
+		<li>111</li>
+		<li>111</li>
+		<li>111</li>
+		<li>111</li>
+		<li>111</li>
+		<li>111</li>
+		<li class="none">末项</li>
+	</ul>
+</body>
+</html>

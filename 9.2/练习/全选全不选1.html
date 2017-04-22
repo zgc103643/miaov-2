@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>全选全不选1</title>
+	<script>
+	window.onload = function(){
+		var input = document.getElementsByTagName("input");
+		var isChecked = false;
+		input[input.length-1].onclick = function(){
+			if(isChecked){
+				for(var i = 0; i < input.length-1; i++){
+					input[i].checked = false;	
+				}
+			}else {
+				for(var i = 0; i < input.length-1; i++){
+					input[i].checked = true;
+				}
+			}
+			isChecked= !isChecked;
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" /><br/>
+	<input type="button" value="全选/全不选" />
+</body>
+</html>

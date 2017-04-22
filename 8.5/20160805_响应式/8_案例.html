@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>无标题文档</title>
+<style>
+body,
+h1 {
+	margin: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+img {
+	vertical-align: top;
+	border: none;
+}
+input {
+	padding: 0;
+	box-sizing: content-box;
+}
+body {
+	min-width: 564px;
+}
+header {
+	height: 50px;
+	background: #323436;
+}
+.wrap {
+	padding: 0 18px;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+	width: 190px;
+	padding-top: 10px;
+}
+.form {
+	float: left;
+	width: 30px;
+	height: 26px;
+	margin-top: 2px;
+	position: relative;
+}
+.formCon {
+	width: 30px;
+	height: 26px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: 1s;
+}
+.formConShow {
+	background: #fff;
+	width: 180px;
+	border-radius: 13px;
+}
+.btn {
+	width: 30px;
+	height: 26px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(img/search.png) no-repeat;
+}
+.loginMenu {
+	float: right;
+	width: 140px;
+}
+.loginMenu  a {
+	width: 70px;
+	float: left;
+	text-align: center;
+	background: #505050;
+	color: #acacac;
+	font: 14px/32px "微软雅黑";
+}
+.loginMenu .active {
+	background: #6bc30d;
+	color: #fff;
+}
+#logo {
+	float: left;
+	margin-right: 24px;
+}
+#navLg {
+	display: none;
+}
+#navSX {
+	width: 56px;
+	float: left;
+	position: relative;
+	background: #454648;
+}
+#navSX>a {
+	width: 56px;
+	height: 50px;
+	display: block;
+	text-align: center;
+	font: 20px/50px Arial;
+	color: #fff;
+}
+.navSXSub {
+	width: 390px;
+	position: absolute;
+	left: 3px;
+	top: 60px;
+	background: #ccc;
+	overflow: hidden;
+	height: 0;
+	transition: 1s;
+}
+#navSX:hover .navSXSub {
+	height: 100px;
+}
+.navSXSub a {
+	color: #fff;
+}
+#navLg {
+		display: block;
+		float: left;
+	}
+	#navLg>a {
+		float: left;
+		padding: 0 20px;
+		font: 14px/50px "微软雅黑";
+		color: #8c8c8c;
+	}
+	#navLg>a:hover {
+		background: #454648;
+		color: #fff;
+	} 
+	#navLg div {
+		float: left;
+		position: relative;
+	}
+	#navLg div>a {
+		float: left;
+		font: 14px/50px "微软雅黑";
+		color: #8c8c8c;
+		padding: 0 30px 0 20px;
+		transition: 1s;
+	}
+	.navLgSub {
+		position: absolute;
+		left: 0;
+		top: 50px;
+		width: 88px;
+		background: #454648;
+		height: 0;
+		overflow: hidden;
+		transition: 1s;
+	}
+	.navLgSub a {
+		display: block;
+		text-align: center;
+		font: 14px/30px "微软雅黑";
+		color: #8c8c8c;
+		transition: .5s;
+	}
+	.navLgSub a:hover {
+		background: #6bc30d;
+		color: #fff;
+	}
+	#navLg div:hover>a {
+		background: #454648;
+		color: #fff;
+	}
+	#navLg div:hover .navLgSub {
+		height: 100px;
+	}
+@media all and (min-width:768px) {
+	.wrap {
+		width: 768px;
+		padding: 0;
+		margin: 0 auto;
+	}
+}
+@media all and (min-width:992px) {
+	.wrap {
+		width: 992px;
+	}
+	#navSX  {
+		display: none;
+	}
+}
+@media all and (min-width:1200px) {
+	.wrap {
+		width: 1200px;
+	}
+}
+</style>
+</head>
+<body>
+<header>
+	<div class="wrap">
+    	<div class="left">
+        	<h1 id="logo">
+            	<a href="#">
+                	<img src="img/logo.png" />
+                </a>
+            </h1>
+            <nav id="navLg">
+            	<a href="#">发现</a>
+                <a href="#">文章</a>
+                <a href="#">设计师</a>
+                <a href="#">帮帮忙</a>
+                <div>
+                	<a href="#">更多</a>
+                    <nav class="navLgSub">
+                    	<a href="#">酷站推荐</a>
+                        <a href="#">资源下载</a>
+                        <a href="#">网站导航</a>
+                    </nav>
+                </div>
+            </nav>
+            <nav id="navSX">
+            	<a href="#" class="navMenu">三</a>
+                <div class="navSXSub">
+                	<ul class="navSXList">
+                    	<li><a href="#">发现</a></li>
+                        <li><a href="#">设计师</a></li>
+                        <li><a href="#">帮帮忙</a></li>
+                    </ul>
+                    <footer>
+                    	<a href="#">网址设计</a>
+						<a href="#">网址设计</a>
+                        <a href="#">网址设计</a>
+                    </footer>
+                </div>
+            </nav>
+        </div>
+        <div class="right">
+        	<form class="form">
+            	<div class="formCon" onclick="this.className=='formCon'?this.className='formCon formConShow':this.className='formCon'">
+                    <span class="btn"></span>
+
+                </div>    
+            </form>
+            <nav class="loginMenu">
+            	<a href="#">登陆</a>
+                <a href="#" class="active">注册</a>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- http://stephencaver.com/
+http://www.designweekportland.com/journal/data
+https://themify.me/
+http://www.17sucai.com/preview/2/2014-12-02/exquiso/index.html
+https://www.smashingmagazine.com/
+http://www.polygon.com/
+http://www.cjponyparts.com/
+http://pourmybeer.com/ -->
+</body>
+</html>

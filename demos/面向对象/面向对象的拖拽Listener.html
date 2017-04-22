@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div {width: 100px; height: 100px; background: red; position: absolute;}
+		#div2 {width: 100px; height: 100px; background: yellow; position: absolute; left: 100px;}
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+	<div id="div2"></div>
+</body>
+<script type="text/javascript">
+	function Drag(id){
+		this.div = document.getElementById(id);
+		this.disX = 0;
+		this.disY = 0;
+	}
+
+	Drag.prototype.init = function(){
+		var _this = this;
+		this.div.addEventListener("mousedown",function(ev){
+			_this.fnDown(ev);
+		})
+	}
+	Drag.prototype.fnDown = function(ev){
+		var _this = this;
+
+		this.disX = ev.clientX - this.div.offsetLeft;
+		this.disY = ev.clientY - this.div.offsetTop;
+		ev.preventDefault();
+		document.addEventListener("mousemove",move);
+		function move(ev){
+			_this.fnMove(ev);
+		}
+		document.addEventListener("mouseup",up);
+		function up(){
+			_this.fnUp(move,up);
+		}
+	}
+	Drag.prototype.fnMove = function(ev){
+		this.div.style.left = ev.clientX - this.disX + "px";
+		this.div.style.top = ev.clientY - this.disY + "px";
+	}
+	Drag.prototype.fnUp = function(move,up){
+		document.removeEventListener("mousemove",move);
+		document.removeEventListener("mouseup",up);
+	}
+	//？？？为啥不能这么走
+	//在事件mouseup中调用fnUp需要传入函数move和up，
+	//因为move和up是在fnUp的兄弟函数fnDown中
+
+
+	
+	function Drag2(id){
+		Drag.call(this,id);
+	}
+	Drag2.prototype = extend(Drag.prototype);
+
+	//Drag2.prototype = Drag.prototype;
+	Drag2.prototype.fnMove = function(ev){
+		var L = ev.clientX - this.disX;
+		var T = ev.clientY - this.disY;
+		console.log(Drag2.prototype.fnMove);
+		if (L < 0) {
+			L = 0;
+		}
+		else if(L > document.documentElement.clientWidth - this.div.offsetWidth){
+			L = document.documentElement.clientWidth - this.div.offsetWidth;
+		}
+		if (T < 0) {
+			T = 0;
+		}
+		else if(T > document.documentElement.clientHeight - this.div.offsetHeight){
+			T = document.documentElement.clientHeight - this.div.offsetHeight;
+		}
+		
+		this.div.style.left = L + "px";
+		this.div.style.top = T + "px";
+	}
+	//console.log(Drag2.prototype.fnMove);
+	var d1 = new Drag("div");
+	d1.init();
+	var d2 = new Drag2("div2");
+	d2.init();
+
+	function extend(obj){
+		var obj2 = !!obj.pop?[]:{};
+		for(var attr in obj){
+			if(typeof obj[attr] === 'object'){
+				obj2[attr] = extend(obj[attr]);
+			}else{
+				obj2[attr] = obj[attr];
+			}
+		}
+		return obj2;
+	}
+</script>
+</html>

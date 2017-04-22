@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style type="text/css">
+		div {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		img {
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<!-- <img src="img/img2.jpg"/> -->
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	(function (D){
+		var div = D.getElementsByTagName("div")[0];
+		var body = D.getElementsByTagName("body")[0];
+		body.style.width = document.documentElement.clientWidth + "px";
+		body.style.height = document.documentElement.clientHeight + "px";
+		//将body的宽高设定为屏幕大小
+
+		div.addEventListener("mousedown",FnDown);
+		function FnDown(ev){
+			var copy = div.cloneNode(true);
+			//复制div供移动使用
+			var disX = ev.pageX - div.offsetLeft;
+			var disY = ev.pageY - div.offsetTop;
+			//获取每次点击div时鼠标位置与div左上角的上、左差值	
+			copy.style.position  = "absolute";
+			copy.style.top = div.offsetTop+"px";
+			copy.style.left = div.offsetLeft+"px";
+			//生成的copy的正好覆盖在div上		
+			body.appendChild(copy);
+			//向body中添加copy元素
+			document.addEventListener("mousemove",fnMove);
+			function fnMove(ev){
+				var l = ev.clientX - disX;
+				var t = ev.clientY - disY;
+				copy.style.left = l + "px";
+				copy.style.top = t + "px";
+				//把
+			}
+			document.addEventListener("mouseup",fnUp);
+			function fnUp(ev){
+				var l2 = copy.offsetLeft;
+				var t2 = copy.offsetTop;
+				copy.style.left = div.offsetLeft+"px";
+				copy.style.top = div.offsetTop+"px";
+				div.style.left = l2+"px";
+				div.style.top = t2+"px";
+				body.removeChild(copy);
+				document.removeEventListener("mousemove",fnMove);
+				document.removeEventListener("mouseup",fnUp);
+			}
+		}
+	})(document);
+</script>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {
+	height: 1000px;
+	border: 2px solid #000;
+}
+.box1 {
+	width: 600px;
+	height: 600px;
+	background: red;
+	position: relative;
+}
+.box2 {
+	width: 400px;
+	height: 400px;
+	background: green;
+	position: absolute;
+}
+.box3 {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 200px;
+	height: 200px;
+	background: blue;	
+}
+/*
+		position: absolute; 绝对定位
+		1. 脱离文档流
+		2. 提升层级
+		3. 根据自己有定位的父级，来计算坐标,如果所有的父级都没有定位,就根据document来计算自己的坐标
+*/
+</style>
+</head>
+<body>
+<div class="box1">
+	<div class="box2">
+    	<div class="box3"></div>
+    </div>
+</div>
+</body>
+</html>

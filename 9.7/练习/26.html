@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>26</title>
+</head>
+<style>
+	section {
+		width: 450px;
+		margin: 50px auto;
+	}
+	section::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#left {
+		float: left;
+		width: 200px;
+		height: 200px;
+		border: 5px solid #000;
+	}
+	#right {
+		float: right;
+		width: 200px;
+		height: 200px;
+		border: 5px solid #000;
+	}
+	#left span,
+	#right span {
+		width: 200px;
+		height: 200px;
+		display: none;
+		background-color: #666;
+		font: 150px/200px "宋体";
+		color: #fff;
+		text-align: center;
+	}
+	#inputs {
+		float: left;
+		margin: 20px 0 0 50px;
+	}
+	#inputs input {
+		width: 50px;
+		height: 20px;
+		padding: 0;
+		text-align: center;
+	}
+	#left .show,
+	#right .show {
+		display: block;
+	}
+</style>
+<script>
+	/*
+		功能分析：
+		1）第一组四个图片、第二组两个图片，分别拥有点击图片切换下一张；
+		2）上一组、下一组按键，单击时两组同时切换到下一张。
+		做法：
+		1）为两组图片均设立默认显示值（0）；
+		2）分别写出第一、二组；
+			1.使用自定义属性保留每一张图片的编号，
+			2.在for循环下，每一张图片onclick效果切换下一张图片，
+				清空所有图片class值
+				使该编号的图片显示
+		3)为上一组和下一组按键添加点击后增加或减少默认值；
+	 */
+	window.onload = function(){
+		var left = document.getElementById("left");
+		var right = document.getElementById("right");
+		var leftSpans = left.querySelectorAll("#left span");
+		var rightSpans = right.querySelectorAll("#right span");
+		var prev = document.getElementById("prev");
+		var next = document.getElementById("next");
+		var leftNub = 0;
+		var rightNub = 0;
+
+		for(var i = 0;i < leftSpans.length; i++){
+			leftSpans[i].index = i;
+			leftSpans[i].onclick = function(){
+				leftNub++;
+				if(leftNub>leftSpans.length-1){
+					leftNub = 0;
+				}
+				for(var i = 0;i < leftSpans.length; i++){
+					leftSpans[i].className = "";
+				}
+				leftSpans[leftNub].className = "show";	
+			}
+		}
+		for(var i = 0;i < rightSpans.length; i++){
+			rightSpans[i].index = i;
+			rightSpans[i].onclick = function(){
+				rightNub++;
+				if(rightNub>rightSpans.length-1){
+					rightNub = 0;
+				}
+				for(var i = 0;i < rightSpans.length; i++){
+					rightSpans[i].className = "";
+				}
+				rightSpans[rightNub].className = "show";	
+			}
+		}
+		prev.onclick = function(){
+			for(var i = 0;i < leftSpans.length; i++){
+				leftNub--;
+				if(leftNub<0){
+					leftNub = leftSpans.length-1;
+				}
+				for(var i = 0;i < leftSpans.length; i++){
+					leftSpans[i].className = "";
+				}
+				leftSpans[leftNub].className = "show";
+			}
+			for(var i = 0;i < rightSpans.length; i++){
+				rightNub--;
+				if(rightNub<0){
+					rightNub = rightSpans.length-1;
+				}
+				for(var i = 0;i < rightSpans.length; i++){
+					rightSpans[i].className = "";
+				}
+				rightSpans[rightNub].className = "show";
+			}
+		}
+		next.onclick = function(){
+			for(var i = 0;i < leftSpans.length; i++){
+				leftNub++;
+				if(leftNub>leftSpans.length-1){
+					leftNub = 0;
+				}
+				for(var i = 0;i < leftSpans.length; i++){
+					leftSpans[i].className = "";
+				}
+				leftSpans[leftNub].className = "show";
+			}
+			for(var i = 0;i < rightSpans.length; i++){
+				rightNub++;
+				if(rightNub>rightSpans.length-1){
+					rightNub = 0;
+				}
+				for(var i = 0;i < rightSpans.length; i++){
+					rightSpans[i].className = "";
+				}
+				rightSpans[rightNub].className = "show";
+			}
+		}
+	}
+</script>
+<body>
+	<section>
+		<div id="left">
+			<span class="show">1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+		</div>
+		<div id="right">
+			<span class="show">1</span>
+			<span>2</span>
+			<span>3</span>
+		</div>
+		<div id="inputs">
+			<input id="prev" type="button"/ value="上一张">
+			<input id="next" type="button"/ value="下一张">
+		</div>
+	</section>
+</body>
+</html>

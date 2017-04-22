@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉延时导航</title>
+	<style type="text/css">
+	   body{margin: 0;
+	        padding: 0; }
+       .nav{width: 500px;
+       	    height: 300px;
+       	    margin: 0 auto;}
+	    .one{float: left;
+	         position: relative;
+	         font:30px/40px;
+	         width: 100px;	         
+	         display:block;
+	         height: 40px;
+	         background: blue;}
+	    .one .active{background: yellow;}     
+	    .one a {position: absolute;
+	            bottom:-20px;
+	            display: none;}
+	    ul li{list-style: none;}	
+	</style>
+	<script type="text/javascript">
+	    window.onload=function(){
+	    	var li=document.getElementsByClassName('one');
+	    	var a=document.querySelectorAll('.one a');
+	    	var timer=0;
+	    	    
+	    	for (var i = 0; i < li.length; i++) {
+	    		li[i].index=i;
+	    		li[i].onmouseover=function(){
+	    		   clearInterval(timer)	;    	   	 	
+	    	   	 	for(var i=0;i<li.length;i++){
+	    	   	 	li[i].style.background='';
+	    	   	 	a[i].style.display='';
+	    	   	 	}
+	    	   	 	this.style.background='yellow';
+	    	   	 	a[this.index].style.display='block';
+	    	   	}
+	    	   	li[i].onmouseout=function(){	    	   	 	
+	    	   	 	timer=setTimeout(function(){
+	    	   	 		this.style.background='';
+	    	   	 	    a[this.index].style.display='';
+	    	   	 	},500)	    	   	 	
+	    	   	}  	  	
+	    	 }	        
+	    	   	
+	    	   
+	    }
+	</script>
+</head>
+<body>
+      <div id="nav">
+       	<ul>
+       		<li class='one'>导航一
+       		   <a href="">导航1</a>
+       		   <a href="">导航1</a>
+       		</li>
+       		<li class='one'>导航二
+       		     <a href="">导航1</a>
+       		</li>
+       		<li class='one'>导航三
+       		    <a href="">导航1</a>
+       		</li>
+       		<li class='one'>导航四
+       		    <a href="">导航1</a>
+       		</li>
+       	</ul>
+       </div> 
+	
+</body>
+</html>

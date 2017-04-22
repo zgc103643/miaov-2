@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+	<style type="text/css">
+		#box {
+			width: 38px;
+			height: 38px;
+			background: url(img/tank.png) no-repeat;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -50px 0 0 -50px;
+		}
+		.left {
+			background-position: -114px 0 !important;			
+		}
+		.top {
+			background-position: 0 0 !important;						
+		}
+		.right {
+			background-position: -38px 0 !important;						
+		}
+		.bottom {
+			background-position: -76px 0 !important;						
+		}
+		span {
+			position: absolute;
+			/*top: -7px;
+			left: 14px;*/
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: yellow;
+		}
+		img {
+			position: absolute;
+			left: -45px;
+			top: -45px;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script type="text/javascript" src="miaov.js"></script>
+<script type="text/javascript">
+	(function(){
+		var box = document.querySelector("#box");
+		var fireImg = [
+				"img/img1.png",
+				"img/img2.png",
+				"img/img3.png",
+				"img/img4.png",
+				"img/img5.png",
+				"img/img6.png",
+				"img/img7.png",
+				"img/img8.png",
+			];
+		box.style.left = box.offsetLeft;
+		box.style.top = box.offsetTop;
+		box.style.margin = 0;
+		window.onkeydown = function(event){
+			var code = event.keyCode;
+			switch(code) {
+				case 37:
+					box.style.left = box.offsetLeft - 5 + "px";
+					box.className = "left";
+				break;
+				case 38:
+					box.style.top = box.offsetTop - 5 + "px";
+					box.className = "top";
+				break;
+				case 39:
+					box.style.left = box.offsetLeft + 5 + "px";
+					box.className = "right";
+				break;
+				case 40:
+					box.style.top = box.offsetTop + 5 + "px";
+					box.className = "bottom";
+				break;
+				case 32:
+					onFire();
+				break;
+			}
+		}
+		function onFire(){
+			var span = document.createElement("span");
+			var img = document.createElement("img");
+			
+			document.body.appendChild(span);
+			boxRect = box.getBoundingClientRect();
+			//console.log(boxRect);
+			switch(box.className) {
+				case "left":
+					span.style.left =boxRect.left -7 + "px";
+					span.style.top = boxRect.top + 14 + "px";
+					mTween(span,{left:boxRect.left -7-200},1200,"linear",boom);
+				break;
+				case "top":
+					span.style.left = boxRect.left + 14+"px";
+					span.style.top = boxRect.top - 7+"px";
+					mTween(span,{top:boxRect.top - 7 - 200},1200,"linear",boom);
+				break;
+				case "right":
+					span.style.left = boxRect.left + 37+"px";
+					span.style.top = boxRect.top + 14+"px";
+					mTween(span,{left:boxRect.left + 37 + 200},1200,"linear",boom);
+				break;
+				case "bottom":
+					span.style.left = boxRect.left + 14+"px";
+					span.style.top = boxRect.top + 37+"px";
+					mTween(span,{top:boxRect.top + 37 + 200},1200,"linear",boom);
+				break;
+			}
+			function boom(){
+				var timer = 0;
+				var now = 0;
+				
+				timer = setInterval(function(){
+					now++;
+					if(now < fireImg.length){
+						img.src = fireImg[now];
+						span.appendChild(img);
+					}else{
+						clearInterval(timer);
+						document.body.removeChild(span);
+					}
+				},20);
+			}
+		}	
+	})();
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo2_2</title>
+</head>
+<style>
+	@keyframes rotate {
+		0%{
+			transform: rotateX(0deg);
+		}
+		100%{
+			transform: rotateX(360deg);
+		}
+	}
+	body {
+		margin: 0;
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	#box {
+		width: 102px;
+		height: 102px;
+		margin: 100px auto;
+		perspective: 500px;
+	}
+	.list {
+		position: relative;
+		width: 102px;
+		height: 102px;
+		transform-style: preserve-3d;
+		transform-origin: center center -156.96px;
+		animation: 5s rotate linear infinite;
+	}
+	.list li {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100px;
+		height: 100px;
+		font: 80px/100px "宋体";
+		color: #000;
+		text-align: center;
+		border: 1px solid #000;
+		background-color: #c6c6c6;
+		transform-style: preserve-3d;
+		transform-origin: center center -156.96px;
+	}
+	.list li:nth-child(1) {transform: rotateX(0deg);}
+	.list li:nth-child(2) {transform: rotateX(-36deg);}
+	.list li:nth-child(3) {transform: rotateX(-72deg);}
+	.list li:nth-child(4) {transform: rotateX(-108deg);}
+	.list li:nth-child(5) {transform: rotateX(-144deg);}
+	.list li:nth-child(6) {transform: rotateX(-180deg);}
+	.list li:nth-child(7) {transform: rotateX(-216deg);}
+	.list li:nth-child(8) {transform: rotateX(-252deg);}
+	.list li:nth-child(9) {transform: rotateX(-288deg);}
+	.list li:nth-child(10) {transform: rotateX(-324deg);}
+</style>
+<body>
+	<div id="box">
+	<ul class="list">
+    	<li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+</div> 
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	!function() {
+		var scale = 1;
+		var ratio = window.devicePixelRatio;
+		scale = scale / window.devicePixelRatio;
+		var meta = document.createElement("meta");
+		meta.setAttribute("name","viewport");
+		meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+		document.head.appendChild(meta);
+	}();
+	</script>
+	<title>taobao</title>
+	<script>
+	 fn();
+	window.addEventListener("resize",fn);
+	function fn() {
+		var html = document.querySelector("html");
+		var width = html.getBoundingClientRect().width;
+		html.style.fontSize = width/18 + "px";  
+	}
+	</script>
+	<style type="text/css">
+		body,html
+			 {
+		 	height: 100%;
+		 }
+		body {
+			margin: 0;
+			position: relative;
+		}
+		header {
+			position: absolute;
+			width: 18rem;
+			height: 300px;
+			background-color: #000;
+		}
+		.scroll {
+			position: absolute;
+			top: 300px;
+			bottom: 0;
+			left: 0;
+			width: 18rem;
+			overflow: auto;
+		}
+		section {
+			width: 18rem;
+			height: 3000px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<header></header>
+	<div class="scroll">
+		<section></section>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 520px;
+			height: 520px;
+			background: url(bg.png) no-repeat;
+			margin: auto;
+			text-align: center;
+		}
+		#box img{
+			margin-bottom: 50px;
+			vertical-align: middle;
+
+		}
+		#box .img{
+			width: 25px;
+			height:37px;
+			
+		}
+	</style>
+	<script src="miaov.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		function mTween(el,target,time,type,callBack) {
+			clearInterval(el.timer);//调用函数时先清掉定时器  定时器编号为元素的自定义属性
+			var t = 0;//执行到第几次
+			var b = {}; //定义一个变量b为空对象 b为初始值
+			var c = {}; //定义一个变量c为空对象 c为差值
+			var d = time/20; 
+			for(var s in target) {//对象的遍历需要用for in循环 
+				b[s] = css(el,s);  
+				c[s] = target[s] - b[s];
+			}
+			el.timer = setInterval(function(){
+				t++;
+				if(t>d) {
+					clearInterval(el.timer);
+					callBack&&callBack();
+				} else {
+					for(var s in target) {
+						//width
+						var val = Tween[type](t,b[s],c[s],d);
+						css(el,s,val);
+					}
+				}
+			},20);
+		}
+		window.onload=function(){
+
+			var img=document.getElementsByClassName("img");
+			var week=document.getElementsByClassName("week")[0];
+			for(var i=0;i<img.length;i++){
+				img[i].nowImg=0
+			};
+			fnn();
+			setInterval(
+				fnn,1000
+			)
+			function toMove(img,arr){
+				mTween(img,{height:0},300,"linear",function(){
+				//缩短到0
+					img.src=arr
+					//更换数字图
+					mTween(img,{height:37},300,"linear")
+					//放大回原位
+				})
+			}
+			function fnn(){
+				var date = new Date();
+				var year=fn(date.getFullYear());
+				var month=fn(date.getMonth()+1);
+				var date2=fn(date.getDate());
+				var hours=fn(date.getHours());
+				var min=fn(date.getMinutes());
+				var sec=fn(date.getSeconds());
+				var week1=date.getDay();
+				var arr=year+month+date2+hours+min+sec;
+				var arr1=["seven","one","tow","three","four","five","six"]
+				function fn(nub){
+					return nub<10?"0"+nub:""+nub
+				};
+				for(var i=0;i<arr.length;i++){
+					if(img[i].nowImg!=arr[i]){	//让arr[i]的值
+						img[i].nowImg=arr[i];
+						toMove(img[i],arr[i]+".png")
+					}
+				}
+				week.src=arr1[week1]+".png";
+			}
+		}
+	</script>
+	<body>
+		<div id="box">
+			<img src="title.png"/>
+			<br />
+			<img src="0.png" class="img"/>
+			<img src="0.png" class="img"/>
+			<img src="0.png" class="img"/>
+			<img src="0.png" class="img"/>
+			<img src="year.png"/>
+			<img src="0.png" class="img"/>
+			<img src="0.png" class="img"/>
+			<img src="month.png"/>
+			<img src="0.png" class="img"/>
+			<img src="0.png" class="img"/>
+			<img src="seven.png"/>
+			<br />
+			<img src="0.png" class="img"/>
+			<img src="0.png" class="img"/>
+			<img src="sign.png"/>
+			<img src="0.png" class="img"/>
+			<img src="0.png" class="img"/>
+			<img src="sign.png"/>
+			<img src="0.png" class="img"/>
+			<img src="0.png" class="img"/>
+			<br />
+			<img src="week.png"/>
+			<img src="seven.png" class="week"/>
+		</div>
+	</body>
+</html>

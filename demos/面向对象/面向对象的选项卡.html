@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>object</title>
+	<style type="text/css">
+		#div1 {
+			width: 200px;
+			height: 200px;
+			border: 5px solid #000;
+			margin: 50px auto;
+		}
+		#div1>div {
+			width: 180px;
+			height: 150px;
+			display: none;
+			margin: 10px auto;
+			text-align: center;
+			font: 80px/150px Arial;
+			box-sizing: border-box;
+		}
+		#div1>input {
+			width: 30px;
+		}
+		.active {
+			background: red;
+		}
+		#div1 .show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<input class="active" type="button"/>
+		<input type="button"/>
+		<input type="button"/>
+		<div class="show">1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+</body>
+<script type="text/javascript">
+	// var div1 = document.getElementById("div1");
+	// var btns = div1.getElementsByTagName("input"),
+	// 	divs = div1.getElementsByTagName("div");
+	// btns = [...btns];
+	// divs = [...divs];
+	// btns.forEach(function(item,i,arr){
+	// 	item.addEventListener("click",fnClick);
+	// 	function fnClick(){
+	// 		btns.forEach(function(item,i,arr){
+	// 			arr[i].className = "";
+	// 			divs[i].className = "";
+	// 		})
+	// 		item.className = "active";
+	// 		divs[i].className = "show";
+	// 	}
+	// })
+	/*普通方法*/
+
+
+
+	// var div1 = null;
+	// var btns = null,
+	// 	divs = null;
+
+	// div1 = document.getElementById("div1");
+	// btns = div1.getElementsByTagName("input"),
+	// divs = div1.getElementsByTagName("div");
+
+	// btns = [...btns];
+	// divs = [...divs];
+
+	// init();
+
+	// function init(){
+	// 	btns.forEach(function(item,i,arr){
+	// 		item.addEventListener("click",function(){
+	// 			fnClick(item,i)
+	// 		});
+	// 	})
+	// }
+	// function fnClick(item,i){
+	// 	btns.forEach(function(item,i,arr){
+	// 		arr[i].className = "";
+	// 		divs[i].className = "";
+	// 	})
+	// 	item.className = "active";
+	// 	divs[i].className = "show";
+	// }
+	
+
+
+	/*普通方法变形*/
+
+	var t1 = new Tab();
+	t1.init();
+
+	function Tab(){
+		this.div1 = document.getElementById("div1");
+		this.btns = this.div1.getElementsByTagName("input"),
+		this.divs = this.div1.getElementsByTagName("div");
+	}
+
+	Tab.prototype.init = function(){
+		this.btns.forEach(function(item,i,arr){
+			item.addEventListener("click",function(){
+				fnClick(item,i)
+			});
+		})
+	}
+
+	Tab.prototype.change = function(){
+		function fnClick(item,i){
+			this.btns.forEach(function(item,i,arr){
+				arr[i].className = "";
+				divs[i].className = "";
+			})
+			item.className = "active";
+			this.divs[i].className = "show";
+		}
+	}
+</script>
+</html>

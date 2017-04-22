@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body,
+h2,
+h3,
+p {
+	margin: 0;
+	font-size:  12px;
+	font-family: "宋体";
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #014cc9;
+}
+img {
+	border: none;
+	vertical-align: top;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.wrap {
+	width: 608px;
+	margin: 30px auto;
+	border: 1px solid #e5e5e5;
+}
+.header {
+	height: 30px;
+	border-bottom: 1px solid #e5e5e5;
+	background: #eaf9fe;
+}
+.nav {
+	float: left;
+}
+.nav a {
+	float: left;
+	padding: 0 14px;
+	font: 14px/30px "宋体";
+	border-right: 1px solid #e5e5e5;
+}
+.nav a:hover {
+	font-weight: bold;
+	background: #fff;
+	padding-bottom: 1px;
+	margin-bottom: -1px;
+}
+.header p {
+	float: right;
+	font: 12px/30px "宋体";
+	color: #918f90;
+	padding-right: 10px;
+}
+.header p a {
+	margin: 0 6px 0 5px;
+}
+.jinpai {
+	border-bottom: 1px solid #e5e5e5;
+}
+.jinpaiHeader {
+	padding: 14px 14px 0;
+	height: 28px;
+}
+.jinpaiHeader hgroup {
+	float: left;
+}
+.jinpaiHeader .title {
+	width: 79px;
+	height: 18px;
+	float: left;
+	background: url(img/title.png) no-repeat;
+	line-height: 1000px;
+	overflow: hidden;
+}
+.jinpaiHeader .panLong {
+	margin-left: 21px;
+	float: left;
+	line-height: 26px;
+}
+.panLong a {
+	float: left;
+}
+.panLong .logo {
+	width: 127px;
+	height: 18px;
+	background: url(img/panLong.png) no-repeat;
+	line-height: 1000px;
+	overflow: hidden;
+}
+.jinpaiHeader .headerRight {
+	float: right;
+	font: 12px/20px Arial,"宋体";
+}
+.jinpaiHeader .headerRight a {
+	margin-left: 14px;
+}
+.jinpaiBox {
+	float: left;
+	margin-left: 14px;
+	width: 286px;
+}
+.jinpaiImg {
+	width: 128px;
+	float: left;
+}
+.jinpaiImg .img {
+	position: relative;
+	height: 80px;
+}
+.jinpaiImg  .mask {
+	position: absolute;
+	width: 100%;
+	height: 18px;
+	left: 0;
+	bottom: 1px;
+	background: #000;
+	opacity: .5;
+}
+.jinpaiImg  .text {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 1px;
+	line-height: 18px;
+	color: #fff;
+	text-indent: 7px;
+}
+.jinpaiImg .ico {
+	position: absolute;
+	right: 5px;
+	bottom: 4px;
+	width: 16px;
+	height: 12px;
+	background: url(img/ico.png) no-repeat;
+}
+.jinpaiList {
+	width: 136px;
+	float: right;
+}
+.picList {
+	padding-top: 15px;
+}
+.picList li {
+	float: left;
+	margin: 0 8px 0 14px;
+	width: 128px;
+}
+.picList .img {
+	position: relative;
+	height: 76px;
+	padding: 0 4px 4px 0;
+	background: url(img/imgBg.png) no-repeat right bottom;
+} 
+.textList li {
+	float: left;
+	line-height: 22px;
+	margin-left: 14px;
+	color: #909090;
+} 
+.textList a {
+	margin: 0 5px 0 4px;
+}
+.textList span {
+	margin-right: -4px;
+}
+</style>
+</head>
+<body>
+<section class="wrap">
+	<header class="header">
+    	<nav class="nav">
+        	<a href="#" class="active">最新电视剧</a>
+            <a href="#">大陆剧</a>
+            <a href="#">韩剧</a>
+            <a href="#">港台剧</a>
+        </nav>
+        <p><a href="#">爱情有点蓝</a>|<a href="#">风雨</a>|<a href="#">欢喜婆婆</a>|<a href="#">延安爱情</a></p>
+    </header>
+    <section class="jinpai">
+    	<header class="jinpaiHeader">
+        	<hgroup>
+            		<h2 class="title">金牌剧场</h2>
+                    <p class="panLong">
+                    	<a href="#" class="logo">盘龙云海药业</a>
+                    	<a href="#">首席赞助</a>
+                    </p>
+            </hgroup>
+            <p class="headerRight">
+            	<a href="#">&gt;&gt;解密《五星红旗》</a><a href="#">&gt;&gt;《宫》引发网友口水战</a>
+            </p>
+        </header>
+        <div class="clearfix">
+            <div class="jinpaiBox">
+                <div class="jinpaiImg">
+                    <div class="img">
+                        <a href="#">
+                            <img src="img/img.png" />
+                            <span class="mask"></span>
+                            <span class="text">40集全</span>
+                            <span class="ico"></span>
+                        </a>
+                    </div>
+                    <p><a href="#">五星红旗大结局</a></p>
+                </div>
+                <ul class="jinpaiList">
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                </ul>
+            </div>
+            <div class="jinpaiBox">
+                <div class="jinpaiImg">
+                    <div class="img">
+                        <a href="#">
+                            <img src="img/img.png" />
+                            <span class="mask"></span>
+                            <span class="text">40集全</span>
+                            <span class="ico"></span>
+                        </a>
+                    </div>
+                    <p><a href="#">五星红旗大结局</a></p>
+                </div>
+                <ul class="jinpaiList">
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                    <li><a href="#">央一武侠剧：侠隐记</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <ul class="picList clearfix">
+    	<li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/img2.png" />
+                    <span class="mask"></span>
+                    <span class="text">更新至6</span>
+                    <span class="ico"></span>
+                </a>
+            </div>
+            <h3><a href="#">江苏卫视：中国远程军</a></h3>
+            <p>黄志忠张丰毅枪林弹雨</p>
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/img2.png" />
+                    <span class="mask"></span>
+                    <span class="text">更新至6</span>
+                    <span class="ico"></span>
+                </a>
+            </div>
+            <h3><a href="#">江苏卫视：中国远程军</a></h3>
+            <p>黄志忠张丰毅枪林弹雨</p>
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/img2.png" />
+                    <span class="mask"></span>
+                    <span class="text">更新至6</span>
+                    <span class="ico"></span>
+                </a>
+            </div>
+            <h3><a href="#">江苏卫视：中国远程军</a></h3>
+            <p>黄志忠张丰毅枪林弹雨</p>
+        </li>
+        <li>
+        	<div class="img">
+            	<a href="#">
+                	<img src="img/img2.png" />
+                    <span class="mask"></span>
+                    <span class="text">更新至6</span>
+                    <span class="ico"></span>
+                </a>
+            </div>
+            <h3><a href="#">江苏卫视：中国远程军</a></h3>
+            <p>黄志忠张丰毅枪林弹雨</p>
+        </li>
+    </ul>
+    <ul class="textList clearfix">
+    	<li><span>地区:</span><a href="#">大陆</a>|<a href="#">大陆</a>|<a href="#">大陆</a>|<a href="#">大陆</a>|<a href="#">大陆</a></li>
+        <li><span>上映:</span><a href="#">2016</a>|<a href="#">2016</a>|<a href="#">2016</a>|<a href="#">2016</a>|<a href="#">2016</a>|<a href="#">2016</a>|<a href="#">2016</a></li>
+        <li><span>类型:</span><a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a>|<a href="#">言情</a></li>
+    </ul>
+</section>
+</body>
+</html>

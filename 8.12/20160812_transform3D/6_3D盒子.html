@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	border: 2px solid #000;
+	padding: 100px;
+	margin: 50px auto;
+	perspective: 200px;
+}
+#div {
+	width: 100px;
+	height: 100px;
+	font: 80px/100px "宋体";
+	text-align: center;
+	color: #fff;
+	position: relative;
+	transform-style: preserve-3d;
+	transform-origin: center center -50px;	 
+	transition: 5s;
+}
+#div span {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-origin: center center -50px;
+	opacity: .5;
+}
+#div span:nth-of-type(1) {
+	background: #0C0;
+	transform: rotateY(0deg);
+}
+#div span:nth-of-type(2) {
+	background: #C93;
+	transform: rotateY(90deg);
+}
+#div span:nth-of-type(3) {
+	background: #F63;
+	transform: rotateY(180deg);
+}
+#div span:nth-of-type(4) {
+	background: #909;
+	transform: rotateY(270deg);
+}
+#box:hover #div {
+	transform: rotateY(-360deg);
+}
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="div">
+    	<span>1</span>
+    	<span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</div>
+</body>
+</html>

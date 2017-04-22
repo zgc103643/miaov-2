@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	/*
+		获取页面上的input和#list下的uls
+		声明 一个变量now
+		在uls长度中循环函数tab
+
+		函数tab包括：
+			获取自身内部所有li
+			在input[2]点击时，
+				查找nub0（input[i].value）是否与该次index值相等，如果相等则进入下一级函数，
+				 如果不等则使统计值stat进行一次自增。
+	 */
+	window.onload = function () {
+		var input = document.getElementsByTagName("input");
+		var uls = document.querySelectorAll("#list ul");
+		
+		var now = 0;
+		var stat = 0;
+		for(i = 0; i < uls.length; i++) {	 
+			tab(i);
+		}
+		// if(stat == uls.length) {
+			
+		// }
+		function tab(index) {
+			var lis = document.querySelectorAll("#list ul")[index].querySelectorAll("li");
+			input[2].onclick = function() {
+			 	nub0 = input[0].value;
+				index == nub0 ? alert("true") : stat++;
+				alert(stat);
+			}
+		}
+		
+	}
+	</script>
+</head>
+<body>
+	第<input type="text" name="">个ul下的，第<input type="text" name="">个li变<input type="button" value="红">
+	<ul id="list">
+		<li>
+			<ul>
+				<li>第0个ul下的第0个li</li>
+				<li>第0个ul下的第1个li</li>
+				<li>第0个ul下的第2个li</li>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<li>第1个ul下的第0个li</li>
+				<li>第1个ul下的第1个li</li>
+				<li>第1个ul下的第2个li</li>
+			</ul>
+		</li>
+		<li>
+			<ul>
+				<li>第2个ul下的第0个li</li>
+				<li>第2个ul下的第1个li</li>
+				<li>第2个ul下的第2个li</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

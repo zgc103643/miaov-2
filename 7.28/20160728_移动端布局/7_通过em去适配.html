@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale = 1,minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+<title>无标题文档</title>
+<style>
+/* 20px */
+#box {
+	width: 10em;
+	height: 10em;
+	background: red;
+}
+#div {
+	width: 10em;
+	height: 10em;
+	font-size: .5em;
+	background: blue;
+}
+#div2 {
+	width: 6.25em;
+	height: 6.25em;
+	font-size: .8em;
+	background: green;
+}
+</style>
+</head>
+<body>
+<script>
+var html = document.querySelector("html"); //获取html
+var width = html.getBoundingClientRect().width; //获取html的宽度
+html.style.fontSize = width/16 + "px"; // 设置html的宽度是屏幕宽度的16之1注意页面最小字体大小是12px
+</script>
+<div id="box">
+	<div id="div">妙味课堂</div>
+    <div id="div2">妙味培训</div>
+</div>
+</body>
+</html>

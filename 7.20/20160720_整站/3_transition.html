@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+h2 {
+	width: 300px;
+	font: 14px/50px "宋体";
+	border: 1px solid #000;
+	transition: .5s;/* css3 过渡  在元素的样式改变的时候，添加一个过渡动画 */
+}
+h2:hover {
+	text-indent: 30px;
+	background: #FF6;
+}
+#box {
+	width: 200px;
+	border: 1px solid #000;
+	margin: 30px auto;
+	transition: .5s;
+}
+#box h3 {
+	text-align: center;
+	margin: 0;
+	font: 14px/40px "宋体";
+}
+#box .list {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 0;
+	transition: .5s;
+}
+#box li {
+	font: 12px/30px "宋体";
+	padding-left: 10px;
+}
+#box:hover {
+	background: #ccc;
+}
+#box:hover .list {
+	height: 90px;
+}
+</style>
+
+</head>
+<body>
+<h2>极品豪礼等你拿！</h2>
+<div id="box">
+	<h3>标题</h3>
+    <ul class="list">
+    	<li>选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+    </ul>
+</div>
+</body>
+</html>

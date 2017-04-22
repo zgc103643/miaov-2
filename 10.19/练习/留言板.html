@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+	<style>
+		section {
+			width: 360px;
+			margin: 50px auto;
+		}
+		h2 {
+			text-align: center;
+		}
+		.inputBox {
+			width: 300px;
+			height: 240px;
+			padding: 0 30px;
+			background-color: #ccc;
+		}
+		input {
+			width: 300px;
+			height: 24px;
+			padding: 0;
+			margin: 0;
+			border: 1px solid #000;	
+			outline: none;		
+		}
+		textarea {
+			width: 300px;
+			height: 100px;
+			padding: 0;
+			margin: 10px auto;
+			border: 1px solid #000;
+			resize: none;	
+			outline: none;	
+		}
+		.text {
+			margin-top: 20px;
+		}
+		.button {
+			width: 302px;
+			font: 18px/24px "微软雅黑";
+			text-align: center;
+			color: #fff;
+			background-color: #333;
+		}
+		h3 {
+			text-indent: 1.5em;
+			background-color: #ccc;
+		}
+		.empty {
+			width: 360px;
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			border: 2px solid #666;
+			box-sizing: border-box;
+		}
+		ul {
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			height: 0;
+			overflow: hidden;
+			list-style: none;
+		}
+		h4 {
+			width: 360px;
+			height: 18px;
+		}
+		time {
+			float: right;
+		}
+		p {
+			font: 14px/22px "宋体";
+		}
+	</style>
+</head>
+<body>
+<section>
+	<h2>留言板</h2>
+	<div class="inputBox">
+		<input class="text" type="text" value="这是内容" placeholder="请输入相关信息" />
+		<textarea placeholder="请输入相关信息">这是内容</textarea>
+		<input class="button" type="button" value="提交"/>
+	</div>
+	<div class="contentBox">
+		<h3>留言信息</h3>
+		<div class="empty">--沙发空缺，快来抢！--</div>
+		<ul>
+		</ul>
+	</div>
+</section>	
+</body>
+<script type="text/javascript" src="miaov.js"></script>
+<script type="text/javascript">
+	var text = document.querySelector("input[type='text']");
+	var textarea = document.querySelector("textarea");
+	var button = document.querySelector("input[type='button']");
+	var empty = document.querySelector(".empty");
+	//获取页面既有的元素
+	button.onclick = function() {
+		if(text.value == "" || textarea.value == ""){
+			alert("请输入相关信息");
+			return
+		}
+		//如果输入栏有一个为空，提示、跳出
+		var ul = document.querySelector("ul");
+		var list = document.querySelectorAll("li");
+		//获取ul
+		var li = document.createElement("li");
+		var section = document.createElement("section");
+		var h4 = document.createElement("h4");
+		var span = document.createElement("span");
+		var time = document.createElement("time");
+		var p = document.createElement("p");
+		//创建留言栏内容
+		span.innerHTML = "这是标题";
+		time.innerHTML = "1989-6-4";
+		p.innerHTML = "这是内容<br/>这是内容<br/>这是内容<br/>这是内容<br/>这是内容<br/>这是内容";
+		//写入span、time、p的内容		
+		h4.appendChild(span);
+		h4.appendChild(time);
+		//在h4中写入span、time标签
+		section.appendChild(h4);
+		section.appendChild(p);
+		//在section中写入h4和p标签
+		li.appendChild(section);
+		//在li中写入section标签
+		//var sectionGet = ul.querySelector("section");
+		//var heightSec = parseInt(css(sectionGet,"height"));
+		//console.log(heightSec);
+		if(list.length > 0){
+			ul.insertBefore(li,list[0]);
+			mTween(li,{height:section.offsetHeight+10},600,"easeBoth");	
+		}else{
+			ul.appendChild(li);
+			mTween(empty,{height:0},600,"bounceIn",function(){
+				empty.parentNode.removeChild(empty);
+			});
+			mTween(li,{height:section.offsetHeight+10},600,"bounceIn");
+			
+		}
+	}
+</script>
+</html>

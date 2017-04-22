@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body {
+		height: 2000px;
+	}
+	*{ margin:0; padding:0;}
+	#login{ width:300px; height:300px; border:1px #000 solid; position:absolute;}
+	#close{ position:absolute; right:0; top:0;}
+	</style>
+
+	<script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('input').on('click',function(){
+			var login = $('<div id="login"><p>用户名:<input type="text" /></p><p>密码:<input type="text" /></p><div id="close">X</div></div>');
+			
+				$(login).css( 'left',($(window).width() - $(login).outerWidth())/2 );
+				$(login).css( 'top',200 );
+
+				$('body').append(login);
+
+				$('#close').on('click',function(){
+					$(login).remove();
+				});
+				//console.log( $(window).width(),$(login).width(),($(window).width() - $(login).width())/2 );
+				//console.log(login.css('left'))
+				//left设置不准？？
+				
+				$(window).on('resize scroll',function(){
+					$(login).css('top',200 + $(window).scrollTop() );
+				})
+		})
+	});
+	</script>
+</head>
+<body>
+	<input type="button" value="点击" id="input1" />
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查找替换</title>
+	<style>
+		body,
+		h3,
+		p {
+			font-size: 0;
+			margin: 0;
+		}
+		a {
+			width: 30px;
+			height: 18px;
+			display: inline-block;
+			font: 14px/18px "微软雅黑";
+			text-decoration: none;
+			color: grey;
+		}
+		.active {
+			background-color: red;
+		}
+		section {
+			position: relative;
+			width: 600px;
+			height: 450px;
+			margin: 50px auto;
+			border: 5px solid grey;
+		}
+		p {
+			float: left;
+			width: 400px;
+			height: 300px;
+			margin: 10px;
+			font-size: 14px;
+			border: 3px solid skyblue;
+			resize: none;
+		}
+		dl {
+			width: 70px;
+			float: right;
+			padding: 0;
+			margin-right: 30px;
+			font: 26px/30px "微软雅黑";
+			text-align: center;
+		}
+		dt {
+			width: 70px;
+			height: 30px;
+			background-color: green;
+		}
+		dd {
+			width: 70px;
+			height: 30px;
+			margin: 0;
+			display: none;
+			background-color: skyblue;
+		}
+		#box {
+			position: absolute;
+			bottom: 20px;
+			left: 50px;
+			width: 440px;
+			height: 100px;
+			border: 3px solid yellow;
+			background-color: yellow;
+			display: none;
+		}
+		#box div {
+			display: none;
+		}
+		#box .show {
+			display: block;
+		}
+		span {
+			position: absolute;
+			top: 2px;
+			right: 5px;
+			font: 14px/14px Arial;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function (){
+		var dt = document.querySelector("dt");
+		var dd = document.querySelectorAll("dd");
+		var isDdShow = true;
+		var box = document.getElementById("box");
+		var span = document.querySelector("span");
+		var h3 = document.querySelector("h3");
+		var a = h3.querySelectorAll("a");
+		var div = box.querySelectorAll("div");
+		var now = 0;
+		var now2 = 0;
+		var p = document.querySelector("p");
+		var sText = div[0].getElementsByTagName("input")[0];
+		var sBtn = div[0].getElementsByTagName("input")[1];
+		var rText1 = div[1].getElementsByTagName("input")[0];
+		var rText2 = div[1].getElementsByTagName("input")[1];
+		var rBtn = div[1].getElementsByTagName("input")[2];
+
+		dt.onclick = function(){
+			isDdShow = !isDdShow;
+			for (var i = 0; i < dd.length; i++) {
+				if(isDdShow){
+					dd[i].style.display = "none";
+				}else{
+					dd[i].style.display = "block";
+				}
+			}
+		}
+		for (var i = 0; i < dd.length; i++) {
+			dd[i].index = i;
+			dd[i].onclick = function(){
+				box.style.display = "block";
+				a[now].className = "";
+				div[now].className = "";
+				now = this.index;
+				a[now].className = "active";
+				div[now].className = "show";
+			}
+
+			a[i].index = i;
+			a[i].onclick = function(){
+				a[now2].className = "";
+				div[now2].className = "";
+				now2 = this.index;
+				a[now2].className = "active";
+				div[now2].className = "show";
+			}
+		}
+		var strCon = p.innerHTML;
+		sBtn.onclick = function(){
+			var str = "";
+			str = sText.value;
+			val = strCon.indexOf(str);
+			console.log(val);
+			if(str == ""){
+				alert("请输入内容");
+				return
+			}
+			if(val == -1){
+				alert("找不到查找内容");
+				return
+			} 
+			p.innerHTML = strCon.split(str).join("<mark>" + str + "</mark>");
+		}
+		rBtn.onclick = function(){
+			var str1 = rText1.value;
+			var str2 = rText2.value;
+			var val1 = strCon.indexOf(str1);
+			str2 = rText2.value;
+			if(str1 == ""){
+				alert("请输入被替换内容");
+				return
+			}
+			if(val1 == -1){
+				alert("找不到被替换内容");
+				return
+			}
+			// if(str2 == ""){
+			// 	alert("请输入替换内容");
+			// 	return
+			// }
+			p.innerHTML = strCon.split(str1).join("<mark>" + str2 + "</mark>");
+			strCon = strCon.split(str1).join(str2);
+
+		}
+
+		span.onclick = function(){
+			box.style.display = "none";
+		}
+		
+	}
+	</script>
+</head>
+<body>
+	<section>
+		<p>中宣部文艺处的林默涵在1954年11月5日内部大会上明确阐述了大批判的动机："胡适是资产阶级中唯一比较大的学者，中国的资产阶级很可怜，没有多少学者，他是最有影响的。现在我们批判俞平伯, 实际上是对他的老根胡适思想进行彻底的批判，对知识分子思想改造等都很有意义……如果不找一个具体的对象，只是尖锐地提出问题，说有这种倾向、那种倾向，这样排列起来大家也不注意。现在具体提出《红楼梦》的研究来，斗争就可以展开了。'，林默涵提到俞平伯时表示: "俞平伯是名人，把大家都吓倒了，因此就压迫了两个青年团员。'</p>
+		<dl>
+			<dt>展开</dt>
+			<dd>查找</dd>
+			<dd>替换</dd>
+		</dl>
+		<div id="box">
+			<h3>
+				<a class="active" href="javascript:;">查找</a>
+				<a href="javascript:;">替换</a>
+			</h3>
+			<div class="show">
+				<input type="text"/>
+				<input type="button" value="查找"/>
+			</div>
+			<div>
+				<input type="text"/>
+				<input type="text"/>				
+				<input type="button" value="替换"/>
+			</div>
+			<span>x</span>
+		</div>
+	</section>
+</body>
+</html>

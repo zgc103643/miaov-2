@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body,
+		p {
+			margin: 0;
+		}
+		p {
+			margin: 20px 0;
+		}
+		section {
+			margin-left: 50px;
+		}
+		ul {
+			position: relative;
+			height: 216px;
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 250px;
+			margin-left: 20px;
+			list-style: none;
+		}
+		li div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 250px;
+		}
+		img {
+			width: 250px;
+		}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	function toLayOut(){
+		var ulOnSale = getTag(document,"ul")[0];
+		var liOnSale = getTag(ulOnSale,"li");
+		var strOnSale = "";
+		var data = [
+						{
+							imgs: "image/01.jpg",
+							texts: "第一件",
+							prices: "抢购价：￥100"
+						},
+						{
+							imgs: "image/01.jpg",
+							texts: "第二件",
+							prices: "抢购价：￥200"
+						},
+						{
+							imgs: "image/01.jpg",
+							texts: "第三件",
+							prices: "抢购价：￥300"
+						},
+						{
+							imgs: "image/01.jpg",
+							texts: "第四件",
+							prices: "抢购价：￥400"
+			
+						}
+					];
+
+		for (var i = 0; i < data.length; i++) {
+			strOnSale = "<li style='left:"+i*270+"px'>"
+						+"<div>"
+						+"<input type='text'value='Sat Oct 16 2016 16:15:00'/>"
+						+"<input type='button' value='确定'/>"
+						+"<p>剩余天小时分秒</p>"
+						+"<img src='" + data[i].imgs + "'/>"
+						+"<p>" + data[i].texts + "</p>"
+						+"<p>" + data[i].prices + "</p>"
+						+"</div>"
+						+"</li>";
+			ulOnSale.innerHTML += strOnSale;
+		}
+	}
+	window.onload = function() {
+		toLayOut();
+		//总需求：
+		//为每一件商品设置倒计时
+		//在时间到达或已经过去时抖动并下落消失
+		//在下架栏和总价值栏统计已下架商品
+		var ul = getTag(document,"ul")[0];
+		var li = getTag(ul,"li");
+		var div = getTag(ul,"div");
+		for (var i = 0; i < div.length; i++){
+			setClock(div[i]);
+		}
+		function setClock(el){ 
+			var time = el.querySelector("input[type='text']");
+			var btn = el.querySelector("input[type='button']");
+			var val = time.value;
+			var timer = 0;
+			
+			btn.onclick = function(){
+				if(new Date(time.value) == "Invalid Date"){
+					alert("请输入正确的时间格式");
+					return;
+				}
+				val = time.value;
+				//在更改倒计时时间戳时判断
+				//如果不符合格式要求则提示并跳出函数
+				//如果通过则将写入的值赋予变量val
+
+				//for (var i = 0; i < div.length; i++) {
+					// toShake(el,"left",8,function(){
+					// 	mTween(el,{top:100,opacity:0},500,"linear");
+					// });
+				//}
+			};
+			//验证input[text]输入值是否符合时间格式
+			//如果不符合弹出提示
+			lastCount();
+			timer = setInterval(lastCount,1000);
+			function lastCount(){
+				var count = el.querySelector("p");
+				var nowTime = new Date();
+				var targetTime = new Date(val);
+				var disTime = targetTime.getTime() - nowTime.getTime();
+				//获得目标时间和当前时间，并取其差值
+				
+				if(disTime < 0){
+					clearInterval(timer);
+					toShake(el,"left",8,function(){
+						mTween(el,{top:100,opacity:0},500,"linear");
+					});
+				}
+
+				var date = toDB(parseInt(disTime/(24*60*60*1000)));
+				var hours = toDB(parseInt(disTime%(24*60*60*1000)/(60*60*1000)));
+				var minutes = toDB(parseInt(disTime%(60*60*1000)/(60*1000)));
+				var seconds = toDB(parseInt(disTime%(60*1000)/1000));
+				//获取剩余的天，小时，分，秒
+				count.innerHTML = "<p>剩余" + date + "天"  +hours + "小时" + minutes + "分" + seconds + "秒</p>";
+				//将通过了上面函数验证的倒计时数值放在页面中
+				//console.log(count.innerHTML);
+			}
+		}
+		function toDB(time){
+			return time < 10 ? "0"+time : ""+time;
+		}
+	
+	}
+	</script>
+</head>
+<body>
+	<section>
+		<h3>热门商品</h3>
+		<ul>	
+		</ul>
+		<div class="stat">总价格：100元</div>
+		<ul>
+		</ul>
+	</section>
+	
+</body>
+</html>

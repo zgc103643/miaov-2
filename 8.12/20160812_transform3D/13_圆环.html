@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+@keyframes move {
+	0%{
+		transform: rotateX(0deg);
+	}
+	100% {
+		transform: rotateX(360deg);
+	}
+}
+#box {
+	width: 102px;
+	height: 102px;
+	margin: 150px auto;
+	perspective: 500px;
+}
+.list {
+	width: 102px;
+	height: 102px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	list-style: none;
+	transform-style: preserve-3d;
+	transform-origin: center center -156.96px;
+	/*animation: move 6s linear infinite ;*/
+}
+.list li {
+	width: 100px;
+	height: 100px;
+	border: 1px solid #000;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 10px;
+	background: #ccc;
+	font: 80px/100px "宋体";
+	text-align: center;
+	transform-origin: center center -156.96px;
+}
+.list li:nth-child(1) {transform: rotateX(0deg);}
+.list li:nth-child(2) {transform: rotateX(-36deg);}
+.list li:nth-child(3) {transform: rotateX(-72deg);}
+.list li:nth-child(4) {transform: rotateX(-108deg);}
+.list li:nth-child(5) {transform: rotateX(-144deg);}
+.list li:nth-child(6) {transform: rotateX(-180deg);}
+.list li:nth-child(7) {transform: rotateX(-216deg);}
+.list li:nth-child(8) {transform: rotateX(-252deg);}
+.list li:nth-child(9) {transform: rotateX(-288deg);}
+.list li:nth-child(10) {transform: rotateX(-324deg);}
+/*
+	临边 51
+	夹角 72
+	求对边
+	tan  对边/临边
+*/
+</style>
+<script>
+//alert(Math.tan(72*Math.PI/180)*51);
+</script>
+</head>
+<body>
+<div id="box">
+	<ul class="list">
+    	<li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+</div>    
+</body>
+</html>

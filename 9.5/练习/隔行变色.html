@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行变色</title>
+    <style>
+        #wrap {
+            width: 500px;
+            margin: 0 auto;
+        }
+        h2 {
+             border-bottom: 1px solid #000;
+        }
+        .message {
+            padding: 20px;
+            border-bottom: 1px solid #000;
+            font: 14px/30px "宋体";
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #000;
+            overflow: auto;
+            resize: none;
+            box-sizing: border-box;
+        }
+        input {
+            width: 100%;
+            height: 40px;
+        }
+        .blue {
+            background: blue;
+        }
+        .green {
+            background: green;
+        }
+        .gray {
+            background: gray;
+        }
+        .red {
+            background-color: red;
+        }
+        #yellow {
+            background-color: yellow;
+        }
+        /*在button每一次点击时创建一个新的<p>标签，将textarea的内容上传。并清空原内容*/
+    </style>
+    <script> 
+        window.onload = function(){           
+            var msg = document.getElementById("message");
+            var btn = document.querySelectorAll("#wrap input")[0];
+            var textarea = document.getElementsByTagName("textarea")[0];
+            var now = 0;
+            
+            var colors = [
+                        "blue",
+                        "green",
+                        "gray"
+                        ]        
+            btn.onclick = function(){
+                if(textarea.value == "") {
+                    alert("内容不可为空");
+                }else {
+                    msg.innerHTML = msg.innerHTML + "<p class='" +
+                                    colors[(now%colors.length)]+ "'>" + textarea.value + "</p>";
+                    textarea.value = "";
+                    now++;
+                }
+                var ps = document.querySelectorAll("p");
+                for(var i = 0; i < ps.length; i++) {
+                    ps[i].index = ps[i].className;
+                    isColor = false;
+                    ps[i].onclick = function(){
+                        if(isColor== true){
+                            this.className = this.index;
+                        }else {
+                            this.className = "red";
+                        }
+                        isColor = !isColor;
+                    }
+                    ps[i].onmouseover = function() {
+                            //oldColorId = this.id;
+                            this.id = "yellow";
+                    }
+                    ps[i].onmouseout = function() {
+                            this.id = "";
+                    }    
+                }
+            }      
+        }
+    </script>
+</head>
+<body>
+    <section id="wrap">
+        <h2>留言板</h2>
+        <div id="message"></div>
+        <h3>请输入留言内容</h3>
+        <textarea></textarea>
+        <input type="button" value="发表留言">
+    </section>
+</body>
+</html>

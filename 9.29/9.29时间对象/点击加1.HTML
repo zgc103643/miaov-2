@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击加分效果</title>
+    <style type="text/css">
+        .box{width: 350px;height: 40px;border: 1px solid #666;margin: 270px auto;cursor: pointer;position: relative;}
+        .zhezhao{width: 348px;height: 38px;position: absolute;top: 1px;left: 1px; background-color: #31F7EF;opacity: 0;}
+   
+     .box span{display: inline-block;position: absolute;width: 
+42px;height: 38px;font-size: 20px;line-height: 38px;text-align: 
+center;opacity: 100;}
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+    <div class="zhezhao" id="zhezhao"></div>
+        <span>+1</span>
+        <span>+1</span>
+        <span>+1</span>
+        <span>+1</span>
+        <span>+1</span>
+        <span>+1</span>
+        <span>+1</span>
+        <span>+1</span>
+    </div>
+</body>
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript">
+window.onload=function() {
+    var obox = document.getElementById('box');
+    var ozhe = document.getElementById('zhezhao');
+    var aspan = obox.getElementsByTagName('span');
+    var num=0;
+    var timer2=null;
+
+    for (var i = 0; i < aspan.length; i++) {
+        aspan[i].style.left = aspan[0].offsetWidth*i+'px';
+    }
+    obox.onclick=function() {
+        if (timer2) {clearInterval(timer2);}
+        ozhe.style.width="0px";
+
+        startmove(ozhe,{width:"348",opacity:"100"},function(){
+            startmove(ozhe,{opacity:"0"});
+        });
+
+        timer2=setInterval(function () {
+                startmove(aspan[num],{top:"-200",opacity:"0"});
+                num++;
+                if (num==aspan.length) {
+                    clearInterval(timer2);
+               <font color="Red"> for (var i = 0; i <aspan.length ; i++) {
+                    aspan[i].style.top=0;
+                    aspan[i].style.opacity=1;
+                }</font>
+                num=0;
+                }
+            },150);
+    }
+}
+    
+</script>
+</html>

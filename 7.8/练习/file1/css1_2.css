@@ -1,0 +1,128 @@
+@charset="UTF-8";
+/*css1_1*/
+	body {
+		margin: 0;
+	}
+	table {
+		font-size: 13px;
+		border-collapse: collapse;
+		
+	}
+	table td {
+		border: 1px solid #f00;
+			}
+	form {
+		margin: 0;
+	}
+	input {
+		outline: none;
+		margin: 0;
+		padding: 0;
+	}
+	textarea {
+		margin: 0;
+		padding: 0;
+		resize: none;
+		overflow: auto;
+		outline: none;
+	}
+	p {
+		margin: 0;
+		padding: 0;		
+	}
+	.head {
+		overflow: hidden;
+		font-size: 14px;
+		color: #666666;
+		padding-right: 2px;
+	}
+	.head p {
+		float: right;
+	}
+	.head span {
+		float: right;
+		display: block;
+		/*width: 5px;
+		height: 4px;*/
+		font-size: 6px;
+		color: #f00;
+		/*margin: 16px 4px 0 0;*/
+
+	}
+	.mainText {
+		width: 224px;
+		height: 26px;
+		margin: 8px 0 9px 0;
+		border: 1px solid #a9a9a9;
+	}
+	.location select {
+		margin: 11px 7px 11px 2px;
+	}
+	.gender .body {
+		overflow: hidden;
+	}
+	#male,
+	#female {
+		float: left;
+		width: 11px;
+		height: 11px;
+		margin: 15px 1px 19px 1px;
+	}
+	.gender label {
+		float: left;
+		margin: 16px 17px 0 0;
+		font-size: 13px;
+	}
+	.birthday .body {
+		font-size: 0;
+	}
+	.birthday select {
+		margin: 11px 7px 11px 2px;
+	}
+	.birthday span {
+		font-size: 13px;
+		margin: 14px 15px 14px 0px;
+	}
+	.email .body {
+		overflow: hidden;
+	}
+	.email .body p,
+	.email .body a {
+		font: 13px/42px Arial;
+		float: left;
+		margin-right: 6px;
+		margin-top: 2px;
+		text-decoration: none;
+		/*background-color: #f00;*/
+	}
+	textarea {
+		width: 224px;
+		height: 52px;
+		margin: 8px 0 19px 0;
+	}
+	.introduce .body .intro {
+		font-size: 12px;
+		color: #666666;
+		padding: 20px 0 19px 0;
+		border-top: 1px dotted #9f9f9f;
+	}
+	.papersnum p {
+		padding-top: 30px;
+	}
+	.btn .body input {
+		margin-top: 21px;
+		width: 52px;
+		height: 23px;
+		color: #fff;
+		background: url(1_btn.png);
+	}
+	.note {
+		background: url(img/notebg.png) repeat-x;
+		padding-left: 5px;
+	}
+	.note .notebgL {
+		background: url(img/notebgL.png) no-repeat 0 0;
+	}
+	/*.note .notebgR {
+		background: url(img/notebgR.png) no-repeat right 0;
+	}*/

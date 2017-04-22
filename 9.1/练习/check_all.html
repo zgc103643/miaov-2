@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>check_all</title>
+	<script>
+	window.onload = function(){
+
+		var input = document.getElementsByTagName("input");
+		var checked = document.getElementById("checked");			
+
+		for(var i = 0; i < input.length-1; i++){				
+			input[i].checked = false;
+			}
+		checked.onclick = function(){
+			for(var i = 0; i < input.length-1; i++){				
+				if(input[i].checked){
+					input[i].checked = false;
+				}else {
+					input[i].checked = true;	
+				}
+			}	
+		};
+	};
+	</script>
+</head>
+<body>
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" /><br/>
+	<input type="button" id="checked" value="全选/全不选" />
+</body>
+</html>

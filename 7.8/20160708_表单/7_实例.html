@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body,
+p {
+	margin: 0;
+	font-family: "宋体";
+	font-size: 12px;
+}
+a {
+	text-decoration: none;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+input {
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+.form {
+	width: 424px;
+	border: 1px solid #000;
+	margin: 30px auto;
+}
+.list li {
+	overflow: hidden;
+}
+.list p {
+	float: left;
+	width: 120px;
+	font: bold 16px/38px "宋体";
+	text-align: right;
+	color: #333;
+}
+.list .right {
+	float: right;
+	width: 303px;
+	line-height: 38px;
+}
+.text {
+	width: 200px;
+	height: 20px;
+	padding: 4px 10px;
+	margin: 6px 0;
+	border: 1px solid #bdc7d8;
+	font: 12px/20px "宋体";
+}
+.textCode {
+	width: 88px;
+}
+.gender {
+	padding-top: 5px;
+}
+.gender input {
+	float: left;
+	margin: 14px 1px 0;
+	width: 11px;
+	height: 11px;
+}
+.gender label {
+	float: left;
+	font-size: 16px;
+	line-height: 38px;
+	margin-right: 31px;
+}
+.date {
+	padding-top: 4px;
+}
+.why .right {
+	line-height: 14px;
+}
+.residence {
+	padding-top: 6px;
+}
+.code .right{
+	padding: 12px  0 10px;
+}
+.code .right img {
+	float: left;
+}
+.code .right a {
+	float: left;
+	margin-left: 26px;
+}
+.btn {
+	margin-top: 6px;
+	width: 166px;
+	height: 40px;
+	background: url(img/btn.png) no-repeat;
+	border: none;
+}
+</style>
+</head>
+<body>
+<form action="#" class="form">
+	<ul class="list">
+    	<li>
+        	<p>电子邮箱：</p>
+            <div class="right">
+            	<input type="text" class="text" />
+            </div>
+        </li>
+        <li>
+        	<p>设置密码：</p>
+            <div class="right">
+            	<input type="password" class="text" />
+            </div>
+        </li>
+        <li>
+        	<p>真实名字：</p>
+            <div class="right">
+            	<input type="text" class="text" />
+            </div>
+        </li>
+        <li class="gender">
+        	<p>性别：</p>
+            <div class="right">
+            	<input type="radio" /><label>男</label>
+                <input type="radio" /><label>女</label>
+            </div>
+        </li>
+        <li class="date">
+        	<p>生日：</p>
+            <div class="right">
+            	<select>
+                	<option>1990</option>
+                    <option>1989</option>
+                    <option>1987</option>
+                </select>
+                <span>年</span>
+                <select>
+                	<option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                </select>
+                <span>月</span>
+                <select>
+                	<option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                </select>
+                <span>日</span>
+            </div>
+        </li>
+        <li class="why">
+        	<div class="right">
+            	<a href="#">为什么要填写我的生日</a>
+            </div>
+        </li>
+        <li class="residence">
+        	<p>我现在：</p>
+        	<div class="right">
+            	<select>
+                	<option>我现在的身份</option>
+                </select>
+                <span>（非常重要）</span>
+            </div>
+        </li>
+        <li class="code">
+        	<div class="right">
+            	<img src="img/ico.png" />
+                <a href="#">看不清楚换一张</a>
+            </div>
+        </li>
+        <li>
+        	<p>验证码：</p>
+        	<div class="right">
+            	<input type="text" class="text textCode" />
+            </div>
+        </li>
+        <li>
+        	<div class="right">
+            	<input type="submit" value="" class="btn" />
+            </div>
+        </li>
+    </ul>
+</form>
+</body>
+</html>

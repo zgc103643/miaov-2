@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Box1</title>
+	<style>
+	@keyframes rotate {
+		0%{
+			transform: rotateY(0deg);
+		}
+		100%{
+			transform: rotateY(-360deg);			
+		}
+	} 
+	#box {
+		width: 100px;
+		height: 100px;
+		border: 2px solid #000;
+		padding: 100px;
+		margin: 50px auto;
+		perspective: 200px;
+	}
+	#div {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		transform-origin: center center -50px;
+		transform-style: preserve-3d;
+		animation: 8s rotate linear infinite;
+	}
+	#div span {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		opacity: .5;
+		font: 80px/100px "宋体";
+		text-align: center;
+		color: #fff;
+	}
+	#div span:nth-of-type(1) {
+		top: 0;
+		left: 0;
+		background-color: red;
+	}
+	#div span:nth-of-type(2) {
+		top: 0;
+		left: 100px;
+		background-color: blue;
+		transform-origin: left;
+		transform: rotateY(90deg);
+	}
+	#div span:nth-of-type(3) {
+		top: 0;
+		left: 0;
+		background-color: green;
+		transform: translateZ(-100px) rotateY(180deg);
+	}
+	#div span:nth-of-type(4) {
+		top: 0;
+		left: -100px;
+		background-color: gray;
+		transform-origin: right;
+		transform: rotateY(-90deg);
+	}
+	
+	#div span:nth-of-type(5) {
+		top: -100px;
+		left: 0;
+		transform-origin: bottom;
+		transform: rotateX(90deg);
+	}
+	#div span:nth-of-type(6) {
+		top: 100px;
+		left: 0;
+		transform-origin: top;
+		transform: rotateX(-90deg);
+	}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="div">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>上</span>
+			<span>下</span>
+		</div>
+	</div>
+</body>
+</html>

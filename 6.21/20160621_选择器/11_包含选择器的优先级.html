@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box3 {
+	width: 200px;
+	height: 200px;
+	border: 5px solid #000;
+}
+#box .box3 {
+	background: red;
+}
+.box #box3 {
+	background: blue;
+}
+/*
+	包含选择器的优先级是一种累加的关系	
+*/
+</style>
+</head>
+<body>
+<div id="box" class="box">
+	<div id="box2" class="box2">
+    	<div id="box3" class="box3"></div>
+    </div>
+</div>
+</body>
+</html>

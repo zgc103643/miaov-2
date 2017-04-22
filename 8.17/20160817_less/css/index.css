@@ -1,0 +1,199 @@
+/*
+	http://less.bootcss.com/features/
+.w100() {
+	width: 100px;
+}
+.w200() {
+	width: 200px;
+}
+.h100() {
+	height: 100px;
+}
+.h200() {
+	height: 200px;
+}
+.b10Blue() {
+	border: 10px solid blue;
+}
+.b10Black() {
+	border: 10px solid #000;
+}
+.bgcRed() {
+	background: red;
+}
+.bgcYellow() {
+	background: yellow;
+}
+
+#div1 {
+	.w100;
+	.h100;
+	.bgcYellow;
+	.b10Black;
+}
+#div2 {
+	.w100;
+	.h100;
+	.bgcRed;
+	.b10Blue;
+}
+#div3 {
+	.w200;
+	.h200;
+	.bgcRed;
+	.b10Blue;
+}*/
+/* Less 声明变量 */
+#div {
+  background: #ffff00;
+  /* 在属性值中使用变量 */
+  content: #ffff00;
+}
+#div2 {
+  background-image: #ffff00;
+  /* 在属性名中使用变量 */
+}
+#contentLeftRow1 {
+  background-image: #ffff00;
+  /* 在选择名中使用变量 */
+}
+#contentLeftRow1 {
+  background-image: url("../img/banner.png");
+  /* 在路径中使用变量，记得加引号*/
+}
+#contentLeftRow2 {
+  background-image: url("../img/icon.png");
+  /* 在路径中使用变量，记得加引号*/
+}
+#contentLeftRow3 {
+  background: #ffff00 url("../img/bg.img") no-repeat;
+}
+/* 嵌套 */
+.list {
+  margin: 0;
+}
+.list li {
+  list-style: none;
+}
+.list p {
+  text-indent: 2em;
+}
+.list a {
+  color: red;
+}
+.list a:hover {
+  color: blue;
+}
+/* 变量作用域 */
+.list {
+  width: 100px;
+}
+.list li {
+  width: 100%;
+}
+.list li p {
+  width: 100%;
+}
+/*
+里边的可以调到外边的变量
+外边的不能调到里边的变量
+.list {
+	width: @w100;
+	li {
+		@w100: 100%;
+		width: @w100;
+		p {
+			width: @w100;
+		}	 
+	}
+}
+*/
+/* 混合 */
+/*
+	.border(){} 加了括号的类 不会被编译出来
+*/
+#div {
+  border: 2px solid #ff0000;
+}
+#div2 {
+  border: 1px solid #ffff00;
+}
+#div3 {
+  border: #cccccc solid 2px;
+}
+#div4 {
+  border: 2px solid #cccccc;
+}
+#div5 {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+/* less中的判断 */
+#border {
+  width: 0;
+  height: 0;
+  border: 10px dashed transparent;
+  border-right: 10px solid #000000;
+}
+/* 循环 */
+/*
+.loopW(@loop) when (@loop>0){
+	width: 10px * @loop;
+	.loopW(@loop - 1);
+}
+#div4 {
+	.loopW(5);
+}
+*/
+/*
+	0 0 
+	0 -10px;
+	0 -20px;
+	0 -30px;
+*/
+.list0 {
+  width: 10px;
+  height: 10px;
+  background-position: 0 0px;
+}
+.list1 {
+  width: 10px;
+  height: 10px;
+  background-position: 0 -10px;
+}
+.list2 {
+  width: 10px;
+  height: 10px;
+  background-position: 0 -20px;
+}
+.list3 {
+  width: 10px;
+  height: 10px;
+  background-position: 0 -30px;
+}
+.list4 {
+  width: 10px;
+  height: 10px;
+  background-position: 0 -40px;
+}
+.list5 {
+  width: 10px;
+  height: 10px;
+  background-position: 0 -50px;
+}
+/*
+.loopW(2,6) when(2<6) {
+	.list1 {
+		width: 10px;
+		height: 10px;
+		background-position: 0 -2*10px;
+	}
+};
+*/
+#div5 {
+  width: 4rem;
+  height: 4.675rem;
+}

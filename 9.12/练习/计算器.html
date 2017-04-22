@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jisuanqi</title>
+</head>
+<script type="text/javascript">
+window.onload = function(){
+	var inputs = document.getElementsByTagName("input");
+	var select = document.getElementById("select");
+	var options = document.querySelectorAll("#select option");
+	for(var i=0; i<options.length; i++){
+		options[i].index = i;
+		inputs[2].onclick = function(){
+			val1 = inputs[0].value-0;
+			val2 = inputs[1].value-0;
+				if(select.value=="+"){
+					inputs[3].value = val1 + val2;
+				}else{
+					if(select.value=="-"){
+						inputs[3].value = val1 - val2;
+					}else{
+						if(select.value=="*"){
+							inputs[3].value = val1 * val2;	
+						}else{
+							inputs[3].value = val1 / val2;
+						}
+					}
+				}
+		}
+	}
+	
+	
+}
+</script>
+<body>
+	<input type="text">
+	<select id="select">
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select> 
+	<input type="text">
+	<input type="button" value="=">
+	<input type="text">	
+</body>
+</html>

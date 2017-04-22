@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>树形菜单</title>
+	<style>
+		ul,li {
+			/*width: 200px;
+			height: 30px;
+			border: 1px solid #000;
+			display: none;*/
+		}
+		h4 {
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="list"></div>
+</body>
+<script type="text/javascript">
+	var data = [
+					{
+						name:"选项一",
+						child: [
+								{name: "选项1"},
+								{name: "选项2"},
+								{
+									name:"选项3",
+									child: [
+										{name:"选项（1）"},
+										{name:"选项（2）"},
+										{name:"选项（3）"}
+									]
+								}
+							]							
+					},
+					{
+						name:"选项二",
+						child: [
+								{name: "选项1"},
+								{name: "选项2"},
+								{
+									name:"选项3",
+									child: [
+										{name:"选项（1）"},
+										{name:"选项（2）"},
+										{name:"选项（3）"}
+									]
+								}
+							]							
+					}
+			   ];
+
+	var list = document.querySelector("#list");
+	var inner = "";
+	setChild(data);
+	list.innerHTML = inner;
+	function setChild(obj){
+		inner += "<ul>";
+		for (var i = 0; i < obj.length; i++) {
+			inner += "<li>";
+			inner += "<h4>"+obj[i].name+"</h4>";
+			if(obj[i].child){
+				setChild(obj[i].child);
+			}
+			inner += "</li>";
+		}
+		inner += "</ul>";
+	}
+	var h4 = document.querySelectorAll("h4");
+	var ul = document.querySelectorAll("ul");
+
+	for (var i = 0; i < h4.length; i++) {
+		h4[i].isDis = true;
+		h4[i].onclick = function(){
+			this.isDis = !this.isDis;
+			if(this.nextElementSibling){
+				if(this.isDis == true){
+					for (var i = 0; i < this.parentNode.childNodes.length; i++) {
+						this.parentNode.childNodes[i].style.display = "block";
+					}
+					this.style.display = "block";
+					this.nextElementSibling.style.display = "block";
+				}else{
+					for (var i = 0; i < this.parentNode.childNodes.length; i++) {
+						this.parentNode.childNodes[i].style.display = "none";
+					}
+					this.style.display = "block";
+					this.nextElementSibling.style.display = "none";
+				}
+			}	
+		}		
+	}
+	//console.log(this.offsetParent.childNodes.length);
+</script>
+</html>

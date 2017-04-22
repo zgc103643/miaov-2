@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.li1 {
+			background: red;
+		}
+		.li2 {
+			background: orange;
+		}
+		.li3 {
+			background: yellow;
+		}
+		.li4 {
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="li1"></li>
+		<li class="li2"></li>
+		<li class="li3"></li>
+		<li class="li4"></li>
+	</ul>
+</body>
+<script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+	var $ul = $('ul');
+	var $li1 = $($ul).children().eq(1);
+	var $li4 = $($ul).children().eq(4);
+	//console.log($li0);
+
+	var $li = $($ul).children();
+	$($li).on('click',function(){
+		let first = $($ul).children().eq(0);
+		//console.log(this);
+		//console.log(first);
+		$(this).before().first;
+		// $(this).insertBefore().first;
+	});
+
+</script>
+</html>

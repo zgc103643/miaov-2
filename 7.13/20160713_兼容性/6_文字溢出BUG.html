@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.wrap {
+	width: 400px;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+	width: 400px;
+}
+/*span {
+	float: left;
+}*/
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="left"></div>
+    <span></span>
+    <div class="right">&darr;这是多出来的一只猪</div>
+</div>
+<!-- IE6下文字溢出BUG -->
+<!--
+	在IE6下，两个浮动元素中间有注释或者内嵌元素，父级的宽度和子元素宽度相差小于3px，元素内的文字会被复制
+    
+    解决办法：
+    	1.给注释或者内嵌元素用div包起来
+        2. 给父级的宽度加宽3px
+-->
+</body>
+</html>

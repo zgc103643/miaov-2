@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>计算器</title>
+</head>
+<script type="text/javascript">
+window.onload = function(){
+	var input = document.getElementsByTagName("input");
+	var select = document.getElementsByTagName("select");
+	var val0 = Number(input[0].value);
+	var val1 = Number(input[1].value);
+	input[2].onclick = function(){
+		switch(select.value) {
+			case "+": 
+			input[2].value = val1 + val2;
+			break;
+			case "-": 
+			input[2].value = val1 - val2;
+			break;
+			case "*": 
+			input[2].value = val1 * val2;
+			break;
+			case "/": 
+			input[2].value = val1 / val2;
+			break;
+			default: 
+			input[2].value = val1 % val2;
+			break;	
+		}
+		
+	}
+	
+}
+</script>
+<body>
+	<input type="text">
+	<select>
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+		<option>%</option>
+	</select>
+	<input type="text">
+	<input type="button" value = "=">	
+	<input type="text">
+</body>
+</html>

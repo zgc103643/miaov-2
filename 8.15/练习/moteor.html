@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>moteor</title>
+</head>
+	<style>
+	@keyframes rotate {
+		0%{
+			transform: rotate(0deg);
+		}
+		100%{
+			transform: rotate(360deg);			
+		}
+	}
+	body {
+		margin: 0;
+		background-color: #09F;
+	}
+	.wrap {
+		width: 510px;
+		height: 510px;
+		margin: 100px auto;
+		perspective: 800px;
+	}
+	.div2 {
+		width: 510px;
+		height: 510px;
+		transform-style: preserve-3d;
+		transform: rotateX(-20deg) rotateY(-25deg);
+	}
+	.div {
+		position: relative;
+		width: 510px;
+		height: 510px;
+		transform-style: preserve-3d;
+		transform-origin: center center 0;
+		animation: 15s rotate linear infinite;
+	}
+	.div span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 500px;
+		height: 500px;
+		border: 1px solid blue;
+		border-radius: 50%;
+		opacity: 0.5;
+	}
+	.div span img {
+		width: 500px;
+		display: block;
+	}
+	.div span:nth-child(1) {
+		transform: rotateZ(0deg) rotateY(90deg);
+	}
+	.div span:nth-child(2) {
+		transform: rotateZ(60deg) rotateY(90deg);
+	}
+	.div span:nth-child(3) {
+		transform: rotateZ(120deg) rotateY(90deg);
+	}
+	.div span:nth-child(1) img {
+	animation: 5s rotate linear infinite;
+	}
+	.div span:nth-child(2) img {
+	animation: 5s 1s rotate linear infinite;
+	}
+	.div span:nth-child(3) img {
+	animation: 5s 2s rotate linear infinite;
+	}
+	</style>
+<body>
+	<div class="wrap">
+		<div class="div2">
+	        <div class="div">
+	            <span><img src="ttround.png"/></span>
+	            <span><img src="ttround.png"/></span>
+	            <span><img src="ttround.png"/></span>
+	        </div>
+	    </div>    
+	</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡3</title>
+	<style>
+		.wrap {
+			width: 300px;
+			border: 1px solid #000;
+			margin: 30px auto;
+		}
+		#nav {
+			height: 32px;
+		}
+		#nav a {
+			float: left;
+			width: 98px;
+			font: 14px/30px "宋体";
+			text-align: center;
+			text-decoration: none;
+			color: #000;
+			background: #ccc;
+			border: 1px solid #000;
+		}
+		#nav .active {
+			background: #000;
+			color: #fff;
+		}
+		.wrap div {
+			height: 200px;
+			background: #000;
+			border: 1px solid #fff;
+			text-align: center;
+			font:  80px/200px "宋体";
+			color: #fff;
+			display: none;
+		}
+		.wrap .show {
+			display: block;
+		}
+	</style>
+	<script>
+	window.onload = function() {
+		var navs = document.querySelectorAll("#nav a");
+		var divs = document.querySelectorAll(".wrap div");
+		var now = 0;
+		for(var i = 0; i < navs.length; i++){
+			navs[i].index = i; //在onmouseover之前，将该次循环中i的取值找到，并将该值通过自定义属性赋在变量navs[i]上，
+							   //在onmouseover通过寻找this的index值找到与navs[i]对应的divs[i]，并改变divs[i]的属性
+			navs[i].onmouseover = function(){
+				
+				navs[now].className = "";
+				divs[now].className = "";
+				this.className = "active";
+				divs[this.index].className = "show";
+				now = this.index;
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<section class="wrap">
+		<nav id="nav">
+			<a href="#" class="active">选项1</a>
+			<a href="#">选项2</a>
+			<a href="#">选项3</a>
+		</nav>
+		<div class="show">1</div>
+		<div>2</div>
+		<div>3</div>
+	</section>
+</body>
+</html>

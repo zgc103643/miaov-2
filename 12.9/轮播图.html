@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap {
+			position: relative;
+			width: 240px;
+			height: 240px;
+			margin: 100px auto;
+			border: 3px solid #aaa;
+			overflow: hidden;		
+		}
+		ul {
+			position: absolute;
+			left: -240px;
+			width: 480px;
+			height: 240px;
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			float: left;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul>
+			<li><img src="img/1.jpg"></li>
+			<li><img src="img/2.jpg"></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+	var arr = [
+				"img/1.jpg",
+				"img/2.jpg",
+				"img/3.jpg",
+				"img/4.jpg",
+				"img/5.jpg",
+				"img/6.jpg",
+				"img/7.jpg",
+				"img/8.jpg"
+			];
+	var $wrap = $('#wrap');
+	var $ul = $('ul');
+	var $li = $('li');
+	var timer = null;
+	var num = 0;
+	timer = setInterval(function(){
+		change();
+		$($ul).css("left",0);
+		$($ul).animate(
+				{
+					left: -240
+				}
+		);
+	},2000);
+	function change(){
+		$($li).eq(0).find('img').attr("src",arr[num]);
+		$($li).eq(1).find('img').attr("src",arr[num = num<arr.length-1 ? ++num : 0]);
+		console.log(num)
+	}
+</script>
+</html>

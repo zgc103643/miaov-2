@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Animal(name){
+		this.n = name;
+		this.go = function(){
+			console.log(this.n);
+		}
+	}
+	Animal.prototype.fuckOff = function(){
+		console.log(this.n.repeat(3));
+	}
+	var cat = new Animal("Tiger");
+	cat.go();	
+	cat.fuckOff();
+</script>
+</html>

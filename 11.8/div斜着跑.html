@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>斜着跑</title>
+	<style type="text/css">
+		#box {
+			position: absolute;
+			top: 200px;
+			left: 200px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script type="text/javascript">
+	onOff = {
+		isLeft:false,
+		isTop:false,
+		isRight:false,
+		isBottom:false
+	};
+	window.onkeydown = function(e){
+		var code = e.keyCode;
+		switch(code){
+			case 37:
+				onOff.isLeft = true;
+			break;
+			case 38:
+				onOff.isTop = true;
+			break;
+			case 39:
+				onOff.isRight = true;
+			break;
+			case 40:
+				onOff.isBottom = true;
+			break;
+		}
+		
+		if(onOff.isLeft == true){
+			box.style.left = box.offsetLeft - 5 + "px";
+		}
+		if(onOff.isTop == true){
+			box.style.top = box.offsetTop - 5 + "px";
+		}
+		if(onOff.isRight == true){
+			box.style.left = box.offsetLeft + 5 + "px";
+		}
+		if(onOff.isBottom == true){
+			box.style.top = box.offsetTop + 5 + "px";		
+		}
+		window.onkeyup = function(e){
+			code = e.keyCode;
+			switch(code){
+				case 37:
+					onOff.isLeft = false;
+				break;
+				case 38:
+					onOff.isTop = false;
+				break;
+				case 39:
+					onOff.isRight = false;
+				break;
+				case 40:
+					onOff.isBottom = false;
+				break;
+			}
+		}		
+	}
+</script>
+</html>

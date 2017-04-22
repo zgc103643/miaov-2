@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>11日案例</title>
+	<style>
+	 ul {
+	 	margin: 0;
+	 	padding: 0;
+	 	list-style: none;
+	 }
+	 li {
+	 	float:left;
+	 	width: 180px;
+	 	border: 3px solid #fff;
+	 }
+	 #wrap {
+	 	position: relative;
+	 	width: 744px;
+	 	margin: 100px auto;
+	 }
+	#list {
+		overflow: hidden;
+	}
+	#list .active {
+		border-color: red;
+	}
+	img {
+		width: 180px;
+		vertical-align: top;
+	}
+	#wrap .prev {
+		position: absolute;
+		top: 30px;
+		left: -40px;
+		width: 40px;
+		height: 40px;
+		font: bold 30px/40px "宋体";
+		text-align: center;
+	}
+	#wrap .next {
+		position: absolute;
+		top: 30px;
+		right: -40px;
+		width: 40px;
+		height: 40px;
+		font: bold 30px/40px "宋体";
+		text-align: center;		
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload = function () {
+		list = document.getElementById("list");
+		li = document.querySelectorAll("li");
+		btn = document.querySelectorAll("input");
+		var nub = 0;
+		var isNub = true;
+		timer = setInterval(function(){
+			if(nub==0){
+				isNub = true;
+			}//当nub为指代第一项时，令开关为true
+			if(nub==li.length-1){
+				isNub = false;
+			}//当nub为指代最后一项时，令开关为false
+			if(isNub){
+				nub++;
+			}else{
+				nub--;
+			}//开关为true时自增，否则自减
+			select();
+		},500)
+		list.onmouseover = function(){
+			clearInterval(timer);
+		}
+		list.onmouseout = function(){
+			timer = setInterval(function(){
+				if(nub==0){
+					isNub = true;
+				}//当nub为指代第一项时，令开关为true
+				if(nub==li.length-1){
+					isNub = false;
+				}//当nub为指代最后一项时，令开关为false
+				if(isNub){
+					nub++;
+				}else{
+					nub--;
+				}//开关为true时自增，否则自减
+				select();
+			},500)
+		}
+		for (var i = 0; i < li.length; i++) {
+			li[i].index = i;
+			li[i].onclick = function(){
+				for (var i = 0; i < li.length; i++) {
+					li[i].className = "";
+				}
+				this.className = "active";
+				nub = this.index;
+			}
+		}
+		
+		btn[0].onclick = function(){
+			nub--;
+			if(nub<0){
+				nub = li.length-1;
+			}
+			select();
+		}
+		btn[1].onclick = function(){
+			nub++;
+			if(nub>li.length-1){
+				nub = 0;
+			}
+			select();
+		}
+		function select() {
+			var is
+			for (var i = 0; i < li.length; i++) {
+				li[i].className = "";
+			}
+			li[nub].className = "active";
+			
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<ul id ="list">
+			<li class="active">
+				<img src="img/01.jpg"/>
+			</li>
+			<li>
+				<img src="img/02.jpg"/>
+			</li>
+			<li>
+				<img src="img/03.jpg"/>
+			</li>
+			<li>
+				<img src="img/04.jpg"/>
+			</li>
+		</ul>
+		<input type="button" class="prev" value="<"/>
+		<input type="button" class="next" value=">"/>
+	</div>
+</body>
+</html>

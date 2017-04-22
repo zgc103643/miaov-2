@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style type="text/css">
+	section {
+		position: relative;
+		width: 405px;
+		height: 200px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	#box {
+		width: 405px;
+		height: 30px;
+
+	}
+	#box::after,
+	ul::after,
+	.btns {
+		content: "";
+		clear: both;
+		display: block;
+	}
+	a {
+		float: left;
+		width: 101px;
+		height: 30px;
+		text-decoration: none;
+		text-align: center;
+		font: 26px/30px "微软雅黑";
+		color: skyblue;
+	}
+	.active {
+		background: #000;
+		color: #fff;
+	}
+	ul {
+		position: absolute;
+		top: 30px;
+		left: 0;
+		width: 1620px;
+		margin: 0 auto;
+		padding: 0;
+		transition: 0.5s;
+	}
+	.btns {
+		position: absolute;
+		top: 105px;
+		left: 0;
+		width: 405px;
+	}
+	.btns a {
+		width: 30px;
+		height: 30px;
+		font: 26px/30px "宋体";
+		background-color: black;
+		opacity: .3;
+	}
+	.left {
+		float: left;
+	}
+	.right {
+		float: right;
+	}
+	li {
+		float: left;
+		list-style: none;
+	}
+	img {
+		width: 405px;
+	}
+	</style>
+	<script type="text/javascript">
+	/*
+		计时器要求：
+			1.页面加载执行计时器
+			2.在鼠标移入section上时停止
+			3.在鼠标移出section时重新开启计时器
+	 */
+	function css(el,attr){
+		if(el.currentStyle) {
+			return el.currentStyle[attr];	
+		}
+		return getComputedStyle(el)[attr];
+	}
+	window.onload = function() {
+		var section = document.querySelector("section");
+		var box = document.getElementById("box");
+		var ul = document.querySelector("ul");
+		var a = box.querySelectorAll("a");
+		var li = ul.querySelectorAll("li");
+		var now = 0;
+		timer = 0;
+
+		timer = setInterval(
+			function tab(){
+				a[now].className = "";
+				now++;
+				if(now > a.length-1){		//判断出now值增加到a.length长度减1时返回到0
+					now = 0;
+				}
+				a[now].className = "active";
+				ul.style.left = -parseFloat(css(li[0],"width"))*now + "px";
+			},2000
+		)
+		section.onmouseover = function() {
+			clearInterval(timer);
+		}
+		section.onmouseout = function() {
+			timer = setInterval(
+				function tab(){
+					a[now].className = "";
+					now++;
+					if(now > a.length-1){		//判断出now值增加到a.length长度减1时返回到0
+						now = 0;
+					}
+					a[now].className = "active";
+					ul.style.left = -parseFloat(css(li[0],"width"))*now + "px";
+				},2000
+			)
+		}
+		
+
+		for(var i = 0; i <a.length; i++) {
+			a[i].index = i;
+			a[i].onclick = function() {
+				//tab();
+					// function tab(){
+						a[now].className = "";
+						now = this.index;
+						a[now].className = "active"; //通过为now赋值将被点击的a标签class值修改为active
+						ul.style.left = -parseFloat(css(li[0],"width"))*now + "px";	//在每次点击时重定义ul的定位值到每张图片宽度
+																					//与now的乘积
+					// };  //封装不成功
+			}	
+		}
+		var pages = document.querySelectorAll(".btns a");
+		pages[0].onclick = function(){
+			//turn("--","<","0");
+			a[now].className = "";
+			now--;
+			if(now < 0){		//判断出now值减少到0时停止
+				now = 0;
+			}
+			a[now].className = "active";
+			ul.style.left = -parseFloat(css(li[0],"width"))*now + "px";
+		}
+		pages[1].onclick = function(){
+			//turn("++",">","a.length");
+			a[now].className = "";
+			now++;
+			if(now > a.length-1){		//判断出now值增加到a.length长度减1时停止
+				now = a.length-1;
+			}
+			a[now].className = "active";
+			ul.style.left = -parseFloat(css(li[0],"width"))*now + "px";
+		}
+		//数字 0 和 a.length 封装时报错
+	}
+	</script>
+</head>
+<body>
+	<section>
+		<div id="box">
+			<a class="active" href="javascript:;">标签1</a>
+			<a href="javascript:;">标签2</a>
+			<a href="javascript:;">标签3</a>
+			<a href="javascript:;">标签4</a>
+		</div>
+		<ul>
+			<li><img src="images/img1.gif"/></li>
+			<li><img src="images/img2.gif"/></li>
+			<li><img src="images/img3.gif"/></li>
+			<li><img src="images/img4.gif"/></li>
+		</ul>
+		<div class="btns">
+			<a class="left" href="javascript:;"><</a>
+			<a class="right" href="javascript:;">></a>
+		</div>
+	</section>
+</body>
+</html>

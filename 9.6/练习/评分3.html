@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>评分</title>
+	<style>
+	.clearFix::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#wrap {
+		width: 510px;
+		margin: 40px auto;
+	}
+	#wrap span {
+		float: left;
+		width: 80px;
+		height: 80px;
+		margin: 0 10px;
+		border-radius: 50%;
+		border: 1px solid black;
+	}
+	#wrap .active {
+		border: 1px solid red;
+		background: red;
+	}
+	</style>
+	<script type="text/javascript">
+	/*
+		鼠标移入时，从第一个圆圈到被选中圆圈全部点亮。
+	 */
+	window.onload = function() {
+		var wrap = document.getElementById("wrap");
+		var spans = wrap.querySelectorAll("#wrap span");
+		for(var i = 0;i < spans.length;i++){
+			spans[i].index = i;
+			spans[i].onclick = function(){
+				n = this.index;
+				for(i = 0;i < spans.length; i++){
+					spans[i].className = "";
+				}
+				for(i = 0;i < this.index+1; i++){
+					spans[i].className = "active";
+				}
+			}
+			spans[i].onmouseover = function(){
+				for(i = 0;i < spans.length; i++){
+					spans[i].className = "";
+				}
+				for(i = 0;i < this.index+1; i++){
+					spans[i].className = "active";
+				}
+			}
+			spans[i].onmouseout = function(){
+				for(i = 0;i < spans.length; i++){
+					spans[i].className = "";
+				}
+				for(i = 0;i < n+1; i++){
+					spans[i].className = "active";
+				}
+			}
+			function fn(){
+				n = this.index;
+				for(i = 0;i < spans.length; i++){
+					spans[i].className = "";
+				}
+				for(i = 0;i < this.index+1; i++){
+					spans[i].className = "active";
+				}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="wrap" class="clearFix">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>		
+	</div>
+</body>
+</html>

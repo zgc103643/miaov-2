@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+//alert(Math.tan(30/180*Math.PI));
+//alert(Math.cos(45/180*Math.PI));
+</script>
+<style>
+#box {
+	width: 100px;
+	padding: 100px;
+	border: 2px solid #000;
+	margin: 50px auto;
+}
+.div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	transition: 1s;
+	font: 80px/100px "微软雅黑";
+	color: #fff;
+	text-align: center;
+	/*transform: matrix(1.414, 1.414, -1.414, 1.414, 0, 0);*/
+	transform: matrix(1, 0, .5773, 1, 0, 0);
+	/*filter: progid:DXImageTransform.Microsoft.Matrix( M11= 1.414, M12= -1.414, M21= 1.414,  M22=1.414,SizingMethod='auto expand');*/
+}
+/*
+#box:hover .div:nth-of-type(1) {
+	transform: matrix(.5,0,0,.5,100,0);
+}
+
+#box:hover .div:nth-of-type(2) {
+	transform: matrix(.5,0,0,.5,50,0);
+}
+*/
+/*
+	a,c,e
+	b,d,f
+	0,0,0
+	matrix(a,b,c,d,e,f);
+
+	x 缩放   a = x*a, c=x*c, e=x*e
+	y 缩放   b = y*b, d=y*d, f=y*f
+	
+	x位移:  e = e + x;
+	y位移:	f = f + y;
+	
+	通过矩阵实现倾斜
+		x轴倾斜: c=Math.tan(xDeg/180*Math.PI)
+		y轴倾斜: b=Math.tan(yDeg/180*Math.PI)
+
+旋转:		
+	a=Math.cos(deg/180*Math.PI); 
+	b=Math.sin(deg/180*Math.PI);
+	c=-Math.sin(deg/180*Math.PI);
+	d=Math.cos(deg/180*Math.PI);
+	
+
+
+	matrix 矩阵	
+	
+	filter: progid:DXImageTransform.Microsoft.Matrix( M11= 1, M12= 0, M21= 0 , 	M22=1,SizingMethod='auto expand');
+	
+IE下的矩阵没有E和F两个参数 M11==a; M12==c; M21==b; M22==d
+
+	
+*/
+</style>
+</head>
+<body>
+<div id="box">
+	<div class="div">上</div>
+    <div class="div">上</div>
+</div>
+</body>
+</html>

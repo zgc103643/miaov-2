@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jiantou</title>
+</head>
+<style type="text/css">
+	#wrap {
+		position: relative;
+		width: 200px;
+		height: 200px;
+		margin: 40px auto;
+		border: 5px solid red;
+	}
+	#wrap div{
+		position: absolute;
+		width: 38px;
+		height: 38px;
+		border: 1px solid #000;
+		font: bold 26px/38px "宋体";
+		text-align: center;
+		/*display: none;*/
+	}
+	input {
+		width: 50px;
+		height:30px;
+		margin: 250px auto; 
+	}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var input = document.querySelector("input");
+	var divs = document.querySelectorAll("#wrap div");
+	var n = 0;
+	var arr = ["fn1","fn2","fn3","fn4"];
+
+	//for(var i = 0;i < divs.length; i++){
+
+
+		input.onclick = function(){
+			arr[n%4];
+			n++;
+		}
+		function fn1 (){
+			divs[0].style.top = "0px";
+			divs[0].style.left = "0px";
+		}
+		function fn2 (){
+			divs[0].style.top = "160px";
+			divs[0].style.left = "0px";
+		}
+		function fn3 (){
+			divs[0].style.top = "160px";
+			divs[0].style.left = "160px";
+		}
+		function fn4 (){
+			divs[0].style.top = "0px";
+			divs[0].style.left = "160px";
+		}
+			
+	//}
+
+}
+</script>
+<body>
+	<div id="wrap">
+		<div>0</div>
+		<input type="button" value="按钮"/>	
+	</div>
+	
+</body>
+</html>

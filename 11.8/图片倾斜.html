@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片倾斜</title>
+	<style type="text/css">
+		#box {
+			width: 300px;
+			height: 200px;
+			margin: 50px auto;
+			perspective: 400px;
+		}
+		img {
+			width: 300px;
+			display: block;
+			transform-origin: center center 0;
+			vertical-align: top;
+			transform: rotateY(30deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="img2.jpg"/>
+	</div>
+</body>
+<script type="text/javascript">
+	var img = document.querySelector("img");
+	document.onmousemove = function(e){
+		var Num = window.innerWidth/2;
+		var posX = e.clientX;
+		var dis = posX - Num;
+		img.style.transform = "rotateY("+0.03*dis+"deg)";
+	}
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	padding: 100px;
+	border: 2px solid #000;
+	margin: 50px auto;
+}
+#div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	transition: 1s;
+	font: 80px/100px "微软雅黑";
+	color: #fff;
+	text-align: center;
+}
+#box:hover #div {
+	transform: translateX(-100px);
+}
+/*
+	transform 变换
+		rotate(deg) 旋转
+		
+		scale( 0 - ) 缩放
+		scaleX()
+		scaleY()
+		
+		skew(x,y); 斜切
+		skewX(deg) x方向斜切
+		skewY(deg) y方向斜切
+		
+		translate(x,y) 位移
+		translateX(px) x方向位移
+		translateY(px) y方向位移
+*/
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="div">上</div>
+</div>
+</body>
+</html>

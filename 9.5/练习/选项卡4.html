@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡4</title>
+	<style type="text/css">
+		.wrap {
+			width: 300px;
+			border: 1px solid #000;
+			margin: 30px auto;
+		}
+		#nav {
+			height: 32px;
+		}
+		#nav a {
+			float: left;
+			width: 98px;
+			font: 14px/30px "宋体";
+			text-align: center;
+			text-decoration: none;
+			color: #000;
+			background: #ccc;
+			border: 1px solid #000;
+		}
+		#nav .active {
+			background: #000;
+			color: #fff;
+		}
+		.wrap div {
+			height: 200px;
+			background: #000;
+			border: 1px solid #fff;
+			text-align: center;
+			font:  80px/200px "宋体";
+			color: #fff;
+			display: none;
+		}
+		.wrap .show {
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var navs = document.querySelectorAll("#nav a");
+			var divs = document.querySelectorAll(".wrap div");
+			var pre = document.getElementById("pre");
+			var next = document.getElementById("next");
+			var now = 0;
+			var timeLine = [0];
+			for(var i = 0; i < navs.length; i++) {
+				navs[i].index = i; 
+				navs[i].onclick = function() {
+					navs[now].className = "";
+					divs[now].className = "";
+					this.className = "active";
+					divs[this.index].className ="show";
+					now = this.index;
+				};
+				pre.onclick = function(){
+					navs[now].className = "";
+					divs[now].className = "";
+					now--;
+					if(now < 0){
+						now = 2;
+					}
+					navs[now].className = "active";
+					divs[now].className = "show";
+				}
+				next.onclick = function(){
+					navs[now].className = "";
+					divs[now].className = "";
+					now++;
+					if(now > 2){
+						now = 0;
+					}
+					navs[now].className = "active";
+					divs[now].className = "show";
+				}	
+			}
+		};
+		/*
+			自定义属性，元素没有这个属性，我们自己给他起的新属性，自定义属性
+		*/
+	</script>
+</head>
+<body>
+<section class="wrap">
+	<input type="button" id="pre" value="上一步">
+	<input type="button" id="next" value="下一步">
+	<nav id="nav">
+		<a href="#" class="active">选项1</a>
+		<a href="#">选项2</a>
+		<a href="#">选项3</a>
+	</nav>
+	<div class="show">1</div>
+	<div>2</div>
+	<div>3</div>
+</section>
+</body>
+</html>

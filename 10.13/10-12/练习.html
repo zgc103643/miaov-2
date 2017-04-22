@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul,ol{
+				margin:0;
+				padding:0;
+				list-style: none;
+			}
+			img{
+				vertical-align: top;
+			}
+			#wrap{
+				width:400px;
+				height: 200px;
+				border:2px solid #000;
+				margin:30px auto;
+				/*overflow: hidden;*/
+			}
+			#left{
+				float: left;
+				width: 98px;
+				border-right: 2px solid #000;
+			}
+			#imgs{
+				float: left;
+				width: 200px;
+			}
+			#imgs li{
+				display: none;
+			}
+			#imgs img{
+				width: 200px;
+				height: 200px;
+			}
+			#right{
+				float: right;
+				width: 98px;
+				border-left: 2px solid #000;
+			}
+			#right li, #left li{
+				height: 48px;
+				border-bottom:  2px solid #000;
+				font:16px/48px "微软雅黑";
+				text-align: center;
+			}
+			#left .active, #right .active{
+				background:pink;
+			}
+			#imgs .show{
+				display: block;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var left=document.getElementById("left");
+				var left_li=left.getElementsByTagName("li");
+				var right=document.getElementById("right");
+				var right_li=right.getElementsByTagName("li");
+				var imgs=document.getElementById("imgs").getElementsByTagName("li");
+				var isNub=1;
+				var now=9;
+//				console.log(left_li,right_li);
+				var arr=Array.from(left_li).concat(Array.from(right_li));	
+//				console.log(arr);
+				tab();
+				setInterval(tab,500);
+				function tab(){
+					arr.forEach(function(item,i,arr){
+						if(item.className=="active"){
+							now=i;
+						}	//如果某一个选项卡项当前被选中，提取它的编号
+						arr[now].className="";
+						imgs[now].className="";
+							//点亮当前被点击选项卡并显示对应的图片
+					});
+					if(now==0){
+						isNub=1;
+					}
+					if(now==arr.length-1){
+						isNub=-1;
+					}
+					//到达循环最前\最后改变循环方向
+					now+=isNub;
+					//改变now值
+					arr[now].className="active";
+					imgs[now].className="show";
+					//通过now值的改变点亮相应的选项选项
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<section id="wrap">
+			<ol id="left">
+				<li class="active">选项一</li>
+				<li>选项二</li>
+				<li>选项三</li>
+				<li>选项四</li>
+			</ol>
+			<ul id="imgs">
+				<li class="show"><img src="1.JPG"/></li>
+				<li><img src="2.JPG"/></li>
+				<li><img src="3.JPG"/></li>
+				<li><img src="4.JPG"/></li>
+				<li><img src="5.JPG"/></li>
+				<li><img src="6.JPG"/></li>
+				<li><img src="7.JPG"/></li>
+				<li><img src="8.JPG"/></li>
+			</ul>
+			<ol id="right">
+				<li>选项五</li>
+				<li>选项六</li>
+				<li>选项七</li>
+				<li>选项八</li>
+			</ol>
+		</section>
+	</body>
+</html>

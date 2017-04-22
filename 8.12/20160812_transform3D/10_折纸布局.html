@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.list {
+	width: 302px;
+	margin: 50px auto;
+	padding: 0;
+	list-style: none;
+	perspective: 600px;
+	transform-style: preserve-3d;
+}
+.list li {
+	border: 1px solid #000;
+	height: 100px;
+	font: 50px/100px "宋体";
+	text-align: center;
+}
+.list li:nth-child(1) {
+	transform: translateY(6.7px) rotateX(30deg);
+}
+.list li:nth-child(2) {
+	transform: translateY(-6.7px) rotateX(-30deg);
+}
+.list li:nth-child(3) {
+	transform: translateY(-20.1px) rotateX(30deg);
+}
+.list li:nth-child(4) {
+	transform: translateY(-33.5px) rotateX(-30deg);
+}
+</style>
+<script>
+//alert(50-Math.cos(30*Math.PI/180)*50);
+</script>
+</head>
+<body>
+<ul class="list">
+	<li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>

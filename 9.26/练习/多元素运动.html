@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>多元素运动</title>
+	<style>
+	div {
+		margin-top: 20px;
+	}
+	</style>
+	<script type="text/javascript" src="MTween.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var div = document.getElementsByTagName("div");
+			for(var i=0; i<div.length; i++){
+				div[i].style.width = "100px";
+				div[i].style.height = "100px";
+				div[i].style.backgroundColor = "red";
+				div[i].onmouseover = function(){
+					mTween(this,"width",500,300,"bounceOut");
+				}
+				div[i].onmouseout = function(){
+					mTween(this,"width",100,300,"bounceOut");
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

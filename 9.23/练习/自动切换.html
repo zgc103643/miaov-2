@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>自动切换</title>
+	<style>
+		section {
+			position: relative;
+			width: 300px;
+			height: 187.5px;
+			margin: 50px 0 0 300px;
+			border: 3px solid gray;
+			overflow: hidden;
+		}
+		ul {
+			position: absolute;
+			top: 0;
+			width: 1200px;
+			padding: 0;
+			margin: 0;
+			transition: .5s;	
+		}
+		ul::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		li {
+			position: relative;
+			float: left;
+			padding: 0;
+			margin: 0;
+			list-style: none;			
+		}
+		img {
+			width: 300px;
+		}
+		span {
+			position: absolute;
+			bottom: 3px;
+			left: 0;
+			width: 300px;
+			height: 80px;
+			font: 22px/80px "宋体";
+			color: #fff;
+			background-color: rgba(0,0,0,.3);
+			display: block;
+			transition:.5s;
+		}
+	</style>
+	<script type="text/javascript">
+	/*
+		各个定时器之间的时间关系：
+			1.主图片每2s切换一次
+			2.span每次在主图切换之前开始下移，到底时图片开始横移；
+			  图片切换过程中span隐藏在底部
+			  图片切换完成后span开始归位
+	 */
+	function css(el,attr){
+		if(el.currentStyle) {
+			return el.currentStyle[attr];	
+		}
+		return getComputedStyle(el)[attr];
+	}
+	window.onload = function(){
+		var ul = document.querySelector("ul");
+		var li = ul.getElementsByTagName("li");
+		var img = document.getElementsByTagName("img");
+		var span = document.getElementsByTagName("span");
+		now = 0;
+		var timer = 0;
+		var target = -83;  //span移动的目标位置
+		// setInterval(		//设置计时器每隔2s改变一次ul的left值，切换当前图片
+		// 	function(){
+		// 		now ++;
+		// 		if(now > li.length-1){
+		// 			now = 0;
+		// 		}
+		// 		ul.style.left = -parseFloat(css(img[0],"width"))*now + "px";	
+		// 	},2000
+		// )  		//主图片每2s切换一次
+		/*
+			从页面加载完毕之后1.5s（图片横移前0.5s开始下沉），
+			span下沉完毕同时图片横移，横移耗时0.5s，此时span在下方等待
+			横移完毕，span开始上浮，0.5s后上浮完毕；
+			一个周期结束		
+		 */
+		setTimeout(		//在span的循坏开始前，将它延迟500ms
+			function(){
+				timer = setInterval(		//设置span的收起循环，运动周期为1s
+					function(){
+						for(var i = 0; i < span.length; i++){	//一起操纵所有的span
+							var bottom = parseFloat((css(span[0],"bottom")));		//获取此时span的bottom值
+							if(bottom < target){
+								clearInterval(timer);		//如果bottom比target要小，则停止函数
+								timer = setInterval(		//设置span的收起循环，运动周期为1s
+									function(){			////设置span的放出循环，运动周期为1s
+										for(var i = 0; i < span.length; i++){
+											var bottom = parseFloat((css(span[0],"bottom")));
+											if(bottom > 3){
+												clearInterval(timer);
+											}
+											span[i].style.bottom = 3 + "px";
+										}
+									},500
+								)
+							}
+							span[i].style.bottom = -83 + "px";			//把所有span的值隐藏
+						}	
+					},1000
+				)
+			},500
+		)
+	}
+	</script>
+</head>
+<body>
+	<section>
+		<ul>
+			<li>
+				<img src="img/01.jpg"/>
+				<span>四之一</span>
+			</li>
+			<li>
+				<img src="img/02.jpg"/>
+				<span>四之二</span>
+			</li>
+			<li>
+				<img src="img/03.jpg"/>
+				<span>四之三</span>
+			</li>
+			<li>
+				<img src="img/04.jpg"/>
+				<span>四之四</span>
+			</li>
+		</ul>
+	</section>
+</body>
+</html>

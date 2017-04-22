@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>气球字体</title>
+	<style>
+		body {
+			margin: 0;
+		}
+		section {
+			width: 402px;
+			margin: 0 auto;
+		}
+		div,
+		textarea {
+			width: 400px;
+			height: 150px;
+			border: 1px solid #000;
+		}
+		textarea {
+			padding: 0;
+			resize: none;
+		}
+		select {
+			margin: 10px 0;
+			display: block;
+		}
+		input {
+			width: 70px;
+			font: 14px/16px "宋体";
+			margin: 10px;
+		}
+		span {
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			font: 14px/16px "微软雅黑";
+			display: inline-block;
+			background-color: indigo;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function() {
+		var div = document.querySelector("div");
+		var textarea = document.querySelector("textarea");
+		var btn = document.querySelector("input");
+		var colors = ["red","orange","yellow","green","blue","indigo","purple"];
+
+		btn.onclick = function(){
+			var str = textarea.value;
+			var strFin = "";
+			var strSep = str.split("");
+			for (var i = 0; i < strSep.length; i++) {
+				nub = parseInt(Math.random()*colors.length);
+				strFin += "<span style='background:"+colors[nub]+"'>"+strSep[i]+"</span>";
+			}
+			div.innerHTML = strFin;
+		}
+	}
+	</script>
+</head>
+<body>
+	<section>
+		<div></div>
+		<select>
+			<option>气球字体</option>
+		</select>
+		<textarea>没有人是自成一体、与世隔绝的孤岛,每一个人都是广袤大陆的一部份。如果海浪冲掉了一块岩石，欧洲就减少。如同一个海岬失掉一角，如同你的朋友或者你自己的领地失掉一块。每个人的死亡都是我的哀伤，因为我是人类的一员。所以，不要问丧钟为谁而鸣，它就为你而鸣！</textarea>
+		<input type="button" value="确定"/>
+	</section>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<!--
+	type = "email" 邮箱
+    type = "url" 网址
+    type = "tel" 电话
+    type = "search" 搜索
+    type = "number"
+    	max 最大值
+        min 最小值
+        step 间隔步数
+    type = "color"    
+    type="datetime-local" 完整的时间日期
+    type="month" 月份
+    type="week" 周
+    type="date" 年月日
+    type="time" 时间
+    datetime 国际标准时间 但是 浏览器没有实现 用 datetime-local 代替
+    datalist 定义输入框可能出现的值 通过list属性和输入框关联
+    
+-->
+<form action="http://www.baidu.com/">
+    <input type="search" list="valList" />
+    <datalist id="valList">
+    	<option>html</option>
+        <option>html+css</option>
+        <option>html5</option>
+    </datalist>
+    <input type="submit" value="提交" />
+</form>
+</body>
+</html>

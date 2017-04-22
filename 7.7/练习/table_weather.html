@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>table_weather</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		td,
+		th {
+			padding: 0;
+		}
+		.weather {
+			width: 640px;
+			margin: 50px auto;
+		}
+		.weather th,
+		.weather td {
+			border: 1px solid #99b0da;
+		}
+		.weather th {
+			height: 30px;
+			font-size: 14px;
+			background-color: #dbe3fa;
+		}
+		.weather td {
+			height: 28px;
+			font-size: 12px;
+			text-align: center;
+		}
+		.weather .pic {
+			background: url(img/ico.png) no-repeat 18px 4px;
+		}
+		.weather tr .spacing {
+			height: 4px;
+			border: none;
+		}
+	</style>
+
+</head>
+<body>
+	<table class="weather">
+		<caption>Nothing</caption>
+		<thead>
+			<tr>
+				<th colspan="2">日期</th>
+				<th colspan="2">天气现象</th>
+				<th>气温</th>
+				<th>风向</th>
+				<th>风力</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td width="95px" rowspan="2">22日星期五</td>		
+				<td width="76px">白天</td>
+				<td width="63px" class="pic"></td>
+				<td width="115px">晴间多云</td>
+				<td width="95px">高温7℃</td>
+				<td width="94px">无持续风向</td>
+				<td width="94px">微风</td>
+			</tr>
+			<tr>
+				<td>白天</td>
+				<td class="pic"></td>
+				<td>晴间多云</td>
+				<td>高温7℃</td>
+				<td>无持续风向</td>
+				<td>微风</td>
+			</tr>
+			<tr>
+				<td colspan="7" class="spacing"></td>
+			</tr>
+			<tr>
+				<td width="95px" rowspan="2">22日星期五</td>		
+				<td width="76px">白天</td>
+				<td width="63px" class="pic"></td>
+				<td width="115px">晴间多云</td>
+				<td width="95px">高温7℃</td>
+				<td width="94px">无持续风向</td>
+				<td width="94px">微风</td>
+			</tr>
+			<tr>
+				<td>白天</td>
+				<td class="pic"></td>
+				<td>晴间多云</td>
+				<td>高温7℃</td>
+				<td>无持续风向</td>
+				<td>微风</td>
+			</tr>
+		</tbody>		
+	</table>
+</body>
+</html>

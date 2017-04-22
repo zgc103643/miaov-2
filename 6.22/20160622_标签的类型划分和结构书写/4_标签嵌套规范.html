@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<!--
+<p>
+	<div></div>
+</p>
+<ul>
+	<li>
+    		列表1
+            <ul>
+            	<li>列表2 </li>
+                <li>列表2 </li>
+                <li>列表2 </li>
+            </ul>
+    </li>
+    	<li>
+    		列表1
+            <ul>
+            	<li>列表2 </li>
+                <li>列表2 </li>
+                <li>列表2 </li>
+            </ul>
+    </li>
+    	<li>
+    		列表1
+            <ul>
+            	<li>列表2 </li>
+                <li>列表2 </li>
+                <li>列表2 </li>
+            </ul>
+    </li>
+</ul>-->
+标签嵌套规范:
+	1. a标签里边不能在包含a标签
+    2. ul和li，以及ol和li，以及 dl和dt，dd他们是固定嵌套
+    		1) ul和ol下边 只能嵌套li，li的父级也必须是ol或者ul
+            2) li中可以所以嵌套任何东西，甚至可以再放一个ul或者ol
+            3) dl 和 dt，dd 参考 ul和li
+    3. 内嵌标签不可以嵌套块标签
+    4. h1-h6,dt 这些带有标题性质的标签中同样不能嵌套块标签
+    5. p标签中不能嵌套块标签      
+</body>
+</html>

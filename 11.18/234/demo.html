@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+ #div_count
+        {
+            overflow: hidden;
+        }
+        div ul, li
+        {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        img
+        {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+   
+
+
+<div id="div_Container">
+        <ul>
+            <li>
+                <img src="img/1.jpg"/></li>
+            <li>
+                <img src="img/2.jpg"/></li>
+            <li>
+                <img src="img/3.jpg"/></li>
+            <li>
+                <img src="img/4.jpg"/></li>
+        </ul>
+    </div>
+
+</body>
+<script type="text/javascript">
+    var Cards = (function () {
+        var _fun = {
+            bindHover: function (o, z_indexMax) {
+                o.hover(function () {
+                    var _o = $(this);
+                    var i = z_indexMax;
+                    var j = 0;
+                    _o.stop();
+                    _o.animate({ "height": "150px" }, 500)
+                    while (i--) {
+                        if (i > _o.index()) {
+                            o.eq(i).css("z-index", j);
+
+                        } else if (i < _o.index()) {
+                            o.eq(i).css("z-index", _o.index() - j);
+                        }
+                        else {
+                            o.eq(i).css("z-index", z_indexMax);
+                        }
+                        j++;
+                    }
+
+                }, function () {
+                    var _o = $(this);
+                    _o.stop();
+                    _o.animate({ "width": "220px", "height": "99px" }, 200)
+                })
+            },
+            init: function (containerKey) {
+                var fun = _fun,
+                obj = $(containerKey),
+                li = obj.find("li");
+                li.css({ "position": "absolute", "width": "220px", "height": "99px", "overflow": "hidden", "border": "1px solid red" });
+                var i = 0;
+                li.each(function () {
+                    var _o = $(this);
+                    _o.css({ "margin-left": i * 20 + "px", "z-index": i });
+                    i++;
+                })
+                fun.bindHover(li, i--);
+
+            }
+        }
+        return {
+            Init: _fun.init
+        }
+    })()
+    Cards.Init("#div_Container");
+</script>
+</html>

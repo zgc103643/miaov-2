@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位轮播</title>
+	<style>
+	body {
+		position: relative;
+		width: 840px;
+		margin: 50px auto;
+	}
+	ul {
+		position: relative;
+		width: 840px;
+		height: 210px;
+		padding: 0;
+		margin: 0;
+		border: 3px solid grey;
+
+	}
+	li {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 5px;
+		float: left;
+		list-style: none;
+	}
+	img {
+		width: 200px;
+		vertical-align: top;
+	}
+	#wrap {
+		position: relative;
+	}
+	#wrap input {
+		position: absolute;
+		top: 90px;
+		width: 40px;
+		height: 40px;
+		font: bold 36px/40px "宋体";
+		text-align: center;
+	}
+	#wrap input:nth-of-type(1) {
+		left: -80px;
+	}
+	#wrap input:nth-of-type(2) {
+		right: -80px;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload = function() {
+		setHTML();
+		onMove()
+		function setHTML(){
+			var ul = document.querySelector("ul");
+			var style = document.querySelector("style");
+			var inner = "";
+			var styleLeft = "";
+			for (var i = 0; i < 4; i++) {
+				inner += "<li>"
+						 +"<img src='img/"+(i+1)+".jpg'/>"
+						 +"</li>";
+				styleLeft += "ul li:nth-of-type("+(i+1)+") {"
+							 +"left:"+210*i+"px;"
+							 +"}";
+			}
+			ul.innerHTML = inner;
+			style.innerHTML += styleLeft;
+		}
+		function onMove() {
+			var li = document.querySelectorAll("li");
+			btns = document.querySelectorAll("input");
+			arr = [0,1,2,3];
+			btns[0].onclick = function(){
+				arr.push(arr.shift());
+				for (var i = li.length - 1; i >= 0; i--) {
+					li[i].style.left = arr[i]*210+"px";
+				}
+			}
+			btns[1].onclick = function(){
+				arr.unshift(arr.pop());
+				for (var i = li.length - 1; i >= 0; i--) {
+					li[i].style.left = arr[i]*210+"px";
+				}
+			}
+		}
+		
+		 
+	}
+	</script>
+</head>
+<body>
+<div id="wrap">
+	<input type="button" value="<"/>
+	<input type="button" value=">"/>
+	<ul></ul>
+</div>
+</body>
+</html>

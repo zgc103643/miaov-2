@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>查找替换</title>
+	<style>
+		section {
+			position: relative;
+			width: 560px;
+			height: 500px;
+		}
+		.text {
+			float: left;
+			width: 400px;
+			height: 400px;
+			border: 5px solid #1f1f1f;
+			display: block;
+		}
+		dl {
+			float: right;
+			width: 80px;
+			margin: 0;
+			padding: 0;
+		}
+		dt,dd {
+			float: left;
+			width: 80px;
+			height: 30px;
+			font: 26px/30px "微软雅黑";
+			text-align: center;
+			color: #fff;
+			margin: 0;
+			padding: 0;
+		}
+		dt {
+			background-color: red;
+		}
+		dd {
+			background-color: skyblue;
+			display: none;
+		}
+		#box {
+			position: absolute;
+			bottom: 100px;
+			left: 30px;
+			width: 350px;
+			height: 100px;
+			border: 5px solid orange;
+			background-color: pink;
+			opacity: 0.7;
+			display: none;
+		}
+		span {
+			position: absolute;
+			top: 0;
+			right: 10px;
+			width: 0;
+			height: 10px;
+		}
+		h3 {
+			margin: 0;
+			padding: 0;
+			font-size: 0;
+		}
+		a {
+			width: 50px;
+			height: 30px;
+			font: 12px/30px "宋体";
+			text-align: center;
+			display: inline-block;
+			text-decoration: none;
+			display: inline-block;
+		}
+		.active {
+			background-color: green;
+			color: #fff;
+		}
+		.show {
+			display: block;
+		}
+		.orange {
+			background-color: orange;
+		}
+		input {
+			width: 100px;
+		}
+		div {
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var dt = document.querySelector("dt");
+			var dd = document.querySelectorAll("dd");
+			var isDd = false;
+			var box = document.getElementById("box");
+			var div = box.getElementsByTagName("div");
+			var span = document.querySelector("span");
+			var h3 = document.querySelector("h3");
+			var a = h3.getElementsByTagName("a");
+			console.log(div[1]);
+			dt.onclick = function(){
+				isDd = !isDd;
+				if(isDd){
+					for (var i = 0; i < dd.length; i++) {
+						dd[i].style.display = "block";
+					}
+				}else {
+					for (var i = 0; i < dd.length; i++) {
+						dd[i].style.display = "none";
+					}
+				}
+			}
+			for (var i = 0; i < dd.length; i++) {
+				dd[i].onclick = function(){
+					
+					box.style.display = "block";
+					a[i].className = "active";
+				}
+			}
+			span.onclick = function(){
+				box.style.display = "none";
+			}
+		}
+	</script>
+</head>
+<body>
+	<section>
+		<div class="text">
+			1954年10月24日，在中国作协会议室举行第一次《红楼梦研究》座谈会，从上午九点三十分一直开到下午六点三十分，扣去午休息两个小时，共持续七个小时。俞平伯打乱会议原定议程，首先站起来要求发言。他简述了研究《红楼梦》文章的发表情形之后，木讷地表示道："我觉得自己思想是往前走的，这有历来讲演可证……我是从兴趣出发，不免就注意文章的鸡零狗碎。'，会后，主持人陈翔鹤给作协党组的报告中对这段话评价道：其自处之道是颇为聪明的， 这样便可避免被别人揭发。
+		</div>
+		<dl>
+			<dt>展开</dt>
+			<dd>查找</dd>
+			<dd>替换</dd>
+		</dl>
+		<div id="box" class="show">
+			<h3>
+				<a class="orange" href="#">查找</a>
+				<a href="#" class="active">替换</a>
+			</h3>
+			<div style="block">
+				<input type="text"/>
+				<input type="text"/>
+				<input type="button" value="查找"/>
+			</div>
+			<div>
+				<input type="text"/>
+				<input type="button" value="替换"/>
+			</div>
+			<span>x</span>
+		</div>
+	</section>
+</body>
+</html>

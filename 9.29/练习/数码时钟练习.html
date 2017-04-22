@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟练习</title>
+	<style type="text/css">
+		html {
+			height: 100%;
+		}
+		body {
+			margin: 0;
+			height: 100%;
+			background: url(images/bg.png) no-repeat center center #000;
+		}
+		#box {
+			width: 520px;
+			height: 520px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -260px 0 0 -260px;
+			text-align: center;
+			line-height: 100px;
+		}
+		#title {
+			display: block;
+			margin: 20px auto;
+		}
+		.date {
+			width: 25px;
+			height: 37px;	
+		}
+		img {
+			vertical-align: middle;
+		}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	// function mTween(el,target,time,type,callBack) {
+	// 	clearInterval(el.timer);//调用函数时先清掉定时器  定时器编号为元素的自定义属性
+	// 	var t = 0;//执行到第几次
+	// 	var b = {}; //定义一个变量b为空对象 b为初始值
+	// 	var c = {}; //定义一个变量c为空对象 c为差值
+	// 	var d = time/20; 
+	// 	for(var s in target) {//对象的遍历需要用for in循环 
+	// 		b[s] = css(el,s);  
+	// 		c[s] = target[s] - b[s];
+	// 	}
+	// 	el.timer = setInterval(function(){
+	// 		t++;
+	// 		if(t>d) {
+	// 			clearInterval(el.timer);
+	// 			callBack&&callBack();
+	// 		} else {
+	// 			for(var s in target) {
+	// 				//width
+	// 				var val = Tween[type](t,b[s],c[s],d);
+	// 				css(el,s,val);
+	// 			}
+	// 		}
+	// 	},20);
+	// }
+	window.onload = function(){
+		var imgs = document.getElementsByClassName("date");
+		var week = document.getElementsByClassName("week")[0];
+		var weekImg = ["seven","one","two","three","four","five","six"];
+		//包含了星期日到星期六的七张图片文件名
+		for (var i = 0; i < imgs.length; i++) {
+			imgs[i].nowImg = 0;
+		}
+		//为imgs中每一项添加属性nowImg，并都暂定为0
+		setTime();
+		setInterval(setTime,1000);
+		//每秒更新一次
+		function toMove(imgs,time) {
+			mTween(imgs,{height:0},300,"linear",function(){
+				imgs.src = time;
+				mTween(imgs,{height:37},300,"linear");
+			})
+		}
+
+		function setTime(){
+			var date = new Date();		//获取日期
+			var year = date.getFullYear();	//获取年份
+			var month = toDB(date.getMonth()+1);
+			var date2 = toDB(date.getDate());
+			var hours = toDB(date.getHours());			
+			var minutes = toDB(date.getMinutes());
+			var seconds = toDB(date.getSeconds());
+			var day = date.getDay();
+			//获取月日分等数字转换之后的数
+			var time = year+month+date2+hours+minutes+seconds;
+			//将获得的所有数字拼接在一起
+			for (var i = 0; i < time.length; i++) {
+				if(imgs[i].nowImg != time[i]){
+					imgs[i].nowImg = time[i];
+					//如果imgs.nowImg与相对应的字符串time上的值不相等
+					//即把字符串的量赋给imgs.nowImg
+					toMove(imgs[i],"images/"+imgs[i].nowImg+".png")
+					//console.log(time[i])
+				}
+					
+				//imgs[i].src = "images/"+time[i]+".png";
+				
+			}
+			week.src = "images/"+ weekImg[day] +".png";
+			//将字符显示为页面上对应的数字
+		}
+		function toDB(nubs){
+			return nubs < 10 ? "0"+nubs: ''+nubs;
+		}
+		//在nubs小于10时在前面补位"0"，大于10时直接转化为字符串
+	}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<img src="images/title.png" id="title">
+        <img src="images/2.png" class="date" />
+        <img src="images/0.png" class="date" />
+        <img src="images/1.png" class="date"/>
+        <img src="images/6.png" class="date" />
+        <img src="images/year.png" />
+        <img src="images/0.png"  class="date"/>
+        <img src="images/9.png" class="date" />
+        <img src="images/month.png" />
+        <img src="images/2.png" class="date" />
+        <img src="images/9.png"  class="date"/>
+        <img src="images/seven.png" />
+        <br />
+        <img src="images/0.png" class="date" />
+        <img src="images/0.png"  class="date"/>
+        <img src="images/sign.png" />
+        <img src="images/0.png" class="date" />
+        <img src="images/0.png" class="date" />
+        <img src="images/sign.png" />
+        <img src="images/0.png" class="date" />
+        <img src="images/0.png" class="date"/>
+        <br />
+        <img src="images/week.png" />
+        <img src="images/seven.png" class="week" />
+	</div>
+</body>
+</html>

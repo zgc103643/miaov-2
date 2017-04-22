@@ -1,0 +1,27 @@
+@charset "utf-8"; /* css文件的编码声明 */
+/* CSS Document */
+
+#wrap {
+	width: 298px;
+	border: 1px solid #767676;
+	border-top: 2px solid #028ffc;
+}
+#box1 {
+	height: 29px;
+	border-bottom: 1px solid #767676;
+}
+#box2 {
+	height: 56px;
+	border-bottom: 1px solid #c6c6c6;
+}
+#box3 {
+	height: 125px;
+	border-bottom: 1px solid #c6c6c6;
+}
+#box4 {
+	height: 75px;
+	border-bottom: 1px solid #c6c6c6;
+}
+#box5 {
+	height: 127px;
+}

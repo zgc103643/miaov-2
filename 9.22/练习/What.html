@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		nav {
+			width: 300px;
+			margin: 50px auto;
+		}
+		nav span {
+				float: left;
+				font: 50px/80px "微软雅黑";
+			}
+	</style>
+	<script type="text/javascript">
+	/*
+		思路1：鼠标移入
+			为当前及其之前的元素加颜色
+			为之后的元素清除元素
+		思路2：鼠标移入
+					清空之前所有的样式
+					为移入及其前面的星星添加样式
+						如果移入的是前两个加灰色，如果是后面的则加红色
+			   鼠标移出
+			   		清除所有颜色
+			   		如果发生点击
+			   			给当前点击的元素及其前面的元素加颜色
+			   			（之前要判断是否点击和点击了第几个，在点击事件中记录）	
+	 */
+	window.onload = function () {
+		var span = document.getElementsByTagName("span");
+		var isNow = false;
+		var now = 0;
+		for(var i = 0; i < span.length; i++) {
+			span[i].index = i;
+			span[i].onmouseover = function() {
+				clear();
+				judge(this.index);		//按照判断结果点亮当前选中项及其之前所有项
+			}
+			span[i].onmouseout = function() {
+				clear();
+				if(isNow == true){			//根据isNow的值	
+					judge(now);			//按照判断结果点亮now项及其之前所有项
+				}	
+			}
+			span[i].onclick = function() {
+				isNow = true;
+				now = this.index;				//把被点击项编号赋予变量now
+			}
+			function clear() {
+				for(var i = 0; i < span.length; i++) {
+					span[i].style.color = "";
+				}
+			}								//清空当前所有状态
+			function judge(ele) {
+				for(var i = 0; i <= ele; i++) {
+					ele < 2 ? span[i].style.color = "gray" : span[i].style.color = "red";//在当前项index值小于2时将当前项和
+																						 //之前项点亮为灰色，否则点亮为红色。
+				}
+			}
+		}
+	}
+
+	</script>
+	
+</head>
+<body>
+<nav>
+	<span>☆</span>
+	<span>☆</span>
+	<span>☆</span>
+	<span>☆</span>
+	<span>☆</span>
+	<br clear="all"/>
+</nav>
+</body>
+</html>

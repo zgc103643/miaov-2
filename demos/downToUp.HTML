@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			position: relative;
+			height: 2000px;
+		}
+		#box {
+			position: absolute;
+			top: 800px;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="jquery.mousewheel.js"></script>
+<script type="text/javascript">
+	var $body = $('body');
+	var $box = $('#box');
+	var isDown = false;
+	$body.on('mousewheel',function(ev){
+		var viewBottom = $body.scrollTop() + window.innerHeight;
+		var top = parseInt($box.css('top'));
+		
+		console.log(top);
+
+		if (ev.deltaY > 0) {
+			isDown = false;
+		} else {
+			isDown = true;
+		}
+		if ( isDown==true &
+			 viewBottom<=parseInt($box.css('top')) &
+			 viewBottom>=parseInt($box.css('top'))-100 )
+		{
+			$box.css('top', top+30 );
+			$box.css('opacity', 0 );
+			$box.animate(
+					{
+						top: top,
+						opacity: 1
+					},
+					{
+						duration:800,
+						easing:'linear'
+					}	
+				);
+		} else {
+			console.log(1);
+		}
+	});
+</script>
+</html>

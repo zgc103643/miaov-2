@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		section {
+			width: 85px;
+			height: 200px;
+			margin: 50px auto;
+		}
+		strong {
+			width: 85px;
+			height: 85px;
+			font: 50px/85px "宋体";
+			text-align: center;
+			display: none;
+		}
+		.active {
+			background: red;
+		}
+		.show {
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var btn = document.querySelectorAll("input");
+		var strong = document.querySelectorAll("strong");
+		var now = 0;
+		for (var i = 0; i < btn.length; i++) {
+			btn[i].onclick = function(){
+				for (var i = btn.length - 1; i >= 0; i--) {
+					btn[i].className = "";
+					strong[i].className = "";
+					if(strong[i].innerHTML == this.value){
+						strong[i].className = "show";
+					}
+				}
+				this.className = "active";
+			}	
+		}
+	}
+	</script>
+</head>
+<body>
+<section>
+	<input class="active" type="button" value="1"/>
+	<input type="button" value="2"/>
+	<input type="button" value="3"/>
+	<strong class="show">1</strong>
+	<strong>2</strong>
+	<strong>3</strong>
+</section>
+</body>
+</html>

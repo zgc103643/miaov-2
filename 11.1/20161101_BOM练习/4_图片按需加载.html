@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+body {
+	margin: 0;
+}
+#wrap {
+	width: 520px;
+	margin: 0 auto;
+}
+#list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#list li {
+	width: 240px;
+	height: 240px;
+	border: 1px solid #000;
+	margin: 9px;
+	float: left;
+	background: url(img/loading.gif) no-repeat center center;
+}
+#list img {
+	display: block;
+	opacity: 0;
+}
+#btn {
+	width: 200px;
+	height: 40px;
+	display: block;
+	margin: 0 auto;
+}
+</style>
+<script type="text/javascript" src="miaov.js"></script>
+<script type="text/javascript">
+var data = [];
+for(var i = 0; i < 20; i++){
+	data.push("img/"+(i%16+1)+".jpg");
+}
+console.log(data);
+</script>
+</head>
+<body>
+<div id="wrap">
+	<ul id="list">
+	</ul>
+	<input type="button" value="加载更多图片" id="btn">
+</div>
+<script type="text/javascript">
+(function(){
+	var list = document.getElementById('list');
+	var btn = document.getElementById('btn');
+	var lis = list.children;
+	//获取页面相关元素
+	var length = 8;
+	var start = 0;
+	//规定一次加载8张图片
+	//从第0张开始加载
+	create();
+	//页面载入即执行create函数
+	btn.onclick = function(){
+		start += length;
+		create();
+		//在点击时，从start向后数length个之后个元素开始执行
+	};
+	function create(){
+		var end = start + length;
+		//结束位在start后length个后面
+		end = end > data.length?data.length:end;
+		//当结束位置编号大于数组长度时
+		//停止加载（继续没有数据，会undefined）
+		for(var i = start; i < end; i++){
+			var li = document.createElement("li");
+			li.dataset.img = data[i];
+			li.isCreate = false;
+			list.appendChild(li);
+		}
+		//在从start到end范围内，
+		//创建li
+		//data中对应项作为li的自定义属性
+		//创建li是否创建判断，并赋值为false
+		//把li放入list中
+		if(end >= data.length){
+			btn.style.display = "none";
+		}
+		//如果数据数量不够，
+		//btn按键自动消失
+		show();
+	};
+	window.onscroll = window.onresize = function(){
+		show();
+	};
+	function show(){
+		for(var i = 0; i < lis.length; i++){
+		//对于页面上所有的lis
+			var rect = lis[i].getBoundingClientRect();
+			//获得lis的getBounding值
+			if((rect.top+rect.height)>0
+			 && rect.top < window.innerHeight
+			 && !lis[i].isCreate){
+			//如果lis在可视区内
+				createImg(lis[i])
+				lis[i].isCreate = true;
+			//创建并放入img
+			//打开创建开关
+			}
+		}
+	}
+	function createImg(li){
+		var img = new Image();
+		img.src = li.dataset.img;
+		li.appendChild(img);
+		mTween(img,{opacity:100},500,"easeOut");
+		//创建并逐渐显示img
+	}
+})();	
+</script>
+</body>
+</html>

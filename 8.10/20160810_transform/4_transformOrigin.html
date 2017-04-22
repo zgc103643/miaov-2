@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	padding: 100px;
+	border: 2px solid #000;
+	margin: 50px auto;
+}
+#div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	transition: 1s;
+	font: 80px/100px "微软雅黑";
+	color: #fff;
+	text-align: center;
+	transform-origin: 0 0;
+}
+#box:hover #div {
+	transform: scale(0) rotate(360deg);
+}
+/*
+	transform-origin (变换原点设置)
+			关键字
+			数值
+			
+	transform 变换
+		rotate(deg) 旋转
+		scale( 0 - ) 缩放
+*/
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="div">上</div>
+</div>
+</body>
+</html>

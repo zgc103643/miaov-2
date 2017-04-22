@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<!--
+	formaction 写在提交按钮中的提交跳转地址
+    formnovalidate 取消验证
+-->
+<form action="http://www.baidu.com">
+    <input type="text" placeholder="请输入6-10位数字" name="user" required/>
+    <input type="password" placeholder="请输入密码" name="password" pattern="\d{1,5}" />   
+    <input type="submit" value="提交" />
+    <input type="submit" value="保存至草稿箱" formaction="http://www.miaov.com/2013/" formnovalidate/>
+</form>
+</body>
+</html>

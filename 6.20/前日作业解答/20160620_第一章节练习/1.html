@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 350px;
+	border: 1px dashed #000;
+	padding: 27px;
+}
+#box2 {
+	border: 5px solid #d7effe;
+	padding: 20px;
+	background: #f6f6f6;
+}
+#box3 {
+	padding: 41px;
+	background: #ffa0df;
+}
+#box4 {
+	padding: 3px;
+	border: 1px dashed #fff;
+}
+#box5 {
+	padding: 49px;
+	border: 1px dashed #fff;
+}
+#box6 {
+	height: 100px;
+	background: #96ff38;
+	border: 5px solid #fcff00;
+}
+/*
+	父子级之间的距离，最好通过给父级加padding来控制
+	div不设置宽度，宽度跟随父级走,
+	div不设置高度，高度被内容撑开
+*/
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="box2">
+    	<div id="box3">
+        	<div id="box4">
+            	<div id="box5">
+                	<div id="box6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

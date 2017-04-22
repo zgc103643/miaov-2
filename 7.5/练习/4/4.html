@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.html</title>
+	<style>
+	.clearFix :after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	body,
+	h3,
+	p {
+		margin: 0;
+		font: 12px/1 "宋体";
+	}
+	.section {
+		width: 607px;
+		height:  1000px;
+		margin: 7px 15px 6px;
+	}
+	ul,
+	li,
+	dl,
+	dd {
+		margin:0;
+		padding:0;
+		list-style: none;
+	}
+	a {
+		text-decoration: none;
+	}
+	img {
+		vertical-align: top;
+		border: none;
+	}
+	header {
+		width: 605px;
+		position: relative;
+		border: 1px solid #e5e5e5;
+		background-color: #eaf9fe;
+		z-index: 1;
+	}
+	.top {
+		overflow: hidden;
+		border: 1px solid #e5e5e5;
+		border-top: none;
+	}
+	.topLeft,
+	.topRight {
+		float: left;
+		padding: 0 29px 0 14px;
+	}
+	.topRight {
+		padding-right: 0;
+	}
+	.headerTitle {
+		float: left;
+		font-size: 0;
+	}
+	.headerTitle a {
+		float: left;		
+		position: relative;
+		z-index: 1;
+		display: block;
+		padding: 0 14px;
+		margin: -1px -1px -1px 0;
+		font: 14px/30px "宋体";
+		color: #024dcd;
+		border: 1px solid #e5e5e5;
+	}
+	.headerNav {
+		float: right;
+		height: 21px;
+		padding: 9px 15px 0 0;
+		/*border: 1px solid #e5e5e5;*/
+		border-left: none;
+		font-size: 0;
+	}
+	.headerNav a {
+		float: left;
+		font-size: 12px;
+		padding: 0 9px 0 8px;
+		border-right: 1px solid #90908e;
+		color: #014ccc;
+	}
+	.headerNav .alast {
+		padding-right: 0;
+		border-right: none;
+	}
+	.headerTitle a:hover {
+		font-weight: 600;
+		z-index: 2;
+		border-bottom: none;
+		padding-bottom: 1px;
+		margin-bottom: -1px;
+		background: #fff;
+	}
+	.h3Left {
+		margin-top: 14px;
+	}
+	.h3Left a {
+		float: left;
+	}
+	.h3Left .jinpaijuchang {
+		width: 79px;
+		height: 18px;
+		background: url(jinpaijuchang.png);
+		line-height: 50px;
+		overflow: hidden;
+	}
+	.h3Left .panlongyunhai {
+		margin-left: 21px;
+	}
+	.h3Left .shouxizanzhu {
+		margin: 7px 0 0 8px;
+		color: #004cd0;
+	}
+	.h3Right {
+		padding: 18px 0 0 37px;
+	}
+	.h3Right a {
+		float: left;
+	}
+	h3 a {
+		color:  #004bcb;;
+	}
+	.top li a {
+		color: #014ccb;
+	}
+	.top .main {
+		position: relative;
+		width: 128px;
+		height: 113px;
+		display: block;
+		margin-top: 10px;
+	}
+	.main .opacity {
+		position: absolute;
+		left: 0;
+		top: 61px;
+		width: 100%;
+		height: 18px;
+		background-color: #040404;
+		opacity: .4;
+		z-index: 1;
+	}
+	.main .icon {
+		position: absolute;
+		left: 107px;
+		top: 64px;
+		z-index: 2;
+	}
+	.main .textRed {
+		position: absolute;
+		top: 2px;
+		left: 3px;
+		width: 49px;
+		color: #fe1519;
+		text-align: center;
+		z-index: 2;
+	}
+	.main .textWhite {
+		position: absolute;
+		top: 64px;
+		left: 6px;
+		color: #fff;
+		z-index: 2;
+	}
+	.main p {
+		position: absolute;
+		top: 87px;
+		left: 3px;
+		font: 12px/1 "宋体";
+		color: #004dcb;		
+	}
+	.main {
+		float: left;
+	}
+	.ulList {
+		float: left;
+		margin: 5px 0 0 22px;
+	}
+	.ulList li {
+		color: #004dcb;
+		margin-top: 5px;
+	}
+	.bottom {
+		padding-top: 15px;
+		overflow: hidden;
+		padding-bottom: 1px;
+	}
+	.bottom li {
+		float: left;
+		padding: 0 8px 0px 14px;
+	}
+	.bottom {
+		position: relative;
+		height: 120px;
+		border: 1px solid #e5e5e5;
+		border-top: none;
+		border-bottom: none;
+	}
+	.bottom .main {
+		position: relative;
+		width: 128px;
+		height: 80px;
+		background: url(bottomback.png) bottom right;
+	}
+	.top .main {
+		position: relative;
+		width: 128px;
+		height: 113px;
+		display: block;
+		margin-top: 10px;
+	}
+	.bottom .main .opacity {
+		position: absolute;
+		left: 0;
+		top: 61px;
+		width: 100%;
+		height: 18px;
+		background-color: #040404;
+		opacity: .4;
+		z-index: 1;
+	}
+	.bottom .main .icon {
+		position: absolute;
+		left: 107px;
+		top: 64px;
+		z-index: 2;
+	}
+	.bottom .main .textRed {
+		position: absolute;
+		top: 2px;
+		left: 3px;
+		width: 49px;
+		color: #fe1519;
+		text-align: center;
+		z-index: 2;
+	}
+	.bottom .main .textWhite {
+		position: absolute;
+		top: 64px;
+		left: 6px;
+		color: #fff;
+		z-index: 2;
+	}
+	.main .title {
+		position: absolute;
+		top: 89px;
+		left: 3px;
+		font: 12px/1 "宋体";
+		color: #004dcb;		
+	}
+	.main .note {
+		position: absolute;
+		top: 109px;
+		left: 3px;
+		font: 12px/1 "宋体";
+		color: #909090;		
+	}
+	.nav {
+		width: 591px;
+		padding: 7px 0 20px 14px;
+		border: 1px solid #e5e5e5;
+		border-top: none;
+	}
+	.nav dt {
+		color: #919191;
+	}
+	.nav dl {
+		float: left;
+		margin-top: 10px;
+	}
+	.nav dt,
+	.nav dd {
+		float: left;
+	}
+	.nav .diqu dd,
+	.nav .leixing dd {
+		padding: 0 7px 1px 7px;
+		background: url(stick.png) no-repeat right bottom;
+	}
+	.nav .shangying {
+		margin-left: 31px;
+	}
+	.nav .shangying dd {
+		padding: 0 7px 1px 8px;
+		background: url(stick.png) no-repeat right bottom;
+	}
+	.section .nav .ddfirst {
+		padding-left: 0;
+	}
+	.section .nav .ddlast {
+		padding-right: 0;
+		background: none;
+	}
+	.section nav a {
+		color:  #004bcb;
+	}
+	</style>
+</head>
+<body>
+<section class="section clearFix">
+	<header class="clearFix">
+		<div class="headerTitle clearFix">
+			<a href="#">最新电视剧</a>			
+			<a href="#">大陆剧</a>
+			<a href="#">韩剧</a>
+			<a href="#">港台剧</a>			
+		</div>
+		<nav class="headerNav">
+			<a href="#">爱情有点蓝</a>
+			<a href="#">风语</a>
+			<a href="#">欢喜婆婆</a>
+			<a class="alast" href="#">延安爱情</a>		
+		</nav>
+	</header>	
+	<section class="top clearFix">		
+		<div class="topLeft clearFix">
+			<h3 class="h3Left">
+				<a class="jinpaijuchang" href="#">金牌剧场</a>
+				<a class="panlongyunhai" href="#"><img src="panlongyunhai.png"></a>
+				<a class="shouxizanzhu" href="#">首席赞助</a>
+			</h3>		
+			<a class="main" href="#">
+				<img src="baobao.png">
+				<span class="textRed">五星红旗完整版</span>
+				<div class="opacity"></div>
+				<span class="textWhite">40集全</span>
+				<img class="icon" src="icon.png">
+				<p>《五星红旗》大结局</p>
+			</a>
+			<ul class="ulList">
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+			</ul>
+		</div>
+		
+		<div class="topRight">
+			<h3 class="h3Right clearFix" >
+				<a href="#">解密《五星红旗》</a>
+				<a href="#">《宫》引网友口水战</a>
+			</h3>					
+			<a class="main" href="#">
+				<img src="baobao.png">
+				<span class="textRed">五星红旗完整版</span>
+				<div class="opacity"></div>
+				<span class="textWhite">40集全</span>
+				<img class="icon" src="icon.png">
+				<p>《五星红旗》大结局</p>
+			</a>
+			<ul class="ulList">
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+				<li><a href="#">央一武侠剧：侠隐记</a></li>
+			</ul>
+		</div>
+	</section>
+	<ul class="bottom clearFix">
+		<li>
+			<a class="main" href="#">
+				<img src="baobao2.png">
+				<span class="textRed">五星红旗完整版</span>
+				<div class="opacity"></div>
+				<span class="textWhite">40集全</span>
+				<img class="icon" src="icon.png">
+				<p class="title">江苏卫视：中国远征军</p>
+				<span class="note">反正都是胡扯</span>
+			</a>
+		</li>
+		<li>
+			<a class="main" href="#">
+				<img src="baobao2.png">
+				<span class="textRed">五星红旗完整版</span>
+				<div class="opacity"></div>
+				<span class="textWhite">40集全</span>
+				<img class="icon" src="icon.png">
+				<p class="title">江苏卫视：中国远征军</p>
+				<span class="note">反正都是胡扯</span>
+			</a>
+		</li>
+		<li>
+			<a class="main" href="#">
+				<img src="baobao2.png">
+				<span class="textRed">五星红旗完整版</span>
+				<div class="opacity"></div>
+				<span class="textWhite">40集全</span>
+				<img class="icon" src="icon.png">
+				<p class="title">江苏卫视：中国远征军</p>
+				<span class="note">反正都是胡扯</span>
+			</a>
+		</li>
+		<li>
+			<a class="main" href="#">
+				<img src="baobao2.png">
+				<span class="textRed">五星红旗完整版</span>
+				<div class="opacity"></div>
+				<span class="textWhite">40集全</span>
+				<img class="icon" src="icon.png">
+				<p class="title">江苏卫视：中国远征军</p>
+				<span class="note">反正都是胡扯</span>
+			</a>
+		</li>
+	</ul>
+	<nav class="nav clearFix">
+		<dl class="diqu clearFix">
+			<dt>地区：</dt>
+			<dd class="ddfirst"><a href="#">大陆</a></dd>
+			<dd><a href="#">大陆</a></dd>
+			<dd><a href="#">大陆</a></dd>
+			<dd><a href="#">大陆</a></dd>
+			<dd class="ddlast"><a href="#">大陆</a></dd>			
+
+		</dl>
+		<dl class="shangying clearFix">
+			<dt>上映：</dt>
+			<dd class="ddfirst"><a href="#">2016</a></dd>
+			<dd><a href="#">2016</a></dd>
+			<dd><a href="#">2016</a></dd>
+			<dd><a href="#">2016</a></dd>
+			<dd><a href="#">2016</a></dd>
+			<dd class="ddlast"><a href="#">2016</a></dd>
+		</dl>			
+		<dl class="leixing clearFix">
+			<dt>类型：</dt>
+			<dd class="ddfirst"><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd><a href="#">言情</a></dd>
+			<dd class="ddlast"><a href="#">言情</a></dd>
+		</dl>
+	</nav>
+</section>
+</body>
+</html>

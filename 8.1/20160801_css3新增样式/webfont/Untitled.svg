@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg>
+<metadata>
+Created by FontForge 20090622 at Mon Aug  1 06:29:39 2016
+ By deploy user
+</metadata>
+<defs>
+<font id="Untitled" horiz-adv-x="500" >
+  <font-face 
+    font-family="Untitled"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="1000"
+    panose-1="0 0 0 0 0 0 0 0 0 0"
+    ascent="750"
+    descent="-250"
+    cap-height="639"
+    bbox="42 22 779 790"
+    underline-thickness="50"
+    underline-position="-50"
+    unicode-range="U+000D-U+0042"
+  />
+<missing-glyph 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name="NULL" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="NULL" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" unicode="&#xd;" 
+ />
+    <glyph glyph-name="space" unicode=" " 
+ />
+    <glyph glyph-name="A" unicode="A" horiz-adv-x="833" 
+d="M543 467q-46 0 -86 -15.5t-69.5 -41.5t-46.5 -61.5t-17 -75.5q0 -26 8 -52q-6 -1 -12 -1h-12q-24 0 -45 3.5t-45 8.5l-91 -43l26 74q-48 32 -75.5 74t-27.5 93q0 44 20.5 82t55.5 66.5t82 44.5t100 16q48 0 91.5 -13t78 -36.5t58.5 -55t32 -68.5q-6 1 -12 1h-13zM405 534
+q-15 0 -27 -8t-12 -22t12 -22.5t27 -8.5q14 0 23 8.5t9 22.5t-9 22t-23 8zM224 473q14 0 23 8.5t9 22.5t-9 22t-23 8t-26.5 -8t-12.5 -22t12.5 -22.5t26.5 -8.5zM779 276q0 -42 -26 -78t-65 -64l20 -62l-71 37q-20 -5 -39 -8.5t-39 -3.5q-46 0 -86 14t-69.5 38.5t-46.5 57
+t-17 69.5t17 69.5t46.5 56.5t69.5 38t86 14q43 0 83 -14t70.5 -38t48.5 -56.5t18 -69.5zM488 306q15 0 24 8t9 17t-9 17t-24 8q-9 0 -17 -8t-8 -17t8 -17t17 -8zM630 306q15 0 24 8t9 17t-9 17t-24 8q-10 0 -17.5 -8t-7.5 -17t7.5 -17t17.5 -8z" />
+    <glyph glyph-name="B" unicode="B" horiz-adv-x="833" 
+d="M746 614v-464q0 -26 -10 -49.5t-27.5 -41t-41 -27.5t-49.5 -10h-234q-53 0 -91 38l-251 256l20 20l14.5 14t7.5 6q9 10 25 10q9 0 19 -5q1 0 22.5 -12.5l47.5 -26.5l68 -39v379q0 20 14 34t34 14t34 -14t14 -34v-224h32v304q0 20 14 34t34 14t34 -14t14 -34v-304h32v272
+q0 20 14 34t34 14t34 -14t14 -34v-272h32v176q0 20 14 34t34 14t34 -14t14 -34z" />
+  </font>
+</defs></svg>

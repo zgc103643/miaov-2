@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.box {
+	width: 200px;
+	height: 200px;
+	padding: 50px;
+	border: 10px solid #000;
+	background: red;
+}
+.div {
+	height: 50px;
+	background: yellow;
+}
+</style>
+</head>
+<body>
+<!--
+	标准盒模型:
+        内容宽(高) = width(height)
+        可视宽(高) = width(height)+padding+border;
+       (文档流宽高)占位宽(高) = width(height) + padding + border + margin;
+       
+    怪异盒模型：
+    	 内容宽(高) = width(height) - padding - border;
+         可视宽(高) = width(height);
+         
+     在IE下，不设置文档声明 盒模型解析会陷入怪异模式
+-->
+<div class="box">
+	<div class="div"></div>
+</div>
+</body>
+</html>

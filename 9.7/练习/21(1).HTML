@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>21</title>
+	<style>
+	section {
+		width: 200px;
+		margin: 50px auto;
+	}
+	h2 {
+		width: 200px;
+		height: 50px;
+		padding: 0;
+		margin: 0;
+		background: lightblue;
+		font: 40px/50px "微软雅黑";
+		text-align: center;
+		color: #fff;
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: none;
+	}
+	li {
+		width: 200px;
+		height: 30px;
+		font: 26px/30px "微软雅黑";
+		text-align: left;
+		text-indent: 3rem;
+	}
+	.block {
+		display: block;
+	}
+	.yellow {
+		background: yellow;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var h2 = document.querySelectorAll("h2");
+		var ul = document.querySelectorAll("ul");
+		//isH2 = false;
+		for(var i = 0;i < h2.length;i++){
+			h2[i].index = i;
+			h2[i].onclick = function(){	
+				if(this.className == "yellow"){
+					this.className = "";
+					ul[this.index].style.display = "none";
+				}else {
+					for(var i = 0;i < h2.length;i++){
+						h2[i].className = "";
+						ul[i].style.display = "none";
+					}
+					this.className = "yellow";
+					ul[this.index].style.display = "block";
+				}
+				//isH2 = !isH2;
+			}
+		}
+
+	}	
+	</script>
+</head>
+<body>
+	<section>
+		<h2>武大们</h2>
+		<ul>
+			<li>武大</li>
+			<li>武大</li>
+			<li>武大</li>
+			<li>武大</li>
+		</ul>
+		<h2>王二们</h2>
+		<ul>
+			<li>王二</li>
+			<li>王二</li>
+			<li>王二</li>
+			<li>王二</li>
+		</ul>
+		<h2>马三们</h2>
+		<ul>
+			<li>马三</li>
+			<li>马三</li>
+			<li>马三</li>
+			<li>马三</li>
+		</ul>
+	</section>
+</body>
+</html>

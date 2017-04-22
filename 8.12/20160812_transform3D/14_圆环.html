@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+@keyframes move {
+	0%{
+		transform: rotateY(0deg) rotateX(0deg);
+	}
+	100% {
+		transform: rotateY(360deg) rotateX(360deg);
+	}
+}
+#box {
+	width: 102px;
+	height: 102px;
+	margin: 150px auto;
+	position: relative;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+#box div {
+	position: absolute;
+	top: 0;
+	left: 102px;
+	width: 102px;
+	transform-style: preserve-3d;
+	transform-origin: left;
+	transform: rotateY(45deg);
+}
+#box>div {
+	left: 0;
+	transform-origin: center center  -123.12px;
+	transform: rotateY(0deg);
+	animation: move 6s linear infinite ;
+}
+#box span {
+	display: block;
+	width: 100px;
+	height: 100px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	background: #ccc;
+	font: 80px/100px "宋体";
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="box">
+	<div class="div">
+    	<span>1</span>
+        <div>
+        	<span>2</span>
+            <div>
+            	<span>3</span>
+                <div>
+                	<span>4</span>
+                    <div>
+                        <span>5</span>
+                        <div>
+                            <span>6</span>
+                            <div>
+                                <span>7</span>
+                                <div>
+                               		<span>8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

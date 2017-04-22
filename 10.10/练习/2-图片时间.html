@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	body{
+		margin: 0;
+	}
+	ul {
+		position: relative;
+		height: 172px;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	ul::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	li {
+		position: absolute;
+		top: 0;
+		float: left;
+		width: 122px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+</style>
+<script type="text/javascript" src="miaov.js"></script>
+<script>
+//时钟
+//
+//无缝切换效果
+window.onload = function () {
+	var ul = getTag(document,"ul")[0];
+	var li = getTag(ul,"li");
+	// for (var i = 0; i < li.length; i++) {
+	// 	var imgUp = getTag(li[i],"img")[0];
+	// 	var imgDown = getTag(li[i],"img")[1];
+
+	// 	console.log(imgUp[i],imgDown[i]);
+	// }
+	var up = getClass(ul,"up");
+	var down = getClass(ul,"down");
+	for (var i = 0; i < li.length; i++) {
+		li[i].index = 0;
+	}
+	setInterval(setTime,20);
+	setTime();
+	function setTime(){
+		nowTime = new Date();
+		//获取当前时间
+		hours = toDB(parseInt(nowTime.getHours()));
+		minutes = toDB(parseInt(nowTime.getMinutes()));
+		seconds = toDB(parseInt(nowTime.getSeconds()));
+		//获取小时、分、秒的值
+		time = hours + minutes + seconds;
+		for (var i = 0; i < li.length; i++) {
+			li[i].style.left = 122*i+"px";
+			if(li[i].index != time[i]){
+				li[i].index = time[i];
+				doMove();
+			}
+			up[i].src = "img/"+li[i].index+".JPG";	 
+		}
+	}
+	function doMove(){
+		for (var i = 0; i < li.length; i++) {
+			li[i].style.top = 0 + "px";
+			down[i].src = "img/"+li[i].index+".JPG";
+			mTween(li[i],{top:-172},1200,"linear");
+		}
+	}
+	// function fnMove(obj,src) {
+	// 			var pics = obj.getElementsByTagName('img');
+	// 			pics[0].src = 'images/'+obj.t+'.png';
+	// 			obj.style.top = 0;
+	// 			pics[1].src = 'images/'+src+'.png';
+	// 			mTween(obj,{top:-210});
+	// 		}
+	function toDB(obj) {
+		return obj < 10 ? "0"+obj : ""+obj;
+	}
+	
+};
+</script>
+</head>
+<body>
+<p id="time" style="font-size:60px;"></p>
+<ul>
+	<li>
+		<img src="img/0.JPG" class="up"/>
+		<img src="img/0.JPG" class="down"/>
+	</li>
+	<li>
+		<img src="img/0.JPG" class="up"/>
+		<img src="img/0.JPG" class="down"/>
+	</li>
+	<li>
+		<img src="img/0.JPG" class="up"/>
+		<img src="img/0.JPG" class="down"/>
+	</li>
+	<li>
+		<img src="img/0.JPG" class="up"/>
+		<img src="img/0.JPG" class="down"/>
+	</li>
+	<li>
+		<img src="img/0.JPG" class="up"/>
+		<img src="img/0.JPG" class="down"/>
+	</li>
+	<li>
+		<img src="img/0.JPG" class="up"/>
+		<img src="img/0.JPG" class="down"/>
+	</li>
+</ul>
+
+
+
+
+
+
+</body>
+</html>

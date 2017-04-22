@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#main {
+			height: 300px;
+			overflow: hidden;
+			zoom: 1;
+			padding: 0 300px 0 200px;
+		}
+		.content,
+		.left,
+		.right {
+			float: left;
+			position: relative;
+		}
+		.content {
+			width: 100%;
+		}
+		.left {
+			width: 200px;
+			margin-left: -100%;
+			left: -200px;
+		}
+		.right {
+			width: 300px;
+			margin-left: -300px;
+			left: 300px;
+		}
+	</style>
+</head>
+<body>
+	<hader id="header"></hader>
+	<div id="main">
+		<div class="content">这是主体</div>
+		<div class="left">这是左边</div>
+		<div class="right">这是右边</div>
+	</div>
+	<footer id="footer"></footer>
+</body>
+</html>

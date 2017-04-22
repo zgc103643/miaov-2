@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>rain</title>
+</head>
+<style type="text/css">
+	@keyframes rain {
+		0% {
+			background-position: 0 0;
+		}
+		100%{
+			background-position: 0 170px;
+		}
+	}
+	.box {
+		width: 197px;
+		height: 197px;
+		margin: 50px auto;
+		border: 1px solid black;
+		border-radius: 50%;
+		background: url(rain.png);
+		animation: rain 1s infinite;
+		animation-direction: normal;
+		animation-timing-function: linear;
+
+	}
+	.div {
+		width: 197px;
+		height: 197px;
+		border-radius: 50%;
+
+	}
+</style>
+<body>
+	<div class="box">
+		<div class="div"></div>
+	</div>
+</body>
+</html>

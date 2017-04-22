@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>1_2</title>
+	<link href="css1_2.css" rel="stylesheet"/>
+</head>
+<body>
+	<form>
+		<table>
+			<tbody>
+				<tr class="nickname">
+					<td class="head">
+						<p>昵 称：</p><span>*</span>
+					</td>
+					<td class="body"><input class="mainText" type="text"></td>
+					<td class="tail">
+						<p class="note">
+							<span class="notebgL">
+								<span class="notebgR">
+								4-20个字符，支持中英文、数字、"_"或减号
+								</span>
+							</span>
+						</p>
+					</td>
+				</tr>
+				<tr class="realname">
+					<td class="head">
+						<p>真实姓名：</p>
+					</td>
+					<td class="body">
+						<input class="mainText" type="text">
+					</td>
+					<td class="tail">
+						<select>
+							<option>保密</option>
+							<option>我关注的人可见</option>
+							<option selected>所有人可见</option>
+						</select>
+					</td>
+				</tr>
+				<tr  class="location">
+					<td class="head">
+						<p>所在地：</p><span>*</span>
+					</td>
+					<td class="body">
+						<select>
+							<option>北京</option>
+						</select>
+						<select>
+							<option>朝阳区</option>
+						</select>
+					</td>
+					<td class="tail"></td>
+				</tr>
+				<tr class="gender">
+					<td class="head">
+						<p>性别：</p><span>*</span>
+					</td>
+					<td class="body">
+						<input id="male" type="radio">
+						<label for="male">男</label>
+						<input id="female" type="radio">
+						<label for="female">女</label>
+					</td>
+					<td class="tail"></td>
+				</tr>
+				<tr class="birthday">
+					<td class="head">
+						<P>生日：</P>
+					</td>
+					<td class="body">
+						<select>
+							<option>1988</option>
+							<option selected>1989</option>
+							<option>1990</option>
+						</select>
+						<span>年</span>
+						<select>
+							<option>05</option>
+							<option selected>06</option>
+							<option>07</option>
+						</select>
+						<span>月</span>
+						<select>
+							<option>3</option>
+							<option selected>4</option>
+							<option>5</option>
+						</select>
+						<span>日</span>
+					<td class="tail">
+						<select>
+							<option selected>保密</option>
+							<option>我关注的人可见</option>
+							<option>所有人可见</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="blog">
+					<td class="head"><p>博客地址：</p></td>
+					<td class="body"><input class="mainText" type="text"></td>
+					<td class="tail">
+						<select>
+								<option>保密</option>
+								<option>我关注的人可见</option>
+								<option selected>所有人可见</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="email">
+					<td class="head"><p>常用邮箱：</p></td>
+					<td class="body">
+						<p>mofeiangmotao@sina.com</p><a href="#">修改</a>
+					</td>
+					<td class="tail">
+						<select>
+								<option>保密</option>
+								<option selected>我关注的人可见</option>
+								<option>所有人可见</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="QQ">
+					<td class="head"><p>QQ：</p></td>
+					<td class="body"><input class="mainText" type="text"></td>
+					<td class="tail">
+						<select>
+								<option>保密</option>
+								<option selected>我关注的人可见</option>
+								<option>所有人可见</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="MSN">
+					<td class="head"><p>MSN：</p></td>
+					<td class="body"><input class="mainText" type="text"></td>
+					<td class="tail">
+						<select>
+								<option>保密</option>
+								<option selected>我关注的人可见</option>
+								<option>所有人可见</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="introduce">
+					<td class="head">
+						<p>一句话介绍：</p>
+					</td>
+					<td class="body">
+						<textarea></textarea>
+						<p class="intro">以下信息，可作为通过客服取回账号的依据</p>
+					</td>
+					<td class="tail"></td>
+				</tr>
+				<tr class="introduce">
+					<td class="head">
+						<p>证件类型：</p>
+					</td>
+					<td class="body">
+						<p class="papers">身份证</p>
+					</td>
+					<td class="tail"></td>
+				</tr>
+				<tr class="papersnum">
+					<td class="head">
+						<p>证件号码：</p>
+					</td>
+					<td class="body"></td>
+					<td class="tail"></td>
+				</tr>
+				<tr class="btn">
+					<td class="head"></td>
+					<td class="body">
+						<input value="保存" type="submit">
+					</td>
+					<td class="tail"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

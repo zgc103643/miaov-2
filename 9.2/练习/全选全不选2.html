@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>全选全不选3</title>
+	<script>
+	window.onload = function(){
+		var input = document.getElementsByTagName("input");
+		var isChecked = false;
+		input[input.length-1].onclick = function(){
+			for(var i = 0; i<length-1; i++){
+				if(isChecked){
+					input[i].checked = false;
+				}else {
+					input[i].checked = true;
+				}
+			isChecked = !isChecked;
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" /><br/>
+	<input type="button" value="全选/全不选" />
+</body>
+</html>

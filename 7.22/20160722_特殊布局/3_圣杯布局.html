@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {
+	margin: 0;
+}
+.center {
+	margin: 0 200px;
+	height: 500px;
+	background: red;
+}
+.left {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 200px;
+	height: 400px;
+	background: #0F3;
+	
+} 
+.right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 200px;
+	height: 400px;
+	background: #CF0;
+}
+</style>
+</head>
+<body>
+<!--
+	圣杯布局和双飞翼布局解决的问题是一样的，就是两边定宽，中间自适应的三栏布局，中间栏要在放在文档流前面以优先渲染。
+    左右两侧 宽度固定200px
+-->
+<div class="center"></div>
+<div class="left"></div>
+<div class="right"></div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>性别栏</title>
+	<style>
+		.clearFix::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		#selector {
+			
+		}
+		#selectors span {
+			float: left;
+			width: 100px;
+			height: 50px;
+			font: 30px/50px "微软雅黑";
+			text-align: center;
+			border: 1px solid #000;
+		}
+		.active {
+			checked: false;
+		}
+		#selectors .show {
+			border: 1px solid red;
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		var inputs = document.querySelectorAll("#inputs input");
+		var spans = document.querySelectorAll("#selectors span");
+		for(var i = 0;i < inputs.length; i++){
+			// inputs[i].index = i;
+			// inputs[i].onclick = function(){
+			// 	for(var i = 0;i < inputs.length; i++){
+			// 		inputs[i].checked = false;
+			// 		spans[i].className = "";
+			// 		this.checked = true;
+			// 		spans[this.index].className = "show";
+			// 	}
+			// }
+			spans[i].index = i;
+			spans[i].onclick = function(){
+				for(var i = 0;i < spans.length; i++){
+					spans[i].className = "";
+					inputs[i].checked = false;
+					inputs[this.index].checked = true;
+					this.className = "show";
+				}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="inputs"  class="clearFix">
+		<label><input type="radio"/>男</label>
+		<label><input type="radio"/>女</label>
+		<label><input type="radio"/>不明</label>
+	</div>
+	<div id="selectors" class="clearFix">
+		<span class="show">男</span>
+		<span>女</span>
+		<span>不明</span>		
+	</div>
+</body>
+</html>

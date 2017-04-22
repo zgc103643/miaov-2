@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+!function() {
+	var scale = 1;
+	var ratio = window.devicePixelRatio;
+	scale = scale / window.devicePixelRatio;
+	var meta = document.createElement("meta");
+	meta.setAttribute("name","viewport");
+	meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+	document.head.appendChild(meta);
+}();
+</script>
+<style>
+body {
+	margin: 0;
+}
+.wrap {
+	overflow: hidden;
+	border: 1px solid #000;
+}
+.left {
+	width: 319px;
+	height: 319px;
+	background: red;
+	float: left;
+}
+.right {
+	width: 319px;
+	height: 319px;
+	background: blue;
+	float: right;
+}
+</style>
+<title>无标题文档</title>
+</head>
+<body>
+<section class="wrap">
+	<div class="left"></div>
+    <div class="right"></div>
+</section>
+</body>
+</html>

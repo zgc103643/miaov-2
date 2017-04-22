@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+p {
+	line-height: 30px;
+	border: 1px solid #000;
+}	
+p[miaov~="haha"] {
+	background: #ccc;
+}
+/*
+ ~ 元素的属性值是一个词列表
+ 
+ E[attr~="value"]指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“〜”不能不写
+
+ */
+</style>
+</head>
+<body>
+<p miaov="peixun qianduan haha">妙味课堂1</p>
+<p miaov="haha">妙味课堂2</p>
+<p miaov="hahahaha">妙味课堂3</p>
+</body>
+</html>

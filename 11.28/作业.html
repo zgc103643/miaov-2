@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		section {
+			width: 300px;
+			height: 300px;
+			margin: 50px auto;
+		}
+		div {
+			width: 150px;
+			height: 100px;
+		}
+		.left {
+			float: left;
+		}
+		.right {
+			float: right;
+		}	
+		p {
+			width: 80px;
+			padding: 0;
+			margin-top: 10px;
+		}
+		.warn {
+			border: 1px solid red;
+		}
+		input {
+			width: 140px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="left">
+			<p>邮箱</p>
+			<p>qq号码</p>
+			<p>生日</p>
+		</div>
+		<div class="right">
+			<input type="text"/>
+			<input type="text"/>
+			<input type="text"/>
+		</div>
+	</section>	
+</body>
+<script type="text/javascript">
+	var input = document.getElementsByTagName("input");
+
+	input[0].onchange = function(){
+		let str = input[0].value;
+		let re = /^\w+@\w+(.com)(.cn)?$/;
+		if (re.test(str)) {
+			input[0].className = "";
+		}else{
+			input[0].className = "warn";
+		}
+	}
+
+	input[1].onchange = function(){
+		let str = input[1].value;
+		let re = /^[1-9]\d{4,10}$/;
+		if (re.test(str)) {
+			input[1].className = "";
+		}else{
+			input[1].className = "warn";
+		}
+	}
+
+	input[2].onchange = function(){
+		let str = input[2].value;
+		let re = /^(\d{4})\D+([1-9]|1[0-2])\D+(0?[1-9]|[12][0-9]|3[0-1])\D?$/;
+		let isBefore = false;
+		str.replace(re,function($0,$1,$2,$3){
+			if ($1 < MYD().year-120) {
+				isBefore = false;
+			} else if($1 > MYD().year || $2 > MYD().month || $3 > MYD().date){
+				isBefore = false;
+			} else {
+				isBefore = true;
+			}
+		});
+		if (re.test(str) && isBefore==true) {
+			input[2].className = "";
+		}else{
+			input[2].className = "warn";
+		}
+	}
+
+	function MYD(){
+		var fullDate = new Date();
+		var YMD = {
+					year: fullDate.getYear()+1900,
+					month: fullDate.getMonth()+1,
+					date: fullDate.getDate()
+				}
+
+		return YMD;
+	}
+	//console.log(MYD().date);
+</script>
+</html>

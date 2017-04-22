@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+p,
+h2 {
+	font: 14px/30px "宋体";
+	border: 1px solid #000;
+}
+body *:nth-last-child(2){
+	background: red;
+}
+/*
+	e:nth-child(n) 找到e元素父级下的第n个子元素，并且元素的类型还得是 e
+	如果不需要限制元素的类型，可以使用“*”
+	even 偶数
+	odd  奇数
+	n 等于 从0到正无穷的整数
+	3n   3的倍数
+	3n-1   
+	3n+1	
+	
+	e:nth-last-child()相当于倒着数的nth-child，具体参数 参考 nth-child 
+	
+*/
+</style>
+</head>
+<body>
+<p>p1</p>
+<h2>h1</h2>
+<p>p2</p>
+<p>p3</p>
+<h2>h2</h2>
+<p>p4</p>
+<h2>h3</h2>
+<p>p5</p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'aaa';
+    src: url('1-webfont.eot');
+    src: url('1-webfont.eot?#iefix') format('embedded-opentype'),
+         url('1-webfont.woff2') format('woff2'),
+         url('1-webfont.woff') format('woff'),
+         url('1-webfont.ttf') format('truetype'),
+         url('1-webfont.svg#untitledregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

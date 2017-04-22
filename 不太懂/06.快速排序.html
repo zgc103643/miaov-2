@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// var arr = [4,2,0,3,5,1];  //[0,1,2,3,4,5]
+
+		
+
+		// console.log(newArr);
+
+		// function quickSort(arr) {
+		// 	//停止条件
+		// 	if(arr.length <= 1){
+		// 		return arr;
+		// 	}
+		// 	//如果计算进行到数组只剩一个数，返回到数组本身
+		// 	//2
+		// 	var first = arr.shift(); //[1]
+		// 	//通过shift函数截取数组当期排在第一位数字
+		// 	var left = []; //[1]
+		// 	var right = []; // []
+		// 	//声明数组left和right
+		// 	//分别用于存放判断后较小和较大的数字
+		// 	while(arr.length){
+		// 		if(arr[0] < first){
+		// 			left.push(arr.shift())
+		// 		//如果截取的第一个数值大于截取后数组的第0项
+		// 		//将该数值添加到左边数组
+		// 		}else{
+		// 			right.push(arr.shift())
+		// 		//否则，添加到右边数组
+		// 		}
+		// 	}
+		// 	//[4,2,0,3,5,1]
+		// 	//[1] [2] []== > [1,2] [3] ==> [1,2,3] + [4] == > [1,2,3,4];
+		// 	return quickSort(left).concat(first,quickSort(right));
+		// 		   //通过不断递归排序函数，不断将大的值摆在右边数组的最后
+		// 		   //有疑问 
+		// }
+		 
+		
+		 
+		 
+		 
+		 
+		var arr = [4,2,0,3,5,1];
+		var newArr = quickSort(arr);
+		console.log(newArr);
+		function quickSort(arr){
+		if(arr.length <= 1){
+				return arr
+			}
+			var first = arr.shift();
+			var left = [];
+			var right = [];
+			
+			while(arr.length){
+				if(arr[0]<first){
+					left.push(arr.shift());
+				}else{
+					right.push(arr.shift());
+				}
+			}
+			return quickSort(left).concat(first,quickSort(right));
+		}
+	</script>
+</body>
+</html>

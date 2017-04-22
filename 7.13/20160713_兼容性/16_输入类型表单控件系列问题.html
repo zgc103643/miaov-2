@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.box {
+	width: 202px;
+	height: 32px;
+	border: 1px solid #000;
+	background: url(img.jpg) no-repeat;
+}
+/*input {
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	height: 30px;
+	border: 1px solid #ccc;
+	float: left;
+	background: url(img.jpg) no-repeat;
+	line-height: 30px;
+}*/
+input {
+	margin: 0;
+	padding: 0;
+	width: 202px;
+	height: 32px;
+	border: none;
+	float: left;
+	line-height: 30px;
+	background: none;
+}
+/*
+	在IE6，7下输入类型的表单控件，上下两边各有1px的间隙
+	解决办法:
+		给控件加浮动
+		
+	在IE6，7下输入类型的表单控件，输入文字的时候，背景图会跟着文字一起移动
+	解决办法:
+		背景图加给父级	
+		
+		
+	在IE6下输入类型的表单控件,border:none无效
+	解决办法：
+		1. border:0; 	
+		2. 重置元素的背景	
+*/
+</style>
+</head>
+<body>
+<div class="box">
+	<input type="text" />
+</div>
+</body>
+</html>

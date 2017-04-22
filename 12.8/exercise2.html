@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#list h5,
+		#list ul{
+			display: none;
+		}
+		#list>ul,
+		#list>ul li,
+		#list>ul li h5 {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="list"></div>
+</body>
+<script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript">
+	var $list = $('#list');
+	var inner = "";
+	setChild(data);
+	$list.html(inner);
+	function setChild(obj){
+		inner += '<ul>';
+		for (var i = 0; i < obj.length; i++) {
+			inner += '<li>';
+			inner += '<h5>'+obj[i].name+'</h5>';
+			if(obj[i].child){
+				setChild(obj[i].child);
+			}
+			inner += '</li>'; 
+		}
+		inner += '</ul>';
+	}
+
+	var $h5 = $('h5');
+	for (var i = 0; i < $h5.length; i++) {
+		$h5.eq(i).on('click',function(){
+			if ( $(this).next() ) {
+				if ($(this).next().css('display') == 'none') {
+					$(this).next().css('display','block');
+					$(this).next().children().css('display','block');
+				}else{
+					$(this).next().css('display','none');
+					$(this).next().children().find('ul').css('display','none');
+				}
+			}
+		})
+	}
+	
+	
+	
+</script>
+</html>

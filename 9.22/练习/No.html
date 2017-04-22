@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style type="text/css">
+	section {
+		position: relative;
+		width: 405px;
+		height: 200px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	#box {
+		width: 405px;
+		height: 30px;
+
+	}
+	#box::after,
+	ul::after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+	a {
+		float: left;
+		width: 101px;
+		height: 30px;
+		text-decoration: none;
+		text-align: center;
+		font: 26px/30px "微软雅黑";
+		color: skyblue;
+	}
+	.active {
+		background: #000;
+		color: #fff;
+	}
+	ul {
+		position: absolute;
+		top: 30px;
+		left: 0;
+		width: 1620px;
+		margin: 0 auto;
+		padding: 0;
+		transition: 0.5s;
+	}
+	
+	li {
+		float: left;
+		list-style: none;
+	}
+	img {
+		width: 405px;
+	}
+	</style>
+	<script type="text/javascript">
+	function css(el,attr){
+		if(el.currentStyle) {
+			return el.currentStyle[attr];	
+		}
+		return getComputedStyle(el)[attr];
+	}
+	window.onload = function() {
+		var box = document.getElementById("box");
+		var ul = document.querySelector("ul");
+		var a = box.querySelectorAll("a");
+		var li = ul.querySelectorAll("li");
+		var now = 0;
+		
+		for(var i = 0; i <a.length; i++) {
+			a[i].index = i;
+			a[i].onmouseover = function() {
+				a[now].className = "";
+				now = this.index;
+				a[now].className = "active";
+				ul.style.left = -parseFloat(css(li[0],"width"))*now + "px";
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<section>
+		<div id="box">
+			<a class="active" href="javascript:;">标签1</a>
+			<a href="javascript:;">标签2</a>
+			<a href="javascript:;">标签3</a>
+			<a href="javascript:;">标签4</a>
+		</div>
+		<ul>
+			<li><img src="images/img1.gif"/></li>
+			<li><img src="images/img2.gif"/></li>
+			<li><img src="images/img3.gif"/></li>
+			<li><img src="images/img4.gif"/></li>
+		</ul>
+	</section>		
+		<!-- <ul>
+			<li><img src=""/></li>
+			<li><img src=""/></li>
+			<li><img src=""/></li>
+		</ul>
+		
+		<ul>
+			<li><img src=""/></li>
+			<li><img src=""/></li>
+			<li><img src=""/></li>
+		</ul>
+		
+		<ul>
+			<li><img src=""/></li>
+			<li><img src=""/></li>
+			<li><img src=""/></li>
+		</ul> -->
+	
+</body>
+</html>

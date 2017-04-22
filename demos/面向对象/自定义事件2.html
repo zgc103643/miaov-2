@@ -1,0 +1,150 @@
+]<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{ width:100px; height:100px; background:red; position:absolute;}
+		#div2{ width:100px; height:100px; background:yellow; position:absolute; left: 100px;}
+		#div3{ width:100px; height:100px; background:blue; position:absolute; left: 200px;}
+		#div4{ width:100px; height:100px; background:green; position:absolute; left: 300px;}
+	</style>
+	<script type="text/javascript">
+
+		window.onload = function(){
+			var d1 = new Drag();
+			d1.init({
+						id: "div1"
+			});
+			
+			bindEvent(d1,"toDown",function(){
+				document.title = "red";
+			})
+
+			var d2 = new Drag();
+			d2.init({
+						id: "div2"
+			});
+			bindEvent(d2,"toDown",function(){
+				document.title = "excuse me";
+			})
+			var d3 = new Drag();
+			d3.init({
+						id: "div3"
+					});
+			bindEvent(d3,"toDown",function(){
+				document.title = "oh,yes";
+			})
+			bindEvent(d3,"toUp",function(){
+				document.title = "baby";
+			})
+
+			var d4 = new Drag();
+			d4.init({
+						id: "div4"
+			});
+			bindEvent(d4,"toDown",function(){
+				document.title = "come on";
+			})
+			//执行变量d1构造函数的方法init
+		}
+		function Drag(){
+			this.div1 = null;
+			this.disX = 0;
+			this.disY = 0;
+			this.settings = {
+
+						}
+		}
+		//在函数Drag中添加默认参数this.setting
+		
+		//在Drag上添加相应属性值
+		Drag.prototype.init = function(opt){
+			var _this = this;
+			this.div1 = document.getElementById(opt.id);
+
+
+			//使用extend函数将实参中的变量赋予默认对象settings
+			//使得Drag.init中未特殊定义的方法走settings中默认值
+			//特殊定义的方法，随实参中定义变化而变化
+			this.div1.onmousedown = function(ev){
+				var ev = ev || window.event;
+				_this.fnDown(ev);
+				fireEvent(_this,"toDown");
+
+
+				document.onmousemove = function(ev){
+					var ev = ev || window.event;
+					_this.fnMove(ev);
+				}
+				document.onmouseup = function(){
+					_this.fnUp();
+					fireEvent(_this,"toUp");
+			
+				}
+				return false;				
+			}
+			
+		}
+		Drag.prototype.fnDown = function(ev){
+			var _this = this;
+			this.disX = ev.clientX - this.div1.offsetLeft;
+			this.disY = ev.clientY - this.div1.offsetTop;
+		}
+		Drag.prototype.fnMove = function(ev){
+			this.div1.style.left = ev.clientX - this.disX + "px";
+			this.div1.style.top = ev.clientY - this.disY + "px";
+		}
+		Drag.prototype.fnUp = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+
+
+		/*通过使用对象和数组保存函数并依次执行的方法，
+		  模拟事件的执行逻辑（同名不同项之间不互相影响或覆盖）
+		*/
+
+		function bindEvent(obj,events,fn){
+			obj.listeners = obj.listeners || {};
+			obj.listeners[events] = obj.listeners[events] || [];
+			//通过数组将相同元素上、相同函数名的函数并列为数组的不同值
+			//之后遍历数组将数组各项逐一执行
+			obj.listeners[events].push(fn);
+
+			if (obj.nodeType) {
+				if (obj.addEventListener) {
+					obj.addEventListener(events,fn);
+				} else {
+					obj.attachEvent("on"+events,fn);
+				}
+			}		
+		}
+		//设立自定义事件函数
+
+		function fireEvent(obj,events){
+			if(obj.listeners && obj.listeners[events]){
+				for(var i=0;i<obj.listeners[events].length;i++){
+					 obj.listeners[events][i]();
+				}
+			}
+		}
+		//触发自定义事件函数
+
+
+
+		function extend(obj1,obj2){
+			for(attr in obj2){
+				obj1[attr] = obj2[attr];
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id = "div1"></div>
+	<div id = "div2"></div>
+	<div id = "div3"></div>
+	<div id = "div4"></div>
+</body>
+</html>

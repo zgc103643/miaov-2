@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 200px;
+	height: 200px;
+	border-width: 27px;
+	/*-webkit-border-image: url(img/border.png) 27 27 repeat round;*/
+	border-image: url(img/border.png)  27 27 round round;
+}
+/*
+	border-image
+	border-image-source 背景图的路径
+	border-image-slice 背景图裁切
+	border-image-repeat  图像边框是否应平铺(repeat)、铺满(round)或拉伸(stretch默认值)。
+	目前只有webkit支持
+*/
+</style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

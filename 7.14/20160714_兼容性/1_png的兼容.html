@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {
+	background: #000;
+}
+.box {
+	width: 400px;
+	height: 400px;
+	background: url(img/png.png) ;
+	_background: none;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="img/png.png", sizingMethod="crop");
+
+}
+/*
+	IE6不支持PNG图片的透明
+*/
+</style>
+</head>
+<body>
+<img src="img/png.png" />
+<div class="box"></div>
+<!--
+png24 -- 支持透明度，支持透明，图片质量高 图片的大小比较大
+gif --  不支持透明度，但支持透明，图片质量不高，而且大图容易失真有锯齿 -- 图片大小中等
+jpg -- 不支持透明度，不支持透明，图片质量高 图片大小比较小
+-->
+</body>
+</html>

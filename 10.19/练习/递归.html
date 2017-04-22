@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function fn(nub){
+			if(nub > 0){
+				nub--;
+				fn(nub);
+				console.log(nub);
+				nub--;
+				fn(nub);
+				console.log(nub);
+			}
+		}
+		fn(3);
+	</script>
+</body>
+</html>

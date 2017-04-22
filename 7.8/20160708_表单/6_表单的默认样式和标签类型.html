@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {
+	margin: 0;
+}
+form {
+	margin: 0; /* IE6下 form上有一个margin值 */
+}
+input {
+	outline: none;
+	margin: 0;
+	padding: 0;
+	/* border-width 在各浏览器下不一致，需要根据设计图单独设置一下*/
+}
+textarea {
+	margin: 0;
+	padding: 0;
+	resize: none;
+	overflow: auto;
+	outline: none;
+}
+/*
+	outline 轮廓线
+*/
+</style>
+</head>
+<body>
+<form action="http://www.baidu.com">
+	<ul class="list">
+        <li>
+            <p>电子邮箱：</p>
+            <div class="right">
+            	<input type="text" name="email" />
+            </div>
+        </li>
+        <li>
+            <p><label for="male">密码：</label></p>
+            <div class="right">
+            	<input type="password" name="password" />
+            </div>
+        </li>
+        <li>
+            <p>附件：</p>
+            <div class="right">
+            	<input type="file" name="file" />
+            </div>
+        </li>
+        <li>
+            <p>生日：</p>
+            <div class="right">
+            	<select name="date_year">
+                	<option>1999</option>
+                    <option>1998</option>
+                    <option>1997</option>
+                    <option selected>1996</option>
+                    <option>1995</option>
+                    <option>1994</option>
+                </select>年
+                <select name="date_month">
+                	<option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>月
+            </div>
+        </li>
+        <li>
+            <p>性别：</p>
+            <div class="right">
+            	<input type="radio" id="male" name="gender" value="男" checked /> <label for="male">男</label>
+                <input type="radio" id="female" name="gender" value="女" /> <label for="female">女</label>
+            </div>
+        </li>
+        <li>
+            <p>爱好：</p>
+            <div class="right">
+            	<label><input type="checkbox" name="like" value="写作业" checked /> 写作业</label>
+                <label><input type="checkbox" name="like" value="吃饭" /> 吃饭</label>
+                <label><input type="checkbox" name="like" value="睡觉" /> 睡觉</label>
+            </div>
+        </li>
+        <li>
+            <p>学习宣言：</p>
+            <div class="right">
+            	<textarea name="message"></textarea>
+            </div>
+        </li>
+        <li>
+        	 <div class="right">
+            	<input type="submit" value="注册" />
+            </div>
+        </li>
+    </ul>
+</form>
+</body>
+</html>

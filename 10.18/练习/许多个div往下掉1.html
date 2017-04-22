@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>许多个div往下掉</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+		div{
+			width: 50px;
+			height: 50px;
+			background: red;
+			/*float: left;*/
+			margin: 10px;
+			font: 50px/50px "宋体";
+			text-align: center;
+			color: #fff;
+		}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		var divs = getTag(document,"div");
+		var nubLeft = 0;
+		var nubRight = 0;	//红色块的编号
+		var onOff = false;		//动态效果的开关
+		var timerLeft = 0;
+		var timerRight = 0;
+		for (var i = 0; i < divs.length; i++) {
+			divs[i].innerHTML = i;
+			divs[i].style.top = 0;
+			divs[i].style.left = 60*i + "px";
+		}
+		//显示divs的编号，并设定divs的定位值
+		for (var i = 0; i < divs.length; i++) {
+			divs[i].style.position = "absolute";
+		}
+		//添加position = "absolute"
+
+		for (var i = 0; i < divs.length; i++) {
+			divs[i].index = i;
+			divs[i].onclick = function(){
+				nubLeft = this.index;
+				nubRight = this.index;
+				timerRight = setInterval(function(){
+					if(nubRight < divs.length){
+						mTween(divs[nubRight],{top:350},800,"linear");
+						nubRight++;											
+					}else{
+						clearInterval(timerRight);
+					}
+				},150);
+				timerLeft = setInterval(function(){
+					if(nubLeft > -1){
+						mTween(divs[nubLeft],{top:350},800,"linear");
+						nubLeft--;											
+					}else{
+						clearInterval(timerLeft);
+					}
+				},150);
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

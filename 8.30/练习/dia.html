@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>dia</title>
+</head>
+<style>
+section {
+	width: 306px;
+	margin: 50px auto;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+#dialogue {
+	width: 300px;
+	height: 300px;
+	border: 3px solid #000;
+	overflow: auto;
+}
+.inputs {
+	width: 256px;
+	margin: 30px auto 0;
+}
+.d0,
+.d1 {
+	width: 300px;
+}
+.d0:after,
+.d1:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.img0 {
+	float: left;
+}
+.img1 {
+	float: right;
+} 
+.p0 {
+	float: left;
+	height: 24px;
+	border: 1px solid red;
+}
+.p1 {
+	float: right;
+	height: 24px;
+	border: 1px solid green;
+}
+</style>
+<script>
+window.onload= function() {
+	
+	var oDialogue= document.getElementById("dialogue");
+	var oText= document.getElementById("text");
+	var oBtn= document.getElementById("btn");
+	var oImg= document.getElementById("img");
+	var now= 0;
+
+	oImg.onclick= function() {
+		now= now+1;
+		oImg.src= "img/" + (now%2) + ".gif";
+	}
+	oBtn.onclick= function() {
+		if (oText.value=="") {
+			 alert("内容不可为空");
+			oDialogue.innerHTML= oDialogue.innerHTML;
+		}else{
+			oDialogue.innerHTML= oDialogue.innerHTML + "<div class= 'd" + (now%2)
+								 + "'>" + "<img src='img/" + (now%2) + ".gif'"
+								 + " class='img" + (now%2) + "'/>"
+								 +  "<p class='p" + (now%2) + "'>" + oText.value + "</p></div>";
+			oText.value="";
+		}
+	}
+
+}
+</script>
+<body>
+	<section>
+		<div id="dialogue"></div>
+		<div class="inputs">
+			<img id="img" src="img/0.gif">
+			<input type="text" id="text" />
+			<input type="button" id="btn" value="按钮"/>
+		</div>
+	</section>
+</body>
+</html>

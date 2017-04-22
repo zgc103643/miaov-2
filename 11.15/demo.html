@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1 {
+			position: relative;
+			width: 40px;
+			height: 500px;
+			background-color: red;
+		}
+		#div2 {
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			background-color: #000;
+		}
+		section {
+			position: absolute;
+			top: 8px;
+			left: 90px;
+			width: 240px;
+			height: 500px;
+			overflow: hidden;
+		}
+		#content {
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+	<div id="div3">
+		<div id="div4"></div>
+	</div>
+	<section>
+		<div id="content"></div>
+	</section>
+</body>
+<script type="text/javascript">
+	(function(D){
+		var section = D.querySelector("section");
+		var con = section.querySelector("#content");
+		var num = "";
+		for (var i = 10; i < 200; i++) {
+			for (var j = 0; j < 10; j++) {
+				if(i<100){
+					num += "0"+i;
+				} else {
+					num += i;					
+				}
+
+			}
+			num += "<br/>";
+		}
+		con.innerHTML = num;
+	})(document);
+	(function(D){
+		var sec = D.querySelector("section");
+		var con = sec.querySelector("#content");
+
+		div2.addEventListener("mousedown",fnMouseDown);
+		function fnMouseDown(ev){
+			var disY = ev.clientY - div2.offsetTop;
+			var scaleY = (con.offsetHeight - sec.offsetHeight)/(div1.offsetHeight - div2.offsetHeight);
+			div1.addEventListener("mousemove",fnMouseMove);
+			function fnMouseMove(ev){
+				var T = ev.clientY - disY;
+				if (T < 0) {
+					T = 0;
+				} else if (T > div1.offsetHeight - div2.offsetHeight) {
+					T = div1.offsetHeight - div2.offsetHeight;
+				}
+				div2.style.top = T +"px";
+				con.style.top = -T*scaleY+"px";
+			}
+			div1.addEventListener("mouseup",fnMouseUp);
+			function fnMouseUp(){
+				div1.removeEventListener("mousemove",fnMouseMove);
+				div1.removeEventListener("mouseup",fnMouseUp);
+			}
+		}
+			
+		sec.addEventListener("mousewheel",fnScroll);
+		sec.addEventListener("DOMMouseScroll",fnScroll);
+		function fnScroll(ev){
+			var T = div2.offsetTop;
+			var down = false;
+			var scaleY = (con.offsetHeight - sec.offsetHeight)/(div1.offsetHeight - div2.offsetHeight);
+			if (ev.wheelDelta) {
+				down = ev.wheelDelta>0 ? false : true;
+			} else {
+				down = ev.detail<0 ? false : true;
+			}
+
+			if (down) {
+				T += 10;
+			} else {
+				T -= 10;
+			}
+
+			if (T < 0) {
+				T = 0;
+			} else if (T > div1.offsetHeight - div2.offsetHeight) {
+				T = div1.offsetHeight - div2.offsetHeight;
+			}
+			div2.style.top = T + "px";
+			con.style.top = -T*scaleY+"px";	
+		}
+		
+	})(document);
+
+</script>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7_1</title>
+	<style type="text/css">
+	.clearFix {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	body,
+	p {
+		margin: 0;
+		font: 600 16px/38px "宋体";
+		color：#333333;
+	}
+	a {
+		text-decoration: none;
+	}
+	img {
+		vertical-align: top;
+		border: none;
+	}
+	input {
+		padding: 0;
+		margin: 0;
+		outline: none;
+	}
+	.list {
+		margin: 30px auto;
+		width: 424px;
+		border: 1px solid #000000;
+		padding-bottom: 15px; 
+	}
+	ul,
+	li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	li {
+		overflow: hidden;
+		padding-bottom: 4px;		
+	}
+	li p {
+		float: right;
+	}
+	li .right {
+		float: right;
+		width: 303px;
+	}
+	.text {
+		width: 220px;
+		height: 28px;
+		margin-top: 6px;
+		border: 1px solid #bdc7d8;
+	}
+	.right .codeText {
+		width: 108px;
+	}
+	#male,
+	#female {
+		width: 10px;
+		height: 10px;
+		padding: 1px;
+	}
+	.list .right label {
+		margin-right: 32px;
+		font-weight: normal;
+	}
+	.list .right span {
+		font-size: 12px;
+		font-weight: normal;
+	}
+	.right a {
+		font-size: 12px;
+		margin-left: 12px;
+	}
+	.right .aBirth {
+		float:left;
+		margin: 0;
+		line-height: 1;
+	}
+	.btn {
+		width: 166px;
+		height: 40px;
+		font-size: 0;
+		background: url(img/btn.png);
+		border: none;
+	}
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li>			
+			<div class="right">
+				<input type="text" class="text">
+			</div>
+			<p>电子邮箱：</p>
+		</li>
+		<li>			
+			<div class="right">
+				<input type="password" class="text">
+			</div>
+			<p>设置密码：</p>
+		</li>
+		<li>			
+			<div class="right">
+				<input type="text" class="text">
+			</div>
+			<p>真实名字：</p>
+		</li>
+		<li>			
+			<div class="right">
+				<input id="male" type="radio"><label for="male">男</label>
+				<input id="female" type="radio"><label for="female">女</label>
+			</div>
+			<p>性别：</p>
+		</li>
+		<li>			
+			<div class="right clearFix">
+				<div class="select">
+					<select>					
+						<option>1990</option>
+						<option>1991</option>
+						<option>1992</option>
+					</select>
+					<span>年</span>
+					<select>					
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+					<span>月</span>
+					<select>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+					</select>
+					<span>日</span>
+				</div>
+				<a class="aBirth" href="#">为什么要填写我的生日</a>
+			</div>
+			<p>生日：</p>
+		</li>
+		<li>			
+			<div class="right">
+				<select>
+					<option>我现在的身份</option>
+				</select>
+			<span>（非常重要）</span>
+			</div>
+			<p>我现在：</p>
+		</li>
+		<li>
+			<div class="right">
+				<img src="img/ico.png">
+				<a href="#">看不清楚换一张</a>
+			</div>
+		</li>
+		<li>			
+			<div class="right">
+				<input type="text" class="text codeText">
+			</div>
+			<p>验证码：</p>
+		</li>
+		<li>
+			<p></p>
+			<div class="right">
+				<input class="btn" type="submit">
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

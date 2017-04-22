@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 302px;
+	margin: 50px auto;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+	position: relative;
+	height: 204px;
+	border: 2px solid red;
+}
+#box span {
+	display: block;
+	border: 1px solid #000;
+	height: 100px;
+	font: 50px/100px "宋体";
+	text-align: center;
+}
+#box div {
+	position: absolute;
+	left: 0;
+	top: 102px;
+	width: 302px;
+	transform-style: preserve-3d;
+	transform-origin: top;
+}
+#box .li1 {
+	top: 0;
+	transform: rotateX(60deg);
+}
+#box .li2 {
+	transform: rotateX(-120deg);
+}
+#box .li3 {
+	transform: rotateX(120deg);
+}
+#box .li4 {
+	transform: rotateX(-120deg);
+}
+</style>
+</head>
+<body>
+<div id="box">
+	<div class="li1">
+    	<span>1</span>
+        <div class="li2">
+        	<span>2</span>
+            <div class="li3">
+            	<span>3</span>
+                <div class="li4">
+                	<span>4</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

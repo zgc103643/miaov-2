@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>城市排名</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var arr = ["深圳","成都","北京","上海","大连","长沙","武汉","广州","杭州"];
+	var arrIndex = {
+					北京:0,
+					上海:1,
+					广州:2,
+					深圳:3,
+					杭州:4,
+					武汉:5,
+					成都:6,
+					长沙:7,
+					大连:8
+				}
+	arr.sort(function(a,b){
+		return arrIndex[a] - arrIndex[b];
+	})
+	console.log(arr);
+</script>
+</html>

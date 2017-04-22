@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.box {
+	background: blue;
+}
+.header {
+	width: 100px;
+	height: 100px;
+	background: green;
+	float: left;
+}
+.box:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+.div {
+	width: 200px;
+	height: 200px;
+	background: red;
+}
+</style>
+</head>
+<body>
+<!--
+	BFC 作用：(布局环境)
+    1.防止元素被浮动元素覆盖
+    2.阻止margin传递
+    3.包含浮动元素
+    
+    触发BFC：
+    1. display (inline-block，table-ceil，table-caption)
+    2. position （absolute，fixed）
+    3. float (left/right)
+    4. overflow (hidden, auto, scroll)
+    
+    haslayout: (IE渲染引擎的一个组成部分)
+    触发之后，可以使元素根据内容大小来重新计算自身宽高
+    	作用：
+        	1.阻止margin传递
+            2.清浮动
+            3.不被浮动元素覆盖
+    
+    haslayout 的触发条件:
+    	1. display:inline-block;
+        2. width 不为auto的值
+        3. height不为auto的值
+        4. float不为none
+        5. position:absolute
+        6. zoom 不为normal以外的值
+    
+    
+    清浮动：
+    	1. .clearfix:after {content:"";clear:both;display:block}加给浮动元素父级
+        2. 在浮动元素下边加<br clear="all"/>
+        3. 浮动元素下加<div class="clear"></div> .clear{clear:both;}
+        4. 触发BFC
+-->
+<div class="header"></div>
+<div class="box">
+	<div class="div"></div>
+</div>
+</body>
+</html>

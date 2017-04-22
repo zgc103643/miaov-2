@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件流</title>
+	<style type="text/css">
+		#div1 {
+			width: 600px;
+		}
+		#div6 {
+			width: 50px;
+			height: 50px;
+		}
+		div {
+			padding: 0 50px;
+			border: 5px solid #000;
+		}
+		li {
+			width: 200px;
+			margin: 5px 0;
+		}
+	</style>
+	
+</head>
+<body>
+	<!-- <div id="div1">
+		<div id="div2">
+			<div id="div3">
+				<div id="div4">
+					<div id="div5">
+						<div id="div6"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<ul id="ul">
+	</ul>
+</body>
+<script type="text/javascript">
+	// div6.addEventListener("click",function(){alert(6)},false);
+	// div2.addEventListener("click",function(){alert(2)},false);
+	// div2.addEventListener("click",function(){alert(2)},true);
+	// div2.addEventListener("click",function(){alert(2)},true);
+	// div2.addEventListener("click",function(){alert(2)},true);
+	// div1.addEventListener("click",function(){alert(1)},false);
+	for (var i = 0; i < 10; i++) {
+		var li = document.createElement("li");
+		li.innerHTML = "i";
+		li.style.border = "1px solid #000";
+		ul.appendChild(li); 
+	}
+	ul.onclick = function(e){
+		if (e.target.tagName == "LI") {
+			e.target.style.background = "red";		
+		}
+	}
+</script>
+</html>

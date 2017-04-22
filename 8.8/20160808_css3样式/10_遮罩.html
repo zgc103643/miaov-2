@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+@keyframes move {
+	0%{
+		left: 0;
+	}
+	5%{
+		left: -500px;
+	}
+	20% {
+		left: -500px;
+	}
+	25%{
+		left: -1000px;
+	}
+	40%{
+		left: -1000px;
+	}
+	45%{
+		left: -1500px;
+	}
+	60%{
+		left: -1500px;
+	}
+	65%{
+		left: -2000px;
+	}
+	80%{
+		left: -2000px;
+	}
+	85%{
+		left: -2500px;
+	}
+	100%{
+		left: -2500px;
+	}
+}
+#wrap {
+	width: 500px;
+	height: 300px;
+	border: 10px solid #F30;
+	margin: 50px auto;
+	position: relative;
+	overflow: hidden;
+	-webkit-mask: url(img/mask.png) no-repeat center center;
+	/*
+		mask 遮罩: 
+			1.必须加前缀
+			2.目前只有webkit支持
+		
+		mask-image
+		mask-repeat
+		mask-position	
+	*/
+}
+.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 600%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	animation: 20s 2s move infinite;
+}
+.list li {
+	width: 498px;
+	height: 298px;
+	/*border: 1px solid #fff;*/
+	float: left;
+	text-align: center;
+	font: 60px/298px "宋体";
+	color: #fff;
+	background: #000;
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<ul class="list">
+    	<li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>1</li>
+    </ul>
+</div>
+</body>
+</html>

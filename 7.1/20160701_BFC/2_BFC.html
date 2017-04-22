@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+/*.box {
+	border: 10px solid #000;
+	width: 300px;
+	display: inline-block;
+}
+.div {
+	float: left;
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+*/
+
+.box {
+	width: 300px;
+	background: blue;
+	display: inline-block;
+}
+.div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	margin: 100px;
+}
+.div1 {
+	width: 100px;
+	height: 100px;
+	background: yellow;
+	float: left;
+}
+.div2 {
+	width: 150px;
+	height: 150px;
+	background: green;
+	display: inline-block;
+}
+</style>
+</head>
+<body>
+<!--
+<div class="box">
+	<div class="div"></div>
+</div>
+-->
+<br clear="all" />
+<div class="div1"></div>
+<div class="div2"></div>
+
+	BFC(block formatting context)  块级格式化上下文
+    BFC css 2.1的一个概念,为元素提供了一个独立的布局环境，环境中的内容
+    不会影响到环境外的布局,环境外布局 也不会影响到环境中内容
+
+	BFC就像给元素的周边加了一堵围墙，围墙里的东西出不去，外墙外的东西也挤不进来
+    
+    BFC作用：
+    	1. 包含浮动元素
+    	
+        2. 阻止子元素的margin向外传递
+        
+        3. 不被浮动元素所覆盖
+
+    
+    BFC触发条件:(符合以下任一条件即可)：  
+    
+        1) float的值不为none； 
+        
+        2) overflow的值不为visible； 
+        
+        3) display的值为 table-cell、table-caption和inline-block之一； 
+        
+        4) position的值不为 static或 relative中的任何一个； 
+
+</body>
+</html>

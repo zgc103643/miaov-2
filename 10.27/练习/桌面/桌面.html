@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>桌面</title>
+	<style>
+		body {
+			margin: 0;
+		}
+		section {
+			position: relative;
+			width: 1366px;
+			height: 622px;
+		}
+		.create {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			font: 14px/20px "宋体";
+			color: #aaa;
+			text-decoration: none;
+		}
+		.concel {
+			position: absolute;
+			top: 20px;
+			left: 120px;
+			font: 14px/20px "宋体";
+			color: #aaa;
+			text-decoration: none;
+		}
+		.files {
+			position: absolute;
+			top: 50px;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			box-sizing: border-box;
+			overflow: hidden;
+		}
+		.files div {
+			position: relative;
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin: 30px 0 0 20px;
+			font: 14px/20px "宋体";
+			color: #666;
+			border: 2px solid rgba(0,0,0,0);
+		}
+		.files input {
+			padding: 0;
+			margin: 0;
+		}
+		.files div img {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+		}
+		.files div p {
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			bottom: 16px;
+			margin: 0;
+		}
+		.files div .checkbox {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.files div .text {
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			bottom: 16px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+	<section>
+		<a href="javascript:;" class="create">创建文件夹</a>
+		<a href="javascript:;" class="concel">删除文件夹</a>
+	<div class="files">
+		<!-- <input type="checkbox"/> -->
+	</div>
+	</section>
+</body>
+<script type="text/javascript">
+	var section = document.querySelector("section");
+	var create = document.querySelector(".create");
+	var concel = document.querySelector(".concel");
+	var files = document.querySelector(".files");
+	var checkbox = document.getElementsByClassName("checkbox");
+
+	section.style.width = document.documentElement.clientWidth;
+	section.style.height = document.documentElement.clientHeight;
+	create.onclick = function(){
+		var p = document.getElementsByTagName("p");
+		var arrName = [];
+		newFile = document.createElement("div");
+		newImg = document.createElement("img");
+		newP = document.createElement("p");
+		newCheck = document.createElement("input");
+		newText = document.createElement("input");
+
+		//newP.innerHTML = "新建文件夹";
+		newImg.src = "img/1.jpg";
+		newCheck.type = "checkbox";
+		newText.type = "text";
+		newCheck.className = "checkbox";
+		newText.className = "text";
+
+		// for (var i = 0; i < p.length; i++) {
+		// 	if(p[0]){
+		// 		newP.innerHTML = "新建文件夹("+(i+1)+")";
+		// 	}else{
+		// 		newP.innerHTML = "新建文件夹";
+		// 	}
+		// }
+		
+		newFile.appendChild(newImg);
+		newFile.appendChild(newP);
+		newFile.appendChild(newCheck);
+		newFile.appendChild(newText);
+
+		files.appendChild(newFile);
+		over();
+	}
+	function over(){
+		var file = files.getElementsByTagName("div");
+		for (var i = 0; i < file.length; i++) {
+			//console.log(file[i]);
+			file[i].onmouseover = function(){
+				var checkbox = this.querySelector(".checkbox");
+				checkbox.style.display = "block";
+				this.style.background = "rgba(185,219,21,0.4)";
+			}
+			file[i].onmouseout = function(){
+				var checkbox = this.querySelector(".checkbox");
+				if(checkbox.checked){
+					checkbox.style.display = "block";
+					this.style.background = "rgba(185,219,21,0.4)";
+				}else{
+					checkbox.style.display = "none";
+					this.style.background = "rgba(0,0,0,0)";
+				}
+				cancel();
+			}
+		}
+		function cancel(){
+			concel.onclick = function(){
+				if(checkbox.length == 0){
+					return;
+				}else{
+					for (var i = 0; i < checkbox.length; i++) {
+						if(checkbox[i].checked){
+							files.removeChild(checkbox[i].parentNode);
+							i--;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
+</script>
+</html>

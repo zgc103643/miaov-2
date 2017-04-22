@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片时钟</title>
+	<style type="text/css">
+	html{
+		height: 100%;
+	}
+	body{
+		margin:0;
+		height: 100%;
+		background: url(images/bg.png) no-repeat
+		center center #000;
+	}
+	#box{
+		width: 520px;
+		height: 520px;
+		position: absolute;
+		left:50%;
+		top:50%;
+		margin:-260px 0 0 -260px;
+		text-align: center;
+		line-height: 100px;       
+	}
+	#title{
+		display: block;
+		margin:20px auto;
+	}
+	</style>
+	<script type="text/javascript">
+     window.onload=function(){
+     	var imgs=document.getElementsByClassName("time");
+     	var week=document.getElementsByClassName("week")[0];
+     	var weekImg=["seven","one","two","three","four","five","six"]
+     	setTime();
+     	setInterval(setTime,1000);
+     	function setTime(){
+     		var date=new Date();
+	     	var year=date.getFullYear();
+	     	var month=toDB(date.getMonth()+1);
+	     	var date2=toDB(date.getDate());
+	     	var hours=toDB(date.getHours());
+	     	var minutes=toDB(date.getMinutes());
+	     	var seconds=toDB(date.getSeconds());
+	     	var day=date.getDay();
+	     	var time=year+month+date2+hours+minutes+seconds;
+	     	console.log(time);
+	     	for(var i=0;i<time.length;i++){
+              imgs[i].src="images/"+time[i]+".png";
+	     	}
+	     	week.src="images/"+weekImg[day]+".png"
+     	}
+     	function toDB(nub){
+     		return nub<10?"0"+nub:""+nub;//如果nub小于0那么给他补上0同时，如果大于等于10那么
+     	}
+     	
+     	// setInterval(function(){
+      //      setTime()
+     	// },1000)
+     }
+	</script>
+</head>
+<body>
+      <div id="box">
+      <img src="images/title.png" alt="" id="title"> 
+      <br/>
+      <img src="images/2.png" alt="" class="time">
+      <img src="images/0.png" alt="" class="time">
+      <img src="images/1.png" alt="" class="time">
+      <img src="images/6.png" alt="" class="time">
+      <img src="images/year.png" alt="">
+      <img src="images/0.png" alt="" class="time">
+      <img src="images/9.png" alt="" class="time">
+      <img src="images/month.png" alt="">
+      <img src="images/2.png" alt="" class="time">
+      <img src="images/9.png" alt="" class="time">
+      <img src="images/seven.png" alt="">
+      <br/>
+      <img src="images/0.png" alt="" class="time">
+      <img src="images/0.png" alt="" class="time">
+      <img src="images/sign.png" alt="">
+      <img src="images/0.png" alt="" class="time">
+      <img src="images/0.png" alt="" class="time">
+      <img src="images/sign.png" alt="">
+      <img src="images/0.png" alt="" class="time">
+      <img src="images/0.png" alt="" class="time">
+      <br/>
+      <img src="images/week.png" alt="">
+      <img src="images/seven.png" alt="" class="week">
+      </div>
+	
+</body>
+</html>

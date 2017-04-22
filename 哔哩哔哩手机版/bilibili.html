@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>bilibili</title>
+	<link href="css.css" rel="stylesheet">
+	<script>
+	!function() {
+		var scale = 1;
+		var ratio = window.devicePixelRatio;
+		scale = scale / window.devicePixelRatio;
+		var meta = document.createElement("meta");
+		meta.setAttribute("name","viewport");
+		meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+		document.head.appendChild(meta);
+	}();
+	</script>
+	<title>taobao</title>
+	<script>
+	 fn();
+	window.addEventListener("resize",fn);
+	function fn() {
+		var html = document.querySelector("html");
+		var width = html.getBoundingClientRect().width;
+		html.style.fontSize = width/18 + "px";  
+	}
+	</script>
+</head>
+<body>
+	<header>
+		<h1 class="logo">哔哩哔哩bilibili</h1>
+		<a class="offline" href="#"></a>
+		<a class="search" href="#"></a>		
+	</header>
+	<nav id="nav">
+		<a href="#">首页</a>
+		<a href="#">频道</a>
+		<a href="#">直播</a>
+		<a href="#">排行</a>
+		<a href="#">我的</a>
+		<div class="pink"></div>		
+	</nav>
+	<div class="scroll">
+		<div id="banner">
+			<div class="banner_content">
+				<div class="wrap">
+					<img src="img/banner.jpg"/>
+					<img src="img/banner.jpg"/>
+					<img src="img/banner.jpg"/>
+				</div>
+			</div>
+		</div>
+		<div class="hot clearFix">
+			<h2 class="h2Left clearFix">
+				<div class="iconCrown"></div>
+				<span>热门推荐</span>
+			</h2>
+			<h2 class="h2Right">
+				<span>排行榜</span>
+				<div class="iconBill"></div>
+			</h2>
+			<div class="hotBox">
+				<div class="hotBlock block1">
+					<a href="#" class="hotPic"></a>
+					<a class="title" href="#">【节奏大师】我从未见过如此鬼畜的魔王曲！</a>
+					<div class="play clearFix">
+						<div class="playPic"></div>
+						<span>29.3万</span>
+					</div>
+					<div class="num clearFix">
+						<div class="numPic"></div>
+						<span>8244</span>
+					</div>
+				</div>
+				<div class="hotBlock block1">
+					<a href="#" class="hotPic"></a>
+					<a class="title" href="#">【节奏大师】我从未见过如此鬼畜的魔王曲！</a>
+					<div class="play clearFix">
+						<div class="playPic"></div>
+						<span>29.3万</span>
+					</div>
+					<div class="num clearFix">
+						<div class="numPic"></div>
+						<span>8244</span>
+					</div>
+				</div>
+				<div class="hotBlock block1">
+					<a href="#" class="hotPic"></a>
+					<a class="title" href="#">【节奏大师】我从未见过如此鬼畜的魔王曲！</a>
+					<div class="play clearFix">
+						<div class="playPic"></div>
+						<span>29.3万</span>
+					</div>
+					<div class="num clearFix">
+						<div class="numPic"></div>
+						<span>8244</span>
+					</div>
+				</div>
+				<div class="hotBlock block1">
+					<a href="#" class="hotPic"></a>
+					<a class="title" href="#">【节奏大师】我从未见过如此鬼畜的魔王曲！</a>
+					<div class="play clearFix">
+						<div class="playPic"></div>
+						<span>29.3万</span>
+					</div>
+					<div class="num clearFix">
+						<div class="numPic"></div>
+						<span>8244</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="grey"></div>
+		<div class="live clearFix">
+			<h2 class="h2Left">
+				<div class="cam"></div>
+				<span>正在直播</span>
+			</h2>
+			<h2 class="h2Right">
+				<div class="more"></div>
+				<a href="#">查看更多直播</a>
+			</h2>
+			<div class="liveBox">
+				<div class="liveBlock">
+					<a href="#" class="livePic"></a>
+					<div class="portrait"></div>
+					<span class="num">4978</span>
+					<a href="#" class="name">林簌</a>
+					<span class="exp">【声控福利】精</span>
+				</div>
+				<div class="liveBlock">
+					<a href="#" class="livePic"></a>
+					<div class="portrait"></div>
+					<span class="num">4978</span>
+					<a href="#" class="name">林簌</a>
+					<span class="exp">【声控福利】精</span>
+				</div>
+				<div class="liveBlock">
+					<a href="#" class="livePic"></a>
+					<div class="portrait"></div>
+					<span class="num">4978</span>
+					<a href="#" class="name">林簌</a>
+					<span class="exp">【声控福利】精</span>
+				</div>
+				<div class="liveBlock">
+					<a href="#" class="livePic"></a>
+					<div class="portrait"></div>
+					<span class="num">4978</span>
+					<a href="#" class="name">林簌</a>
+					<span class="exp">【声控福利】精</span>
+				</div>
+			</div>
+		</div>
+		<div class="grey"></div>
+		<div class="episode clearFix">
+			<h2 class="h2Left">
+				<div class="epi"></div>
+				<span>番剧更新</span>
+			</h2>
+			<h2 class="h2Right">
+				<div class="more"></div>
+				<a href="#">查看更多直播</a>
+			</h2>
+			<div class="episodeBox">
+				<div class="episodeBlock">
+					<div class="epiPic"></div>
+					<span class="name">美妙天堂 第三季</span>
+					<span class="refresh">更新至第18话</span>
+				</div>
+				<div class="episodeBlock">
+					<div class="epiPic"></div>
+					<span class="name">美妙天堂 第三季</span>
+					<span class="refresh">更新至第18话</span>
+				</div>
+				<div class="episodeBlock">
+					<div class="epiPic"></div>
+					<span class="name">美妙天堂 第三季</span>
+					<span class="refresh">更新至第18话</span>
+				</div>
+				<div class="episodeBlock">
+					<div class="epiPic"></div>
+					<span class="name">美妙天堂 第三季</span>
+					<span class="refresh">更新至第18话</span>
+				</div>
+				<div class="episodeBlock">
+					<div class="epiPic"></div>
+					<span class="name">美妙天堂 第三季</span>
+					<span class="refresh">更新至第18话</span>
+				</div>
+				<div class="episodeBlock">
+					<div class="epiPic"></div>
+					<span class="name">美妙天堂 第三季</span>
+					<span class="refresh">更新至第18话</span>
+				</div>
+			</div>
+		</div>
+		<div class="grey"></div>
+		<div class="movie clearFix">
+			<h2 class="h2Left">
+				<div class="film"></div>
+				<span>电影区</span>
+			</h2>
+			<h2 class="h2Right">
+				<div class="more"></div>
+				<a href="#">查看更多直播</a>
+			</h2>
+			<div class="movieBox">
+				<div class="movieBlock block1">
+					<a href="#" class="moviePic"></a>
+					<a class="title" href="#">【节奏大师】我从未见过如此鬼畜的魔王曲！</a>
+					<div class="play clearFix">
+						<div class="playPic"></div>
+						<span>29.3万</span>
+					</div>
+					<div class="num clearFix">
+						<div class="numPic"></div>
+						<span>8244</span>
+					</div>
+				</div>
+				<div class="movieBlock block1">
+					<a href="#" class="moviePic"></a>
+					<a class="title" href="#">【节奏大师】我从未见过如此鬼畜的魔王曲！</a>
+					<div class="play clearFix">
+						<div class="playPic"></div>
+						<span>29.3万</span>
+					</div>
+					<div class="num clearFix">
+						<div class="numPic"></div>
+						<span>8244</span>
+					</div>
+				</div>
+				<div class="movieBlock block1">
+					<a href="#" class="moviePic"></a>
+					<a class="title" href="#">【节奏大师】我从未见过如此鬼畜的魔王曲！</a>
+					<div class="play clearFix">
+						<div class="playPic"></div>
+						<span>29.3万</span>
+					</div>
+					<div class="num clearFix">
+						<div class="numPic"></div>
+						<span>8244</span>
+					</div>
+				</div>
+				<div class="movieBlock block1">
+					<a href="#" class="moviePic"></a>
+					<a class="title" href="#">【节奏大师】我从未见过如此鬼畜的魔王曲！</a>
+					<div class="play clearFix">
+						<div class="playPic"></div>
+						<span>29.3万</span>
+					</div>
+					<div class="num clearFix">
+						<div class="numPic"></div>
+						<span>8244</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer id="footer">
+			<div class="btns clearFix">
+				<a class="PC" href="#">
+					<div class="picPC"></div>
+					<span>电脑版</span>
+				</a>	
+				<a class="APP" href="#">
+					<div class="picAPP"></div>	
+					<span>客户端</span>
+				</a>
+				<a class="backToTop" href="#">
+					<div class="picBackToTop"></div>	
+					<span>返回顶部</span>
+				</a>
+			</div>
+			<div class="lience">
+				<p>哔哩哔哩弹幕视频网沪ICP备13002172号-3</p>
+				<p>信息网络传播视听节目许可证：0910417</p>
+			</div>
+		</footer>
+	</div>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	var $wrapBan = $('#banner').find('.wrap');
+	$wrapBan.on('touchstart',fnStart);
+	function fnStart(ev){
+		//var touch = ev.targetTouches[0];
+		//if(ev.targetTouches.length > 1 || ev.scale && ev.scale !== 1) return; 
+		var startX = touch.pageX;
+		var startY = touch.pageY;
+		$wrapBan.on('touchmove',fnMove(ev,startX,startY));
+		$wrapBan.on('touchend',fnEnd);
+	}
+	function fnMove(ev,startX,startY){
+		//var touch = ev.targetTouches[0];
+		var moveX = touch.pageX;
+		var moveY = touch.pageY;
+		//if(ev.targetTouches.length > 1 || ev.scale && ev.scale !== 1) return;
+		//$wrapBan.css('left',$wrapBan.css('left')+(moveX-startX));
+		ev.preventDefault();
+		console.log(touch);
+	}
+	function fnEnd(){
+		
+	}
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>评分</title>
+	<style>
+	.clearFix::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#wrap {
+		width: 510px;
+		margin: 40px auto;
+	}
+	#wrap span {
+		float: left;
+		width: 80px;
+		height: 80px;
+		margin: 0 10px;
+		border-radius: 50%;
+		border: 1px solid black;
+	}
+	#wrap #active,
+	#wrap .score {
+		border: 1px solid red;
+		background: red;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload = function() {
+		var wrap = document.getElementById("wrap");
+		var spans = wrap.querySelectorAll("#wrap span");
+		/*在所有span中，点击相应span，该span和编号比它小的所有span都变色。*/
+			/*
+				在for循环中，
+					span[i]的onclick事件
+						for j<i j有class属性名
+			 */
+		for(var i = 0;i < spans.length; i++){
+			spans[i].index = i;
+			spans[i].onmouseover = function(){	
+				for(var j = 0; j <= this.index; j++){
+					spans[j].id = "active";
+					//spansNow = j;
+				}
+			}
+			spans[i].onclick = function(){
+				for(var j = 0; j <= this.index; j++){
+					spans[j].className = "score";
+				}
+				for(var k= this.index+1; k < spans.length; k++){
+						spans[k].className = "";
+					
+				}
+				
+			}
+			spans[i].onmouseout = function(){
+				for(var j = 0; j <= this.index; j++){
+					spans[j].id = "";
+				}
+			}
+			
+
+			
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="wrap" class="clearFix">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>		
+	</div>
+</body>
+</html>

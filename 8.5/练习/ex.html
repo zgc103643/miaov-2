@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ex</title>
+	<style>
+	.clearFix:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	body,
+	h1,
+	h2,
+	p {
+		margin: 0;
+	}
+	a {
+		text-decoration: none;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	#header {
+		width: 100%;
+		height: 50px;
+		background-color: #323436;
+	}
+	#header .wrap {
+		padding: 0 20px;
+	}
+	#header .left {
+		float: left;
+	}
+	#header .right {
+		float: right;
+	}
+	#header h1 {
+		float: left;
+	}
+	#header h1 a {
+		float: left;
+		width: 132px;
+		height: 42px;
+		margin-top: 4px;
+		display: block;
+		line-height: 200px;
+		overflow: hidden;
+		background: url(img/logo.png);
+	}
+	.left div {
+		position: relative;
+		float: left;
+		width: 50px;
+		height: 50px;
+
+	}
+	.left div:hover .navSL {
+		height: 200px;
+	}
+	#header .san {		
+		display: block;
+		font: 16px/50px "黑体";
+		text-align: center;
+		background-color: #c3c3c3;
+	}
+	
+	.navSL {
+		position: absolute;
+		top: 50px;
+		left: 0;
+		float: left;
+		width: 80px;
+		height: 0;
+		overflow: hidden;
+		transition: .8s;		
+	}
+	.navSL li {
+		width: 80px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		background-color: grey;
+		opacity: .6;
+	}
+	.navSL a {
+		color: #fff;
+	}
+	#navLg {
+		float: left;
+		padding-left: 20px;
+		display: none;
+	}
+	#navLg a {
+		float: left;
+		padding: 0 15px;
+		display: block;
+		font: 18px/50px "微软雅黑";
+		color: #8c8c8c;
+	}
+	#navLg a:hover {
+		background-color: #
+	}
+	.right {
+		float: right;
+		width: 190px;
+		padding-top: 10px;
+	}
+	.form {
+		float: left;
+		width: 30px;
+		height: 26px;
+		margin-top: 2px;
+		position: relative;
+	}
+	.formCon {
+		width: 30px;
+		height: 26px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: 1s;
+	}
+	.formConShow {
+		background: #fff;
+		width: 180px;
+		border-radius: 13px;
+	}
+	.btn {
+		width: 30px;
+		height: 26px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: url(img/search.png) no-repeat;
+	}
+	.loginMenu {
+		float: right;
+		width: 140px;
+	}
+	.loginMenu  a {
+		width: 70px;
+		float: left;
+		text-align: center;
+		background: #505050;
+		color: #acacac;
+		font: 14px/32px "微软雅黑";
+	}
+	.loginMenu .active {
+		background: #6bc30d;
+		color: #fff;
+	}
+
+@media all and (min-width:768px) {
+	.wrap {
+		width: 768px;
+		padding: 0;
+		margin: 0 auto;
+	}
+
+}
+@media all and (min-width:992px) {
+	.wrap {
+		width: 992px;
+	}
+	.left div {
+		display: none;
+	}
+	#navLg {
+		display: block;
+	}
+
+}
+@media all and (min-width:1200px) {
+	.wrap {
+		width: 1200px;
+}
+	</style>
+</head>
+<body>
+	<header id="header">
+		<div class="wrap clearFix">
+			<div class="left">
+				<h1>
+					<a href="#">lehtml</a>
+				</h1>
+				<div>
+					<a href="#" class="san">三</a>
+					<ul class="navSL">
+						<li>
+							<a href="#">发现</a>
+						</li>
+                		<li>
+                			<a href="#">文章</a>
+                		</li>
+                		<li>
+                			<a href="#">设计师</a>
+                		</li>
+                		<li>
+                			<a href="#">帮帮忙</a>
+                		</li>
+					</ul>
+				</div>
+				<nav id="navLg">
+					<a href="#">发现</a>	
+					<a href="#">文章</a>	
+					<a href="#">设计师</a>	
+					<a href="#">帮帮忙</a>
+				</nav>
+			</div>
+			<div class="right">
+        		<form class="form">
+	            	<div class="formCon" onclick="this.className=='formCon'?this.className='formCon formConShow':this.className='formCon'">
+	                    <span class="btn"></span>
+
+	                </div>    
+            	</form>
+	            <nav class="loginMenu">
+	            	<a href="#">登陆</a>
+	                <a href="#" class="active">注册</a>
+	            </nav>
+        	</div>
+		</div>
+	</header>
+</body>
+</html>

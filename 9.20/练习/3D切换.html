@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>3D切换</title>
+	<style id="css">
+	ul {
+		padding: 0;
+	}
+	li {
+		position: relative;
+		float: left;
+		width: 24px;
+		height: 375px;
+		list-style: none;
+		transform-style: preserve-3d;
+	}
+	li span {
+ 		position: absolute;
+ 		top: 0;
+ 		left: 0;
+ 		width: 24px;
+		height: 375px;	 	
+	}
+	#box {
+		width: 600px;
+		height: 375px;
+		border: 5px solid #6f6f6f;
+		perspective: 400px;
+	}
+	#box::after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+	</style>
+	<script type="text/javascript">
+	function $(selector) {
+		var arr = [];
+		var elements = document.querySelectorAll(selector);
+		for(var i = 0; i < elements.length; i++) {
+			arr[i] = elements[i];
+		}
+		return arr.length === 1 ? arr[0] : arr;
+	}
+	window.onload = function() {
+		var box = $("#box");
+		var css = $("#css");
+		var lis = "";
+		var style = "";
+		//alert(box);
+		for(var i = 0; i < 25; i++) {
+			lis += "<li class='li" + i + "'></br>"
+					 + "<span class='span1'></span></br>"
+					 + "<span class='span2'></span></br>"
+					 + "<span class='span3'></span></br>"
+					 + "<span class='span4'></span></br></li>";			//创建25个li
+
+		 style +=	   "#box .li" + i + " .span1 {"
+				   	 + "background: url(img/01.jpg) no-repeat -" + 24*i + "px 0;"
+				     + "}"
+					 + "#box .li" + i + " .span2 {"
+					 + "background: url(img/02.jpg) no-repeat -" + 24*i + "px 0;"
+					 + "}"
+					 + "#box .li" + i + " .span3 {"
+					 + "background: url(img/03.jpg) no-repeat -" + 24*i + "px 0;"
+					 + "}"
+					 + "#box .li" + i + " .span4 {"
+					 + "background: url(img/04.jpg) no-repeat -" + 24*i + "px 0;"
+					 + "}"
+					 //为每个li中的4个span装载背景图
+			
+		}
+		document.onclick = function() {
+			var nub = 0;
+			// for(var i = 0; i < lis.length; i++) {
+			// 	nub++;
+			// 	lis[i].style.transition = 500+(50*i) + "ms";
+			// 	lis[i].style.transform = 90*(nub%4) + "deg";
+			// }
+		}
+		box.innerHTML = lis;
+		css.innerHTML += style;
+	}
+	</script>
+</head>
+<body>
+	<ul id="box"></ul>
+</body>
+</html>

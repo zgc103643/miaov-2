@@ -1,0 +1,422 @@
+@charset "UTF-8";
+.clearFix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+body,
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+#bg-grain {
+	background: url(img/bg-band-top.png) 0 0 repeat-x,
+			    url(img/bg-clouds.jpg) 0 6px repeat-x,
+				url(img/bg-grain.png);
+}
+.wrap {
+	margin: 0 25px 0 23px;
+}
+#pageTop {
+	width: 100%;
+	height: 279px;
+	/*background: url(img/bg-band-top.png) 0 0 repeat-x,
+			    url(img/bg-clouds.jpg) 0 6px repeat-x;*/
+}
+#pageTop h1 {
+	width: 58px;
+	padding-top: 31px;
+	margin: 0 auto;
+}
+#pageTop h1 a:hover img {
+	opacity: .5;
+}
+.navSmall {
+	margin-top: 17px;
+}
+.navSmall li {
+	border-top: 1px dotted #7e8779;
+}
+.navSmall a {
+	height: 42px;
+	display: block;
+	background: url(img/nav.png) no-repeat;
+}
+.navSmall a:hover {
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+.navSmall .PORTFOLIO {
+	background-position: -293px 12px;
+}
+.navSmall .JOURNAL {
+	background-position: -293px -38px;
+}
+.navSmall .RESPECT {
+	background-position: -293px -88px;
+}
+.navSmall .CONTACT {
+	background-position: -293px -138px;
+}
+.navLarge {
+	width: 90%;
+	margin: 17px auto 0;
+	padding-bottom: 13px;
+	display: none;
+}
+.navLarge li {
+	float: left;
+	width: 24.5%;
+	padding-top: 18px;
+	border-right: 1px dotted #858a7e;
+}
+.navLarge .last {
+	border: none;
+}
+.navLarge li a {
+	width: 100%;
+	height: 46px;
+	padding-bottom: 21px;
+	display: block;
+	background: url(img/nav.png) no-repeat;
+	background-size: 417px 453px;
+	transition: .6s;
+}
+.navLarge li a:hover {
+	opacity: .5;
+}
+.navLarge li .PORTFOLIO {	
+	background-position: 15px -1px;
+}
+.navLarge li .JOURNAL {	
+	background-position: 15px -141px;
+}
+.navLarge li .RESPECT {	
+	background-position: 15px -280px;
+}
+.navLarge li .CONTACT {
+	background-position: 15px -419px;
+}
+#banner h1 a {
+	/*与上排距离有问题*/
+	width: 100%;
+	padding: 28px 0 31px;
+	display: block;
+	background: url(img/rule-double-dotted.png) repeat-x 0 0,
+				url(img/rule-double-dotted.png) repeat-x 0 bottom;
+}
+#banner h1 img {
+	width: 100%;
+	-webkit-mask-image: url(img/hero-mask.png);
+	-moz-mask-image: url(img/hero-mask.png);
+}
+#navDeputy {
+	display: none;
+}
+#navDeputy .wrap {
+	padding-top: 24px;
+	padding-bottom: 26px;
+	background: url(img/rule-double-dotted.png) 0 bottom repeat-x;
+}
+#navDeputy li {
+	position: relative;
+	float: left;
+	width: 49%;
+	margin: 0 2% 12px 0;
+	border-radius: 5px;
+	background: url(img/bg-black-texture.jpg);
+	background-size: 919px 676px;
+}
+#navDeputy .right {
+	margin-right: 0;
+}
+#navDeputy a {
+	width: 100%;
+	height: 130px;
+	display: block;	
+}
+#navDeputy li span {
+	position: absolute;
+	top: 70px;
+	left: 21px;
+	width: 90px;
+	font: 12px/18px "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	color: #ffffe6;
+}
+#navDeputy a:hover span {
+	text-decoration: underline;
+}
+#navDeputy .PORTFOLIO {
+	background-position: 0 0;
+}
+#navDeputy .JOURNAL {
+	background-position: 0 -100px;
+}
+#navDeputy .RESPECT {
+	background-position: 0 -300px;
+}
+#navDeputy .CONTACT {
+	background-position: 100px 0px;
+}
+#navDeputy .PORTFOLIO a {
+	background: url(img/navDeputy/promo-title-portfolio.png) no-repeat 21px 30px;
+}
+#navDeputy .JOURNAL a {
+	background: url(img/navDeputy/promo-title-journal.png) no-repeat 21px 30px;
+}
+#navDeputy .RESPECT a {
+	background: url(img/navDeputy/promo-title-respect.png) no-repeat 21px 30px;
+}
+#navDeputy .CONTACT a {
+	background: url(img/navDeputy/promo-title-contact.png) no-repeat 21px 30px;
+}
+	#vitals .h2Start,
+	#vitals .fileLine1,
+	#vitals .fileLine2,
+	#vitals .fileLine3 {
+		display: none;
+	}
+#vitals h2,
+#text h2 {
+	padding: 0 24px 25px 24px;
+	background: url(img/rule-solid-worn.png) repeat-x 0 bottom;
+}
+#vitals h3,
+#vitals p {
+	float: left;
+}
+#vitals .fileLine1 {
+	padding: 24px 0 28px;
+	background: url(img/rule-solid-worn.png) repeat-x 0 bottom;
+}
+#vitals .fileLine2 {
+	padding-bottom: 28px;
+	background: url(img/rule-solid-worn.png) repeat-x 0 bottom;;
+}
+#vitals .fileLine3 {
+	padding-bottom: 28px;
+	background: url(img/rule-double-dotted.png) repeat-x 0 bottom;
+}
+#vitals .fileLine1 p {
+	float: left;
+	padding-left: 52px;
+}
+#vitals .fileLine2 p,
+#vitals .fileLine3 p {
+	position: relative;
+	width: 25%;
+	height: 85px;
+}
+.fileLine2 p img,
+.fileLine3 p img {
+	position: absolute;
+	left: 0;
+	top: 24px;
+}
+.fileLine2 p span,
+.fileLine3 p span {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	font: 12px/12px "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+}
+#vitals,
+#text {
+	margin-top: 24px;	
+}
+#text .wrap {
+	background: url(img/rule-double-dotted.png) repeat-x 0 bottom;
+}
+#text .largeD {
+	float: left;
+	width: 15px;
+	height: 48px;
+	margin: 0 5px 5px 0;
+	background: url(img/dropcap-d.gif);
+}
+#text p,
+.pageBottom p {
+	font: 12px/18px "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	color: #000015;
+}
+#text .content {
+	padding: 25px 0 25px 0;
+}
+.APP {
+	padding: 24px 0 20px;
+}
+.APP .wrap {
+	padding-bottom: 21px;
+	border-bottom: 1px dotted #98988a;
+}
+.APP li {
+	float: left;
+	width: 50%;
+	height: 16px;
+	padding-bottom: 4px;
+}
+.APP a {
+	display: block;
+}
+.APP li a:hover img {
+	background-color: #ffff99;
+}
+#footer {
+	height: 530px;
+	background: url(img/bg-desert.jpg) no-repeat right bottom,
+				url(img/bg-band-bottom.png) repeat-x 0 bottom;
+}
+.pageBottom p a {
+	color: #000015;
+	background-color: #ffff99;
+}
+.pageBottom p a:hover {
+	text-decoration: underline;
+}
+@media all and (min-width:480px) {
+	.navSmall {
+		display: none;
+	}
+	#pageTop {
+		height: auto;
+	}
+	.navLarge {
+		display: block;
+	}
+	#navDeputy {
+		display: block;
+	}
+	#vitals .h2Start,
+	#vitals .fileLine1,
+	#vitals .fileLine2,
+	#vitals .fileLine3 {
+		display: block;
+	}
+	#text .content {
+	padding-bottom: 24px;
+	column-count: 2;
+    column-gap: 5px;
+	}
+	#footer {
+		height: 360px;
+	}
+	#footer .APP,
+	#footer .pageBottom {
+		float: left;
+		width: 49.5%;
+	}
+	.APP .wrap {
+		border-bottom: none;
+	}
+	.pageBottom .wrap {
+		margin: 0;
+		padding: 0 15px 0;
+		border-left: 1px dotted  #98988a;
+		box-sizing: border-box;
+	}
+	.pageBottom {
+		padding-top: 24px;
+	}
+}
+@media all and (min-width:750px) {
+	#pageTop h1 {
+		float: left;
+	}
+	#pageTop .navLarge {
+		float: right;
+		width: 64%;
+		margin-right: 6%;
+	}
+	.navLarge .last {
+	border-right: 1px dotted #858a7e;
+	}
+	#navDeputy li {
+		width: 22%;
+		margin-right: 4%;
+		height: 227px;
+	}
+	#navDeputy .right {
+		width: 22%;
+		margin-right: 4%;
+		height: 227px;
+	}
+	#navDeputy .wrap .last {
+		margin-right: 0;
+	}
+	#pageLText .inner {
+		padding-bottom: 28px;
+		background: url(img/rule-double-dotted.png) repeat-x 0 bottom;
+	}
+	#vitals .wrap {
+		margin-left: 0;
+	}
+	#text .wrap {
+		margin-right: 0;
+    	background: none;
+	}
+	#vitals,
+	#text {
+		float: left;
+		box-sizing: border-box;
+	}
+	#vitals .fileLine3 {
+    padding-bottom: 0px;
+    background: none;
+	}
+	#vitals {
+		width: 65%;
+
+		border-right: 1px dotted #969687;
+	}
+	#text {
+		width: 35%;
+	}
+	#text .content {
+	/*padding-bottom: 24px;*/
+	column-count: 1;
+    column-gap: 0;
+	}
+	#footer .APP {
+		width: 14.5%;
+	}
+	.APP .wrap {
+		margin: 0;
+	}
+	.APP li {
+		float: none;
+		padding-bottom: 6px;
+	}
+	#footer .pageBottom {
+		min-width: 190px; 
+		width: 25.2%;
+		box-sizing: border-box;
+	}
+	.pageBottom h2 {
+		width: 100%;
+	}
+	.pageBottom p {
+		width: 100%;
+	}
+	.pageBottom .wrap {
+		border-right: 1px dotted #98988a;
+	}
+}
+@media all and (min-width:1300px) {
+	.inner {
+		width: 1200px;
+		margin: 0 auto 0;
+	}
+	#footer {
+		height: 245px;
+	}
+}

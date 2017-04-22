@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新建标签</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+		section {
+			width: 240px;
+			margin: 30px auto;
+		}
+		#header {
+			width: 240px;
+			height: 20px;
+			margin: 20px 0;
+		}
+		#header nav {
+			float: left;
+		}
+		#header nav a {
+			position: relative;
+			float: left;
+			width: 55px;
+			height: 24px;
+			font: 12px/24px "宋体";
+			text-align: center;
+		}
+		 nav a span{
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 6px;
+			height: 6px;
+			line-height: 6px;
+		 }
+		#header a {
+			text-decoration: none;
+			color: #999;
+		}
+		#header>a {
+			float:left;
+			margin-left: 10px;
+			font:16px/20px "宋体"; 
+		}
+		#header .active {
+			color: #fff;
+			background-color: #333;
+		}
+		#cons {
+			font-size: 0;
+		}
+		#cons img {
+			display: none;
+		}
+		#cons .show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<header id="header">
+			<nav>
+			<strong>
+				<a class="active" href="javascript:;">图片一</a>
+				<span>x</span>
+			</strong>	
+			</nav>
+			<a class="add" href="javascript:;">+</a>
+		</header>
+		<div id = "cons">
+			<img class="show" src="img/1.jpg"/>
+		</div>
+	</section>
+</body>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript">
+	var header = document.getElementById("header");
+	var cons = document.getElementById("cons");
+	var nav = header.getElementsByTagName("nav")[0];
+	var options = nav.getElementsByTagName("a");
+	var close = nav.getElementsByTagName("span");
+	var img = cons.getElementsByTagName("img");
+	var add = header.getElementsByClassName("add")[0];
+	var now = 0;
+
+	add.onclick = function(){
+		if(options.length < data.length-1){
+			create();
+		}else{
+			create();
+			add.style.display = "none";
+		}
+		function create(){
+			newOption = document.createElement("a");
+			newSpan = document.createElement("span");
+			newImg = document.createElement("img");
+			newSpan.innerHTML = "x";
+			newOption.innerHTML = data[options.length].option;
+			newImg.src = data[options.length].src;
+
+			for (var i = 0; i < options.length; i++) {
+				options[i].className = "";
+				img[i].className = "";
+			}
+			newOption.className = "active";
+			newOption.href = "javascript:;";
+			newImg.className = "show";
+
+			newOption.appendChild(newSpan);
+			nav.appendChild(newOption);
+			cons.appendChild(newImg);
+		}
+		for (var i = 0; i < options.length; i++) {
+			options[i].index = i;
+			options[i].onclick = function(){
+				for (var i = 0; i < options.length; i++) {
+					options[i].className = "";
+					img[i].className = "";
+				}
+				this.className = "active";
+				img[this.index].className = "show";		
+			}		
+		}
+		for (var i = close.length-1; i > -1; i--) {
+			close[i].index = i;
+			close[i].onclick = function(){
+				options[i].onclick = null;
+				//console.log(options[this.index+1]);
+				//if(this.parentNode.nextElementSibling){
+					options[this.index+1].className = "active";
+					//img[this.index+1].className = "show";
+					// nav.removeChild(this.parentNode);
+					// cons.removeChild(img[this.index]);
+				//}		
+			}
+		}
+	}
+</script>
+</html>

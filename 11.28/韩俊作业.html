@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		section {
+			width: 300px;
+			height: 300px;
+			margin: 50px auto;
+		}
+		div {
+			width: 150px;
+			height: 100px;
+		}
+		.left {
+			float: left;
+		}
+		.right {
+			float: right;
+		}	
+		p {
+			width: 80px;
+			padding: 0;
+			margin-top: 10px;
+		}
+		.warn {
+			border: 1px solid red;
+		}
+		input {
+			width: 140px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="left">
+			<p>邮箱</p>
+			<p>qq号码</p>
+			<p>生日</p>
+		</div>
+		<div class="right">
+			<input type="text"/>
+			<input type="text"/>
+			<input type="text"/>
+		</div>
+	</section>	
+</body>
+<script type="text/javascript">
+	var input = document.getElementsByTagName("input");
+
+	input[0].onchange = function(){
+		let str = input[0].value;
+		let re = /^\w+@\w+(.com)(.cn)?$/;
+		if (re.test(str)) {
+			input[0].className = "";
+		}else{
+			input[0].className = "warn";
+		}
+	}
+
+	input[1].onchange = function(){
+		let str = input[1].value;
+		let re = /^[1-9]\d{4,10}$/;
+		if (re.test(str)) {
+			input[1].className = "";
+		}else{
+			input[1].className = "warn";
+		}
+	}
+
+	input[2].onchange = function(){
+		let str = input[2].value;
+		let re = /^(\d{4})\D+(\d{1,2})\D+(\d{1,2})\D?$/;
+
+		str.replace(re,function($0,$1,$2,$3){
+			var birDate = new Date($1,$2-1,$3);
+			var obj = {
+					  year: birDate.getFullYear(),
+					  month: birDate.getMonth()+1,
+					  date: birDate.getDate()
+					}
+			var age = {
+					  year: now().getFullYear()-100,
+					  month: now().getMonth()+1,
+					  date: now().getDate()	
+					}
+			var ageTime = new Date(age.year,age.month,age.date);
+			if (obj.year == $1 && obj.month == $2 && obj.date == $3 && now()>birDate && ageTime<birDate) {
+				input[2].className = "";
+			}else{
+				input[2].className = "warn";
+			}
+		});	
+	}
+
+	function now(){
+		var fullDate = new Date();
+		return fullDate;
+	}
+	
+	//console.log(MYD().date);
+</script>
+</html>

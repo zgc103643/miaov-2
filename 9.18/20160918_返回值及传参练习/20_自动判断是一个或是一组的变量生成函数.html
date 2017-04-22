@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+function $(sele){
+	var arr = [];
+	var eles = document.querySelectorAll(sele);
+	for(var i = 0; i < eles.length; i++){
+		arr[i] = eles[i];
+	}
+	return arr.length === 1 ? arr[0] : arr;
+}
+</script>
+<body>
+	
+</body>
+</html>

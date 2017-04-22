@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box {
+	width: 500px;
+	height:500px;
+	background: red;
+}
+#div {
+	width: 200px;
+	height: 200px;
+	background: blue;
+	margin: 300px;
+}
+#header {
+	height: 50px;
+	width: 500px;
+	background: yellow;
+}
+#footer {
+	height: 50px;
+	width: 500px;
+	background: green;
+}
+/*
+	margin 传递：
+		元素的上下margin ，会传递给父级
+	
+	padding和margin的区别
+	padding 产生在元素的边框以里，会显示元素的背景
+	margin 	产生在元素的边框以外，不会显示元素的背景	
+	父子级之间的距离，通过给父级加padding来设置
+	同级元素之间的距离，用margin来控制
+*/
+</style>
+</head>
+<body>
+<div id="header"></div>
+<div id="box">
+	<div id="div"></div>
+</div>
+<div id="footer"></div>
+</body>
+</html>

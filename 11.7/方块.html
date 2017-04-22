@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		#span {
+			position: absolute;
+			top: 0;
+			left: 150px;
+			width: 50px;
+			height: 50px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<span id="span"></span>
+	</div>
+</body>
+<script type="text/javascript" src="../JS/miaov.js"></script>
+<script type="text/javascript">
+(function(D){
+	var box = D.querySelector("#box");
+	var span = D.querySelector("#span");
+	// var top = css(box,"top");
+	// var left = css(box,"left");
+	box.onmousedown = function(e){
+		var MouseX = e.clientX;
+		var MouseY = e.clientY;
+		console.log(MouseX);
+		document.onmousemove = function(){
+
+		}
+	}
+	box.onclick = function(){
+		box.style.background = "red";
+	}
+	span.onclick = function(e){
+		e.concelBubble = true;
+		box.style.background = "yellow";
+	}
+	
+})(document);
+</script>
+</html>

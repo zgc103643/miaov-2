@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div {
+	width: 100px;
+	height: 100px;
+	font-size: 20px;
+	color: #fff;
+}
+.div1 {
+	background: red;
+}
+.div2 {
+	background: blue;
+	position: relative;
+	left: 10px;
+	top: 100px;
+}
+.div3 {
+	background: green;
+}
+/*
+	position 定位
+		position: relative; 相对定位 (只加相对定位，不设置元素移动，元素和之前不会有任何的变化)
+		1. 元素移走之后，原始位置会被保留下来(不脱离文档流)
+		2. 提升层级
+		3. 根据自己的原始位置计算left,top
+		
+		
+		left/right/top/bottom
+*/
+</style>
+</head>
+<body>
+<div class="div1">1111</div>
+<div class="div2">2222</div>
+<div class="div3">3333</div>
+</body>
+</html>

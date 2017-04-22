@@ -1,0 +1,88 @@
+@y: yellow;
+@bgImg: background-image;
+@c: contentLeft;
+@url: "../img/";
+@bg: @y url("@{url}bg.img") no-repeat;
+
+@x: "y";
+
+#div {
+	background: @y;
+	content: @@x;
+}
+#div2 {
+	@{bgImg}: @y;
+}
+#@{c}Row1 {
+	@{bgImg}: @y;
+}
+#@{c}Row2 {
+	@{bgImg}:url("@{url}banner.png");
+}
+#@{c}Row3 {
+	background: @bg;
+}
+
+.list {
+	margin: 0;
+	li {
+		list-style: none;
+	}
+	p {
+		color: red;
+		&:hover {
+			color: blue;
+		}
+	}
+}
+
+@w100: 100px;
+.list {
+	width: @w100;
+	li {
+		@w100: 100%;
+		width: @w100;
+		p {
+			width: @w100;
+		}	
+	}
+}
+
+.border(@bW,@color) {
+	border: @bW solid @color;
+}
+
+#div {
+	.border(2px,red);
+}
+#div2 {
+	.border(1px,yellow);
+}
+/*#div3 {
+	.border2(#ccc,2px);
+}*/
+#div4 {
+	.border(@bW:2px,@color:#ccc);
+}
+
+.triangle (@dir:0,@color:#000,@w:10px) {
+	width: 0;
+	height: 0;
+	border: @w solid transparent;
+	.triangleIcon(@dir,@color,@w);
+}
+.triangleIcon(@dir:0,@color:#000,@w:10px) when (@dir = 0){
+	border-bottom: @w solid @color;
+}
+.triangleIcon(@dir:0,@color:#000,@w:10px) when (@dir = 1){
+	border-bottom: @w solid @color;
+}
+.triangleIcon(@dir:0,@color:#000,@w:10px) when (@dir = 2){
+	border-bottom: @w solid @color;
+}
+.triangleIcon(@dir:0,@color:#000,@w:10px) when (@dir = 3){
+	border-bottom: @w solid @color;
+}
+#border {
+	.triangle (@dir:3);	
+}

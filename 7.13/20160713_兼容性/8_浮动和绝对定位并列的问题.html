@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.box  {
+	width: 200px;
+	height: 200px;
+	border: 1px solid #000;
+	position: relative;
+}
+.box div{
+	width: 150px;
+	height: 150px;
+	margin-left: 50px;
+	float: left;
+	display: inline;
+	background: red;
+}
+.box span {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	right: -20px;
+	top: 0;
+	background: yellow;
+}
+/*
+	IE6下，浮动元素和绝对定位元素是并列关系的话，绝对定位会消失掉
+	解决办法:
+		给绝对定位元素单独包起来
+*/
+</style>
+</head>
+<body>
+
+<div class="box">
+	<div></div>
+    <p><span></span></p>
+    <!--<span></span>-->
+</div>
+</body>
+</html>

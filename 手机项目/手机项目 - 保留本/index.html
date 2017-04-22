@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="css/bootstrap.css" rel="stylesheet"/>
+	<link href="css/index.css" rel="stylesheet"/>
+	<link href="css/content.css" rel="stylesheet"/>
+	<script>
+	!function() {
+		var scale = 1;
+		var ratio = window.devicePixelRatio;
+		scale = scale / window.devicePixelRatio;
+		var meta = document.createElement("meta");
+		meta.setAttribute("name","viewport");
+		meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+		document.head.appendChild(meta);
+	}();
+	
+	 fn();
+	window.addEventListener("resize",fn);
+	function fn() {
+		var html = document.querySelector("html");
+		var width = html.getBoundingClientRect().width;
+		html.style.fontSize = width/18 + "px";  
+	}
+	</script>
+</head>
+<body class="clearFix">
+<div id="wrap" class="clearFix">
+	<div id="left">
+		<header id="header">
+			<div class="clearFix">
+				<a href="javascript:;">通话</a>
+				<a class="active" href="javascript:;">联系人</a>
+				<a href="javascript:;">黄页</a>
+			</div>
+		</header>
+		<section id="section">
+			<input type="text" name="text" class="btn" placeholder="" />
+			<div class="card">
+				<img src="img/pro.png"/>
+				<p>我的名片</p>
+			</div>
+			<ul class="selects">
+				<li><span>我的群组</span><a href="#">></a></li>
+				<li><span>免费电话</span><a href="#">></a></li>
+			</ul>
+			<div class="name">
+				<ul class="fNameN">
+					<li>Z</li>
+					<li><a href="javascript:;">赵</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>Q</li>
+					<li><a href="javascript:;">钱</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>S</li>
+					<li><a href="javascript:;">孙</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>L</li>
+					<li><a href="javascript:;">李</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>Z</li>
+					<li><a href="javascript:;">赵</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>Q</li>
+					<li><a href="javascript:;">钱</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>S</li>
+					<li><a href="javascript:;">孙</a></li>
+				</ul>
+				<ul class="fNameN">
+					<li>L</li>
+					<li><a href="javascript:;">李</a></li>
+				</ul>
+			</div>
+		</section>
+		<div id="addBtn">+</div>
+	</div>
+	<div id="right">
+		<div class="dlWrap">
+			<dl>
+				<dt><a class="close" href="javascript:;">x</a></dt>
+				<dd>发送到桌面</dd>
+				<dd>当前未使用语音信箱</dd>
+				<dd>删除联系人</dd>
+				<dd>加入黑名单</dd>
+			</dl>
+		</div>
+		<section>
+			<img src=""/>
+			<a href="javascript:;" class="back"><</a>
+			<a href="javascript:;" class="options">.<br/>.<br/>.</a>
+			<p>某某某</p>
+		</section>
+		<ul class="clearFix">
+			<li class="first clearFix">
+				<div class="inner">
+					<a class="store" href="javascript:;">
+						<img src="img/store.png"/>
+						<span>收藏</span>
+					</a>
+					<a class="records" href="javascript:;">
+						<img src="img/records.png"/>
+						<span>通话记录</span>
+						<i></i>
+					</a>
+					<a class="share" href="javascript:;">
+						<img src="img/share.png"/>
+						<span>分享</span>
+						<i></i>
+					</a>
+				</div>
+			</li>
+			<li class="phone">
+				<span>
+					112 3145 4956
+				</span>
+				<div>
+					<span>手机</span>
+					<i></i>
+					<span>北京</span>
+				</div>
+				<a href="#"><img src="img/message.png"/></a>
+			</li>
+		</ul>
+	</div>
+	<div id="add">
+		<header class="clearFix">
+			<a class="cancel" href="javascript:;">取消</a>
+			<span>新建联系人</span>
+			<a class="comfirm" href="javascript:;">确定</a>
+		</header>
+		<section>
+			<dl>
+				<dt><img src="img/pro.png"/></dt>
+				<dd><input type="text" placeholder="姓名"/></dd>
+				<dd><input type="text" placeholder="公司"/></dd>
+				<dd><input type="text" placeholder="职位"/></dd>
+			</dl>
+			<div class="mobile"><span>手机</span><input type="text" placeholder="电话" /></div>
+			<div class="work"><span>工作</span><input type="text" placeholder="邮件" /></div>
+		</section>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/miaov.js"></script>
+<script type="text/javascript">
+(function(){
+	document.addEventListener("touchstart",fnStart);
+	function fnStart(ev){
+		document.addEventListener("touchmove",fnMove);
+		function fnMove(ev){
+			var touch = ev.targetTouches[0];
+			if(ev.targetTouches.length > 1 || ev.scale && ev.scale !== 1) return;
+			//如果接触的点多于一个或缩放开启，跳出函数
+			ev.preventDefault();
+		}
+		this.addEventListener("touchend",fnEnd);
+		function fnEnd(){
+			this.removeEventListener("touchmove",fnMove);
+			this.removeEventListener("touchend",fnEnd);
+		}
+	}
+})();
+/*禁止拖动效果*/
+(function(D){
+	var secLeft = D.getElementById("section");
+	var text = secLeft.querySelector("input");
+	var right = D.getElementById("right");
+	var add = D.getElementById("add");
+	// var secRight = right.querySelector("section");
+	// var ulRight = right.querySelector("ul");
+	var bgd = right.querySelector("img");
+	var header = D.getElementById("header");
+
+	var name = D.querySelector(".name");
+	var as = name.querySelectorAll("a");
+	var back = D.querySelector(".back");
+	var options = D.querySelector(".options");
+	var dl = right.querySelector("dl");
+	var hDl = dl.offsetHeight;
+	var dlWrap = right.querySelector(".dlWrap");
+	var close = right.querySelector(".close");
+	var pName = right.querySelector("section").querySelector("p");
+	var phNum = right.querySelector("ul").querySelector(".phone").querySelector("span");
+	var left = -right.offsetWidth;
+	var addBtn = D.querySelector("#addBtn");
+	
+	secLeft.style.height = name.offsetHeight+name.offsetTop+"px";
+	text.placeholder = `搜索${as.length}位联系人`;
+	as = [...as];
+	as.forEach(function(item,i,arr){
+		item.href = `index.html#name=${i}`;	
+		item.addEventListener("touchstart",fnTouchstart);
+		function fnTouchstart(){
+			var time = new Date();
+			item.addEventListener("touchend",fnEnd);
+			function fnEnd(){
+				var timeEnd = new Date();
+				var T = timeEnd - time;
+				if (T < 1000) {
+					var hash = window.location.hash.substr(1).split("=")[1];
+					mTween(wrap,{left:left},400,"linear");
+					mTween(header,{left:left},400,"linear");
+					bgd.src = data[i].bgd;
+					pName.innerHTML = data[i].name;
+					phNum.innerHTML = data[i].phoneNum;
+					right.style.zIndex = 4;
+					add.style.zIndex = 1;
+				}
+			}
+			
+		}
+	})
+	back.addEventListener("touchstart",fnBack);
+	function fnBack(){
+		mTween(wrap,{left:0},400,"linear");
+		mTween(header,{left:0},400,"linear");
+	}
+	options.addEventListener("touchstart",fnOptions);
+	function fnOptions(){
+		//alert(1);
+		mTween(dlWrap,{height:hDl},400,"linear",function(){
+			css(back,"opacity",0);
+			css(options,"opacity",0);
+		});
+	}
+	close.addEventListener("touchstart",fnClose);
+	right.addEventListener("touchstart",fnClose,true);
+	function fnClose(){
+		mTween(dlWrap,{height:0},400,"linear",function(){
+			css(back,"opacity",100);
+			css(options,"opacity",100);
+		});
+	}
+	addBtn.addEventListener("touchstart",fnAdd);
+	function fnAdd(){
+		mTween(wrap,{left:left},400,"linear");
+		mTween(header,{left:left},400,"linear");
+		right.style.zIndex = 1;
+		add.style.zIndex = 4;
+	}
+})(document);
+
+(function(){
+	var addBlock = document.getElementById("add");
+	var concel = addBlock.querySelector(".c");
+})();
+(function(){
+	var header = document.getElementById("header");
+	var sec = document.getElementById("section");
+	sec.addEventListener("touchstart",fnStart,false);
+	function fnStart(ev){
+		var touch = ev.targetTouches[0];
+		var startPos = {
+					x: touch.pageX,
+					y: touch.pageY
+				}
+
+		sec.addEventListener("touchmove",fnMove,false);
+		function fnMove(ev){
+			var touch = ev.targetTouches[0];
+			var movePos = {
+					x: touch.pageX,
+					y: touch.pageY 
+				}
+			var secTop = movePos.y - startPos.y;
+			console.log();		
+			if(secTop>0){
+				secTop = 0;
+			}
+			if (secTop<document.documentElement.clientHeight-sec.offsetHeight) {
+				secTop = document.documentElement.clientHeight-sec.offsetHeight
+				//console.log(sec.offsetHeight);
+			}
+			sec.style.top = secTop + "px";
+
+
+			sec.addEventListener("touchend",fnEnd);
+			function fnEnd(ev){
+				// if(secTop>0){
+				// 	mTween(sec,{top:0},200,"easeBoth");
+				// }
+				//sec.removeEventListener("touchstart",fnStart);
+				//sec.removeEventListener("touchmove",fnMove);
+				//如果在touchend处移除函数fnStart和fnMove
+				//点击效果只能使用一次
+			}	
+		}
+		
+	}
+})();
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div {width: 100px; height: 100px; background: red; position: absolute;}
+		#div2 {width: 100px; height: 100px; background: yellow; position: absolute; left: 100px;}
+		#div3 {width: 100px; height: 100px; background: blue; position: absolute; left: 200px;}
+		#div4 {width: 100px; height: 100px; background: green; position: absolute; left: 300px;}
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+</body>
+<script type="text/javascript">
+	function Drag(){
+		this.div = null;
+		this.disX = 0;
+		this.disY = 0;
+	}
+
+	Drag.prototype.init = function(id,toDown,toUp){//
+		this.div = document.getElementById(id);
+		var _this = this;
+		this.div.addEventListener("mousedown",function(ev){
+			_this.fnDown(ev,toUp);//
+			toDown();
+		})
+	}
+	Drag.prototype.fnDown = function(ev,toUp){//
+		var _this = this;
+
+		this.disX = ev.clientX - this.div.offsetLeft;
+		this.disY = ev.clientY - this.div.offsetTop;
+		ev.preventDefault();
+		document.addEventListener("mousemove",move);
+		function move(ev){
+			_this.fnMove(ev);
+		}
+		document.addEventListener("mouseup",up);
+		function up(){
+			_this.fnUp(move,up,toUp);//
+		}
+	}
+	Drag.prototype.fnMove = function(ev){
+		this.div.style.left = ev.clientX - this.disX + "px";
+		this.div.style.top = ev.clientY - this.disY + "px";
+	}
+	Drag.prototype.fnUp = function(move,up,toUp){//
+		document.removeEventListener("mousemove",move);
+		document.removeEventListener("mouseup",up);
+		toUp();
+	}
+	
+	var d1 = new Drag();
+	d1.init("div");
+	var d2 = new Drag();
+	d2.init("div2",function(){
+		document.title = "yellow";
+	});
+	var d3 = new Drag();
+	d3.init("div3",function(){
+		document.title = "oh";
+	},
+				   function(){
+		document.title = "yes";
+	});
+	var d4 = new Drag();
+	d4.init("div4",function(){
+		document.title = "fuck me";
+	});
+</script>
+</html>

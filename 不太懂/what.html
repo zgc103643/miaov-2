@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>what</title>
+	<style>
+		ul {
+			width: 800px;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		li {
+			float:left;
+			padding: 0;
+			margin-right: 20px;
+			list-style: none;
+		}
+		p {
+			margin: 0;
+			text-align: center;
+		}
+		img {
+			width: 150px;
+			vertical-align: top;
+		}
+		.btns {
+			width: 180px;
+			margin: 30px 0 30px 257px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var ul = document.querySelector("ul");
+			var btns = document.getElementsByClassName("btns")[0];
+			var btn = btns.querySelectorAll("input");
+			var str = "";
+			var nub = 0;
+			var data = [
+				{
+					url:"image/1.jpg",
+					text:"1-what"
+				},
+				{
+					url:"image/2.jpg",
+					text:"2-what"
+				},
+				{
+					url:"image/3.jpg",
+					text:"3-what"
+				},
+				{
+					url:"image/4.jpg",
+					text:"4-what"
+				},
+				{
+					url:"image/5.jpg",
+					text:"5-what"
+				},
+				{
+					url:"image/6.jpg",
+					text:"6-what"
+				},
+				{
+					url:"image/7.jpg",
+					text:"7-what"
+				},
+				{
+					url:"image/8.jpg",
+					text:"8-what"
+				}
+			];
+			for (var i = 0; i < data.length; i++) {
+				str += "<li><img src='"+data[i].url+"'/><p>"+data[i].text+"</p></li>";
+			}
+			ul.innerHTML = str;
+			btn[0].onclick = function(){
+				str = "";
+				data.sort(function(){
+					return Math.random() - 0.5;
+				})
+				for (var i = 0; i < data.length; i++) {
+					str += "<li><img src='"+data[i].url+"'/><p>"+data[i].text+"</p></li>";
+				}
+				ul.innerHTML = str;
+			}
+			btn[1].onclick = function(){
+				str = "";
+				data.sort(function(a,b){
+					return parseInt(a.text) - parseInt(b.text);
+				})
+				for (var i = 0; i < data.length; i++) {
+					str += "<li><img src='"+data[i].url+"'/><p>"+data[i].text+"</p></li>";
+				}
+				ul.innerHTML = str;
+			}
+			
+		}	 
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="btns">
+			<input type="button" value="随机排序"/>
+			<input type="button" value="顺序排序"/>
+		</div>
+		<ul id="list">
+			<img src=""/><p></p>
+		</ul>
+	</div>
+	
+</body>
+</html>

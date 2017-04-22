@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>21(2)</title>
+	<style>
+	section {
+		width: 200px;
+		margin: 50px auto;
+	}
+	h2 {
+		width: 200px;
+		height: 50px;
+		padding: 0;
+		margin: 0;
+		background: lightblue;
+		font: 40px/50px "微软雅黑";
+		text-align: center;
+		color: #fff;
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: none;
+	}
+	li {
+		width: 200px;
+		height: 30px;
+		font: 26px/30px "微软雅黑";
+		text-align: left;
+		text-indent: 3rem;
+	}
+	.block {
+		display: block;
+	}
+	.yellow {
+		background: yellow;
+	}
+	.red {
+		background: red;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var h2 = document.querySelectorAll("h2");
+		var ul = document.querySelectorAll("ul");
+		for(var i = 0;i < h2.length;i++){
+			h2[i].index = i;
+			h2[i].onclick = function(){	
+				if(this.className == "yellow"){
+					this.className = "";
+					ul[this.index].style.display = "none";
+				}else {
+					for(var i = 0;i < h2.length;i++){
+						h2[i].className = "";
+						ul[i].style.display = "none";
+					}
+					this.className = "yellow";
+					ul[this.index].style.display = "block";
+				}
+			}
+		}
+		
+		var lis1 = document.querySelectorAll("#ul1 li");
+		for(var i = 0;i < lis1.length;i++){
+			lis1[i].onclick = function(){
+				if(this.className == "red"){
+					this.className = "";
+				}else {
+					for(var i = 0;i < lis1.length;i++){
+						lis1[i].className = "";
+					}
+					this.className = "red";
+				}
+			}
+		}
+
+		var lis2 = document.querySelectorAll("#ul2 li");
+		for(var i = 0;i < lis2.length;i++){
+			lis2[i].onclick = function(){
+				if(this.className == "red"){
+					this.className = "";
+				}else {
+					for(var i = 0;i < lis2.length;i++){
+						lis2[i].className = "";
+					}
+					this.className = "red";
+				}
+			}
+		}
+
+		var lis3 = document.querySelectorAll("#ul3 li");
+		for(var i = 0;i < lis3.length;i++){
+			lis3[i].onclick = function(){
+				if(this.className == "red"){
+					this.className = "";
+				}else {
+					for(var i = 0;i < lis3.length;i++){
+						lis3[i].className = "";
+					}
+					this.className = "red";
+				}
+			}
+		}
+
+		
+	}	
+	</script>
+</head>
+<body>
+	<section>
+		<h2>武大们</h2>
+		<ul id="ul1">
+			<li>武大</li>
+			<li>武大</li>
+			<li>武大</li>
+			<li>武大</li>
+		</ul>
+		<h2>王二们</h2>
+		<ul id="ul2">
+			<li>王二</li>
+			<li>王二</li>
+			<li>王二</li>
+			<li>王二</li>
+		</ul>
+		<h2>马三们</h2>
+		<ul id="ul3">
+			<li>马三</li>
+			<li>马三</li>
+			<li>马三</li>
+			<li>马三</li>
+		</ul>
+	</section>
+</body>
+</html>

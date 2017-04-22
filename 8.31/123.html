@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>123</title>
+</head>
+<style>
+	p {
+		margin: 0;
+	}
+	.clear {
+		zoom: 1;
+	}
+	.clear:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#wrap {
+		width: 300px;
+		margin: 30px auto;
+	}
+	#box {
+		border: 1px solid #000;
+		height: 400px;
+		overflow: auto;
+		word-break: break-all;
+	}
+	img {
+		width:40px;
+		height: 40px;
+		vertical-align: top;
+	}
+	.left {
+		float: left;
+		margin:10px 10px 10px 50px;
+		position: relative;
+	}
+	.left img {
+		position: absolute;
+		left: -45px;
+		top: 0;
+	}
+	.left p {
+		background: greenyellow;
+		padding: 10px;
+		font: 12px/20px "微软雅黑";
+	}
+	.right {
+		float: right;
+		margin:10px 50px 10px 10px;
+		position: relative;
+	}
+	.right img {
+		position: absolute;
+		right: -45px;
+		top: 0;
+	}
+	.right p {
+		background: #F60;
+		padding: 10px;
+		font: 12px/20px "微软雅黑";
+	}
+</style>
+<script>
+window.onload= function() {
+	alert(1);
+	var box = document.getElementById('box');
+	var img = document.getElementById('img');
+	var text = document.getElementById('text');
+	var btn = document.getElementById('btn');
+	var isImg = true;
+	
+	img.onclick= function () {
+		
+		// if (isImg) {
+		// 	img.src= "img/img(2).jpg";
+		// }else {
+		// 	img.src= "img/img(1).jpg";
+		// }
+	
+		// isImg= !isImg;
+	}
+	// btn.onclick= function () {
+	// 	if (isImg) {
+	// 		box.innerHTML= box.innerHTML +
+	// 					   '<div class="clear"><div class="left"><img src="img/img (1).jpg"/><p>SADSADASD</p></div></div>'
+	// 	}else {
+	// 		box.innerHTML= box.innerHTML +
+	// 					   '<div class="clear"><div class="right"><img src="img/img (2).jpg"/><p>SADSADASD</p></div></div>'
+	// 	}
+	// }
+
+}
+</script>
+<body>
+	<div id="wrap">
+	<div id="box"></div>
+	<div id="message">
+		<img src="img/img (1).jpg" id="img" />
+		<input type="text" id="text" value="" />
+		<input type="button" id="btn" value="发送" />
+	</div>
+</div>	
+</body>
+</html>

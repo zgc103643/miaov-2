@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>加分项</title>
+	<style>
+		section {
+			position: relative;
+			width: 500px;
+			height: 50px;
+			font: 30px/50px "宋体";
+			margin: 200px auto;
+			border: 2px solid gray;
+		}
+		ul {
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 0;
+			padding: 0;
+			z-index: 2;
+			
+		}
+		div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 50px;
+			background-color: skyblue;
+			z-index: 1;
+			opacity: 1;
+		}
+		ul::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		li {
+			position: absolute;
+			list-style: none;
+			/*float: left;*/
+		}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+		function mTween(el,target,time,type) {
+			clearInterval(el.timer);//预关闭可能的定时器
+			var t = 0;	//从第0次开始执行
+			var b = {}; //定义开始位置为一个对象
+			var c = {}; //定义变化差值为一个对象	
+			var d = time/20; //定义变化次数为变化时间除以时间间隔
+			for(var s in target) {  //定义遍历对象target内所有的属性，并为定义对象的b,c分别添加属性
+				b[s] = css(el,s);
+				c[s] = target[s] - b[s];
+			}
+			el.timer = setInterval(function(){
+				t++;
+				if(t>d) {
+					clearInterval(el.timer);
+				} else {
+					for(var s in target) {
+						//width
+						var val = Tween[type](t,b[s],c[s],d);
+						css(el,s,val);
+					}
+				}
+			},20);
+		}
+		window.onload = function() {
+			var sec = getId("sec");
+			var ul = getId("ul");
+			var li = getTag(ul,"li");
+			var div = getId("div");		//通过函数引入各变量
+			var num = 0;
+			for(var i = 0; i < li.length; i++){
+				li[i].timer = null;
+				li[i].style.top = 0;
+				li[i].style.left = 30*i + "px";
+			}			//排列li标签的位置
+			sec.onmouseover = function(){
+				mTween(div,{width:500},1000,"linear",function(){
+					mTween(div,{width:500},1000,"linear");
+				});
+				//div的伸长和透明动态效果
+				setTimeout(function(){
+					timer = setInterval(function(){
+						if(num < li.length){
+							mTween(li[num],{top:-300,opacity:0},1500,"linear");	
+						} else{
+							clearInterval(timer);
+						}
+						// mTween(li[num],{top:-300,opacity:0},1500,"linear");
+						// if ( num === li.length-1 ) {
+						// 	clearInterval(timer);
+						// }
+						num++;
+					},2000)	
+				},1000)
+			}	
+		}
+	</script>
+</head>
+<body>
+	<section id="sec">
+		<ul id="ul">
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+			<li>+1</li>
+		</ul>
+		<div id="div"></div>
+	</section>
+</body>
+</html>

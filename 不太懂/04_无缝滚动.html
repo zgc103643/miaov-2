@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动</title>
+	<style>
+		body {
+			margin: 0;
+		}
+		.wrap {
+			width: 600px;
+			height: 400px;
+			border: 2px solid #f88;
+			margin: 40px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.inner {
+			width: 200%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.inner  div {
+			width: 600px;
+			height: 100%;
+			float: left;
+			background: rgba(111, 23, 43, .5);
+			text-align: center;
+			font: 80px/400px '宋体';
+		}
+	</style>
+	<script src="mTween.js"></script>
+	<script>
+		window.onload = function(){
+			var wrap = document.querySelector('.inner');
+			var pics = document.querySelectorAll('.inner div');
+			var btns = document.querySelectorAll('button');
+			//获取所需元素
+			
+			var arr = [0,1,2,3];
+			//将被无缝切换的内容装载到数组arr中；
+			var n = 0;
+			//定义变量n=0；
+			btns[0].onclick = function() {
+				pics[1].innerHTML = arr[n];
+				wrap.style.left = -600 + 'px';
+				pics[0].innerHTML = arr[n = n > 0 ? --n : arr.length - 1];
+				mTween(wrap,{left:0});
+			};
+
+			btns[1].onclick = function() {
+				pics[0].innerHTML = arr[n];
+				//在pic第0项装载当前项				
+				wrap.style.left = 0;
+				//将wrap位置瞬间拉回到left=0；
+				pics[1].innerHTML = arr[n = n < arr.length - 1 ? ++n : 0];
+				//将下一项装载到pic第一项
+				//使用三元判断使编号循环往复
+				mTween(wrap,{left:-600});
+				//将wrap缓缓拉到left=-600px;
+			};
+
+		};
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="inner">
+			<div>0</div>
+			<div>1</div>
+		</div>
+	</div>
+	<button>上一张</button>
+	<button>下一张</button>
+</body>
+</html>

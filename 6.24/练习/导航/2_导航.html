@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+.nav {
+	height: 28px;
+	background: #faf5eb;
+	border: 2px solid #000;
+	padding: 10px;
+	font: 12px "微软雅黑";
+	text-align: center;
+}
+.nav a {
+	display: inline-block;
+	background: #fff;
+	border: 1px solid #fcc;
+	font: 12px/26px "微软雅黑";
+	color: #333;
+	padding: 0 8px;
+}
+.nav span {
+	display: inline-block;
+	vertical-align: top;
+	background: #ccc;
+	height: 26px;
+}
+.nav .ico {
+	border: 5px solid #666;
+	vertical-align: middle;
+	height: 0;
+}
+.nav a:hover  {
+	border-color: #369;
+	color: #369;
+}
+.nav .active {
+	background-color: #fcc;
+	font-weight: bold;
+	cursor:url(cur.cur),text;
+}
+.nav .active:hover {
+	border-color: #fcc;
+	color: #333;
+}
+/*
+	cursor 鼠标指针
+*/
+</style>
+</head>
+<body>
+<nav class="nav">
+	<a href="#" class="back"><span class="ico"></span><span>返 回</span></a>
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">7</a>
+    <a href="#">8</a>
+    <a href="#">9</a>
+    <a href="#">10</a>
+    <a href="#">…286</a>
+    <a href="#" class="next"><span>下一页</span><span class="ico"></span></a>
+</nav>
+</body>
+</html>

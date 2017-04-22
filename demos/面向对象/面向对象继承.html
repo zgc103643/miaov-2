@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function createPerson(name,gender){
+		this.name = name;
+		this.gender = gender;
+	}
+	createPerson.prototype.showName = function(){
+		console.log(this.name);
+		console.log(this.gender);
+	}
+	var cP = new createPerson("小明","男");
+	cP.showName();
+
+	function createStar(name,gender,job){
+		createPerson.call(this,name,gender);
+		//从createPerson中复制name和gender属性
+		this.job = job;
+	}
+	extend(createPerson.prototype,createStar.prototype);
+	//通过extend函数从createPerson中复制方法
+	createStar.prototype.showName = function(){
+		console.log(this.name)
+		console.log(this.job)
+	}
+	
+	var cS = new createStar("郭小明","男","大抄袭家");
+	cS.showName();
+	//cS.showJob();
+
+
+	// function extend(obj1,obj2){
+	// 	for(var attr in obj2){
+	// 		obj1[attr] = obj2[attr];
+	// 	}
+	// }
+	function extend(obj1,obj2){
+		var obj2 = !!obj1.push?[]:{};
+		for(var attr in obj1){
+			if(typeof obj1[attr] == 'object'){
+				obj2[attr] = extend(obj1[attr]);
+			}else{
+				obj2[attr] = obj1[attr];
+			}
+			return obj2;
+		}
+	}
+</script>
+</html>

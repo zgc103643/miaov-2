@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+	<style>
+		body,
+		h4 {
+			margin: 0;
+		}
+		ul,li {
+			padding: 0;
+			margin: 0;
+		}
+		section {
+			position: relative;
+			width: 600px;
+			height: 200px;
+			margin: 30px auto;
+			border: 2px solid #aaa;
+		}
+		section>div {
+			float: left;
+		}
+		.titles {
+			margin: 30px 0 0 30px;
+		}
+		.titles h4 {
+			font: bold 16px/50px "宋体";
+		}
+		.inputs {
+			width: 150px;
+			margin: 23px 0 0 30px;
+		}
+		.inputs input {
+			margin-top: 25px;
+			outline: none;
+		}
+		.notes {
+			position: absolute;
+			top: 10px;
+			left: 280px;
+			width: 180px;
+			height: 100px;
+			margin: 30px 0 0 40px;
+			font: 12px/14px "宋体";
+			color: #aaa;
+		}
+		.notes p {
+			position: absolute;
+			top: -15px;
+			left: 0;
+			display: block;
+		}
+		.notes ul {
+			position: absolute;
+			top: 40px;
+			left: 0;
+			margin-left: 14px;
+			display: none;
+		}
+		section label {
+			position: absolute;
+			top: 116px;
+			left: 100px;
+			height: 14px;
+			display: block;
+			margin-top: 16px;
+			font: 12px/14px "宋体";
+			color: #666;
+		}
+		label input {
+			margin-right: 8px;
+		}
+		.btn {
+			position: absolute;
+			top: 170px;
+			left: 108px;
+			width: 170px;
+			background-color: #3f88ee;
+			border: none;
+			outline: none;
+			text-align: center;
+			font: 14px/18px "宋体";
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="titles">
+			<h4>用户名</h4>
+			<h4>密码</h4>
+		</div>
+		<div class="inputs">
+			<input type="text" class="name" placeholder="请设置用户名" />
+			<input type="password" class="password" placeholder="请设置登录密码"/>
+		</div>
+		<div class="notes">
+			<p>设置后不可更改<br/>中英文均可，最长14个英文或7个汉字</p>
+			<ul>
+				<li>长度为6~14个字符</li>
+				<li>支持数字，大小写字母和标点符号</li>
+				<li>不允许有空格</li>
+			</ul>
+		</div>
+		<label><input type="checkbox"/>阅读并接受《百度用户协议》</label>
+		<input class="btn" type="button" value="注册"/>
+	</section>
+</body>
+<script type="text/javascript">
+	var section = document.querySelector("section");
+	var inputs = section.querySelector(".inputs");
+	var input = inputs.querySelectorAll("input");
+	var btn = section.querySelector("input[type='button']");
+	var notes = section.querySelector(".notes");
+	var arr = ["用户名不能为空","密码不能为空"];
+	input[0].focus();	
+	play();
+	console.log(input[1]);	
+	btn.onclick = function() {
+		if(input[0].value==""){
+			input[0].focus();
+			alert(arr[0]);
+		}else{
+			if(input[1].value==""){
+				input[1].focus();
+				alert(arr[1]);
+			}else{
+				alert("注册成功");
+			}
+		}
+		play();
+	}
+	function play(){
+		input[0].onfocus = function(){
+			notes.children[0].style.display = "block";
+		}
+		input[0].onblur = function(){
+			notes.children[0].style.display = "none";
+		}
+		input[1].onfocus = function(){
+			notes.children[1].style.display = "block";
+		}
+		input[1].onblur = function(){
+			notes.children[1].style.display = "none";
+		}
+	}
+</script>
+</html>

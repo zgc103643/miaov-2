@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+        #main {
+            overflow: hidden;
+            zoom: 1;
+            padding: 0 300px 0 220px; 
+        }
+        .m_content, .m_leftside, .m_rightside {
+            float: left;
+            position: relative;
+        }
+        .m_content {
+            width: 100%;
+        }
+        .m_leftside {
+            width: 220px;
+            margin-left: -100%;
+            left: -220px;
+        }
+        .m_rightside {
+            width: 300px;
+            margin-left: -300px;
+            left: 300px;
+        }
+    </style>
+</head>
+<body>
+	<div id="header"></div>
+	<div id="main">
+		<div class="m_content">这里是主体</div>
+    	<div class="m_leftside">这是左侧边栏</div>
+    	<div class="m_rightside">这是右侧边栏</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>checked</title>
+	<style>
+	body {
+		margin: 100px auto;
+		width: 800px;
+	}
+	input+span {
+		display: inline-block;
+		width: 60px;
+		height: 30px;
+		border:  1px solid #f00;
+		border-radius: 10px;
+		font: 16px/30px "宋体";
+		text-align: center;
+	}
+	input:checked+span {
+		background-color: #f00;
+	}
+	.gender input {
+		display: none;
+	}
+	.gender span {
+		margin-left: 20px;
+	}
+	</style>
+</head>
+<body>
+	<div class="gender">
+		<label>
+			<input type="radio" name="gender" checked>
+			<span>男</span>
+		</label>
+		<label>
+			<input type="radio" name="gender">
+			<span>女</span>
+		</label>
+	</div>
+	<div class="hobby">
+		<label>
+			<checkbox
+		</label>
+	</div>
+</body>
+</html>

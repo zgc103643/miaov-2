@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+		var date = new Date();
+		//console.log(date);
+		var data = [
+			{
+				name: "这是第一件商品哈哈哈哈哈",
+				price: 300,
+				img: "img/1.jpg",
+				time: "Fri Oct 30 2016 16:50:28"
+			},
+			{
+				name: "这是第二件商品哈哈哈哈哈",
+				price: 998,
+				img: "img/2.jpg",
+				time: "Fri Oct 30 2016 17:50:28"
+			},
+			{
+				name: "这是第三件商品哈哈哈哈哈",
+				price: 168,
+				img: "img/3.jpg",
+				time: "Fri Oct 30 2016 18:50:28"
+			},
+			{
+				name: "这是第四件商品哈哈哈哈哈",
+				price: 9.8,
+				img: "img/4.jpg",
+				time: "Fri Oct 30 2016 19:50:28"
+			}
+		];
+		function toLayout(){
+			var list = document.querySelector('.shopList');
+			
+			var inner = "";
+			for(var i = 0; i < data.length; i++){
+				inner += '<li><div class="shop"><input type="text" value="'+data[i].time+'"><input type="button" value="确定"><time>剩余00天00时00分00秒</time><img src="'+data[i].img+'"><p class="name">'+data[i].name+'</p><p class="price">抢购价：<span>￥'+data[i].price+'</span></p></div></li>';
+			}
+			list.innerHTML = inner;
+		}
+		window.onload = function(){
+			toLayout();
+			var shopLists = document.querySelectorAll('.shopList .shop');
+			var list2 = document.querySelector('#priceList');
+			var price = document.querySelector('#price span');
+			for(var i = 0; i < shopLists.length; i++){
+				shopLists[i].index = i;
+				setDate(shopLists[i]);
+			}
+			//对于每一个商品均执行该函数
+			function setDate(shop){
+				var textTime = shop.querySelector('input[type="text"]');
+				//获取所有input[text]
+				var setBtn = shop.querySelector('input[type="button"]');
+				//获取input[button]
+				var time = shop.querySelector('time');
+				//获取time标签
+				var timer = 0;
+				var val = textTime.value;
+				//获取time标签的value
+				setBtn.onclick = function(){
+					if(new Date(textTime.value) == "Invalid Date"){
+						alert("请正确输入时间");
+						return;
+					}
+					//用时间函数判断input[text]的值是否符合时间格式
+					//如果返回值为；“Invalid Date”
+					//即alert并跳出函数
+					val = textTime.value;
+					//如未被上面函数跳出则将textTime.value赋予变量val
+				};
+				lastDate();
+				timer = setInterval(lastDate,1000);
+				//加载即执行，并每隔一秒执行一次lastDate函数
+				function lastDate(){
+					var targetDate = new Date(val);
+					//获取new Date函数中，添加了val作为实际参数的函数值
+					//将函数结果赋予变量targetDate
+					var nowDate = new Date();
+					//获取当前时间
+					var disTime = targetDate.getTime() - nowDate.getTime();
+					//将目标时间与当前时间作差，得到时间差
+					if(disTime <= 0){
+					//如果时间差小于0，即抖动并掉落
+						clearInterval(timer);
+						toShake(shop,"left",20,function(){
+						//引用封装的toShake函数，并在回调函数中使用函数mTween
+							mTween(shop,{top:100,opacity:0},500,"easeBoth",function(){
+								//使用mTween作为抖动的回调函数，使过期对象下落并淡出
+								list2.innerHTML += '<li><p>'+data[shop.index].name+'</p><span>'+data[shop.index].price+'</span><img src="'+data[shop.index].img+'"></li>';
+								//并在回调中将该对象的信息添加到已下架商品栏								
+								price.innerHTML = (parseFloat(price.innerHTML) + data[shop.index].price).toFixed(2);
+								//统计下架商品总价
+								//toFixed保留几位小数 返回值类型 字符串
+							});
+						});
+					}
+					//如果上面判断不成立，时间差大于0
+					//则执行以下运算，获取并实时显示出当前时间距下架时间的差值
+					var day = toDB(parseInt(disTime/86400000));
+					//获取的时间差除以(24*60*60*1000);
+					var hours = toDB(parseInt((disTime%86400000)/3600000));
+					var minutes = toDB(parseInt((disTime%3600000)/60000));
+					var seconds = toDB(parseInt((disTime%60000)/1000));
+					time.innerHTML = "剩余"+day+"天"+hours+"时"+minutes+"分"+seconds+"秒";	
+				}
+			}
+		};
+		function toDB(nub){
+			return nub < 10? "0"+nub:""+nub;
+		}
+	</script>
+	<style type="text/css">
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#wrap{
+			width: 880px;
+			margin: 30px auto;
+		}
+		.shopList {
+			height: 318px;
+		}
+		.shopList li{
+			width: 220px;
+			float: left;
+		}
+		.shopList .shop{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+			padding: 0 10px;
+			background: #fff;
+		}
+		.shopList img {
+			display: block;
+			width: 200px;
+		}
+		.shopList time {
+			display: block;
+		}
+		.shopList input {
+			margin: 0;
+			padding: 0;
+			border: none;
+			background: none;
+		}
+		.shopList input[type="text"]{
+			width: 160px;
+			height: 30px;
+			border: 1px solid #000;
+		}
+		.shopList li{
+			height: 318px;
+			position: relative;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+<section id="wrap">
+	<h2>购买时间</h2>
+	<ul class="shopList">
+		<!--<li>
+			<div class="shop">
+				<input type="text" name="">
+				<input type="button" value="确定">
+				<time>剩余00天00时00分00秒</time>
+				<img src="img/1.jpg">
+				<p class="name"></p>
+				<p class="price">抢购价：<span>￥168</span></p>
+			</div>
+		</li>-->
+	</ul>
+	<ul id="priceList">
+		<!--<li>
+			<p></p>
+			<span></span>
+			<img src="">
+		</li>-->	
+	</ul>
+	<p id="price">总价：<span>00.00</span>元</p>
+</section>
+</body>
+</html>

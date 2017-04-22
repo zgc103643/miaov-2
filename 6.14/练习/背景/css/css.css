@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+#box {
+	width:300px;
+	border-top:2px solid #206f96;
+}
+#header {
+	width:298px;
+	height:29px;
+	border:1px solid #cfcfcf;
+	border-top: none;
+	background: url(../img/background.png) repeat;
+}
+#content {
+	width:298px;
+	border:1px solid #cfcfcf;
+	border-top:none;
+}
+#con1 {
+	height:57px;
+	background: url(../img/letter.png) no-repeat 16px 25px;
+}
+#con2 {
+	height:126px;
+	background: url(../img/icon2.png) no-repeat 9px 51px #f7f7f7;
+}
+#con3 {
+	height:75px;
+	background: url(../img/icon3.png) no-repeat 15px 25px;
+}
+#con4 {
+	height:126px;
+	background: url(../img/icon4.png) no-repeat 12px 49px #f7f7f7;
+}
+
+

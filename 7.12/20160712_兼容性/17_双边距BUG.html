@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {
+	margin: 0;
+}
+.box {
+	float: left;
+	border: 10px solid #000;
+	/*display: inline;*/
+}
+.box div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	float: left;
+	color: #fff;
+	margin: 0 20px 0 20px;
+}
+/*
+	IE6下双边距BUG
+    在IE6下，块元素有浮动和横向margin，横向的margin值会放大成两倍
+	margin-left 左侧第一个元素有双边距 margin-right 右侧第一个元素有双边距 
+	解决办法：
+		给元素加display: inline;
+*/
+</style>
+</head>
+<body>
+<div class="box">
+	<div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+</div>
+</body>
+</html>

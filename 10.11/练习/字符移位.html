@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符移位</title>
+	<style>
+	textarea {
+		width: 200px;
+		height: 100px;
+		resize: none;
+		vertical-align: middle;
+	}
+	input {
+		vertical-align: middle;
+	}
+	ul {
+		position: absolute;
+		top: 130px;
+		left: 200px;
+		padding: 0;
+		margin: 0;
+		border: 1px solid green;
+	}
+	li {
+		float: left;
+		width: 10px;
+		height: 10px;
+		padding: 0;
+		margin: 2px;
+		list-style: none;
+		background-color: yellow;
+	}
+	.active {
+		background-color: red;
+	}
+	.progess {
+		position: absolute;
+		top: 180px;
+		left: 140px;
+		width: 200px;
+		height: 30px;
+		border: 1px solid #000;
+	}
+	.inner {
+		width: 0;
+		height: 30px;
+		background-color: red;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var textarea = document.getElementsByTagName("textarea");
+			var input = document.getElementsByTagName("input")[0];
+			var li = document.getElementsByTagName("li");
+			var p = document.getElementsByTagName("p")[0];
+			var inner = document.getElementsByClassName("inner")[0];
+			var strBe = "";
+			var strAf = "";
+			var str = "";
+			var timer = 0;
+			input.onclick = function(){
+				tranform();
+			}
+			function tranform(){
+				var num = 0;
+				var len = 0;
+				strBe = textarea[0].value;	//将textarea内容赋在strBe
+				len = strBe.length;	//将strBe的长度赋在len
+				clearInterval(timer);
+					timer = setInterval(function(){
+						if(num < len){
+							str = strBe.substr(0,1);	//提取出strBe的第一个字符
+							strAf += str;	//将提取字符添加在strAf上
+							strBe = strBe.substr(1,strBe.length);	//删除strBe上被转移字符
+							textarea[1].value = strAf;
+							textarea[0].value = strBe;	//各自赋值
+							num++;	//计数器自增
+							p.innerHTML = num+"/"+len;
+							inner.style.width = (num/len)*200 + "px";
+							light();
+						}else{
+							clearInterval(timer);
+							for (var i = 0; i < li.length; i++) {
+								li[i].className = "";
+							}	//清除所有li状态
+							p.innerHTML = "0/0";
+						}
+					},500)
+				function light(){
+					for (var i = 0; i < li.length; i++) {
+						li[i].className = "";
+					}	//清除所有li状态
+					li[num%6].className = "active";
+						//为当前li加入红色背景
+				}
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<textarea>不要问丧钟为谁而鸣</textarea>
+	<input type="button" class="btn" value="移入"/>
+	<textarea></textarea>
+	<ul>
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<div class="progess">
+		<div class="inner"></div>
+	</div>
+	<p>0/0</p>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝切换</title>
+	<style>
+		img {
+			float:left;
+			vertical-align: top;
+		}
+		ul {
+			margin: 0;
+		}
+		li {
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		.top {
+			width: 130px;
+			margin: 0 auto;
+		}
+		.center {
+			position: relative;
+			width: 240px;
+			height: 240px;
+			margin: 30px auto 0;
+			overflow: hidden;
+		}
+		.inner {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 500%;
+			height: 100%;
+		}
+		.bottom {
+			width: 110px;
+			height: 20px;
+			margin: 20px auto;
+		}
+		.bottom li {
+			float: left;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #000;
+			text-align: center;
+		}
+		.bottom .active {
+			color: #fff;
+			background-color: #000;
+			border: 1px solid #fff;
+		}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {
+		var section = document.getElementsByTagName("section")[0];
+		var top = section.querySelector(".top");
+		var btn = top.querySelectorAll("input");
+		var inner = section.querySelector(".inner");
+		var img = inner.querySelectorAll("img");
+		var bottom = section.querySelector(".bottom");
+		var li = bottom.querySelectorAll("li");
+		//console.log(li);
+		var now = 0;
+		var isMove = false;
+		var arr = [
+				"img/1.jpg",
+				"img/2.jpg",
+				"img/3.jpg",
+				"img/4.jpg",
+				"img/5.jpg"
+				];
+		//console.log(arr);
+		for (var i = 0; i < li.length; i++) {
+			li[i].index = i;
+			li[i].onmouseover = function(){
+				if(now<this.index){
+					inner.style.left = 0;
+					img[0].src = arr[now];
+					img[1].src = arr[this.index];
+					mTween(inner,{left:-240},800,"linear");
+				}
+				if(now>this.index){
+					inner.style.left = -240+"px";
+					img[0].src = arr[this.index];
+					img[1].src = arr[now];
+					mTween(inner,{left:0},800,"linear");
+				}
+				li[now].className = "";
+				now = this.index;
+				li[now].className = "active";
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+<section>
+	<div class="top">
+		<input type="button" class="prev" value="上一张"/>
+		<input type="button" class="next" value="下一张"/>
+	</div>
+	<div class="center">
+		<div class="inner">
+			<img src="img/1.jpg"/>
+			<img src="img/2.jpg"/>
+		</div>
+	</div>
+	<ul class="bottom">
+		<li class="active">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</section>
+</body>
+</html>

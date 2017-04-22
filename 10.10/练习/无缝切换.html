@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>无缝切换</title>
+	<style type="text/css">
+	body{
+		margin: 0;
+	}
+	section{
+		position: relative;
+		width: 500px;
+		height: 300px;
+		margin: 80px auto 0;
+		border: 5px solid gray;
+		overflow: hidden;
+	}
+	#wrap {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 200%;
+		height: 100%;
+		
+	}
+	#wrap div {
+		position: absolute;
+		top: 0;
+		width: 500px;
+		height: 300px;
+		background-color: pink;
+		font: 200px/300px "微软雅黑";
+		text-align: center;
+		color: #fff;
+	}
+	</style>
+	<script type="text/javascript" src="miaov.js"></script>
+	<script type="text/javascript">
+	//获取页面上所需元素
+	//用数组装载滚动内容
+	//定义变量n，为滚动的项计数
+	//再点击事件中，
+	//将n装载到pic[1]
+	//将wrap的left值定义为左边超出600px
+	//将n的前一项装载到pic[0]
+	//缓慢左移动画
+	window.onload = function(){
+		wrap = getId("wrap");
+		div = getTag(wrap,"div");
+		btn = getTag(document,"input");
+		div[0].style.left = "0";
+		div[1].style.left = 500 + "px";
+		arr = [0,1,2,3];
+		var n = 0;
+
+		btn[0].onclick = function(){
+			div[0].innerHTML = arr[n = n > 0 ? --n : arr.length-1];
+			wrap.style.left = -500 + "px";
+			div[1].innerHTML = arr[n];
+			mTween(wrap,{left:0},400,"linear");
+		}	//存疑
+
+		btn[1].onclick = function(){
+			div[0].innerHTML = arr[n];
+			//
+			wrap.style.left = 0 + "px";
+			div[1].innerHTML = arr[n = n < arr.length-1 ? ++n : 0];
+			mTween(wrap,{left:-500},400,"linear");
+		}
+		
+	}
+	</script>
+</head>
+<body>
+<section>
+	<div id="wrap">
+		<div>0</div>
+		<div>1</div>
+	</div>
+</section>
+<input type="button" class= "prev" value="上一张">
+<input type="button" class= "next" value="下一张">
+</body>
+</html>

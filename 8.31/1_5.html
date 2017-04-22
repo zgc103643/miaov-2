@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>1_5</title>
+	<script>
+	window.onload= function (){
+		var oPlus= document.getElementById("plus");
+		var oMinus= document.getElementById("minus");
+		var oSpan= document.getElementById("span");
+		var num= 0;
+		oSpan.innerHTML= num;
+		oPlus.onclick= function(){
+			num++;
+			if(num>5) {
+				num= 0;
+			}
+			oSpan.innerHTML= num;
+		}
+		oMinus.onclick= function(){
+			num--;
+			if(num<0) {
+				num= 5;
+			}
+			oSpan.innerHTML= num;
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="button" id="plus" value="+">
+	<span id="span"></span>
+	<input type="button" id="minus" value="-">
+</body>
+</html>

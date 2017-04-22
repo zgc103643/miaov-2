@@ -1,0 +1,5 @@
+#div {
+  background: #ffff00;
+  /* 在属性值中使用变量 */
+  content: #ffff00;
+}

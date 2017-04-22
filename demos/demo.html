@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+	<title>box</title>
+	<script>
+	!function() {
+		var scale = 1;
+		var ratio = window.devicePixelRatio;
+		scale = scale / window.devicePixelRatio;
+		var meta = document.createElement("meta");
+		meta.setAttribute("name","viewport");
+		meta.setAttribute("content","width=device-width,initial-scale = "+scale+",minimum-scale = "+scale+", maximum-scale = "+scale+", user-scalable = no");
+		document.head.appendChild(meta);
+	}();
+	
+	 fn();
+	window.addEventListener("resize",fn);
+	function fn() {
+		var html = document.querySelector("html");
+		var width = html.getBoundingClientRect().width;
+		html.style.fontSize = width/18 + "px";  
+	}
+	</script>
+	<style type="text/css">
+		html,body {
+			height: 100%;
+			margin: 0;
+		}
+		#box {
+			width: 2000px;
+			height: 100px;
+		}
+		span {
+			float: left;
+			width: 100px;
+			height: 100px;
+		}
+		#box2 {
+			width: 2rem;
+			height: 1000px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box2"></div>
+</body>
+<script type="text/javascript">
+	(function(){
+		var str = "";
+		for (var i = 0; i < 10; i++) {
+			str += `<span style="background:#${i}${i}${i}"></span>`;
+		}
+		box.innerHTML = str+str;
+		box2.innerHTML = str+str+str;
+	})();
+
+	
+	// (function(){
+	// 	document.addEventListener("touchstart",fnStart);
+	// 	function fnStart(ev){
+	// 		var touch = ev.targetTouches[0];
+	// 		//获取touchstart的点
+	// 		startPos = {
+	// 					x: touch.pageX,
+	// 					y: touch.pageY
+	// 				}
+	// 		isScrolling = 0;
+	// 		//是否（上下）滚动
+	// 		this.addEventListener("touchmove",fnMove);
+	// 		function fnMove(ev){
+	// 			var touch = ev.targetTouches[0];
+	// 			//获取滑动的点
+	// 			if(ev.targetTouches.length > 1 || ev.scale && ev.scale !== 1) return;
+	// 			//如果接触的点多于一个，或缩放开启，跳出函数
+	// 			endPos = {
+	// 					  x:touch.pageX - startPos.x,
+	// 					  y:touch.pageY - startPos.y
+	// 					};
+	// 			// if (Math.abs(endPos.x) < Math.abs(endPos.y)) {
+	// 			// 	isScrolling = 1;
+	// 			// } else {
+	// 			// 	isScrolling = 0;
+	// 			// }
+	// 			//如果横向移动小于纵向移动读取为纵向滑动（1）否则为横向滑动（0）
+	// 			if(isScrolling === 0){
+	// 				ev.preventDefault();
+	// 			}
+	// 		}
+	// 		this.addEventListener("touchend",fnEnd);
+	// 		function fnEnd(){
+	// 			this.removeEventListener("touchmove",fnMove);
+	// 			this.removeEventListener("touchend",fnEnd);
+	// 		}
+	// 		//this.addEventListener("touchmove",this,false);
+	// 		//this.addEventListener("touchend",this,false);
+	// 	}
+	// })();
+
+</script>
+</html>

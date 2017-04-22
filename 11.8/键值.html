@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="text"/>
+	<select id="select">
+		<option>Enter</option>
+		<option>Ctrl+Enter</option>
+		<option>Ctrl+Shift+Alt+Enter</option>
+	</select>
+	<ul id="ul"></ul>
+</body>
+<script type="text/javascript">
+	document.onkeydown = function(e){
+		var val = text.value;
+		// switch(select.value){
+		// 	case "Enter":
+		// 		if (e.keyCode == 13&&!e.ctrlKey&&!e.shiftKey&&!e.altKey) {
+		// 			create(val);
+		// 		}
+		// 	break;
+		// 	case "Ctrl+Enter":
+		// 		if (e.keyCode==13&&e.ctrlKey&&!e.shiftKey&&!e.altKey) {
+		// 			create(val);
+		// 		}
+		// 	break;
+		// 	case "Ctrl+Shift+Alt+Enter":
+		// 		if (e.keyCode==13&&e.ctrlKey&&e.shiftKey&&e.altKey) {
+		// 			create(val);
+		// 		}
+		// 	break;
+		// }
+		if (e.keyCode == 13&&!e.ctrlKey&&!e.shiftKey&&!e.altKey) {
+			create(val);
+		}
+	}
+	function create(val){
+		var li = document.createElement("li");
+		li.innerHTML = val;
+		ul.appendChild(li);
+		text.value = "";
+	}
+</script>
+</html>   
